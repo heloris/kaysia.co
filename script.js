@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form işlevselliğini başlat
     initializeForm();
     
+    // Dil değiştirme işlevselliğini başlat
+    initializeLanguageSwitcher();
+    
+    // Kaydedilmiş dili yükle
+    loadSavedLanguage();
+    
     // Smooth scroll fonksiyonlarını tanımla
     window.scrollToForm = scrollToForm;
     window.scrollToPackages = scrollToPackages;
@@ -19,12 +25,148 @@ function updateFooterYear() {
     }
 }
 
+// Dil değiştirme işlevselliği
+function initializeLanguageSwitcher() {
+    const dropdownBtn = document.getElementById('langDropdownBtn');
+    const dropdownMenu = document.getElementById('langDropdownMenu');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const currentLangSpan = document.querySelector('.current-lang');
+    
+    // Dropdown toggle
+    dropdownBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('show');
+        dropdownBtn.classList.toggle('active');
+    });
+    
+    // Dropdown dışına tıklandığında kapat
+    document.addEventListener('click', function(e) {
+        // Eğer tıklanan element dropdown menü veya buton değilse kapat
+        if (!dropdownMenu.contains(e.target) && !dropdownBtn.contains(e.target)) {
+            dropdownMenu.classList.remove('show');
+            dropdownBtn.classList.remove('active');
+        }
+    });
+    
+    // Dil seçenekleri
+    langOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const selectedLang = this.getAttribute('data-lang');
+            
+            // Aktif seçenek stilini güncelle
+            langOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Dropdown butonunu güncelle
+            const langNames = {
+                'tr': 'TR',
+                'en': 'EN', 
+                'ru': 'RU',
+                'es': 'ES',
+                'fr': 'FR',
+                'de': 'DE'
+            };
+            currentLangSpan.textContent = langNames[selectedLang];
+            
+            // Dil değiştir
+            changeLanguage(selectedLang);
+            
+            // Dropdown'ı kapat
+            dropdownMenu.classList.remove('show');
+            dropdownBtn.classList.remove('active');
+        });
+    });
+    
+    // ESC tuşu ile dropdown'ı kapat
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            dropdownMenu.classList.remove('show');
+            dropdownBtn.classList.remove('active');
+        }
+    });
+}
+
+// Dil değiştirme fonksiyonu
+function changeLanguage(lang) {
+    // Tüm dil elementlerini gizle
+    document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = 'none';
+    });
+    
+    // Seçilen dildeki elementleri göster
+    document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+        el.style.display = '';
+    });
+    
+    // Form elementlerini özel olarak işle
+    const formElements = document.querySelectorAll('input, textarea, select');
+    formElements.forEach(el => {
+        const langElements = el.parentElement.querySelectorAll(`[data-lang="${lang}"]`);
+        if (langElements.length > 0) {
+            // Placeholder'ı güncelle
+            if (el.hasAttribute('placeholder')) {
+                const placeholderElement = el.parentElement.querySelector(`[data-lang="${lang}"]`);
+                if (placeholderElement && placeholderElement.hasAttribute('placeholder')) {
+                    el.placeholder = placeholderElement.getAttribute('placeholder');
+                }
+            }
+        }
+    });
+    
+    // Local storage'a kaydet
+    localStorage.setItem('selectedLanguage', lang);
+}
+
+// Sayfa yüklendiğinde kaydedilmiş dili yükle
+function loadSavedLanguage() {
+    const savedLang = localStorage.getItem('selectedLanguage');
+    if (savedLang) {
+        changeLanguage(savedLang);
+        
+        // Aktif seçenek stilini güncelle
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.classList.remove('active');
+            if (option.getAttribute('data-lang') === savedLang) {
+                option.classList.add('active');
+            }
+        });
+        
+        // Dropdown butonunu güncelle
+        const currentLangSpan = document.querySelector('.current-lang');
+        const langNames = {
+            'tr': 'TR',
+            'en': 'EN', 
+            'ru': 'RU',
+            'es': 'ES',
+            'fr': 'FR',
+            'de': 'DE'
+        };
+        if (currentLangSpan && langNames[savedLang]) {
+            currentLangSpan.textContent = langNames[savedLang];
+        }
+    }
+}
+
 // Form işlevselliğini başlat
 function initializeForm() {
     const isCompanyCheckbox = document.getElementById('isCompany');
     const companyFields = document.getElementById('companyFields');
-    const submitBtn = document.getElementById('submitBtn');
     const contactForm = document.querySelector('.contact-form');
+    
+    // Aktif dildeki submit butonunu bul
+    function getActiveSubmitBtn() {
+        const currentLang = localStorage.getItem('selectedLanguage') || 'tr';
+        const buttonIds = {
+            'tr': 'submitBtn',
+            'en': 'submitBtnEn',
+            'ru': 'submitBtnRu',
+            'es': 'submitBtnEs',
+            'fr': 'submitBtnFr',
+            'de': 'submitBtnDe'
+        };
+        return document.getElementById(buttonIds[currentLang]);
+    }
     
     // Şirket checkbox işlevselliği
     if (isCompanyCheckbox && companyFields) {
@@ -52,18 +194,20 @@ function initializeForm() {
     }
     
     // Form submit işlevselliği
-    if (contactForm && submitBtn) {
+    if (contactForm) {
         let isFirstClick = true;
-        let jokeTimeout;
         let isJokeActive = false;
         
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            const activeSubmitBtn = getActiveSubmitBtn();
+            if (!activeSubmitBtn) return;
+            
             if (isFirstClick && !isJokeActive) {
                 // İlk tıklama - şaka başlat
                 isJokeActive = true;
-                startButtonJoke(submitBtn);
+                startButtonJoke(activeSubmitBtn);
                 isFirstClick = false;
                 return;
             }
@@ -72,15 +216,18 @@ function initializeForm() {
             submitForm(contactForm);
         });
         
-        // Buton yakalanmaya çalışıldığında kaç
-        submitBtn.addEventListener('mouseenter', function() {
-            if (isJokeActive) {
-                // Mouse yaklaştığında hemen kaç
-                const x = Math.random() * 400 - 200;
-                const y = Math.random() * 200 - 100;
-                this.style.left = x + 'px';
-                this.style.top = y + 'px';
-            }
+        // Tüm submit butonlarına mouse enter event ekle
+        const allSubmitBtns = document.querySelectorAll('.submit-btn');
+        allSubmitBtns.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                if (isJokeActive) {
+                    // Mouse yaklaştığında hemen kaç
+                    const x = Math.random() * 400 - 200;
+                    const y = Math.random() * 200 - 100;
+                    this.style.left = x + 'px';
+                    this.style.top = y + 'px';
+                }
+            });
         });
     }
 }
@@ -94,7 +241,16 @@ function startButtonJoke(button) {
     button.style.position = 'relative';
     
     // İlk mesaj
-    button.textContent = 'Hadi yakala!';
+    const currentLang = localStorage.getItem('selectedLanguage') || 'tr';
+    const catchMessages = {
+        'tr': 'Hadi yakala!',
+        'en': 'Catch me!',
+        'ru': 'Поймай меня!',
+        'es': '¡Atrápame!',
+        'fr': 'Attrape-moi!',
+        'de': 'Fang mich!'
+    };
+    button.textContent = catchMessages[currentLang];
     button.classList.add('running');
     
     // Butonu rastgele hareket ettir
@@ -109,7 +265,15 @@ function startButtonJoke(button) {
         if (elapsedTime >= 8) {
             // Şaka bitti, normal haline döndür
             button.classList.remove('running');
-            button.textContent = 'Şaka şaka! Şimdi Gönder!';
+            const jokeMessages = {
+                'tr': 'Şaka şaka! Şimdi Gönder!',
+                'en': 'Just kidding! Send Now!',
+                'ru': 'Шутка! Отправить Сейчас!',
+                'es': '¡Broma! ¡Enviar Ahora!',
+                'fr': 'Blague! Envoyer Maintenant!',
+                'de': 'Spaß! Jetzt Senden!'
+            };
+            button.textContent = jokeMessages[currentLang];
             button.style.position = originalPosition;
             button.style.left = '';
             button.style.top = '';
@@ -147,7 +311,16 @@ function submitForm(form) {
     const originalText = submitBtn.textContent;
     
     // Loading durumu
-    submitBtn.textContent = 'Gönderiliyor...';
+    const currentLang = localStorage.getItem('selectedLanguage') || 'tr';
+    const loadingMessages = {
+        'tr': 'Gönderiliyor...',
+        'en': 'Sending...',
+        'ru': 'Отправляется...',
+        'es': 'Enviando...',
+        'fr': 'Envoi...',
+        'de': 'Senden...'
+    };
+    submitBtn.textContent = loadingMessages[currentLang];
     submitBtn.disabled = true;
     form.classList.add('loading');
     
@@ -185,12 +358,19 @@ function submitForm(form) {
 function showSuccessMessage(form) {
     hideMessages(form);
     
+    const currentLang = localStorage.getItem('selectedLanguage') || 'tr';
+    const successMessages = {
+        'tr': '<strong>🎉 Teşekkürler!</strong><br>Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.',
+        'en': '<strong>🎉 Thank you!</strong><br>Your message has been sent successfully. We will get back to you as soon as possible.',
+        'ru': '<strong>🎉 Спасибо!</strong><br>Ваше сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.',
+        'es': '<strong>🎉 ¡Gracias!</strong><br>Su mensaje ha sido enviado exitosamente. Nos pondremos en contacto con usted lo antes posible.',
+        'fr': '<strong>🎉 Merci!</strong><br>Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.',
+        'de': '<strong>🎉 Danke!</strong><br>Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns so schnell wie möglich bei Ihnen melden.'
+    };
+    
     const successMsg = document.createElement('div');
     successMsg.className = 'success-message';
-    successMsg.innerHTML = `
-        <strong>🎉 Teşekkürler!</strong><br>
-        Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.
-    `;
+    successMsg.innerHTML = successMessages[currentLang];
     
     form.appendChild(successMsg);
     successMsg.style.display = 'block';

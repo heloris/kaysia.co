@@ -11,26 +11,80 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="#2c2c2c">K</text>
-                        <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
-                    </svg>
+            <div class="header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="#2c2c2c">K</text>
+                            <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Kaysia Agency</span>
                 </div>
-                <span class="logo-text">Kaysia Agency</span>
+                
+                <div class="language-switcher">
+                    <button class="lang-dropdown-btn" id="langDropdownBtn">
+                        <span class="current-lang">TR</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langDropdownMenu">
+                        <button class="lang-option active" data-lang="tr">Türkçe</button>
+                        <button class="lang-option" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="ru">Русский</button>
+                        <button class="lang-option" data-lang="es">Español</button>
+                        <button class="lang-option" data-lang="fr">Français</button>
+                        <button class="lang-option" data-lang="de">Deutsch</button>
+                    </div>
+                </div>
             </div>
             
             <div class="hero-content">
-                <h1>AI ile Problemlerinizi <span class="highlight">Çözüyoruz</span></h1>
-                <p class="hero-subtitle">
+                <h1 data-lang="tr">AI ile Problemlerinizi <span class="highlight">Çözüyoruz</span></h1>
+                <h1 data-lang="en" style="display: none;">We <span class="highlight">Solve</span> Your Problems with AI</h1>
+                <h1 data-lang="ru" style="display: none;">Мы <span class="highlight">Решаем</span> Ваши Проблемы с ИИ</h1>
+                <h1 data-lang="es" style="display: none;">Resolvemos <span class="highlight">Sus Problemas</span> con IA</h1>
+                <h1 data-lang="fr" style="display: none;">Nous <span class="highlight">Résolvons</span> Vos Problèmes avec l'IA</h1>
+                <h1 data-lang="de" style="display: none;">Wir <span class="highlight">Lösen</span> Ihre Probleme mit KI</h1>
+                
+                <p class="hero-subtitle" data-lang="tr">
                     Yapay zeka destekli otomasyon ile işlerinizi hızlandırın, 
                     zamanınızı özgürleştirin. 1 günde, 1 haftada veya 1 ayda çözümünüz hazır.
                 </p>
+                <p class="hero-subtitle" data-lang="en" style="display: none;">
+                    Speed up your work with AI-powered automation, 
+                    free your time. Your solution is ready in 1 day, 1 week, or 1 month.
+                </p>
+                <p class="hero-subtitle" data-lang="ru" style="display: none;">
+                    Ускорьте свою работу с помощью автоматизации на базе ИИ, 
+                    освободите свое время. Ваше решение готово за 1 день, 1 неделю или 1 месяц.
+                </p>
+                <p class="hero-subtitle" data-lang="es" style="display: none;">
+                    Acelere su trabajo con automatización impulsada por IA, 
+                    libere su tiempo. Su solución está lista en 1 día, 1 semana o 1 mes.
+                </p>
+                <p class="hero-subtitle" data-lang="fr" style="display: none;">
+                    Accélérez votre travail avec l'automatisation alimentée par l'IA, 
+                    libérez votre temps. Votre solution est prête en 1 jour, 1 semaine ou 1 mois.
+                </p>
+                <p class="hero-subtitle" data-lang="de" style="display: none;">
+                    Beschleunigen Sie Ihre Arbeit mit KI-gesteuerter Automatisierung, 
+                    befreien Sie Ihre Zeit. Ihre Lösung ist in 1 Tag, 1 Woche oder 1 Monat bereit.
+                </p>
                 
                 <div class="cta-buttons">
-                    <button class="btn btn-primary" onclick="scrollToForm()">Hemen Başla</button>
-                    <button class="btn btn-secondary" onclick="scrollToPackages()">Paketleri İncele</button>
+                    <button class="btn btn-primary" onclick="scrollToForm()" data-lang="tr">Hemen Başla</button>
+                    <button class="btn btn-primary" onclick="scrollToForm()" data-lang="en" style="display: none;">Get Started</button>
+                    <button class="btn btn-primary" onclick="scrollToForm()" data-lang="ru" style="display: none;">Начать</button>
+                    <button class="btn btn-primary" onclick="scrollToForm()" data-lang="es" style="display: none;">Comenzar</button>
+                    <button class="btn btn-primary" onclick="scrollToForm()" data-lang="fr" style="display: none;">Commencer</button>
+                    <button class="btn btn-primary" onclick="scrollToForm()" data-lang="de" style="display: none;">Starten</button>
+                    
+                    <button class="btn btn-secondary" onclick="scrollToPackages()" data-lang="tr">Paketleri İncele</button>
+                    <button class="btn btn-secondary" onclick="scrollToPackages()" data-lang="en" style="display: none;">View Packages</button>
+                    <button class="btn btn-secondary" onclick="scrollToPackages()" data-lang="ru" style="display: none;">Посмотреть Пакеты</button>
+                    <button class="btn btn-secondary" onclick="scrollToPackages()" data-lang="es" style="display: none;">Ver Paquetes</button>
+                    <button class="btn btn-secondary" onclick="scrollToPackages()" data-lang="fr" style="display: none;">Voir les Forfaits</button>
+                    <button class="btn btn-secondary" onclick="scrollToPackages()" data-lang="de" style="display: none;">Pakete Ansehen</button>
                 </div>
             </div>
         </div>
@@ -39,46 +93,94 @@
     <!-- Packages Section -->
     <section class="packages" id="packages">
         <div class="container">
-            <h2>Çözüm Paketleri</h2>
+            <h2 data-lang="tr">Çözüm Paketleri</h2>
+            <h2 data-lang="en" style="display: none;">Solution Packages</h2>
+            <h2 data-lang="ru" style="display: none;">Пакеты Решений</h2>
+            <h2 data-lang="es" style="display: none;">Paquetes de Solución</h2>
+            <h2 data-lang="fr" style="display: none;">Forfaits de Solution</h2>
+            <h2 data-lang="de" style="display: none;">Lösungspakete</h2>
+            
             <div class="packages-grid">
                 <div class="package-card">
                     <div class="package-header">
-                        <h3>1 Günde</h3>
+                        <h3 data-lang="tr">1 Günde</h3>
+                        <h3 data-lang="en" style="display: none;">1 Day</h3>
+                        <h3 data-lang="ru" style="display: none;">1 День</h3>
                         <div class="package-icon">⚡</div>
                     </div>
-                    <p>Hızlı çözümler için ideal. Basit otomasyonlar ve acil problemleriniz için.</p>
+                    <p data-lang="tr">Hızlı çözümler için ideal. Basit otomasyonlar ve acil problemleriniz için.</p>
+                    <p data-lang="en" style="display: none;">Ideal for quick solutions. For simple automations and urgent problems.</p>
+                    <p data-lang="ru" style="display: none;">Идеально для быстрых решений. Для простых автоматизаций и срочных проблем.</p>
                     <ul>
-                        <li>Hızlı analiz ve çözüm</li>
-                        <li>Temel otomasyon</li>
-                        <li>Hemen kullanıma hazır</li>
+                        <li data-lang="tr">Hızlı analiz ve çözüm</li>
+                        <li data-lang="en" style="display: none;">Quick analysis and solution</li>
+                        <li data-lang="ru" style="display: none;">Быстрый анализ и решение</li>
+                        
+                        <li data-lang="tr">Temel otomasyon</li>
+                        <li data-lang="en" style="display: none;">Basic automation</li>
+                        <li data-lang="ru" style="display: none;">Базовая автоматизация</li>
+                        
+                        <li data-lang="tr">Hemen kullanıma hazır</li>
+                        <li data-lang="en" style="display: none;">Ready to use immediately</li>
+                        <li data-lang="ru" style="display: none;">Готово к использованию сразу</li>
                     </ul>
                 </div>
 
                 <div class="package-card featured">
                     <div class="package-header">
-                        <h3>1 Haftada</h3>
+                        <h3 data-lang="tr">1 Haftada</h3>
+                        <h3 data-lang="en" style="display: none;">1 Week</h3>
+                        <h3 data-lang="ru" style="display: none;">1 Неделя</h3>
                         <div class="package-icon">🚀</div>
                     </div>
-                    <p>Orta ölçekli projeler için. Detaylı analiz ve kapsamlı çözümler.</p>
+                    <p data-lang="tr">Orta ölçekli projeler için. Detaylı analiz ve kapsamlı çözümler.</p>
+                    <p data-lang="en" style="display: none;">For medium-scale projects. Detailed analysis and comprehensive solutions.</p>
+                    <p data-lang="ru" style="display: none;">Для проектов среднего масштаба. Детальный анализ и комплексные решения.</p>
                     <ul>
-                        <li>Detaylı analiz</li>
-                        <li>Özelleştirilmiş çözüm</li>
-                        <li>Test ve optimizasyon</li>
-                        <li>Dokümantasyon</li>
+                        <li data-lang="tr">Detaylı analiz</li>
+                        <li data-lang="en" style="display: none;">Detailed analysis</li>
+                        <li data-lang="ru" style="display: none;">Детальный анализ</li>
+                        
+                        <li data-lang="tr">Özelleştirilmiş çözüm</li>
+                        <li data-lang="en" style="display: none;">Customized solution</li>
+                        <li data-lang="ru" style="display: none;">Индивидуальное решение</li>
+                        
+                        <li data-lang="tr">Test ve optimizasyon</li>
+                        <li data-lang="en" style="display: none;">Testing and optimization</li>
+                        <li data-lang="ru" style="display: none;">Тестирование и оптимизация</li>
+                        
+                        <li data-lang="tr">Dokümantasyon</li>
+                        <li data-lang="en" style="display: none;">Documentation</li>
+                        <li data-lang="ru" style="display: none;">Документация</li>
                     </ul>
                 </div>
 
                 <div class="package-card">
                     <div class="package-header">
-                        <h3>1 Ayda</h3>
+                        <h3 data-lang="tr">1 Ayda</h3>
+                        <h3 data-lang="en" style="display: none;">1 Month</h3>
+                        <h3 data-lang="ru" style="display: none;">1 Месяц</h3>
                         <div class="package-icon">🏗️</div>
                     </div>
-                    <p>Karmaşık sistemler için. Tam entegrasyon ve sürdürülebilir çözümler.</p>
+                    <p data-lang="tr">Karmaşık sistemler için. Tam entegrasyon ve sürdürülebilir çözümler.</p>
+                    <p data-lang="en" style="display: none;">For complex systems. Full integration and sustainable solutions.</p>
+                    <p data-lang="ru" style="display: none;">Для сложных систем. Полная интеграция и устойчивые решения.</p>
                     <ul>
-                        <li>Sistem analizi</li>
-                        <li>Tam entegrasyon</li>
-                        <li>Eğitim ve destek</li>
-                        <li>Bakım planı</li>
+                        <li data-lang="tr">Sistem analizi</li>
+                        <li data-lang="en" style="display: none;">System analysis</li>
+                        <li data-lang="ru" style="display: none;">Анализ системы</li>
+                        
+                        <li data-lang="tr">Tam entegrasyon</li>
+                        <li data-lang="en" style="display: none;">Full integration</li>
+                        <li data-lang="ru" style="display: none;">Полная интеграция</li>
+                        
+                        <li data-lang="tr">Eğitim ve destek</li>
+                        <li data-lang="en" style="display: none;">Training and support</li>
+                        <li data-lang="ru" style="display: none;">Обучение и поддержка</li>
+                        
+                        <li data-lang="tr">Bakım planı</li>
+                        <li data-lang="en" style="display: none;">Maintenance plan</li>
+                        <li data-lang="ru" style="display: none;">План обслуживания</li>
                     </ul>
                 </div>
             </div>
@@ -88,17 +190,26 @@
     <!-- Contact Form Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Probleminizi Anlatın</h2>
-            <p class="form-subtitle">Size en uygun çözümü sunalım</p>
+            <h2 data-lang="tr">Probleminizi Anlatın</h2>
+            <h2 data-lang="en" style="display: none;">Tell Us About Your Problem</h2>
+            <h2 data-lang="ru" style="display: none;">Расскажите О Вашей Проблеме</h2>
+            
+            <p class="form-subtitle" data-lang="tr">Size en uygun çözümü sunalım</p>
+            <p class="form-subtitle" data-lang="en" style="display: none;">Let us offer you the most suitable solution</p>
+            <p class="form-subtitle" data-lang="ru" style="display: none;">Позвольте нам предложить вам наиболее подходящее решение</p>
             
             <form class="contact-form" data-netlify="true" name="contact">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="name">İsim Soyisim *</label>
+                        <label for="name" data-lang="tr">İsim Soyisim *</label>
+                        <label for="name" data-lang="en" style="display: none;">Full Name *</label>
+                        <label for="name" data-lang="ru" style="display: none;">ФИО *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">E-posta *</label>
+                        <label for="email" data-lang="tr">E-posta *</label>
+                        <label for="email" data-lang="en" style="display: none;">Email *</label>
+                        <label for="email" data-lang="ru" style="display: none;">Email *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                 </div>
@@ -107,18 +218,24 @@
                     <label class="checkbox-label">
                         <input type="checkbox" id="isCompany" name="isCompany">
                         <span class="checkmark"></span>
-                        Şirket misiniz?
+                        <span data-lang="tr">Şirket misiniz?</span>
+                        <span data-lang="en" style="display: none;">Are you a company?</span>
+                        <span data-lang="ru" style="display: none;">Вы компания?</span>
                     </label>
                 </div>
 
                 <div class="company-fields" id="companyFields" style="display: none;">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="companyName">Şirket Adı</label>
+                            <label for="companyName" data-lang="tr">Şirket Adı</label>
+                            <label for="companyName" data-lang="en" style="display: none;">Company Name</label>
+                            <label for="companyName" data-lang="ru" style="display: none;">Название Компании</label>
                             <input type="text" id="companyName" name="companyName">
                         </div>
                         <div class="form-group">
-                            <label for="companyEmail">Şirket E-postası</label>
+                            <label for="companyEmail" data-lang="tr">Şirket E-postası</label>
+                            <label for="companyEmail" data-lang="en" style="display: none;">Company Email</label>
+                            <label for="companyEmail" data-lang="ru" style="display: none;">Email Компании</label>
                             <input type="email" id="companyEmail" name="companyEmail">
                         </div>
                     </div>
@@ -128,40 +245,83 @@
                     <label class="checkbox-label">
                         <input type="checkbox" id="anonymous" name="anonymous">
                         <span class="checkmark"></span>
-                        Anonim gönder
+                        <span data-lang="tr">Anonim gönder</span>
+                        <span data-lang="en" style="display: none;">Send anonymously</span>
+                        <span data-lang="ru" style="display: none;">Отправить анонимно</span>
                     </label>
                 </div>
 
                 <div class="form-group">
-                    <label for="problem">Problem Açıklaması *</label>
-                    <textarea id="problem" name="problem" rows="5" placeholder="Probleminizi detaylı bir şekilde anlatın..." required></textarea>
+                    <label for="problem" data-lang="tr">Problem Açıklaması *</label>
+                    <label for="problem" data-lang="en" style="display: none;">Problem Description *</label>
+                    <label for="problem" data-lang="ru" style="display: none;">Описание Проблемы *</label>
+                    <textarea id="problem" name="problem" rows="5" data-lang="tr" placeholder="Probleminizi detaylı bir şekilde anlatın..." required></textarea>
+                    <textarea id="problem" name="problem" rows="5" data-lang="en" style="display: none;" placeholder="Describe your problem in detail..." required></textarea>
+                    <textarea id="problem" name="problem" rows="5" data-lang="ru" style="display: none;" placeholder="Подробно опишите вашу проблему..." required></textarea>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="timeline">Hedef Zaman</label>
+                        <label for="timeline" data-lang="tr">Hedef Zaman</label>
+                        <label for="timeline" data-lang="en" style="display: none;">Target Time</label>
+                        <label for="timeline" data-lang="ru" style="display: none;">Целевое Время</label>
                         <select id="timeline" name="timeline">
-                            <option value="">Seçiniz</option>
-                            <option value="1gun">1 Gün</option>
-                            <option value="1hafta">1 Hafta</option>
-                            <option value="1ay">1 Ay</option>
-                            <option value="kararsiz">Kararsızım</option>
+                            <option value="" data-lang="tr">Seçiniz</option>
+                            <option value="" data-lang="en" style="display: none;">Select</option>
+                            <option value="" data-lang="ru" style="display: none;">Выберите</option>
+                            <option value="1gun" data-lang="tr">1 Gün</option>
+                            <option value="1gun" data-lang="en" style="display: none;">1 Day</option>
+                            <option value="1gun" data-lang="ru" style="display: none;">1 День</option>
+                            <option value="1hafta" data-lang="tr">1 Hafta</option>
+                            <option value="1hafta" data-lang="en" style="display: none;">1 Week</option>
+                            <option value="1hafta" data-lang="ru" style="display: none;">1 Неделя</option>
+                            <option value="1ay" data-lang="tr">1 Ay</option>
+                            <option value="1ay" data-lang="en" style="display: none;">1 Month</option>
+                            <option value="1ay" data-lang="ru" style="display: none;">1 Месяц</option>
+                            <option value="kararsiz" data-lang="tr">Kararsızım</option>
+                            <option value="kararsiz" data-lang="en" style="display: none;">Undecided</option>
+                            <option value="kararsiz" data-lang="ru" style="display: none;">Не определился</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="contactPreference">İletişim Tercihi</label>
+                        <label for="contactPreference" data-lang="tr">İletişim Tercihi</label>
+                        <label for="contactPreference" data-lang="en" style="display: none;">Contact Preference</label>
+                        <label for="contactPreference" data-lang="ru" style="display: none;">Предпочтение Связи</label>
                         <select id="contactPreference" name="contactPreference">
-                            <option value="">Seçiniz</option>
-                            <option value="email">E-posta</option>
-                            <option value="phone">Telefon</option>
-                            <option value="telegram">Telegram</option>
+                            <option value="" data-lang="tr">Seçiniz</option>
+                            <option value="" data-lang="en" style="display: none;">Select</option>
+                            <option value="" data-lang="ru" style="display: none;">Выберите</option>
+                            <option value="email" data-lang="tr">E-posta</option>
+                            <option value="email" data-lang="en" style="display: none;">Email</option>
+                            <option value="email" data-lang="ru" style="display: none;">Email</option>
+                            <option value="phone" data-lang="tr">Telefon</option>
+                            <option value="phone" data-lang="en" style="display: none;">Phone</option>
+                            <option value="phone" data-lang="ru" style="display: none;">Телефон</option>
+                            <option value="telegram" data-lang="tr">Telegram</option>
+                            <option value="telegram" data-lang="en" style="display: none;">Telegram</option>
+                            <option value="telegram" data-lang="ru" style="display: none;">Telegram</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtn" data-lang="tr">
                         Şimdi Gönder
+                    </button>
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtnEn" data-lang="en" style="display: none;">
+                        Send Now
+                    </button>
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtnRu" data-lang="ru" style="display: none;">
+                        Отправить Сейчас
+                    </button>
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtnEs" data-lang="es" style="display: none;">
+                        Enviar Ahora
+                    </button>
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtnFr" data-lang="fr" style="display: none;">
+                        Envoyer Maintenant
+                    </button>
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtnDe" data-lang="de" style="display: none;">
+                        Jetzt Senden
                     </button>
                 </div>
             </form>
@@ -181,7 +341,9 @@
                     </div>
                     <span class="logo-text">Kaysia Agency</span>
                 </div>
-                <p class="footer-slogan">Akıllı Otomasyon, Sonsuz Özgürlük</p>
+                <p class="footer-slogan" data-lang="tr">Akıllı Otomasyon, Sonsuz Özgürlük</p>
+                <p class="footer-slogan" data-lang="en" style="display: none;">Smart Automation, Infinite Freedom</p>
+                <p class="footer-slogan" data-lang="ru" style="display: none;">Умная Автоматизация, Бесконечная Свобода</p>
                 <p class="footer-copyright">© <span id="currentYear"></span> kaysia.co</p>
             </div>
         </div>
