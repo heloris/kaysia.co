@@ -126,34 +126,63 @@ function submitForm(form) {
     submitBtn.disabled = true;
     form.classList.add('loading');
     
-    // Form verilerini topla
+    // Form verilerini JSON formatında hazırla
     const formData = new FormData(form);
+    const jsonData = {};
     
-    // Netlify form gönderimi simülasyonu
-    setTimeout(() => {
-        // Başarılı gönderim simülasyonu
-        showSuccessMessage(form);
-        
-        // Formu sıfırla
-        form.reset();
-        
-        // Şirket alanlarını gizle
-        const companyFields = document.getElementById('companyFields');
-        if (companyFields) {
-            companyFields.style.display = 'none';
+    // Form verilerini JSON'a çevir
+    formData.forEach((value, key) => {
+        jsonData[key] = value;
+    });
+    
+    // Ek bilgiler ekle
+    jsonData.timestamp = new Date().toISOString();
+    jsonData.source = 'kaysia.co';
+    jsonData.userAgent = navigator.userAgent;
+    
+    // N8n webhook'a JSON verisi gönder
+    fetch(form.action, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
+    })
+    .then(response => {
+        if (response.ok || response.status === 200) {
+            // Başarılı gönderim
+            showSuccessMessage(form);
+            
+            // Formu sıfırla
+            form.reset();
+            
+            // Şirket alanlarını gizle
+            const companyFields = document.getElementById('companyFields');
+            if (companyFields) {
+                companyFields.style.display = 'none';
+            }
+        } else {
+            // Hata durumu
+            showErrorMessage(form, 'Gönderim başarısız oldu, lütfen tekrar deneyin.');
         }
-        
+    })
+    .catch(error => {
+        // Ağ hatası
+        showErrorMessage(form, 'Bağlantı hatası, lütfen tekrar deneyin.');
+        console.error('Webhook error:', error);
+    })
+    .finally(() => {
         // Butonu normale döndür
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         form.classList.remove('loading');
         
-        // Başarı mesajını 5 saniye sonra gizle
+        // Mesajları 5 saniye sonra gizle
         setTimeout(() => {
             hideMessages(form);
         }, 5000);
-        
-    }, 2000);
+    });
 }
 
 // Başarı mesajı göster
@@ -163,7 +192,7 @@ function showSuccessMessage(form) {
     const successMsg = document.createElement('div');
     successMsg.className = 'success-message';
     successMsg.innerHTML = `
-        <strong>🎉 Teşekkürler!</strong><br>
+        <strong>Teşekkürler!</strong><br>
         Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.
     `;
     
@@ -178,7 +207,7 @@ function showErrorMessage(form, message) {
     const errorMsg = document.createElement('div');
     errorMsg.className = 'error-message';
     errorMsg.innerHTML = `
-        <strong>❌ Hata!</strong><br>
+        <strong>Hata!</strong><br>
         ${message}
     `;
     
