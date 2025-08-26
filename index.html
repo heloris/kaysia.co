@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaysia - AI Destekli Problem Çözücü</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="#2c2c2c">K</text>
+                        <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Kaysia Agency</span>
+            </div>
+            
+            <div class="hero-content">
+                <h1>AI ile Problemlerinizi <span class="highlight">Çözüyoruz</span></h1>
+                <p class="hero-subtitle">
+                    Yapay zeka destekli otomasyon ile işlerinizi hızlandırın, 
+                    zamanınızı özgürleştirin. 1 günde, 1 haftada veya 1 ayda çözümünüz hazır.
+                </p>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="scrollToForm()">Hemen Başla</button>
+                    <button class="btn btn-secondary" onclick="scrollToPackages()">Paketleri İncele</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <h2>Çözüm Paketleri</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>1 Günde</h3>
+                        <div class="package-icon">⚡</div>
+                    </div>
+                    <p>Hızlı çözümler için ideal. Basit otomasyonlar ve acil problemleriniz için.</p>
+                    <ul>
+                        <li>Hızlı analiz ve çözüm</li>
+                        <li>Temel otomasyon</li>
+                        <li>Hemen kullanıma hazır</li>
+                    </ul>
+                </div>
+
+                <div class="package-card featured">
+                    <div class="package-header">
+                        <h3>1 Haftada</h3>
+                        <div class="package-icon">🚀</div>
+                    </div>
+                    <p>Orta ölçekli projeler için. Detaylı analiz ve kapsamlı çözümler.</p>
+                    <ul>
+                        <li>Detaylı analiz</li>
+                        <li>Özelleştirilmiş çözüm</li>
+                        <li>Test ve optimizasyon</li>
+                        <li>Dokümantasyon</li>
+                    </ul>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>1 Ayda</h3>
+                        <div class="package-icon">🏗️</div>
+                    </div>
+                    <p>Karmaşık sistemler için. Tam entegrasyon ve sürdürülebilir çözümler.</p>
+                    <ul>
+                        <li>Sistem analizi</li>
+                        <li>Tam entegrasyon</li>
+                        <li>Eğitim ve destek</li>
+                        <li>Bakım planı</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Probleminizi Anlatın</h2>
+            <p class="form-subtitle">Size en uygun çözümü sunalım</p>
+            
+            <form class="contact-form" data-netlify="true" name="contact">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">İsim Soyisim *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="isCompany" name="isCompany">
+                        <span class="checkmark"></span>
+                        Şirket misiniz?
+                    </label>
+                </div>
+
+                <div class="company-fields" id="companyFields" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="companyName">Şirket Adı</label>
+                            <input type="text" id="companyName" name="companyName">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyEmail">Şirket E-postası</label>
+                            <input type="email" id="companyEmail" name="companyEmail">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="anonymous" name="anonymous">
+                        <span class="checkmark"></span>
+                        Anonim gönder
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="problem">Problem Açıklaması *</label>
+                    <textarea id="problem" name="problem" rows="5" placeholder="Probleminizi detaylı bir şekilde anlatın..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="timeline">Hedef Zaman</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">Seçiniz</option>
+                            <option value="1gun">1 Gün</option>
+                            <option value="1hafta">1 Hafta</option>
+                            <option value="1ay">1 Ay</option>
+                            <option value="kararsiz">Kararsızım</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPreference">İletişim Tercihi</label>
+                        <select id="contactPreference" name="contactPreference">
+                            <option value="">Seçiniz</option>
+                            <option value="email">E-posta</option>
+                            <option value="phone">Telefon</option>
+                            <option value="telegram">Telegram</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+                        Şimdi Gönder
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="white">K</text>
+                            <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Kaysia Agency</span>
+                </div>
+                <p class="footer-slogan">Akıllı Otomasyon, Sonsuz Özgürlük</p>
+                <p class="footer-copyright">© <span id="currentYear"></span> kaysia.co</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
