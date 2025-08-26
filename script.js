@@ -126,28 +126,21 @@ function submitForm(form) {
     submitBtn.disabled = true;
     form.classList.add('loading');
     
-    // Form verilerini JSON formatında hazırla
+    // Form verilerini hazırla
     const formData = new FormData(form);
-    const jsonData = {};
-    
-    // Form verilerini JSON'a çevir
-    formData.forEach((value, key) => {
-        jsonData[key] = value;
-    });
     
     // Ek bilgiler ekle
-    jsonData.timestamp = new Date().toISOString();
-    jsonData.source = 'kaysia.co';
-    jsonData.userAgent = navigator.userAgent;
+    formData.append('timestamp', new Date().toISOString());
+    formData.append('source', 'kaysia.co');
+    formData.append('userAgent', navigator.userAgent);
     
-    // N8n webhook'a JSON verisi gönder
+    // Formspree'ye form data gönder
     fetch(form.action, {
         method: 'POST',
+        body: formData,
         headers: {
-            'Content-Type': 'application/json',
             'Accept': 'application/json'
-        },
-        body: JSON.stringify(jsonData)
+        }
     })
     .then(response => {
         if (response.ok || response.status === 200) {
