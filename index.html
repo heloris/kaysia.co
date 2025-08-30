@@ -132,30 +132,7 @@
     .hint{font-size:12px;color:var(--muted)}
     .form-hint{font-size:14px;color:var(--muted);font-style:italic;margin-top:4px}
     footer{margin-top:40px;padding:24px 0;background:var(--card);border-top:1px solid var(--border)}
-    /* Chat Widget Styles */
-    .chat-widget-btn{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.15);z-index:9999;border:none;cursor:pointer;transition:all 0.3s}
-    .chat-widget-btn:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(0,0,0,.2)}
-    .chat-widget-btn svg{width:24px;height:24px}
-    
-    .chat-widget-panel{position:fixed;bottom:90px;right:20px;width:350px;height:500px;background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.15);display:none;flex-direction:column;z-index:999;border:1px solid #e5e5e5}
-    .chat-widget-panel.active{display:flex}
-    
-    .chat-header{background:var(--blue);color:#fff;padding:15px;border-radius:12px 12px 0 0;display:flex;justify-content:space-between;align-items:center}
-    .chat-logo{display:flex;align-items:center;gap:8px;font-weight:600}
-    .chat-close{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
-    
-    .chat-messages{flex:1;padding:15px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
-    .message{display:flex;flex-direction:column;max-width:80%}
-    .message.user{align-self:flex-end}
-    .message.bot{align-self:flex-start}
-    .message-content{background:#f5f5f5;padding:10px 12px;border-radius:12px;font-size:14px;line-height:1.4}
-    .message.user .message-content{background:var(--blue);color:#fff}
-    .message-time{font-size:11px;color:#999;margin-top:4px;align-self:flex-end}
-    
-    .chat-input{display:flex;gap:8px;padding:15px;border-top:1px solid #e5e5e5}
-    .chat-input input{flex:1;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:14px}
-    .chat-input button{background:var(--blue);color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600}
-    .chat-input button:hover{background:var(--accent)}
+
     
     /* Testimonial styles */
     .testimonial-card{position:relative;transition:all 0.2s}
@@ -171,17 +148,7 @@
     .logo-icon svg{width:40px;height:40px}
     .logo-text{font-size:24px;font-weight:700;color:var(--fg)}
     
-    /* Modern tema özel stilleri */
-    [data-theme="modern"] .chat-widget-btn{box-shadow:0 8px 24px rgba(0,0,0,.2)}
-    [data-theme="dark"] .chat-widget-btn{box-shadow:0 8px 24px rgba(0,0,0,.3)}
-    
-                    /* Chat widget tema değişiklikleri */
-                [data-theme="dark"] .chat-widget-btn svg text{fill:#fff}
-                [data-theme="dark"] .chat-widget-btn svg circle{fill:black}
-                [data-theme="minimal"] .chat-widget-btn svg text{fill:#fff}
-                [data-theme="minimal"] .chat-widget-btn svg circle{fill:black}
-                [data-theme="kaysia"] .chat-widget-btn svg text{fill:#fff}
-                [data-theme="kaysia"] .chat-widget-btn svg circle{fill:black}
+
     
     /* Price banner styles */
     .price-banner{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;padding:15px 25px;border-radius:12px;margin:20px 0;text-align:center}
@@ -437,39 +404,265 @@
         </div>
     </footer>
 
-                  <!-- Chat Widget Button -->
-                <button class="chat-widget-btn" onclick="toggleChatWidget()" aria-label="Chat widget'ını aç">
-                  <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="24" font-weight="bold" fill="white">K</text>
-                    <circle cx="12" cy="18" r="3" fill="black"/>
-                  </svg>
-                </button>
+                  <!-- Kaysia Agency Chat Widget - Embedded Version -->
+<style>
+/* Kaysia Chat Widget Styles - Scoped */
+.kaysia-chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
 
-  <!-- Chat Widget Panel -->
-  <div class="chat-widget-panel" id="chatWidget">
-    <div class="chat-header">
-                          <div class="chat-logo">
-                      <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="20" font-weight="bold" fill="currentColor">K</text>
-                        <circle cx="12" cy="18" r="2" fill="black"/>
-                      </svg>
-                      <span>Kaysia Agency</span>
-                    </div>
-      <button class="chat-close" onclick="toggleChatWidget()">×</button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="message bot">
-        <div class="message-content">
-          Merhaba! 👋 Kaysia Agency'ye hoş geldiniz. Size nasıl yardımcı olabilirim?
-        </div>
-        <div class="message-time">Şimdi</div>
+.kaysia-chat-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.kaysia-chat-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.kaysia-chat-button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.kaysia-chat-panel {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  height: 450px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e1e5e9;
+}
+
+.kaysia-chat-panel.active {
+  display: flex;
+}
+
+.kaysia-chat-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kaysia-chat-title {
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kaysia-chat-logo {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #667eea;
+  font-size: 12px;
+}
+
+.kaysia-chat-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.kaysia-chat-close:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.kaysia-chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kaysia-message {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.kaysia-message.user {
+  background: #667eea;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 6px;
+}
+
+.kaysia-message.bot {
+  background: white;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.kaysia-message.typing {
+  background: #e9ecef;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.kaysia-chat-input {
+  padding: 16px;
+  background: white;
+  border-top: 1px solid #e1e5e9;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.kaysia-chat-input textarea {
+  flex: 1;
+  border: 1px solid #dee2e6;
+  border-radius: 20px;
+  padding: 10px 16px;
+  font-size: 14px;
+  resize: none;
+  max-height: 80px;
+  min-height: 40px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.kaysia-chat-input textarea:focus {
+  border-color: #667eea;
+}
+
+.kaysia-chat-send {
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.kaysia-chat-send:hover {
+  background: #5a6fd8;
+}
+
+.kaysia-chat-send:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .kaysia-chat-panel {
+    width: calc(100vw - 40px);
+    height: 70vh;
+    bottom: 80px;
+    right: 20px;
+    left: 20px;
+  }
+  
+  .kaysia-chat-button {
+    width: 56px;
+    height: 56px;
+    font-size: 13px;
+  }
+}
+
+/* Loading Animation */
+@keyframes kaysia-typing {
+  0%, 60%, 100% { opacity: 0.4; }
+  30% { opacity: 1; }
+}
+
+.kaysia-message.typing::after {
+  content: '...';
+  animation: kaysia-typing 1.4s infinite;
+}
+</style>
+
+<div class="kaysia-chat-widget" id="kaysiaChatWidget">
+  <button class="kaysia-chat-button" id="kaysiaChatButton" aria-label="Sohbet widget'ını aç">
+    💬
+  </button>
+  
+  <div class="kaysia-chat-panel" id="kaysiaChatPanel" role="dialog" aria-label="Sohbet paneli">
+    <div class="kaysia-chat-header">
+      <div class="kaysia-chat-title">
+        <div class="kaysia-chat-logo">K</div>
+        Kaysia Agency
       </div>
+      <button class="kaysia-chat-close" id="kaysiaChatClose" aria-label="Sohbet panelini kapat">×</button>
     </div>
-    <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Mesajınızı yazın..." onkeypress="handleChatKeyPress(event)">
-      <button onclick="sendChatMessage()">Gönder</button>
+    
+    <div class="kaysia-chat-messages" id="kaysiaChatMessages" aria-live="polite">
+      <!-- Messages will be inserted here -->
+    </div>
+    
+    <div class="kaysia-chat-input">
+      <textarea 
+        id="kaysiaChatInput" 
+        placeholder="Mesajınızı yazın..."
+        rows="1"
+        aria-label="Mesaj girişi"
+      ></textarea>
+      <button class="kaysia-chat-send" id="kaysiaChatSend" aria-label="Mesaj gönder">
+        ➤
+      </button>
     </div>
   </div>
+</div>
 
   <script>
     // Haftalık kampanya geri sayım - Her pazar 23:59'da bitiyor, pazartesi 06:00'da başlıyor
@@ -507,155 +700,265 @@
       tick();
     })();
 
-    // Chat Widget Functions
-    function toggleChatWidget() {
-      const chatWidget = document.getElementById('chatWidget');
-      chatWidget.classList.toggle('active');
+    // Kaysia Chat Widget - Embedded Version
+    (function() {
+      'use strict';
       
-      if (chatWidget.classList.contains('active')) {
-        // GA event tracking
-        if(window.gtag){ gtag('event','chat_widget_open',{event_category:'chat',event_label:'widget_opened'}); }
-      }
-    }
-    
-    function sendChatMessage() {
-      const input = document.getElementById('chatInput');
-      const message = input.value.trim();
-      
-      if (!message) return;
-      
-      // Add user message to chat
-      addMessageToChat(message, 'user');
-      input.value = '';
-      
-      // Send to n8n webhook
-      sendToN8n(message);
-      
-      // Show typing indicator
-      showTypingIndicator();
-    }
-    
-    function addMessageToChat(content, sender) {
-      const chatMessages = document.getElementById('chatMessages');
-      const messageDiv = document.createElement('div');
-      messageDiv.className = `message ${sender}`;
-      
-      const now = new Date();
-      const time = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
-      
-      messageDiv.innerHTML = `
-        <div class="message-content">${content}</div>
-        <div class="message-time">${time}</div>
-      `;
-      
-      chatMessages.appendChild(messageDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-    
-    function showTypingIndicator() {
-      const chatMessages = document.getElementById('chatMessages');
-      const typingDiv = document.createElement('div');
-      typingDiv.className = 'message bot typing';
-      typingDiv.id = 'typingIndicator';
-      typingDiv.innerHTML = `
-        <div class="message-content">Yazıyor...</div>
-      `;
-      
-      chatMessages.appendChild(typingDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-    
-    function hideTypingIndicator() {
-      const typingIndicator = document.getElementById('typingIndicator');
-      if (typingIndicator) {
-        typingIndicator.remove();
-      }
-    }
-    
-    function sendToN8n(message) {
-      const webhookUrl = 'https://kaysigames.app.n8n.cloud/webhook/3a680368-77cb-4430-90f7-737df901a435';
-      const data = {
-        message: message,
-        timestamp: new Date().toISOString(),
-        userAgent: navigator.userAgent,
-        pageUrl: window.location.href,
-        sessionId: getSessionId()
+      // Configuration - n8n webhook URLs
+      const CONFIG = {
+        SEND_URL: 'https://kaysigames.app.n8n.cloud/webhook/3a680368-77cb-4430-90f7-737df901a435',
+        POLL_URL: 'https://kaysigames.app.n8n.cloud/webhook/3a680368-77cb-4430-90f7-737df901a435',
+        POLL_INTERVAL: 2500,
+        SESSION_KEY: 'kaysia_chat_session'
       };
       
-      fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      })
-      .then(response => response.json())
-      .then(data => {
-        hideTypingIndicator();
-        if (data.reply) {
-          addMessageToChat(data.reply, 'bot');
+      // State management
+      let sessionId = null;
+      let isOpen = false;
+      let pollInterval = null;
+      let lastMessageId = 0;
+      let chatAutoTriggered = false;
+      
+      // DOM elements
+      const elements = {
+        widget: document.getElementById('kaysiaChatWidget'),
+        button: document.getElementById('kaysiaChatButton'),
+        panel: document.getElementById('kaysiaChatPanel'),
+        close: document.getElementById('kaysiaChatClose'),
+        messages: document.getElementById('kaysiaChatMessages'),
+        input: document.getElementById('kaysiaChatInput'),
+        send: document.getElementById('kaysiaChatSend')
+      };
+      
+      // Initialize session
+      function initSession() {
+        sessionId = localStorage.getItem(CONFIG.SESSION_KEY);
+        if (!sessionId) {
+          sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+          localStorage.setItem(CONFIG.SESSION_KEY, sessionId);
         }
-      })
-      .catch(error => {
-        hideTypingIndicator();
-        addMessageToChat('Üzgünüm, şu anda yanıt veremiyorum. Lütfen WhatsApp üzerinden iletişime geçin.', 'bot');
-        console.error('Chat webhook error:', error);
-      });
-    }
-    
-    function getSessionId() {
-      let sessionId = localStorage.getItem('chatSessionId');
-      if (!sessionId) {
-        sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        localStorage.setItem('chatSessionId', sessionId);
       }
-      return sessionId;
-    }
-    
-    function handleChatKeyPress(event) {
-      if (event.key === 'Enter') {
-        sendChatMessage();
+      
+      // Generate unique message ID
+      function generateMessageId() {
+        return ++lastMessageId;
       }
-    }
-    
-    // Otomatik chat bildirimi - sadece bir kez tetiklenir
-    let chatAutoTriggered = false;
-    
-    setTimeout(function() {
-      if (!chatAutoTriggered) {
-        showChatNotification();
-        chatAutoTriggered = true;
+      
+      // Add message to chat
+      function addMessage(content, type = 'bot', id = null) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `kaysia-message ${type}`;
+        messageDiv.textContent = content;
         
-        // Local storage'a kaydet - bu session'da tekrar tetiklenmesin
-        localStorage.setItem('chatAutoTriggered', 'true');
-      }
-    }, 60000); // 60 saniye = 1 dakika
-    
-    // Sayfa yüklendiğinde kontrol et - daha önce tetiklendiyse tekrar tetikleme
-    if (localStorage.getItem('chatAutoTriggered') === 'true') {
-      chatAutoTriggered = true;
-    }
-    
-    function showChatNotification() {
-      // Chat widget'ı aç
-      const chatWidget = document.getElementById('chatWidget');
-      if (!chatWidget.classList.contains('active')) {
-        toggleChatWidget();
+        if (id) {
+          messageDiv.dataset.messageId = id;
+        }
+        
+        elements.messages.appendChild(messageDiv);
+        elements.messages.scrollTop = elements.messages.scrollHeight;
+        
+        return messageDiv;
       }
       
-      // Otomatik ilk mesaj göster
+      // Show typing indicator
+      function showTyping() {
+        const typingDiv = addMessage('Yazıyor...', 'typing', 'typing');
+        return typingDiv;
+      }
+      
+      // Remove typing indicator
+      function hideTyping() {
+        const typingDiv = elements.messages.querySelector('[data-message-id="typing"]');
+        if (typingDiv) {
+          typingDiv.remove();
+        }
+      }
+      
+      // Send message to n8n
+      async function sendMessage(message) {
+        const typingDiv = showTyping();
+        
+        try {
+          const response = await fetch(CONFIG.SEND_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-API-Key': 'kaysia-chat-2025-secret-key', // API Key eklendi
+            },
+            body: JSON.stringify({
+              message: message,
+              session: sessionId,
+              page: window.location.href,
+              ts: new Date().toISOString(),
+              userAgent: navigator.userAgent
+            })
+          });
+          
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          
+          const data = await response.json();
+          hideTyping();
+          
+          // Add server reply if provided
+          if (data.reply) {
+            addMessage(data.reply, 'bot', generateMessageId());
+          }
+          
+        } catch (error) {
+          console.error('Chat send error:', error);
+          hideTyping();
+          addMessage('Bağlantı hatası, lütfen tekrar deneyin.', 'bot');
+        }
+      }
+      
+      // Poll for new messages
+      async function pollMessages() {
+        try {
+          const response = await fetch(`${CONFIG.POLL_URL}?session=${encodeURIComponent(sessionId)}&api_key=kaysia-chat-2025-secret-key`);
+          
+          if (!response.ok) {
+            return;
+          }
+          
+          const data = await response.json();
+          
+          if (data.messages && Array.isArray(data.messages)) {
+            data.messages.forEach(message => {
+              addMessage(message, 'bot', generateMessageId());
+            });
+          }
+          
+        } catch (error) {
+          console.error('Chat poll error:', error);
+        }
+      }
+      
+      // Start polling
+      function startPolling() {
+        if (pollInterval) {
+          clearInterval(pollInterval);
+        }
+        pollInterval = setInterval(pollMessages, CONFIG.POLL_INTERVAL);
+      }
+      
+      // Stop polling
+      function stopPolling() {
+        if (pollInterval) {
+          clearInterval(pollInterval);
+          pollInterval = null;
+        }
+      }
+      
+      // Handle input submission
+      function handleSubmit() {
+        const message = elements.input.value.trim();
+        if (!message) return;
+        
+        // Add user message immediately
+        addMessage(message, 'user', generateMessageId());
+        elements.input.value = '';
+        
+        // Send to server
+        sendMessage(message);
+        
+        // Auto-resize textarea
+        elements.input.style.height = 'auto';
+      }
+      
+      // Auto-resize textarea
+      function resizeTextarea() {
+        elements.input.style.height = 'auto';
+        elements.input.style.height = Math.min(elements.input.scrollHeight, 80) + 'px';
+      }
+      
+      // Toggle chat panel
+      function toggleChat() {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+          elements.panel.classList.add('active');
+          elements.input.focus();
+          startPolling();
+          
+          // Add welcome message if no messages
+          if (elements.messages.children.length === 0) {
+            addMessage('Merhaba! 👋 Kaysia Agency\'ye hoş geldiniz. Size nasıl yardımcı olabilirim?', 'bot');
+          }
+          
+          // GA event tracking
+          if(window.gtag){ 
+            gtag('event','chat_open',{
+              event_category:'chat',
+              event_label:'widget_opened'
+            }); 
+          }
+        } else {
+          elements.panel.classList.remove('active');
+          stopPolling();
+        }
+      }
+      
+      // Event listeners
+      elements.button.addEventListener('click', toggleChat);
+      elements.close.addEventListener('click', toggleChat);
+      elements.send.addEventListener('click', handleSubmit);
+      
+      elements.input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          handleSubmit();
+        }
+      });
+      
+      elements.input.addEventListener('input', resizeTextarea);
+      
+      // Close on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isOpen) {
+          toggleChat();
+        }
+      });
+      
+      // Initialize
+      initSession();
+      
+      // Public API
+      window.KaysiaChat = {
+        open: function() {
+          if (!isOpen) toggleChat();
+        },
+        close: function() {
+          if (isOpen) toggleChat();
+        },
+        toggle: toggleChat,
+        sendMessage: sendMessage
+      };
+      
+      // Auto-open after 1 minute (if not already triggered)
       setTimeout(function() {
-        addMessageToChat('Merhaba! 👋 Kaysia Agency\'ye hoş geldiniz. Size nasıl yardımcı olabilirim?', 'bot');
-      }, 500);
+        if (!chatAutoTriggered && !isOpen && elements.messages.children.length === 0) {
+          chatAutoTriggered = true;
+          localStorage.setItem('chatAutoTriggered', 'true');
+          toggleChat();
+          
+          // GA event tracking
+          if(window.gtag){ 
+            gtag('event','auto_chat_notification',{
+              event_category:'chat',
+              event_label:'auto_notification_once'
+            }); 
+          }
+        }
+      }, 60000);
       
-      // GA event tracking
-      if(window.gtag){ 
-        gtag('event','auto_chat_notification',{
-          event_category:'chat',
-          event_label:'auto_notification_once'
-        }); 
+      // Check if already triggered in this session
+      if (localStorage.getItem('chatAutoTriggered') === 'true') {
+        chatAutoTriggered = true;
       }
-    }
+      
+    })();
     
     // GA: CTA tıklamalarını ölç
     document.getElementById('cta-wa').addEventListener('click', function(){
