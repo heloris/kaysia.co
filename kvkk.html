@@ -6,7 +6,7 @@
   <title>KVKK & Gizlilik Politikası - Kaysia Agency</title>
   <meta name="description" content="Kaysia Agency KVKK ve Gizlilik Politikası. Kişisel verilerinizin korunması hakkında detaylı bilgi.">
   <link rel="canonical" href="https://kaysia.co/kvkk.html"/>
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="favicon-light.svg" id="favicon">
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYM7YXN4S0"></script>
@@ -16,6 +16,9 @@
     gtag('js', new Date());
     gtag('config', 'G-CYM7YXN4S0');
   </script>
+
+  <!-- Crisp Chat -->
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="06739635-8c50-407d-8bbe-aa5b901b0105";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
   <style>
     :root{
@@ -81,7 +84,7 @@
       <div class="contact-info">
         <strong>Veri Sorumlusu:</strong> Kaysia Agency<br>
         <strong>Adres:</strong> Şirinyalı, 1507. Sk., 07160 Muratpaşa/Antalya<br>
-        <strong>E-posta:</strong> info@kaysia.co<br>
+        <strong>E-posta:</strong> kaysia.store@gmail.com<br>
         <strong>Telefon:</strong> +90 545 770 52 97
       </div>
 
@@ -146,7 +149,7 @@
       </ul>
 
       <div class="highlight">
-        <strong>📞 Haklarınızı Kullanmak İçin:</strong> Yukarıdaki haklarınızı kullanmak için info@kaysia.co adresine e-posta gönderebilir veya +90 545 770 52 97 numaralı telefondan bize ulaşabilirsiniz.
+        <strong>📞 Haklarınızı Kullanmak İçin:</strong> Yukarıdaki haklarınızı kullanmak için kaysia.store@gmail.com adresine e-posta gönderebilir veya +90 545 770 52 97 numaralı telefondan bize ulaşabilirsiniz.
       </div>
     </section>
 
@@ -178,7 +181,7 @@
       <p>KVKK ve gizlilik politikamız hakkında sorularınız için aşağıdaki kanallardan bize ulaşabilirsiniz:</p>
       
       <div class="contact-info">
-        <strong>E-posta:</strong> info@kaysia.co<br>
+        <strong>E-posta:</strong> kaysia.store@gmail.com<br>
         <strong>Telefon:</strong> +90 545 770 52 97<br>
         <strong>WhatsApp:</strong> <a href="https://wa.me/905457705297" target="_blank">WhatsApp'tan Yaz</a><br>
         <strong>Adres:</strong> Şirinyalı, 1507. Sk., 07160 Muratpaşa/Antalya
@@ -201,6 +204,21 @@
       <div class="copyright">© 2025 Kaysia Agency. Tüm hakları saklıdır.</div>
     </div>
   </footer>
+
+  <script>
+    // Tema switcher için favicon değiştirme
+    function setFavicon(theme) {
+      const favicon = document.getElementById('favicon');
+      if (theme === 'dark') {
+        favicon.href = 'favicon-dark.svg';
+      } else {
+        favicon.href = 'favicon-light.svg';
+      }
+    }
+    
+    // Sayfa yüklendiğinde light tema favicon'u kullan
+    setFavicon('light');
+  </script>
 
 </body>
 </html>

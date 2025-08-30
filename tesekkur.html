@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teşekkürler - Kaysia Agency</title>
+  <meta name="description" content="Başvurunuz alındı. En kısa sürede sizinle iletişime geçeceğiz.">
+  <link rel="icon" href="favicon-light.svg" id="favicon">
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYM7YXN4S0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CYM7YXN4S0');
+  </script>
+
+  <!-- Crisp Chat -->
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="06739635-8c50-407d-8bbe-aa5b901b0105";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s););})();</script>
+
+  <style>
+    :root{
+      --bg:#ffffff; --fg:#1a1a1a; --muted:#666666; --card:#ffffff; --border:#e5e5e5;
+      --blue:#e74c3c; --accent:#2c3e50; --red:#e74c3c;
+    }
+    
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:var(--fg);background:var(--bg);min-height:100vh;display:flex;align-items:center;justify-content:center}
+    .container{max-width:600px;margin:0 auto;padding:40px 20px;text-align:center}
+    .logo{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:40px}
+    .logo-icon{position:relative}
+    .logo-icon svg{width:40px;height:40px}
+    .logo-text{font-size:24px;font-weight:700;color:var(--fg)}
+    .success-icon{font-size:80px;margin-bottom:20px}
+    h1{font-size:36px;line-height:1.15;margin:0 0 20px;color:var(--blue)}
+    p{color:var(--muted);font-size:18px;margin:0 0 30px;line-height:1.6}
+    .btn{background:var(--blue);color:#fff;border-radius:8px;padding:12px 24px;text-decoration:none;font-weight:600;transition:all 0.2s;display:inline-block}
+    .btn:hover{background:var(--accent);transform:translateY(-1px)}
+    .muted{color:var(--muted);font-size:14px;margin-top:20px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="currentColor">K</text>
+          <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
+        </svg>
+      </div>
+      <span class="logo-text">Kaysia Agency</span>
+    </div>
+    
+    <div class="success-icon">✅</div>
+    <h1>Başvurunuz Alındı!</h1>
+    <p>Teşekkürler! Başvurunuz başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.</p>
+    
+    <a href="/" class="btn">Ana Sayfaya Dön</a>
+    
+    <p class="muted">
+      Acil durumlar için: <a href="https://wa.me/905457705297" target="_blank" rel="noopener">WhatsApp</a>
+    </p>
+  </div>
+
+  <script>
+    // GA4 event tracking
+    if(window.gtag){
+      gtag('event','form_success',{event_category:'form',event_label:'thank_you_page'});
+    }
+  </script>
+
+  <script>
+    // Tema switcher için favicon değiştirme
+    function setFavicon(theme) {
+      const favicon = document.getElementById('favicon');
+      if (theme === 'dark') {
+        favicon.href = 'favicon-dark.svg';
+      } else {
+        favicon.href = 'favicon-light.svg';
+      }
+    }
+    
+    // Sayfa yüklendiğinde light tema favicon'u kullan
+    setFavicon('light');
+  </script>
+
+</body>
+</html>
