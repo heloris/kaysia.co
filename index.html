@@ -336,11 +336,8 @@
   <section id="form" class="container" style="margin:28px 0">
     <div class="card" style="max-width:800px;margin:0 auto">
       <h3>📝 Hızlı Başvuru Formu</h3>
-      <form action="https://formspree.io/f/xdkloppk" method="POST">
-        <!-- Honeypot -->
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-        <input type="hidden" name="_subject" value="Kaysia.co Yeni Başvuru" />
-        <input type="hidden" name="_language" value="tr" />
+      <form action="/tesekkur.html" method="GET" id="contact-form">
+
 
         <label>Ad Soyad<input name="ad_soyad" required placeholder="Adınız Soyadınız"></label>
         <label>E-posta<input type="email" name="email" required placeholder="ornek@eposta.com"></label>
@@ -380,7 +377,7 @@
       <h3>📍 İletişim & Konum</h3>
       <p class="muted">WhatsApp üzerinden 24 saat ücretsiz ön görüşme.</p>
       <p>
-        ✉️ <a href="mailto:kaysia.store@gmail.com">info@kaysia.co</a><br/>
+        ✉️ <a href="mailto:kaysia.store@gmail.com">kaysia.store@gmail.com</a><br/>
         💬 <a target="_blank" rel="noopener" href="https://wa.me/905457705297?text=Merhaba%20Kaysia%20Agency,%2024%20saatte%20site%20istiyorum.">WhatsApp'tan Yaz</a>
       </p>
       <div style="border-radius:12px;overflow:hidden;height:200px">
@@ -528,21 +525,47 @@
     
     // Form gönderimi ve uyarı
     function validateAndSubmit(event) {
+      event.preventDefault();
+      
       const domainType = document.querySelector('[name="domain_tipi"]').value;
       
       if (domainType === '.com.tr') {
         if (!confirm('Belgeler için sizinle iletişime geçilecektir. Devam etmek istiyor musunuz?')) {
-          event.preventDefault();
           return false;
         }
       }
       
-      // GA4 event tracking
-      if (window.gtag) {
-        gtag('event','submit',{event_category:'form',event_label:'formspree_primary'});
-      }
+      // Form verilerini al
+      const formData = new FormData(document.getElementById('contact-form'));
+      const formObject = {};
+      formData.forEach((value, key) => {
+        formObject[key] = value;
+      });
       
-      return true;
+      // Formspree'ye gönder
+      fetch('https://formspree.io/f/xdkloppk', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formObject)
+      }).then(response => {
+        if (response.ok) {
+          // GA4 event tracking
+          if (window.gtag) {
+            gtag('event','submit',{event_category:'form',event_label:'formspree_primary'});
+          }
+          // Teşekür sayfasına yönlendir
+          window.location.href = '/tesekkur.html';
+        } else {
+          alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+      });
+      
+      return false;
     }
     
     // Form alanlarını dinle
