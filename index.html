@@ -1,23 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaysia - AI Destekli Problem Çözücü</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><text x='20' y='28' text-anchor='middle' font-family='serif' font-size='32' font-weight='bold' fill='%23ffffff'>K</text><circle cx='12' cy='18' r='4' fill='%23e74c3c'/></svg>">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><text x='20' y='28' text-anchor='middle' font-family='serif' font-size='32' font-weight='bold' fill='%23ffffff'>K</text><circle cx='12' cy='18' r='4' fill='%23e74c3c'/></svg>" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><text x='20' y='28' text-anchor='middle' font-family='serif' font-size='32' font-weight='bold' fill='%232c2c2c'>K</text><circle cx='12' cy='18' r='4' fill='%23e74c3c'/></svg>" media="(prefers-color-scheme: light)">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kaysia Agency – 24 saatte profesyonel web sitesi</title>
+  <meta name="description" content="KOBİ ve girişimler için 24 saatte hazır web sitesi. Mobil uyum, SSL, WhatsApp, Google Haritalar, 2 SEO makalesi ve hosting/DNS yönetimi tek pakette.">
+  <link rel="canonical" href="https://kaysia.co/"/>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kaysia Agency – 24 saatte profesyonel web sitesi">
+  <meta property="og:description" content="Mobil uyum, SSL, WhatsApp, Google Haritalar, 2 SEO makalesi ve hosting/DNS yönetimi tek pakette.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kaysia.co/">
+  <meta property="og:image" content="/og.png">
+  <link rel="icon" href="favicon-light.svg" id="favicon">
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYM7YXN4S0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CYM7YXN4S0');
+  </script>
+
+  <style>
+    :root{
+      --bg:#ffffff; --fg:#1a1a1a; --muted:#666666; --card:#ffffff; --border:#e5e5e5;
+      --blue:#e74c3c; --accent:#2c3e50; --red:#e74c3c;
+    }
+    
+    /* Tema 1: Kaysia (ana tema - kartvizit tarzı) */
+    :root[data-theme="kaysia"]{
+      --bg:#ffffff; --fg:#1a1a1a; --muted:#666666; --card:#ffffff; --border:#e5e5e5; --blue:#e74c3c; --accent:#2c3e50; --red:#e74c3c;
+    }
+    
+    /* Tema 2: Modern (tek sayfa layout) */
+    :root[data-theme="modern"]{
+      --bg:#f8f9fa; --fg:#2c3e50; --muted:#6c757d; --card:#ffffff; --border:#dee2e6; --blue:#3498db; --accent:#e74c3c; --red:#e74c3c;
+    }
+    
+    /* Tema 3: Dark (dikey layout) */
+    :root[data-theme="dark"]{
+      --bg:#1a1a1a; --fg:#ffffff; --muted:#b0b0b0; --card:#2d2d2d; --border:#404040; --blue:#e74c3c; --accent:#3498db; --red:#e74c3c;
+    }
+    
+    /* Tema 4: Minimal (merkezi layout) */
+    :root[data-theme="minimal"]{
+      --bg:#ffffff; --fg:#000000; --muted:#888888; --card:#ffffff; --border:#dddddd; --blue:#e74c3c; --accent:#000000; --red:#e74c3c;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:var(--fg);background:var(--bg)}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    
+    /* Kaysia Tema Stilleri - Kartvizit Tarzı */
+    [data-theme="kaysia"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent))}
+    [data-theme="kaysia"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f8f9fa,#e9ecef)}
+    [data-theme="kaysia"] .logo{position:absolute;top:40px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px}
+    [data-theme="kaysia"] .card{border-left:4px solid var(--blue);border-radius:12px;padding:20px;background:var(--card);transition:all 0.2s;margin-top:20px}
+    [data-theme="kaysia"] .card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.1);transform:translateY(-2px)}
+    [data-theme="kaysia"] .btn-primary{background:var(--blue);color:#fff;border-radius:8px;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s}
+    [data-theme="kaysia"] .btn-primary:hover{background:var(--accent);transform:translateY(-1px)}
+    [data-theme="kaysia"] .btn-ghost{border:1px solid var(--border);color:var(--fg);background:transparent;border-radius:8px;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s}
+    [data-theme="kaysia"] .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+    
+    /* Modern Tema Stilleri - Tek Sayfa Layout */
+    [data-theme="modern"] .bar{background:var(--blue);border-radius:0 0 20px 20px}
+    [data-theme="modern"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f8f9fa,#e9ecef)}
+    [data-theme="modern"] .logo{position:absolute;top:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="modern"] .theme-switch{position:absolute;top:40px;right:40px}
+    [data-theme="modern"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="modern"] .card{background:var(--card);border-radius:20px;padding:25px;box-shadow:0 8px 25px rgba(0,0,0,0.08);border:none;transition:all 0.3s;margin:10px 0}
+    [data-theme="modern"] .card:hover{box-shadow:0 15px 35px rgba(0,0,0,0.12);transform:translateY(-5px)}
+    [data-theme="modern"] .btn-primary{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none}
+    [data-theme="modern"] .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(52,152,219,0.3)}
+    [data-theme="modern"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s}
+    [data-theme="modern"] .btn-ghost:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+    [data-theme="modern"] .grid-2{grid-template-columns:1fr}
+    [data-theme="modern"] .grid-3{grid-template-columns:1fr}
+    [data-theme="modern"] .grid-4{grid-template-columns:1fr}
+    [data-theme="modern"] .container{max-width:800px}
+    
+    /* Dark Tema Stilleri - Dikey Layout */
+    [data-theme="dark"] .bar{background:var(--blue);border-bottom:3px solid var(--accent)}
+    [data-theme="dark"] .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#1a1a1a,#2d2d2d)}
+    [data-theme="dark"] .logo{position:absolute;top:40px;right:40px}
+    [data-theme="dark"] .theme-switch{position:absolute;top:40px;left:40px}
+    [data-theme="dark"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="dark"] .card{background:var(--card);border-radius:15px;padding:20px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:all 0.3s}
+    [data-theme="dark"] .card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.5);transform:translateY(-3px);border-color:var(--blue)}
+    [data-theme="dark"] .btn-primary{background:var(--blue);color:#fff;border-radius:10px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none;box-shadow:0 4px 15px rgba(231,76,60,0.3)}
+    [data-theme="dark"] .btn-primary:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 6px 20px rgba(52,152,219,0.4)}
+    [data-theme="dark"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:10px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s}
+    [data-theme="dark"] .btn-ghost:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+    
+    /* Minimal Tema Stilleri - Merkezi Layout */
+    [data-theme="minimal"] .bar{background:var(--blue);border-radius:0}
+    [data-theme="minimal"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--bg)}
+    [data-theme="minimal"] .logo{position:absolute;top:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="minimal"] .theme-switch{position:absolute;top:40px;right:40px}
+    [data-theme="minimal"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="minimal"] .card{background:var(--card);border:2px solid var(--border);border-radius:0;padding:20px;transition:all 0.2s;max-width:600px;margin:20px auto}
+    [data-theme="minimal"] .card:hover{border-color:var(--blue);transform:none}
+    [data-theme="minimal"] .btn-primary{background:var(--blue);color:#fff;border-radius:0;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s;border:none}
+    [data-theme="minimal"] .btn-primary:hover{background:var(--accent)}
+    [data-theme="minimal"] .btn-ghost{border:2px solid var(--border);color:var(--fg);background:transparent;border-radius:0;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s}
+    [data-theme="minimal"] .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+
+    .bar{color:#fff}
+    .bar .container{display:flex;gap:12px;align-items:center;justify-content:center;padding:10px 0;text-align:center;flex-wrap:wrap}
+    .count{font-weight:700}
+    .hero{position:relative}
+    .hero-content{max-width:800px}
+    h1{font-size:48px;line-height:1.15;margin:0 0 20px}
+    p.lead{color:var(--muted);font-size:20px;margin:0 0 30px;line-height:1.6}
+    .actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+    .theme-switch{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;justify-content:center}
+    .theme-switch button{padding:8px 10px;border:1px solid var(--border);background:var(--card);border-radius:6px;cursor:pointer;transition:all 0.2s}
+    .theme-switch button.active{border-color:var(--blue);color:var(--blue);font-weight:700}
+    .theme-switch button:hover{border-color:var(--blue)}
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}}
+    .card h3{margin:0 0 8px;color:var(--fg)}
+    .muted{color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+    form{display:grid;gap:12px}
+    input,textarea,select{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--card);color:var(--fg)}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue)}
+    .hint{font-size:12px;color:var(--muted)}
+    .form-hint{font-size:14px;color:var(--muted);font-style:italic;margin-top:4px}
+    footer{margin-top:40px;padding:24px 0;background:var(--card);border-top:1px solid var(--border)}
+    .wa-float{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.15);z-index:9999;text-decoration:none;transition:all 0.3s}
+    .wa-float:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+    .wa-float svg{width:28px;height:28px;fill:#fff}
+    
+    /* Testimonial styles */
+    .testimonial-card{position:relative;transition:all 0.2s}
+    .testimonial-card::before{content:'"';font-size:48px;color:var(--blue);position:absolute;top:8px;left:12px;font-family:serif;opacity:0.3}
+    .testimonial-text{margin:0 0 12px;font-style:italic;line-height:1.5;padding-left:20px;color:var(--fg)}
+    .testimonial-author{font-weight:600;color:var(--blue)}
+    .testimonial-company{font-size:14px;color:var(--muted)}
+    .stars{color:#fbbf24;font-size:16px;margin-bottom:8px}
+    
+    /* Logo styles */
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo-icon{position:relative}
+    .logo-icon svg{width:40px;height:40px}
+    .logo-text{font-size:24px;font-weight:700;color:var(--fg)}
+    
+    /* Modern tema özel stilleri */
+    [data-theme="modern"] .wa-float{box-shadow:0 8px 24px rgba(0,0,0,.2)}
+    [data-theme="dark"] .wa-float{box-shadow:0 8px 24px rgba(0,0,0,.3)}
+    
+    /* Price banner styles */
+    .price-banner{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;padding:15px 25px;border-radius:12px;margin:20px 0;text-align:center}
+    .old-price{text-decoration:line-through;opacity:0.7;font-size:18px}
+    .new-price{font-size:24px;font-weight:700;margin-top:5px}
+    
+    /* Package card styles */
+    .package-card{cursor:pointer;position:relative;overflow:hidden}
+    .package-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--accent))}
+    .package-price{text-align:center;margin:15px 0}
+    .package-price .old-price{text-decoration:line-through;color:var(--muted);font-size:16px;display:block}
+    .package-price .new-price{color:var(--blue);font-size:28px;font-weight:700;display:block}
+    .package-cta{background:var(--blue);color:#fff;text-align:center;padding:12px;border-radius:8px;margin-top:15px;font-weight:600;transition:all 0.2s}
+    .package-card:hover .package-cta{background:var(--accent);transform:translateY(-2px)}
+    
+    /* Form validation styles */
+    .form-field{position:relative}
+    .domain-status{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:20px}
+    .domain-available{color:#27ae60}
+    .domain-taken{color:#e74c3c}
+    .domain-checking{color:var(--muted)}
+    .domain-suffix{position:absolute;right:40px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px}
+    input:invalid,textarea:invalid,select:invalid{border-color:#e74c3c}
+    .submit-btn:disabled{opacity:0.5;cursor:not-allowed}
+    
+    /* Responsive adjustments */
+    @media(max-width:768px){
+      [data-theme="modern"] .logo{left:20px}
+      [data-theme="modern"] .theme-switch{right:20px}
+      [data-theme="dark"] .logo{right:20px}
+      [data-theme="dark"] .theme-switch{left:20px}
+      [data-theme="minimal"] .theme-switch{right:20px}
+      h1{font-size:36px}
+      p.lead{font-size:18px}
+      .price-banner{padding:12px 20px}
+      .new-price{font-size:20px}
+      .actions{position:static !important;transform:none !important;margin-top:20px}
+      .theme-switch{position:static !important;margin-top:20px}
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section -->
+
+  <!-- Kampanya Şeridi -->
+  <div id="promo" class="bar" role="status" aria-live="polite">
+    <div class="container">
+      <strong>🔥 Bu Haftaya Özel İndirim:</strong>
+      <span>.COM <span style="text-decoration:line-through">8.000₺</span> → 3.000₺ • .COM.TR <span style="text-decoration:line-through">7.500₺</span> → 2.500₺</span>
+      <span class="count" id="countdown">00g 00:00:00</span>
+    </div>
+  </div>
+
+  <!-- Hero Section - Karşılama Ekranı -->
     <section class="hero">
-        <div class="container">
             <div class="logo">
                 <div class="logo-icon">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="#2c2c2c">K</text>
+          <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="currentColor">K</text>
                         <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
                     </svg>
                 </div>
@@ -25,171 +216,375 @@
             </div>
             
             <div class="hero-content">
-                <h1>AI ile Problemlerinizi <span class="highlight">Çözüyoruz</span></h1>
-                <p class="hero-subtitle">
-                    Yapay zeka destekli otomasyon ile işlerinizi hızlandırın, 
-                    zamanınızı özgürleştirin. 1 günde, 1 haftada veya 1 ayda çözümünüz hazır.
-                </p>
-                
-                <div class="cta-buttons">
-                    <button class="btn btn-primary" onclick="scrollToForm()">Hemen Başla</button>
-                    <button class="btn btn-secondary" onclick="scrollToPackages()">Paketleri İncele</button>
-                </div>
+      <h1>24 Saatte Profesyonel Web Siteniz Hazır</h1>
+      <p class="lead">Mobil uyum, SSL, WhatsApp, Google Haritalar, 2 SEO makalesi ve hosting/DNS yönetimi tek pakette.</p>
+      <div class="price-banner">
+        <div class="old-price">8.000₺</div>
+        <div class="new-price">Bu Haftaya Özel: 3.000₺</div>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" id="cta-wa" target="_blank" rel="noopener"
+           href="https://wa.me/905457705297?text=Merhaba%20Kaysia%20Agency,%2024%20saatte%20site%20istiyorum.">
+          WhatsApp'tan Hızlı Teklif Al
+        </a>
+        <a class="btn btn-ghost" href="#form">Formu Doldur</a>
+      </div>
+
+      <!-- Tema Seçici -->
+      <div class="theme-switch" aria-label="Tema seçici">
+        <span class="muted" style="align-self:center">Tema:</span>
+        <button data-theme="kaysia" class="active">Kaysia</button>
+        <button data-theme="modern">Modern</button>
+        <button data-theme="dark">Dark</button>
+        <button data-theme="minimal">Minimal</button>
             </div>
         </div>
     </section>
 
-    <!-- Packages Section -->
-    <section class="packages" id="packages">
-        <div class="container">
-            <h2>Çözüm Paketleri</h2>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <div class="package-header">
-                        <h3>1 Günde</h3>
-                        <div class="package-icon">⚡</div>
-                    </div>
-                    <p>Hızlı çözümler için ideal. Basit otomasyonlar ve acil problemleriniz için.</p>
-                    <ul>
-                        <li>Hızlı analiz ve çözüm</li>
-                        <li>Temel otomasyon</li>
-                        <li>Hemen kullanıma hazır</li>
+  <!-- Paketler -->
+  <section class="container grid grid-2" style="margin-top:40px">
+    <div class="card package-card" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
+      <h3>🚀 .COM Paketi</h3>
+      <div class="package-price">
+        <span class="old-price">8.000₺</span>
+        <span class="new-price">3.000₺</span>
+      </div>
+      <p class="muted">24 saatte teslim</p>
+      <ul>
+        <li>1 revize hakkı</li><li>WhatsApp butonu</li><li>Google Haritalar</li>
+        <li>2 SEO makalesi</li><li>SSL + mobil uyum</li><li>Hosting & DNS yönetimi</li>
                     </ul>
+      <p class="hint">Kurumsal e-posta (1 yıl) +1000 TL (opsiyonel)</p>
+      <div class="package-cta">Tıkla ve Başvur →</div>
                 </div>
-
-                <div class="package-card featured">
-                    <div class="package-header">
-                        <h3>1 Haftada</h3>
-                        <div class="package-icon">🚀</div>
-                    </div>
-                    <p>Orta ölçekli projeler için. Detaylı analiz ve kapsamlı çözümler.</p>
-                    <ul>
-                        <li>Detaylı analiz</li>
-                        <li>Özelleştirilmiş çözüm</li>
-                        <li>Test ve optimizasyon</li>
-                        <li>Dokümantasyon</li>
+    <div class="card package-card" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
+      <h3>⚡ .COM.TR Paketi</h3>
+      <div class="package-price">
+        <span class="old-price">7.500₺</span>
+        <span class="new-price">2.500₺</span>
+      </div>
+      <p class="muted">Başvuru onayı sonrası 24 saatte teslim</p>
+      <ul>
+        <li>1 revize hakkı</li><li>WhatsApp butonu</li><li>Google Haritalar</li>
+        <li>2 SEO makalesi</li><li>SSL + mobil uyum</li><li>Hosting & DNS yönetimi</li>
                     </ul>
-                </div>
-
-                <div class="package-card">
-                    <div class="package-header">
-                        <h3>1 Ayda</h3>
-                        <div class="package-icon">🏗️</div>
-                    </div>
-                    <p>Karmaşık sistemler için. Tam entegrasyon ve sürdürülebilir çözümler.</p>
-                    <ul>
-                        <li>Sistem analizi</li>
-                        <li>Tam entegrasyon</li>
-                        <li>Eğitim ve destek</li>
-                        <li>Bakım planı</li>
-                    </ul>
-                </div>
-            </div>
+      <p class="hint">.com.tr için vergi levhası/kimlik gereklidir.</p>
+      <div class="package-cta">Tıkla ve Başvur →</div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Probleminizi Anlatın</h2>
-            <p class="form-subtitle">Size en uygun çözümü sunalım</p>
-            
-            <form class="contact-form" action="https://formspree.io/f/xdkloppk" method="POST">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">İsim Soyisim *</label>
-                        <input type="text" id="name" name="name" required>
+  <!-- Ekonomik Avantajlar -->
+  <section class="container grid grid-3" style="margin-top:26px">
+    <div class="card"><h3>🌐 Alan Adı</h3><p>Tek başına pahalı. Sizin adınıza uygun fiyatla alıp yönetiyoruz.</p></div>
+    <div class="card"><h3>🖥️ Hosting</h3><p>Sunucu ücreti ve bakımı bizde; uğraşmadan yayında olun.</p></div>
+    <div class="card"><h3>🔒 DNS & SSL</h3><p>Karışık kurulum yok. Güvenli (HTTPS) ve doğru yönlendirme bizden.</p></div>
+  </section>
+
+  <!-- SSS -->
+  <section class="container grid" style="margin-top:26px">
+    <div class="card">
+      <h3>❓ Sıkça Sorulan Sorular</h3>
+      <p><strong>Web sitem ne kadar sürede hazır olur?</strong><br>
+      .com seçerseniz 24 saatte; .com.tr seçerseniz belgeleriniz onaylandıktan sonra 24 saatte yayınlanır.</p>
+
+      <p><strong>Revize hakkım var mı?</strong><br>
+      Evet, teslimden sonra 1 revize hakkınız bulunuyor. Ek revizeler için özel fiyat verilir.</p>
+
+      <p><strong>Alan adımı kendim alabilir miyim?</strong><br>
+      Evet; fakat domain, hosting, SSL ve DNS ücretleri ayrı ayrı pahalıdır. Biz hepsini tek paket olarak sunuyoruz.</p>
+
+      <p><strong>.com.tr için hangi belgeler gerekli?</strong><br>
+      Vergi levhası (veya kimlik). Başvuruyu biz yönetiriz; TRABİS onayı sonrası yayınlanır.</p>
+
+      <p><strong>Kurumsal e-posta veriyor musunuz?</strong><br>
+      Evet. 1 yıllık kurumsal e-posta +1000 TL (opsiyonel).</p>
                     </div>
-                    <div class="form-group">
-                        <label for="email">E-posta *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+  </section>
+
+  <!-- Müşteri Yorumları -->
+  <section class="container grid grid-4" style="margin-top:26px">
+    <div class="testimonial-card card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Harika bir iş çıkardılar! 24 saatte sitemiz hazırdı ve tam istediğimiz gibi oldu. WhatsApp butonu ve Google Haritalar entegrasyonu çok pratik.</p>
+      <div class="testimonial-author">Ahmet Yılmaz</div>
+      <div class="testimonial-company">Yılmaz Mobilya</div>
                 </div>
 
-                <div class="form-group checkbox-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="isCompany" name="isCompany">
-                        <span class="checkmark"></span>
-                        Şirket misiniz?
-                    </label>
+    <div class="testimonial-card card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Çok profesyonel bir hizmet aldık. SEO makaleleri sayesinde Google'da üst sıralara çıktık. Kesinlikle tavsiye ederim!</p>
+      <div class="testimonial-author">Ayşe Demir</div>
+      <div class="testimonial-company">Demir Kuaför Salonu</div>
                 </div>
 
-                <div class="company-fields" id="companyFields" style="display: none;">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="companyName">Şirket Adı</label>
-                            <input type="text" id="companyName" name="companyName">
-                        </div>
-                        <div class="form-group">
-                            <label for="companyEmail">Şirket E-postası</label>
-                            <input type="email" id="companyEmail" name="companyEmail">
-                        </div>
-                    </div>
+    <div class="testimonial-card card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Mobil uyumlu tasarım ve hızlı teslimat. Hosting ve DNS yönetimi de dahil olduğu için hiç uğraşmadık. Teşekkürler Kaysia!</p>
+      <div class="testimonial-author">Mehmet Kaya</div>
+      <div class="testimonial-company">Kaya Elektronik</div>
                 </div>
 
-                <div class="form-group checkbox-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="anonymous" name="anonymous">
-                        <span class="checkmark"></span>
-                        Anonim gönder
-                    </label>
+    <div class="testimonial-card card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Excellent service! They delivered our website in 24 hours exactly as promised. The SSL certificate and mobile optimization work perfectly. Highly recommended!</p>
+      <div class="testimonial-author">John Smith</div>
+      <div class="testimonial-company">Smith Consulting</div>
                 </div>
+  </section>
 
-                <div class="form-group">
-                    <label for="problem">Problem Açıklaması *</label>
-                    <textarea id="problem" name="problem" rows="5" placeholder="Probleminizi detaylı bir şekilde anlatın..." required></textarea>
-                </div>
+  <!-- Form -->
+  <section id="form" class="container" style="margin:28px 0">
+    <div class="card" style="max-width:800px;margin:0 auto">
+      <h3>📝 Hızlı Başvuru Formu</h3>
+      <form action="https://formspree.io/f/xdkloppk" method="POST">
+        <!-- Honeypot -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_subject" value="Kaysia.co Yeni Başvuru" />
+        <input type="hidden" name="_language" value="tr" />
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="timeline">Hedef Zaman</label>
-                        <select id="timeline" name="timeline">
-                            <option value="">Seçiniz</option>
-                            <option value="1gun">1 Gün</option>
-                            <option value="1hafta">1 Hafta</option>
-                            <option value="1ay">1 Ay</option>
-                            <option value="kararsiz">Kararsızım</option>
+        <label>Ad Soyad<input name="ad_soyad" required placeholder="Adınız Soyadınız"></label>
+        <label>E-posta<input type="email" name="email" required placeholder="ornek@eposta.com"></label>
+        <label>Telefon<input name="telefon" placeholder="0 olmadan ekleyin (örn: 5457705297)" value="+90 "></label>
+
+        <label>Alan adı tercihi
+          <select name="domain_tipi">
+            <option value=".com.tr">.com.tr (belge ile)</option>
+            <option value=".com">.com</option>
+            <option value="kendi">Kendi alan adım var</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="contactPreference">İletişim Tercihi</label>
-                        <select id="contactPreference" name="contactPreference">
-                            <option value="">Seçiniz</option>
-                            <option value="email">E-posta</option>
-                            <option value="phone">Telefon</option>
-                            <option value="telegram">Telegram</option>
-                        </select>
-                    </div>
-                </div>
+        </label>
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
-                        Şimdi Gönder
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
+        <label class="form-field">İstediğiniz alan adı (varsa)
+          <input name="alan_adi" id="domain-input" placeholder="ornek: firmaadi" onblur="checkDomain(this.value)">
+          <span class="domain-status" id="domain-status"></span>
+          <span id="domain-suffix" class="domain-suffix"></span>
+        </label>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon">
-                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="white">K</text>
-                            <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
-                        </svg>
+        <label>Site isteği / açıklama
+          <textarea name="istek" rows="12" placeholder="İşletmenizi, istediğiniz sayfaları ve örnek linkleri yazın."></textarea>
+          <div class="form-hint">💡 Ne kadar detay verirseniz siteniz o kadar güzel olur!</div>
+        </label>
+
+        <button class="btn btn-primary submit-btn" type="submit" id="submit-btn" disabled
+          onclick="return validateAndSubmit(event)">
+          Gönder
+        </button>
+        <p class="hint">Belge yükleme: WhatsApp veya e-posta ile iletebilirsiniz.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- İletişim -->
+  <section class="container" style="margin:28px 0">
+    <div class="card" style="max-width:600px;margin:0 auto">
+      <h3>📍 İletişim & Konum</h3>
+      <p class="muted">WhatsApp üzerinden 24 saat ücretsiz ön görüşme.</p>
+      <p>
+        ✉️ <a href="mailto:kaysia.store@gmail.com">info@kaysia.co</a><br/>
+        💬 <a target="_blank" rel="noopener" href="https://wa.me/905457705297?text=Merhaba%20Kaysia%20Agency,%2024%20saatte%20site%20istiyorum.">WhatsApp'tan Yaz</a>
+      </p>
+      <div style="border-radius:12px;overflow:hidden;height:200px">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.35569737189!2d30.737776074773194!3d36.85790397223069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c39aebe0dd9037%3A0x76fa6ce12d53d135!2zxZ5pcmlueWFsxLEsIDE1MDcuIFNrLiwgMDcxNjAgTXVyYXRwYcWfYS9BbnRhbHlh!5e0!3m2!1str!2str!4v1756552841504!5m2!1str!2str"
+          width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Kaysia Agency Harita">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container grid grid-3">
+      <div>
+        <strong>Kaysia Agency</strong><br/>
+        Web Tasarım & Otomasyon Çözümleri
                     </div>
-                    <span class="logo-text">Kaysia Agency</span>
+      <div>
+        <a href="#form">İletişim</a> •
+        <a href="/makaleler.html">Makaleler</a> •
+        <a href="/kvkk.html">KVKK & Gizlilik</a> •
+        <a target="_blank" rel="noopener" href="https://share.google/8W55dUaZqPbtvsWMh">Google İşletmem</a>
                 </div>
-                <p class="footer-slogan">Akıllı Otomasyon, Sonsuz Özgürlük</p>
-                <p class="footer-copyright">© <span id="currentYear"></span> kaysia.co</p>
-            </div>
+      <div class="muted">© 2025 Kaysia Agency. Tüm hakları saklıdır.</div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+  <!-- Floating WhatsApp -->
+  <a class="wa-float" href="https://wa.me/905457705297?text=Merhaba%20Kaysia%20Agency,%2024%20saatte%20site%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.49c-.27-.14-1.57-.77-1.81-.86-.24-.09-.42-.14-.6.14-.18.27-.69.86-.85 1.03-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.3-.79-.7-1.32-1.55-1.48-1.82-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.6-1.44-.82-1.98-.22-.53-.44-.46-.6-.46h-.51c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3 0 1.36.99 2.67 1.12 2.85.14.18 1.95 2.98 4.73 4.06 2.78 1.08 2.78.72 3.29.67.5-.05 1.57-.64 1.79-1.26.22-.62.22-1.15.15-1.26-.07-.11-.25-.18-.52-.32z"/><path d="M27 15.55C27 9.73 22.28 5 16.45 5 10.63 5 5.9 9.73 5.9 15.55c0 2.17.66 4.19 1.79 5.85L6 27l5.75-1.5c1.61 1.05 3.53 1.66 5.7 1.66C22.28 27.16 27 22.43 27 16.6z" /></svg>
+  </a>
+
+  <script>
+    // Haftalık kampanya geri sayım - Her pazar 23:59'da bitiyor, pazartesi 06:00'da başlıyor
+    (function(){
+      function getNextSundayEnd() {
+        const now = new Date();
+        const daysUntilSunday = (7 - now.getDay()) % 7;
+        const nextSunday = new Date(now);
+        nextSunday.setDate(now.getDate() + daysUntilSunday);
+        nextSunday.setHours(23, 59, 59, 999);
+        return nextSunday;
+      }
+      
+      const target = getNextSundayEnd();
+      const el = document.getElementById('countdown'), bar = document.getElementById('promo');
+      function pad(n){return n.toString().padStart(2,'0')}
+      
+      const tick = () => {
+        const now = new Date();
+        const diff = target - now;
+        if (diff <= 0){ 
+          // Kampanya bitti, yeni hafta başlat
+          const newTarget = getNextSundayEnd();
+          target.setTime(newTarget.getTime());
+          return;
+        }
+        const s = Math.floor(diff/1000);
+        const d = Math.floor(s/86400);
+        const h = Math.floor((s%86400)/3600);
+        const m = Math.floor((s%3600)/60);
+        const sec = s%60;
+        el.textContent = `${pad(d)}g ${pad(h)}:${pad(m)}:${pad(sec)}`;
+        requestAnimationFrame(()=>setTimeout(tick, 500));
+      };
+      tick();
+    })();
+
+    // GA: CTA tıklamalarını ölç
+    document.getElementById('cta-wa').addEventListener('click', function(){
+      if(window.gtag){ gtag('event','click',{event_category:'cta',event_label:'whatsapp_hero'}); }
+    });
+
+    // Domain kontrolü
+    async function checkDomain(domain) {
+      if (!domain || domain.length < 3) return;
+      
+      const statusEl = document.getElementById('domain-status');
+      statusEl.textContent = '🔍';
+      statusEl.className = 'domain-status domain-checking';
+      
+      try {
+        const res = await fetch(`https://rdap.org/domain/${encodeURIComponent(domain)}`);
+        if (res.status === 200) {
+          statusEl.textContent = '❌';
+          statusEl.className = 'domain-status domain-taken';
+          statusEl.title = 'Bu alan adı alınmış';
+        } else if (res.status === 404) {
+          statusEl.textContent = '✅';
+          statusEl.className = 'domain-status domain-available';
+          statusEl.title = 'Bu alan adı müsait';
+        } else {
+          statusEl.textContent = '❓';
+          statusEl.className = 'domain-status domain-checking';
+          statusEl.title = 'Kontrol edilemedi';
+        }
+      } catch (error) {
+        statusEl.textContent = '❓';
+        statusEl.className = 'domain-status domain-checking';
+        statusEl.title = 'Bağlantı hatası';
+      }
+    }
+    
+    // Form validasyonu
+    function validateForm() {
+      const requiredFields = ['ad_soyad', 'email'];
+      const submitBtn = document.getElementById('submit-btn');
+      let isValid = true;
+      
+      requiredFields.forEach(fieldName => {
+        const field = document.querySelector(`[name="${fieldName}"]`);
+        if (!field.value.trim()) {
+          isValid = false;
+          field.style.borderColor = '#e74c3c';
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      
+      // Email format kontrolü
+      const emailField = document.querySelector('[name="email"]');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailField.value && !emailRegex.test(emailField.value)) {
+        isValid = false;
+        emailField.style.borderColor = '#e74c3c';
+      }
+      
+      submitBtn.disabled = !isValid;
+    }
+    
+    // Alan adı tercihi değişikliği
+    function updateDomainSuffix() {
+      const domainType = document.querySelector('[name="domain_tipi"]').value;
+      const suffixEl = document.getElementById('domain-suffix');
+      
+      if (domainType === '.com.tr') {
+        suffixEl.textContent = '.com.tr';
+      } else if (domainType === '.com') {
+        suffixEl.textContent = '.com';
+      } else {
+        suffixEl.textContent = '';
+      }
+    }
+    
+    // Form gönderimi ve uyarı
+    function validateAndSubmit(event) {
+      const domainType = document.querySelector('[name="domain_tipi"]').value;
+      
+      if (domainType === '.com.tr') {
+        if (!confirm('Belgeler için sizinle iletişime geçilecektir. Devam etmek istiyor musunuz?')) {
+          event.preventDefault();
+          return false;
+        }
+      }
+      
+      // GA4 event tracking
+      if (window.gtag) {
+        gtag('event','submit',{event_category:'form',event_label:'formspree_primary'});
+      }
+      
+      return true;
+    }
+    
+    // Form alanlarını dinle
+    document.addEventListener('DOMContentLoaded', function() {
+      const formFields = document.querySelectorAll('input, textarea, select');
+      formFields.forEach(field => {
+        field.addEventListener('input', validateForm);
+        field.addEventListener('blur', validateForm);
+      });
+      
+      // Alan adı tercihi değişikliğini dinle
+      const domainTypeSelect = document.querySelector('[name="domain_tipi"]');
+      domainTypeSelect.addEventListener('change', updateDomainSuffix);
+      
+      // Sayfa yüklendiğinde suffix'i ayarla
+      updateDomainSuffix();
+    });
+    
+    // Tema switcher
+    (function(){
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll('.theme-switch button');
+      const favicon = document.getElementById('favicon');
+      
+      function setTheme(name){
+        root.setAttribute('data-theme', name);
+        buttons.forEach(b=>b.classList.toggle('active', b.dataset.theme===name));
+        
+        // Favicon değiştir
+        if (name === 'dark') {
+          favicon.href = 'favicon-dark.svg';
+        } else {
+          favicon.href = 'favicon-light.svg';
+        }
+        
+        if(window.gtag){ gtag('event','theme_change',{event_category:'ui',event_label:name}); }
+      }
+      buttons.forEach(btn=>{
+        btn.addEventListener('click', ()=> setTheme(btn.dataset.theme));
+      });
+      setTheme('kaysia'); // varsayılan
+    })();
+  </script>
 </body>
 </html>
