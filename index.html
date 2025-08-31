@@ -58,7 +58,9 @@
     /* Kaysia Tema Stilleri - Kartvizit Tarzı */
     [data-theme="kaysia"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent))}
     [data-theme="kaysia"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f8f9fa,#e9ecef)}
-    [data-theme="kaysia"] .logo{position:absolute;top:40px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px}
+    [data-theme="kaysia"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
+    [data-theme="kaysia"] .logo:hover{transform:scale(1.05)}
+
     [data-theme="kaysia"] .card{border-left:4px solid var(--blue);border-radius:12px;padding:20px;background:var(--card);transition:all 0.2s;margin-top:20px}
     [data-theme="kaysia"] .card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.1);transform:translateY(-2px)}
     [data-theme="kaysia"] .btn-primary{background:var(--blue);color:#fff;border-radius:8px;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s}
@@ -69,8 +71,10 @@
     /* Modern Tema Stilleri - Tek Sayfa Layout */
     [data-theme="modern"] .bar{background:var(--blue);border-radius:0 0 20px 20px}
     [data-theme="modern"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f8f9fa,#e9ecef)}
-    [data-theme="modern"] .logo{position:absolute;top:40px;left:50%;transform:translateX(-50%)}
-    [data-theme="modern"] .theme-switch{position:absolute;top:40px;right:40px}
+    [data-theme="modern"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
+    [data-theme="modern"] .logo:hover{transform:scale(1.05)}
+
+    [data-theme="modern"] .theme-switch{position:absolute;top:20px;right:40px}
     [data-theme="modern"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
     [data-theme="modern"] .card{background:var(--card);border-radius:20px;padding:25px;box-shadow:0 8px 25px rgba(0,0,0,0.08);border:none;transition:all 0.3s;margin:10px 0}
     [data-theme="modern"] .card:hover{box-shadow:0 15px 35px rgba(0,0,0,0.12);transform:translateY(-5px)}
@@ -86,8 +90,10 @@
     /* Dark Tema Stilleri - Dikey Layout */
     [data-theme="dark"] .bar{background:var(--blue);border-bottom:3px solid var(--accent)}
     [data-theme="dark"] .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#1a1a1a,#2d2d2d)}
-    [data-theme="dark"] .logo{position:absolute;top:40px;right:40px}
-    [data-theme="dark"] .theme-switch{position:absolute;top:40px;left:40px}
+    [data-theme="dark"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
+    [data-theme="dark"] .logo:hover{transform:scale(1.05)}
+
+    [data-theme="dark"] .theme-switch{position:absolute;top:20px;left:40px}
     [data-theme="dark"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
     [data-theme="dark"] .card{background:var(--card);border-radius:15px;padding:20px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:all 0.3s}
     [data-theme="dark"] .card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.5);transform:translateY(-3px);border-color:var(--blue)}
@@ -99,8 +105,10 @@
     /* Minimal Tema Stilleri - Merkezi Layout */
     [data-theme="minimal"] .bar{background:var(--blue);border-radius:0}
     [data-theme="minimal"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--bg)}
-    [data-theme="minimal"] .logo{position:absolute;top:40px;left:50%;transform:translateX(-50%)}
-    [data-theme="minimal"] .theme-switch{position:absolute;top:40px;right:40px}
+    [data-theme="minimal"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
+    [data-theme="minimal"] .logo:hover{transform:scale(1.05)}
+
+    [data-theme="minimal"] .theme-switch{position:absolute;top:20px;right:40px}
     [data-theme="minimal"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
     [data-theme="minimal"] .card{background:var(--card);border:2px solid var(--border);border-radius:0;padding:20px;transition:all 0.2s;max-width:600px;margin:20px auto}
     [data-theme="minimal"] .card:hover{border-color:var(--blue);transform:none}
@@ -109,7 +117,8 @@
     [data-theme="minimal"] .btn-ghost{border:2px solid var(--border);color:var(--fg);background:transparent;border-radius:0;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s}
     [data-theme="minimal"] .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
 
-    .bar{color:#fff}
+    .bar{color:#fff;position:relative}
+    .bar .brand-text{position:absolute;left:40px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:700;color:#fff}
     .bar .container{display:flex;gap:12px;align-items:center;justify-content:center;padding:10px 0;text-align:center;flex-wrap:wrap}
     .count{font-weight:700}
     .hero{position:relative}
@@ -131,7 +140,11 @@
     input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue)}
     .hint{font-size:12px;color:var(--muted)}
     .form-hint{font-size:14px;color:var(--muted);font-style:italic;margin-top:4px}
-    footer{margin-top:40px;padding:24px 0;background:var(--card);border-top:1px solid var(--border)}
+    footer{margin-top:40px;padding:40px 0;background:var(--accent);color:#fff;border-top:1px solid var(--border)}
+    footer a{color:#fff;text-decoration:none;transition:color 0.2s}
+    footer a:hover{color:var(--blue)}
+    footer .muted{color:rgba(255,255,255,0.7)}
+    footer strong{font-size:20px;color:#fff}
 
     
     /* Testimonial styles */
@@ -141,6 +154,53 @@
     .testimonial-author{font-weight:600;color:var(--blue)}
     .testimonial-company{font-size:14px;color:var(--muted)}
     .stars{color:#fbbf24;font-size:16px;margin-bottom:8px}
+
+    /* Kayan yorum sistemi */
+    .testimonials-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 200px;
+      margin: 20px 0;
+    }
+
+    .testimonials-track {
+      display: flex;
+      gap: 20px;
+      animation: scroll-testimonials 30s linear infinite;
+      width: max-content;
+    }
+
+    .testimonials-track:hover {
+      animation-play-state: paused;
+    }
+
+    .testimonials-track .testimonial-card {
+      min-width: 300px;
+      max-width: 300px;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll-testimonials {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Mobil için daha yavaş animasyon */
+    @media (max-width: 768px) {
+      .testimonials-track {
+        animation-duration: 40s;
+      }
+      
+      .testimonials-track .testimonial-card {
+        min-width: 280px;
+        max-width: 280px;
+      }
+    }
     
     /* Logo styles */
     .logo{display:flex;align-items:center;gap:12px}
@@ -154,6 +214,7 @@
     .price-banner{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;padding:15px 25px;border-radius:12px;margin:20px 0;text-align:center}
     .old-price{text-decoration:line-through;opacity:0.7;font-size:18px}
     .new-price{font-size:24px;font-weight:700;margin-top:5px}
+    .price-note{font-size:12px;opacity:0.8;margin-top:5px;font-style:italic}
     
     /* Package card styles */
     .package-card{cursor:pointer;position:relative;overflow:hidden}
@@ -161,6 +222,7 @@
     .package-price{text-align:center;margin:15px 0}
     .package-price .old-price{text-decoration:line-through;color:var(--muted);font-size:16px;display:block}
     .package-price .new-price{color:var(--blue);font-size:28px;font-weight:700;display:block}
+    .package-price .price-note{font-size:10px;color:var(--muted);margin-top:2px;font-style:italic}
     .package-cta{background:var(--blue);color:#fff;text-align:center;padding:12px;border-radius:8px;margin-top:15px;font-weight:600;transition:all 0.2s}
     .package-card:hover .package-cta{background:var(--accent);transform:translateY(-2px)}
     
@@ -176,11 +238,14 @@
     
     /* Responsive adjustments */
     @media(max-width:768px){
+      [data-theme="kaysia"] .logo{left:20px}
       [data-theme="modern"] .logo{left:20px}
-      [data-theme="modern"] .theme-switch{right:20px}
-      [data-theme="dark"] .logo{right:20px}
-      [data-theme="dark"] .theme-switch{left:20px}
-      [data-theme="minimal"] .theme-switch{right:20px}
+      [data-theme="modern"] .theme-switch{right:20px;top:20px}
+      [data-theme="dark"] .logo{left:20px}
+      [data-theme="dark"] .theme-switch{left:20px;top:20px}
+      [data-theme="minimal"] .logo{left:20px}
+      [data-theme="minimal"] .theme-switch{right:20px;top:20px}
+      .bar .brand-text{left:20px;font-size:16px}
       h1{font-size:36px}
       p.lead{font-size:18px}
       .price-banner{padding:12px 20px}
@@ -195,8 +260,9 @@
   <!-- Kampanya Şeridi -->
   <div id="promo" class="bar" role="status" aria-live="polite">
     <div class="container">
+      <div class="brand-text">Kaysia Agency</div>
       <strong>🔥 Bu Haftaya Özel İndirim:</strong>
-              <span>.COM <span style="text-decoration:line-through">7.999₺</span> → 2.999₺ /12 Ay • .COM.TR <span style="text-decoration:line-through">7.499₺</span> → 2.499₺ /12 Ay</span>
+              <span>.COM <span style="text-decoration:line-through">7.999₺</span> → Aylık 249₺ • .COM.TR <span style="text-decoration:line-through">7.499₺</span> → Aylık 209₺</span>
       <span class="count" id="countdown">00g 00:00:00</span>
     </div>
   </div>
@@ -210,7 +276,6 @@
                         <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
                     </svg>
                 </div>
-                <span class="logo-text">Kaysia Agency</span>
             </div>
             
             <div class="hero-content">
@@ -218,7 +283,9 @@
               <p class="lead">Mobil uyumlu, güvenli, WhatsApp bağlantılı, harita entegrasyonlu ve SEO optimizasyonlu web siteniz tek pakette.</p>
       <div class="price-banner">
         <div class="old-price">7.999₺</div>
-        <div class="new-price">Bu Haftaya Özel: 2.999₺ /12 Ay</div>
+        <div class="new-price">Aylık sadece 249₺*</div>
+        <p class="price-note">*Ödeme yıllık peşin 2.999₺ olarak alınır (12 ay erişim).</p>
+        <p>Bu haftaya özel indirimli fiyatlar geçerlidir! 🎉</p>
       </div>
       <div class="actions">
         <a class="btn btn-primary" id="cta-wa" target="_blank" rel="noopener"
@@ -245,7 +312,8 @@
       <h3>🚀 .COM Paketi</h3>
       <div class="package-price">
         <span class="old-price">7.999₺</span>
-        <span class="new-price">2.999₺ /12 Ay</span>
+        <span class="new-price">Aylık sadece 249₺*</span>
+        <div class="price-note">*Yıllık peşin 2.999₺</div>
       </div>
       <p class="muted">24 saatte teslim</p>
       <ul>
@@ -259,7 +327,8 @@
       <h3>⚡ .COM.TR Paketi</h3>
       <div class="package-price">
         <span class="old-price">7.499₺</span>
-        <span class="new-price">2.499₺ /12 Ay</span>
+        <span class="new-price">Aylık sadece 209₺*</span>
+        <div class="price-note">*Yıllık peşin 2.499₺</div>
       </div>
       <p class="muted">Başvuru onayı sonrası 24 saatte teslim</p>
       <ul>
@@ -299,35 +368,81 @@
                     </div>
   </section>
 
-  <!-- Müşteri Yorumları -->
-  <section class="container grid grid-4" style="margin-top:26px">
-    <div class="testimonial-card card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">Harika bir iş çıkardılar! 24 saatte sitemiz hazırdı ve tam istediğimiz gibi oldu. WhatsApp butonu ve Google Haritalar entegrasyonu çok pratik.</p>
-      <div class="testimonial-author">Ahmet Yılmaz</div>
-      <div class="testimonial-company">Yılmaz Mobilya</div>
-                </div>
+    <!-- Müşteri Yorumları -->
+  <section class="container" style="margin-top:26px">
+    <div class="testimonials-container">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Harika bir iş çıkardılar! 24 saatte sitemiz hazırdı ve tam istediğimiz gibi oldu. WhatsApp butonu ve Google Haritalar entegrasyonu çok pratik.</p>
+          <div class="testimonial-author">Ahmet Yılmaz</div>
+          <div class="testimonial-company">Yılmaz Mobilya</div>
+        </div>
 
-    <div class="testimonial-card card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">Çok profesyonel bir hizmet aldık. SEO makaleleri sayesinde Google'da üst sıralara çıktık. Kesinlikle tavsiye ederim!</p>
-      <div class="testimonial-author">Ayşe Demir</div>
-      <div class="testimonial-company">Demir Kuaför Salonu</div>
-                </div>
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Çok profesyonel bir hizmet aldık. SEO makaleleri sayesinde Google'da üst sıralara çıktık. Kesinlikle tavsiye ederim!</p>
+          <div class="testimonial-author">Ayşe Demir</div>
+          <div class="testimonial-company">Demir Kuaför Salonu</div>
+        </div>
 
-    <div class="testimonial-card card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">Mobil uyumlu tasarım ve hızlı teslimat. Hosting ve DNS yönetimi de dahil olduğu için hiç uğraşmadık. Teşekkürler Kaysia!</p>
-      <div class="testimonial-author">Mehmet Kaya</div>
-      <div class="testimonial-company">Kaya Elektronik</div>
-                </div>
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Mobil uyumlu tasarım ve hızlı teslimat. Hosting ve DNS yönetimi de dahil olduğu için hiç uğraşmadık. Teşekkürler Kaysia!</p>
+          <div class="testimonial-author">Mehmet Kaya</div>
+          <div class="testimonial-company">Kaya Elektronik</div>
+        </div>
 
-    <div class="testimonial-card card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">Excellent service! They delivered our website in 24 hours exactly as promised. The SSL certificate and mobile optimization work perfectly. Highly recommended!</p>
-      <div class="testimonial-author">John Smith</div>
-      <div class="testimonial-company">Smith Consulting</div>
-                </div>
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Excellent service! They delivered our website in 24 hours exactly as promised. The SSL certificate and mobile optimization work perfectly. Highly recommended!</p>
+          <div class="testimonial-author">Michael Johnson</div>
+          <div class="testimonial-company">Johnson Consulting</div>
+        </div>
+
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Отличный сервис! Сайт готов за 24 часа. SSL и мобильная оптимизация работают идеально!</p>
+          <div class="testimonial-author">Алексей Петров</div>
+          <div class="testimonial-company">Петров Ресторан</div>
+        </div>
+
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Döner satışlarımız %300 arttı! Web sitesi sayesinde müşterilerimiz bizi daha kolay buluyor.</p>
+          <div class="testimonial-author">Hasan Dönerci</div>
+          <div class="testimonial-company">Hasan'ın Dönercisi</div>
+        </div>
+
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Böreklerimizi artık online sipariş edebiliyorlar! Site çok güzel oldu, müşterilerimiz çok beğendi.</p>
+          <div class="testimonial-author">Fatma Börekçi</div>
+          <div class="testimonial-company">Fatma'nın Börek Evi</div>
+        </div>
+
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Perfect! Our bakery website looks amazing and loads super fast. Great job Kaysia team!</p>
+          <div class="testimonial-author">Sarah Baker</div>
+          <div class="testimonial-company">Sweet Dreams Bakery</div>
+        </div>
+
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Çiçek dükkanımız için harika bir site yaptılar. WhatsApp entegrasyonu çok kullanışlı!</p>
+          <div class="testimonial-author">Zeynep Çiçekçi</div>
+          <div class="testimonial-company">Zeynep Çiçek Evi</div>
+        </div>
+
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Прекрасная работа! Сайт для кафе готов за день. Заказы приходят через WhatsApp!</p>
+          <div class="testimonial-author">Мария Иванова</div>
+          <div class="testimonial-company">Кафе "У Марии"</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Form -->
@@ -388,21 +503,21 @@
     </div>
   </section>
 
-  <footer>
+    <footer>
     <div class="container grid grid-3">
       <div>
-        <strong>Kaysia Agency</strong><br/>
+        <strong>Kaysia.co ®</strong><br/>
         Web Tasarım & Otomasyon Çözümleri
-                    </div>
+      </div>
       <div>
         <a href="#form">İletişim</a> •
         <a href="/makaleler.html">Makaleler</a> •
         <a href="/kvkk.html">KVKK & Gizlilik</a> •
         <a target="_blank" rel="noopener" href="https://share.google/8W55dUaZqPbtvsWMh">Google İşletmem</a>
-                </div>
-      <div class="muted">© 2025 Kaysia Agency. Tüm hakları saklıdır.</div>
-        </div>
-    </footer>
+      </div>
+      <div class="muted">© 2025 Kaysia.co ®. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
 
                   <!-- Kaysia Agency Chat Widget - Embedded Version -->
 <style>
@@ -1156,6 +1271,44 @@
       updateDomainSuffix();
     });
     
+    // Kayan yorum sistemi
+    (function() {
+      const track = document.getElementById('testimonialsTrack');
+      if (!track) return;
+
+      // Yorumları çoğalt
+      const originalCards = track.innerHTML;
+      track.innerHTML = originalCards + originalCards; // 2 kez ekle
+
+      // Animasyon süresini ayarla
+      const totalWidth = track.scrollWidth;
+      const containerWidth = track.parentElement.offsetWidth;
+      const duration = (totalWidth / 100) * 2; // 100px/s hızında (daha hızlı)
+
+      track.style.animationDuration = duration + 's';
+    })();
+
+    // Logo tıklama - sayfanın en üstüne çık
+    (function() {
+      const logo = document.querySelector('.logo');
+      if (logo) {
+        logo.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          
+          // GA event tracking
+          if(window.gtag){
+            gtag('event','logo_click',{
+              event_category:'navigation',
+              event_label:'scroll_to_top'
+            });
+          }
+        });
+      }
+    })();
+
     // Tema switcher
     (function(){
       const root = document.documentElement;
