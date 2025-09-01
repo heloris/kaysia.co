@@ -50,6 +50,16 @@
     :root[data-theme="minimal"]{
       --bg:#ffffff; --fg:#000000; --muted:#888888; --card:#ffffff; --border:#dddddd; --blue:#e74c3c; --accent:#000000; --red:#e74c3c;
     }
+    
+    /* Tema 5: Fotoğrafçı (blogger tarzı) */
+    :root[data-theme="photographer"]{
+      --bg:#fafafa; --fg:#2c2c2c; --muted:#666666; --card:#ffffff; --border:#e0e0e0; --blue:#8e44ad; --accent:#e67e22; --red:#e74c3c;
+    }
+    
+    /* Tema 6: Dark City (koyu şehir) */
+    :root[data-theme="darkcity"]{
+      --bg:#0a0a0a; --fg:#ffffff; --muted:#cccccc; --card:#1a1a1a; --border:#333333; --blue:#00d4ff; --accent:#ff6b35; --red:#ff4757;
+    }
 
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:var(--fg);background:var(--bg)}
@@ -74,8 +84,8 @@
     [data-theme="modern"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
     [data-theme="modern"] .logo:hover{transform:scale(1.05)}
 
-    [data-theme="modern"] .theme-switch{position:absolute;top:20px;right:40px}
-    [data-theme="modern"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="modern"] .theme-switch{position:fixed;top:20px;right:40px;z-index:1000}
+    [data-theme="modern"] .actions{position:relative;margin-top:30px;display:flex;gap:15px;justify-content:center}
     [data-theme="modern"] .card{background:var(--card);border-radius:20px;padding:25px;box-shadow:0 8px 25px rgba(0,0,0,0.08);border:none;transition:all 0.3s;margin:10px 0}
     [data-theme="modern"] .card:hover{box-shadow:0 15px 35px rgba(0,0,0,0.12);transform:translateY(-5px)}
     [data-theme="modern"] .btn-primary{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none}
@@ -86,23 +96,27 @@
     [data-theme="modern"] .grid-3{grid-template-columns:1fr}
     [data-theme="modern"] .grid-4{grid-template-columns:1fr}
     [data-theme="modern"] .container{max-width:800px}
+    [data-theme="modern"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f8f9fa,#e9ecef)}
+    [data-theme="modern"] .hero-content{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 20px}
+    [data-theme="modern"] section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 0}
+    [data-theme="modern"] body{scroll-behavior:smooth}
     
-    /* Dark Tema Stilleri - Dikey Layout */
-    [data-theme="dark"] .bar{background:var(--blue);border-bottom:3px solid var(--accent)}
-    [data-theme="dark"] .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#1a1a1a,#2d2d2d)}
+    /* Dark Tema Stilleri - Kaysia'nın Tam Tersi */
+    [data-theme="dark"] .bar{background:var(--accent);border-bottom:3px solid var(--blue)}
+    [data-theme="dark"] .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#2d2d2d,#1a1a1a)}
     [data-theme="dark"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
     [data-theme="dark"] .logo:hover{transform:scale(1.05)}
 
     [data-theme="dark"] .theme-switch{position:absolute;top:20px;left:40px}
     [data-theme="dark"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
     [data-theme="dark"] .card{background:var(--card);border-radius:15px;padding:20px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:all 0.3s}
-    [data-theme="dark"] .card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.5);transform:translateY(-3px);border-color:var(--blue)}
-    [data-theme="dark"] .btn-primary{background:var(--blue);color:#fff;border-radius:10px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none;box-shadow:0 4px 15px rgba(231,76,60,0.3)}
+    [data-theme="dark"] .card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.5);transform:translateY(-3px);border-color:var(--accent)}
+    [data-theme="dark"] .btn-primary{background:var(--accent);color:#fff;border-radius:10px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none;box-shadow:0 4px 15px rgba(52,152,219,0.3)}
     [data-theme="dark"] .btn-primary:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 6px 20px rgba(52,152,219,0.4)}
     [data-theme="dark"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:10px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s}
     [data-theme="dark"] .btn-ghost:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
     
-    /* Minimal Tema Stilleri - Merkezi Layout */
+    /* Minimal Tema Stilleri - Blogger Tarzı */
     [data-theme="minimal"] .bar{background:var(--blue);border-radius:0}
     [data-theme="minimal"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--bg)}
     [data-theme="minimal"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
@@ -110,15 +124,105 @@
 
     [data-theme="minimal"] .theme-switch{position:absolute;top:20px;right:40px}
     [data-theme="minimal"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
-    [data-theme="minimal"] .card{background:var(--card);border:2px solid var(--border);border-radius:0;padding:20px;transition:all 0.2s;max-width:600px;margin:20px auto}
+    [data-theme="minimal"] .card{background:var(--card);border:2px solid var(--border);border-radius:0;padding:20px;transition:all 0.2s;max-width:600px;margin:20px auto;font-family:'Georgia',serif}
     [data-theme="minimal"] .card:hover{border-color:var(--blue);transform:none}
-    [data-theme="minimal"] .btn-primary{background:var(--blue);color:#fff;border-radius:0;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s;border:none}
+    [data-theme="minimal"] .card h3{font-family:'Georgia',serif;font-style:italic;border-bottom:2px solid var(--blue);padding-bottom:10px}
+    [data-theme="minimal"] .btn-primary{background:var(--blue);color:#fff;border-radius:0;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s;border:none;font-family:'Georgia',serif}
     [data-theme="minimal"] .btn-primary:hover{background:var(--accent)}
-    [data-theme="minimal"] .btn-ghost{border:2px solid var(--border);color:var(--fg);background:transparent;border-radius:0;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s}
+    [data-theme="minimal"] .btn-ghost{border:2px solid var(--border);color:var(--fg);background:transparent;border-radius:0;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s;font-family:'Georgia',serif}
     [data-theme="minimal"] .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+    [data-theme="minimal"] .container{max-width:900px}
+    [data-theme="minimal"] .grid-2{grid-template-columns:1fr}
+    [data-theme="minimal"] .grid-3{grid-template-columns:1fr}
+    [data-theme="minimal"] .grid-4{grid-template-columns:1fr}
+    
+    /* Photographer Tema Stilleri - Masonry Grid Layout */
+    [data-theme="photographer"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent))}
+    [data-theme="photographer"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#fafafa,#f0f0f0)}
+    [data-theme="photographer"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
+    [data-theme="photographer"] .logo:hover{transform:scale(1.05)}
+    [data-theme="photographer"] .theme-switch{position:absolute;top:20px;right:40px}
+    [data-theme="photographer"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="photographer"] .card{background:var(--card);border-radius:15px;padding:25px;box-shadow:0 8px 25px rgba(142,68,173,0.1);border:1px solid var(--border);transition:all 0.3s;margin:15px 0}
+    [data-theme="photographer"] .card:hover{box-shadow:0 15px 35px rgba(142,68,173,0.2);transform:translateY(-3px)}
+    [data-theme="photographer"] .card h3{color:var(--blue);border-left:4px solid var(--accent);padding-left:15px}
+    [data-theme="photographer"] .btn-primary{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none}
+    [data-theme="photographer"] .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(142,68,173,0.3)}
+    [data-theme="photographer"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s}
+    [data-theme="photographer"] .btn-ghost:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+    [data-theme="photographer"] .grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+    [data-theme="photographer"] .grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+    [data-theme="photographer"] .grid-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+    [data-theme="photographer"] .container{max-width:1200px}
+    [data-theme="photographer"] .themes-grid{grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px}
+    [data-theme="photographer"] .theme-card{transform:rotate(-1deg);transition:all 0.3s}
+    [data-theme="photographer"] .theme-card:nth-child(even){transform:rotate(1deg)}
+    [data-theme="photographer"] .theme-card:hover{transform:rotate(0deg) translateY(-5px)}
+    
+    /* Dark City Tema Stilleri - Cyberpunk Layout */
+    [data-theme="darkcity"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent));border-bottom:2px solid var(--red)}
+    [data-theme="darkcity"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#0a0a0a,#1a1a1a)}
+    [data-theme="darkcity"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
+    [data-theme="darkcity"] .logo:hover{transform:scale(1.05);filter:drop-shadow(0 0 10px var(--blue))}
+    [data-theme="darkcity"] .theme-switch{position:absolute;top:20px;right:40px}
+    [data-theme="darkcity"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="darkcity"] .card{background:var(--card);border-radius:10px;padding:20px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,212,255,0.1);transition:all 0.3s}
+    [data-theme="darkcity"] .card:hover{box-shadow:0 8px 30px rgba(0,212,255,0.2);transform:translateY(-3px);border-color:var(--blue)}
+    [data-theme="darkcity"] .card h3{color:var(--blue);text-shadow:0 0 5px var(--blue)}
+    [data-theme="darkcity"] .btn-primary{background:var(--blue);color:#000;border-radius:8px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none;box-shadow:0 0 10px var(--blue)}
+    [data-theme="darkcity"] .btn-primary:hover{background:var(--accent);box-shadow:0 0 15px var(--accent);transform:translateY(-2px)}
+    [data-theme="darkcity"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:8px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s}
+    [data-theme="darkcity"] .btn-ghost:hover{background:var(--blue);color:#000;box-shadow:0 0 10px var(--blue)}
+    [data-theme="darkcity"] .grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+    [data-theme="darkcity"] .grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    [data-theme="darkcity"] .grid-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+    [data-theme="darkcity"] .container{max-width:1000px}
+    [data-theme="darkcity"] .themes-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+    [data-theme="darkcity"] .theme-card{position:relative;overflow:hidden}
+    [data-theme="darkcity"] .theme-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,212,255,0.1),transparent);transition:left 0.5s}
+    [data-theme="darkcity"] .theme-card:hover::before{left:100%}
+    [data-theme="darkcity"] .theme-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,212,255,0.3)}
+    
+    /* Fotoğrafçı Tema Stilleri - Blogger Tarzı */
+    [data-theme="photographer"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent))}
+    [data-theme="photographer"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#fafafa,#f0f0f0)}
+    [data-theme="photographer"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
+    [data-theme="photographer"] .logo:hover{transform:scale(1.05)}
+    [data-theme="photographer"] .theme-switch{position:absolute;top:20px;right:40px}
+    [data-theme="photographer"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="photographer"] .card{background:var(--card);border-radius:15px;padding:25px;box-shadow:0 8px 25px rgba(142,68,173,0.1);border:1px solid var(--border);transition:all 0.3s;margin:15px 0}
+    [data-theme="photographer"] .card:hover{box-shadow:0 15px 35px rgba(142,68,173,0.2);transform:translateY(-3px)}
+    [data-theme="photographer"] .card h3{color:var(--blue);border-left:4px solid var(--accent);padding-left:15px}
+    [data-theme="photographer"] .btn-primary{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none}
+    [data-theme="photographer"] .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(142,68,173,0.3)}
+    [data-theme="photographer"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s}
+    [data-theme="photographer"] .btn-ghost:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+    
+    /* Dark City Tema Stilleri - Neon Tarzı */
+    [data-theme="darkcity"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent));border-bottom:2px solid var(--red)}
+    [data-theme="darkcity"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#0a0a0a,#1a1a1a)}
+    [data-theme="darkcity"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
+    [data-theme="darkcity"] .logo:hover{transform:scale(1.05);filter:drop-shadow(0 0 10px var(--blue))}
+    [data-theme="darkcity"] .theme-switch{position:absolute;top:20px;right:40px}
+    [data-theme="darkcity"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
+    [data-theme="darkcity"] .card{background:var(--card);border-radius:10px;padding:20px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,212,255,0.1);transition:all 0.3s}
+    [data-theme="darkcity"] .card:hover{box-shadow:0 8px 30px rgba(0,212,255,0.2);transform:translateY(-3px);border-color:var(--blue)}
+    [data-theme="darkcity"] .card h3{color:var(--blue);text-shadow:0 0 5px var(--blue)}
+    [data-theme="darkcity"] .btn-primary{background:var(--blue);color:#000;border-radius:8px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none;box-shadow:0 0 10px var(--blue)}
+    [data-theme="darkcity"] .btn-primary:hover{background:var(--accent);box-shadow:0 0 15px var(--accent);transform:translateY(-2px)}
+    [data-theme="darkcity"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:8px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s}
+    [data-theme="darkcity"] .btn-ghost:hover{background:var(--blue);color:#000;box-shadow:0 0 10px var(--blue)}
 
     .bar{color:#fff;position:relative}
     .bar .brand-text{position:absolute;left:40px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:700;color:#fff}
+    
+
+    
+    /* 24 Saatte Yazısı - Blur Efektli */
+    .hero h1{position:relative;z-index:2}
+    .hero h1::before{content:'24 Saatte Profesyonel Web Siteniz Hazır';position:absolute;top:-2px;left:-2px;color:var(--blue);filter:blur(2px);z-index:-1;opacity:0.7}
+    
+
     .bar .container{display:flex;gap:12px;align-items:center;justify-content:center;padding:10px 0;text-align:center;flex-wrap:wrap}
     .count{font-weight:700}
     .hero{position:relative}
@@ -211,10 +315,11 @@
 
     
     /* Price banner styles */
-    .price-banner{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;padding:15px 25px;border-radius:12px;margin:20px 0;text-align:center}
-    .old-price{text-decoration:line-through;opacity:0.7;font-size:18px}
-    .new-price{font-size:24px;font-weight:700;margin-top:5px}
-    .price-note{font-size:12px;opacity:0.8;margin-top:5px;font-style:italic}
+    .price-banner{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;padding:25px 35px;border-radius:16px;margin:30px 0;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,0.15)}
+    .old-price{text-decoration:line-through;opacity:0.7;font-size:20px}
+    .new-price{font-size:28px;font-weight:700;margin-top:8px}
+    .price-note{font-size:14px;opacity:0.8;margin-top:8px;font-style:italic}
+    .agency-name{font-size:18px;font-weight:600;margin-bottom:15px;opacity:0.9}
     
     /* Package card styles */
     .package-card{cursor:pointer;position:relative;overflow:hidden}
@@ -236,6 +341,41 @@
     input:invalid,textarea:invalid,select:invalid{border-color:#e74c3c}
     .submit-btn:disabled{opacity:0.5;cursor:not-allowed}
     
+    /* Tema Kartları Stilleri */
+    .themes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:30px}
+    .theme-card{background:var(--card);border:2px solid var(--border);border-radius:15px;padding:25px;transition:all 0.3s;cursor:pointer}
+    .theme-card:hover{border-color:var(--blue);transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,0.1)}
+    .theme-preview{height:120px;border-radius:10px;margin-bottom:20px;position:relative;overflow:hidden}
+    
+    /* Tema Önizleme Renkleri */
+    .kaysia-preview{background:linear-gradient(135deg,#e74c3c,#2c3e50);position:relative}
+    .kaysia-preview::before{content:'🏢';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
+    
+    .modern-preview{background:linear-gradient(135deg,#3498db,#e74c3c);position:relative}
+    .modern-preview::before{content:'🚀';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
+    
+    .dark-preview{background:linear-gradient(135deg,#1a1a1a,#2d2d2d);position:relative}
+    .dark-preview::before{content:'🌙';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
+    
+    .minimal-preview{background:linear-gradient(135deg,#ffffff,#f8f9fa);border:2px solid #dddddd;position:relative}
+    .minimal-preview::before{content:'📝';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
+    
+    .photographer-preview{background:linear-gradient(135deg,#2c3e50,#34495e);position:relative}
+    .photographer-preview::before{content:'📸';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
+    
+    .darkcity-preview{background:linear-gradient(135deg,#000000,#1a1a1a);position:relative}
+    .darkcity-preview::before{content:'🏙️';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
+    
+    .theme-card h4{margin:0 0 10px 0;color:var(--fg);font-size:18px}
+    .theme-card p{margin:0 0 15px 0;color:var(--muted);font-size:14px;line-height:1.5}
+    .theme-card ul{margin:0 0 20px 0;padding-left:20px;color:var(--muted);font-size:13px}
+    .theme-card li{margin-bottom:5px}
+    
+    .theme-btn{background:var(--blue);color:#fff;border:none;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.3s;width:100%}
+    .theme-btn:hover{background:var(--accent);transform:translateY(-2px)}
+    .theme-btn.active{background:var(--accent);cursor:default}
+    .theme-btn.active:hover{transform:none}
+    
     /* Responsive adjustments */
     @media(max-width:768px){
       [data-theme="kaysia"] .logo{left:20px}
@@ -245,13 +385,25 @@
       [data-theme="dark"] .theme-switch{left:20px;top:20px}
       [data-theme="minimal"] .logo{left:20px}
       [data-theme="minimal"] .theme-switch{right:20px;top:20px}
+      [data-theme="photographer"] .logo{left:20px}
+      [data-theme="photographer"] .theme-switch{right:20px;top:20px}
+      [data-theme="darkcity"] .logo{left:20px}
+      [data-theme="darkcity"] .theme-switch{right:20px;top:20px}
       .bar .brand-text{left:20px;font-size:16px}
-      h1{font-size:36px}
-      p.lead{font-size:18px}
-      .price-banner{padding:12px 20px}
-      .new-price{font-size:20px}
-      .actions{position:static !important;transform:none !important;margin-top:20px}
+      .themes-grid{grid-template-columns:1fr;gap:20px}
+      .theme-card{padding:20px}
+      .theme-preview{height:100px}
+      h1{font-size:32px;line-height:1.2;margin-bottom:15px}
+      p.lead{font-size:16px;line-height:1.4;margin-bottom:20px}
+      .price-banner{padding:20px 15px;margin:20px 0}
+      .price-banner .old-price{font-size:16px}
+      .price-banner .new-price{font-size:22px}
+      .price-banner .price-note{font-size:12px}
+      .price-banner .agency-name{font-size:16px;margin-bottom:12px}
+      .actions{position:static !important;transform:none !important;margin-top:20px;display:flex;flex-direction:column;gap:10px}
+      .actions .btn{width:100%;text-align:center;padding:15px 20px}
       .theme-switch{position:static !important;margin-top:20px}
+      .hero-content{padding:20px;margin-top:60px}
     }
   </style>
 </head>
@@ -260,10 +412,10 @@
   <!-- Kampanya Şeridi -->
   <div id="promo" class="bar" role="status" aria-live="polite">
     <div class="container">
-      <div class="brand-text">Kaysia Agency</div>
       <strong>🔥 Bu Haftaya Özel İndirim:</strong>
               <span>.COM <span style="text-decoration:line-through">7.999₺</span> → Aylık 249₺ • .COM.TR <span style="text-decoration:line-through">7.499₺</span> → Aylık 209₺</span>
       <span class="count" id="countdown">00g 00:00:00</span>
+      <div class="brand-text">Kaysia Agency</div>
     </div>
   </div>
 
@@ -294,15 +446,7 @@
         </a>
         <a class="btn btn-ghost" href="#form">Formu Doldur</a>
       </div>
-
-      <!-- Tema Seçici -->
-      <div class="theme-switch" aria-label="Tema seçici">
-        <span class="muted" style="align-self:center">Tema:</span>
-        <button data-theme="kaysia" class="active">Kaysia</button>
-        <button data-theme="modern">Modern</button>
-        <button data-theme="dark">Dark</button>
-        <button data-theme="minimal">Minimal</button>
-            </div>
+    </div>
         </div>
     </section>
 
@@ -339,6 +483,134 @@
       <div class="package-cta">Tıkla ve Başvur →</div>
         </div>
     </section>
+
+  <!-- Temalar Bölümü -->
+  <section class="container" style="margin-top:40px">
+    <div class="card">
+      <h3>🎨 Sitenizi Kişiselleştirin</h3>
+      <p class="muted">100'den fazla profesyonel tema arasından seçim yapın! Aşağıdaki temalar sadece örneklerdir. Her tema kendine özgü tasarım ve özellikler sunar.</p>
+      <div style="background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;padding:15px;border-radius:10px;margin:15px 0;text-align:center;font-weight:600;">
+        🚀 <strong>+100 Tema Koleksiyonu</strong> - Sadece örnekler gösterilmektedir
+      </div>
+      
+      <div class="themes-grid">
+        <div class="theme-card" data-theme="kaysia">
+          <div class="theme-preview kaysia-preview"></div>
+          <h4>🏢 Kaysia Kurumsal</h4>
+          <p>Profesyonel kartvizit tarzı tasarım. Gradient arka planlar ve modern kartlar.</p>
+          <ul>
+            <li>Gradient renk geçişleri</li>
+            <li>Kurumsal görünüm</li>
+            <li>Modern kart tasarımı</li>
+          </ul>
+          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
+          <button class="theme-btn active">Aktif Tema</button>
+        </div>
+        
+        <div class="theme-card" data-theme="modern">
+          <div class="theme-preview modern-preview"></div>
+          <h4>🚀 Modern Tek Sayfa</h4>
+          <p>Tek sayfa deneyimi. Her bölüm tam ekran, yumuşak geçişler.</p>
+          <ul>
+            <li>Tek sayfa scroll</li>
+            <li>Tam ekran bölümler</li>
+            <li>Yumuşak animasyonlar</li>
+          </ul>
+          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - 100+ seçenek mevcut</div>
+          <button class="theme-btn">Temayı Seç</button>
+        </div>
+        
+        <div class="theme-card" data-theme="dark">
+          <div class="theme-preview dark-preview"></div>
+          <h4>🌙 Dark Mode</h4>
+          <p>Göz yormayan koyu tema. Neon efektler ve modern görünüm.</p>
+          <ul>
+            <li>Koyu arka plan</li>
+            <li>Neon renkler</li>
+            <li>Göz dostu tasarım</li>
+          </ul>
+          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
+          <button class="theme-btn">Temayı Seç</button>
+        </div>
+        
+        <div class="theme-card" data-theme="minimal">
+          <div class="theme-preview minimal-preview"></div>
+          <h4>📝 Minimal Blog</h4>
+          <p>Blog tarzı temiz tasarım. Georgia font ve sade görünüm.</p>
+          <ul>
+            <li>Blog tarzı layout</li>
+            <li>Georgia font</li>
+            <li>Sade ve temiz</li>
+          </ul>
+          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
+          <button class="theme-btn">Temayı Seç</button>
+        </div>
+        
+        <div class="theme-card" data-theme="photographer">
+          <div class="theme-preview photographer-preview"></div>
+          <h4>📸 Photographer Portfolio</h4>
+          <p>Fotoğrafçı portföyü tarzı. Masonry grid layout ve büyük görseller.</p>
+          <ul>
+            <li>Masonry grid layout</li>
+            <li>Büyük görsel odaklı</li>
+            <li>Portföy tarzı</li>
+          </ul>
+          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
+          <button class="theme-btn">Temayı Seç</button>
+        </div>
+        
+        <div class="theme-card" data-theme="darkcity">
+          <div class="theme-preview darkcity-preview"></div>
+          <h4>🏙️ Dark City</h4>
+          <p>Cyberpunk tarzı şehir teması. Neon ışıklar ve futuristik tasarım.</p>
+          <ul>
+            <li>Cyberpunk estetiği</li>
+            <li>Neon ışık efektleri</li>
+            <li>Futuristik tasarım</li>
+          </ul>
+          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
+          <button class="theme-btn">Temayı Seç</button>
+        </div>
+      </div>
+      
+      <div style="margin-top:30px;padding:20px;background:linear-gradient(135deg,var(--card),var(--border));border-radius:12px;border-left:4px solid var(--blue);">
+        <h4 style="margin:0 0 15px 0;color:var(--blue);">🎯 Tema Koleksiyonumuz Hakkında</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;font-size:14px;">
+          <div>
+            <strong>🏢 Sektörel Temalar:</strong>
+            <ul style="margin:5px 0;padding-left:20px;">
+              <li>Restoran & Kafe</li>
+              <li>E-ticaret & Mağaza</li>
+              <li>Kurumsal & Şirket</li>
+              <li>Kişisel & Portföy</li>
+            </ul>
+          </div>
+          <div>
+            <strong>🎨 Tasarım Stilleri:</strong>
+            <ul style="margin:5px 0;padding-left:20px;">
+              <li>Modern & Minimal</li>
+              <li>Klasik & Şık</li>
+              <li>Renkli & Canlı</li>
+              <li>Dark & Neon</li>
+            </ul>
+          </div>
+          <div>
+            <strong>📱 Özel Özellikler:</strong>
+            <ul style="margin:5px 0;padding-left:20px;">
+              <li>Mobil Uyumlu</li>
+              <li>SEO Optimizasyonlu</li>
+              <li>Hızlı Yükleme</li>
+              <li>Özelleştirilebilir</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin:15px 0 0 0;font-size:13px;color:var(--muted);font-style:italic;">
+          💡 <strong>Not:</strong> Yukarıdaki temalar sadece örneklerdir. Gerçek projede 100'den fazla tema arasından seçim yapabilir, 
+          sektörünüze ve markanıza en uygun temayı seçebilirsiniz. Tüm temalar profesyonel tasarım standartlarında hazırlanmıştır.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- Ekonomik Avantajlar -->
   <section class="container grid grid-3" style="margin-top:26px">
@@ -1312,12 +1584,23 @@
     // Tema switcher
     (function(){
       const root = document.documentElement;
-      const buttons = document.querySelectorAll('.theme-switch button');
       const favicon = document.getElementById('favicon');
       
       function setTheme(name){
         root.setAttribute('data-theme', name);
-        buttons.forEach(b=>b.classList.toggle('active', b.dataset.theme===name));
+        
+        // Tema kartlarındaki butonları güncelle
+        const themeCards = document.querySelectorAll('.theme-card');
+        themeCards.forEach(card => {
+          const btn = card.querySelector('.theme-btn');
+          if (card.dataset.theme === name) {
+            btn.textContent = 'Aktif Tema';
+            btn.classList.add('active');
+          } else {
+            btn.textContent = 'Temayı Seç';
+            btn.classList.remove('active');
+          }
+        });
         
         // Favicon değiştir
         if (name === 'dark') {
@@ -1328,9 +1611,17 @@
         
         if(window.gtag){ gtag('event','theme_change',{event_category:'ui',event_label:name}); }
       }
-      buttons.forEach(btn=>{
-        btn.addEventListener('click', ()=> setTheme(btn.dataset.theme));
+      
+      // Tema kartlarına tıklama
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('theme-btn')) {
+          const themeCard = e.target.closest('.theme-card');
+          if (themeCard) {
+            setTheme(themeCard.dataset.theme);
+          }
+        }
       });
+      
       setTheme('kaysia'); // varsayılan
     })();
   </script>
