@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "title": "🚀 Web Tasarım Trendleri 2025",
+    "summary": "2025 yılında öne çıkan web tasarım trendleri ve gelişmeleri",
+    "content": "<h3>Ana Trendler</h3><ul><li>AI-Powered Design</li><li>Micro-Interactions</li><li>Dark Mode+</li></ul><p>Detaylı analiz ve örnekler...</p>",
+    "date": "2025-01-03",
+    "readTime": "4",
+    "author": "Kaysia.co",
+    "category": "Web Tasarım",
+    "tags": ["web-tasarım", "trendler", "2025"],
+    "featured": true,
+    "status": "published",
+    "source": "google-sheets",
+    "created_at": "2025-01-03T10:00:00Z",
+    "updated_at": "2025-01-03T10:00:00Z"
+  },
+  {
+    "id": "2", 
+    "title": "⚡ N8N Automation Avantajları",
+    "summary": "N8N ile workflow otomasyonunun işletmelere sağladığı faydalar",
+    "content": "<p>N8N ile süreçlerinizi otomatikleştirin...</p><h3>Avantajlar</h3><ul><li>Zaman tasarrufu</li><li>Hata azalması</li><li>Maliyet düşürme</li></ul>",
+    "date": "2025-01-02",
+    "readTime": "3",
+    "author": "Kaysia.co",
+    "category": "Otomasyon",
+    "tags": ["n8n", "otomasyon", "workflow"],
+    "featured": false,
+    "status": "published", 
+    "source": "google-sheets",
+    "created_at": "2025-01-02T14:30:00Z",
+    "updated_at": "2025-01-02T14:30:00Z"
+  },
+  {
+    "id": "3",
+    "title": "🎯 SEO İpuçları 2025",
+    "summary": "Arama motoru optimizasyonu için en güncel stratejiler",
+    "content": "<p>2025 yılında SEO stratejilerinizi güncellemenin zamanı geldi...</p>",
+    "date": "2025-01-01", 
+    "readTime": "5",
+    "author": "Kaysia.co",
+    "category": "SEO",
+    "tags": ["seo", "arama-motoru", "optimizasyon"],
+    "featured": false,
+    "status": "published",
+    "source": "google-sheets",
+    "created_at": "2025-01-01T09:15:00Z",
+    "updated_at": "2025-01-01T09:15:00Z"
+  }
+]
