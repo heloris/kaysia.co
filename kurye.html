@@ -310,43 +310,43 @@
        input.value = value;
      }
      
-     // Form validasyonu
-     function checkFormValidity() {
-       const form = document.getElementById('kuryeForm');
-       const submitBtn = document.getElementById('submitBtn');
-       const kvkkCheckbox = document.getElementById('kvkkRiza');
-       const dogumTarihi = document.getElementById('dogumTarihi');
-       const telefon = document.getElementById('telefon');
-       
-       // Telefon validasyonu - +90 ile başlamalı ve en az 10 rakam olmalı
-       const telefonValue = telefon.value.replace(/\D/g, '');
-       const telefonUygun = telefonValue.length >= 10;
-       
-       // Deneyim kontrolü - en az bir alan dolu olmalı
-       const deneyim1 = document.querySelector('input[name="deneyim1"]').value.trim();
-       const deneyim2 = document.querySelector('input[name="deneyim2"]').value.trim();
-       const deneyim3 = document.querySelector('input[name="deneyim3"]').value.trim();
-       const deneyimUygun = deneyim1 !== '' || deneyim2 !== '' || deneyim3 !== '';
-       
-       // Yaş kontrolü
-       let yasUygun = true;
-       if (dogumTarihi.value) {
-         const yas = hesaplaYas(dogumTarihi.value);
-         yasUygun = yas >= 18;
-       }
-       
-       // Debug bilgileri
-       console.log('Form validasyonu:', {
-         formValid: form.checkValidity(),
-         kvkkChecked: kvkkCheckbox.checked,
-         yasUygun: yasUygun,
-         deneyimUygun: deneyimUygun,
-         telefonUygun: telefonUygun,
-         telefonValue: telefonValue,
-         dogumTarihi: dogumTarihi.value
-       });
-       
-               if (form.checkValidity() && kvkkCheckbox.checked && yasUygun && deneyimUygun && telefonUygun) {
+           // Form validasyonu
+      function checkFormValidity() {
+        const form = document.getElementById('kuryeForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const kvkkCheckbox = document.getElementById('kvkkRiza');
+        const dogumTarihi = document.getElementById('dogumTarihi');
+        const telefon = document.getElementById('telefon');
+        
+        // Telefon validasyonu - en az 10 rakam olmalı
+        const telefonValue = telefon.value.replace(/\D/g, '');
+        const telefonUygun = telefonValue.length >= 10;
+        
+        // Deneyim kontrolü - en az bir alan dolu olmalı
+        const deneyim1 = document.querySelector('input[name="deneyim1"]').value.trim();
+        const deneyim2 = document.querySelector('input[name="deneyim2"]').value.trim();
+        const deneyim3 = document.querySelector('input[name="deneyim3"]').value.trim();
+        const deneyimUygun = deneyim1 !== '' || deneyim2 !== '' || deneyim3 !== '';
+        
+        // Yaş kontrolü
+        let yasUygun = true;
+        if (dogumTarihi.value) {
+          const yas = hesaplaYas(dogumTarihi.value);
+          yasUygun = yas >= 18;
+        }
+        
+        // Debug bilgileri
+        console.log('Form validasyonu:', {
+          formValid: form.checkValidity(),
+          kvkkChecked: kvkkCheckbox.checked,
+          yasUygun: yasUygun,
+          deneyimUygun: deneyimUygun,
+          telefonUygun: telefonUygun,
+          telefonValue: telefonValue,
+          dogumTarihi: dogumTarihi.value
+        });
+        
+        if (form.checkValidity() && kvkkCheckbox.checked && yasUygun && deneyimUygun && telefonUygun) {
           submitBtn.disabled = false;
           submitBtn.style.background = 'var(--blue)';
           submitBtn.style.color = '#ffd700';
@@ -357,7 +357,7 @@
           submitBtn.style.color = '#ffffff';
           console.log('❌ Form geçersiz - gönder butonu pasif');
         }
-     }
+      }
     
          // Telefon input event listener
      document.getElementById('telefon').addEventListener('input', function() {
@@ -400,6 +400,10 @@
           console.log('Yaş kontrolü:', { yas, yasUygun });
         }
         
+        // Telefon validasyonu
+        const telefonValue = telefon.value.replace(/\D/g, '');
+        const telefonUygun = telefonValue.length >= 10;
+        
         // Son validasyon kontrolü
         if (!form.checkValidity()) {
           console.log('❌ Form HTML5 validasyonu başarısız');
@@ -422,6 +426,12 @@
         if (!deneyimUygun) {
           console.log('❌ Deneyim alanları boş');
           alert('❌ Lütfen en az bir deneyim alanını doldurunuz.');
+          return;
+        }
+        
+        if (!telefonUygun) {
+          console.log('❌ Telefon numarası uygun değil');
+          alert('❌ Lütfen geçerli bir telefon numarası giriniz (en az 10 rakam).');
           return;
         }
         
