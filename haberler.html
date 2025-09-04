@@ -1,662 +1,1084 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Haberler - Kaysia Agency</title>
-  <meta name="description" content="Web tasarım, teknoloji ve dijital dünya hakkında güncel haberler ve gelişmeler. Kaysia Agency'den en son teknoloji haberleri.">
-  <link rel="canonical" href="https://kaysia.co/haberler.html"/>
-  <link rel="icon" href="favicon-light.svg" id="favicon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563eb">
+    <title>Haberler — Kaysia.co</title>
+    <meta name="description" content="2025 web tasarım trendleri, AI teknolojileri ve SEO güncellemeleri. Kaysia.co'dan en güncel dijital dünya haberleri.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kaysia.co/haberler">
+    <meta property="og:title" content="Haberler — Kaysia.co">
+    <meta property="og:description" content="2025 web tasarım trendleri, AI teknolojileri ve SEO güncellemeleri. Kaysia.co'dan en güncel dijital dünya haberleri.">
+    <meta property="og:image" content="https://kaysia.co/logo.png">
 
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYM7YXN4S0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-CYM7YXN4S0');
-  </script>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kaysia.co/haberler">
+    <meta property="twitter:title" content="Haberler — Kaysia.co">
+    <meta property="twitter:description" content="2025 web tasarım trendleri, AI teknolojileri ve SEO güncellemeleri. Kaysia.co'dan en güncel dijital dünya haberleri.">
+    <meta property="twitter:image" content="https://kaysia.co/logo.png">
 
-  <style>
-    :root{
-      --bg:#ffffff; --fg:#1a1a1a; --muted:#666666; --card:#ffffff; --border:#e5e5e5;
-      --blue:#e74c3c; --accent:#2c3e50;
-    }
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-64.png">
     
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:var(--fg);background:var(--bg);line-height:1.6}
-    .container{max-width:900px;margin:0 auto;padding:0 20px}
-    
-    /* Enhanced Professional Header */
-    .brand-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(231, 76, 60, 0.1);
-      padding: 15px 0;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-    }
-    
-    .brand-header.scrolled {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      padding: 12px 0;
-    }
-    
-    .brand-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-    
-    .logo-brand {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    
-    .logo-brand:hover {
-      transform: scale(1.02);
-    }
-    
-    .logo-icon {
-      position: relative;
-    }
-    
-    .logo-icon svg {
-      width: 45px;
-      height: 45px;
-      filter: drop-shadow(0 2px 4px rgba(231, 76, 60, 0.2));
-    }
-    
-    .brand-text {
-      font-size: 28px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #e74c3c, #2c3e50);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.5px;
-    }
-    
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    
-    .nav-link {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link:hover {
-      color: var(--blue);
-      background: rgba(231, 76, 60, 0.1);
-    }
-    
-    .cta-nav {
-      background: linear-gradient(135deg, var(--blue), var(--accent));
-      color: white !important;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-    }
-    
-    .cta-nav:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-    }
-    
-    /* Enhanced Main Content */
-    .main-content {
-      padding-top: 120px;
-      min-height: 100vh;
-    }
-    
-    .page-header {
-      text-align: center;
-      padding: 60px 0;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .page-header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KPGcgZmlsbD0iIzAwMCIgZmlsbC1vcGFjaXR5PSIwLjAyIj4KPGNpcmNsZSBjeD0iMyIgY3k9IjMiIHI9IjMiLz4KPC9nPgo8L2c+Cjwvc3ZnPg==');
-      opacity: 0.5;
-    }
-    
-    .page-header-content {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .page-header h1 {
-      font-size: clamp(28px, 4vw, 48px);
-      line-height: 1.1;
-      margin: 0 0 20px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #2c3e50, #e74c3c);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-    }
-    
-    .page-header h1::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(135deg, var(--blue), var(--accent));
-      border-radius: 2px;
-    }
-    
-    .subtitle {
-      color: var(--muted);
-      font-size: clamp(14px, 2vw, 18px);
-      margin: 20px 0;
-      line-height: 1.6;
-    }
-    
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 25px;
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 25px;
-      background: rgba(231, 76, 60, 0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .back-link:hover {
-      background: var(--blue);
-      color: white;
-      transform: translateY(-2px);
-    }
-    
-    /* Enhanced News Content */
-    .news-item {
-      margin: 40px 0;
-      padding: 35px;
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-      border-radius: 20px;
-      border: 2px solid rgba(231, 76, 60, 0.1);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .news-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue), var(--accent));
-    }
-    
-    .news-item:hover {
-      transform: translateY(-5px);
-      border-color: var(--blue);
-      box-shadow: 0 20px 50px rgba(231, 76, 60, 0.15);
-    }
-    
-    .news-item h2 {
-      font-size: 26px;
-      margin: 0 0 18px;
-      color: var(--fg);
-      font-weight: 700;
-      line-height: 1.3;
-    }
-    
-    .news-meta {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 25px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    
-    .news-content {
-      color: var(--fg);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-    
-    .news-content p {
-      margin-bottom: 18px;
-    }
-    
-    .news-content h3 {
-      font-size: 22px;
-      margin: 35px 0 18px;
-      color: var(--fg);
-      font-weight: 600;
-    }
-    
-    .news-content ul {
-      margin: 18px 0;
-      padding-left: 25px;
-    }
-    
-    .news-content li {
-      margin-bottom: 10px;
-    }
-    
-    .highlight {
-      background: linear-gradient(120deg, #fff9e6 0%, #f0f8ff 100%);
-      padding: 25px;
-      border-radius: 15px;
-      margin: 25px 0;
-      border-left: 4px solid var(--blue);
-      position: relative;
-    }
-    
-    .loading-area {
-      padding: 60px 0;
-      text-align: center;
-      background: var(--card);
-      border-radius: 20px;
-      margin: 40px 0;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-    }
-    
-    .loading-text {
-      color: var(--muted);
-      font-size: 18px;
-      margin-bottom: 25px;
-      font-weight: 500;
-    }
-    
-    .last-update {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-    
-    #refreshNewsBtn {
-      margin: 15px;
-      padding: 12px 24px;
-      background: linear-gradient(135deg, var(--blue), var(--accent));
-      color: white;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-    }
-    
-    #refreshNewsBtn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-    }
-    
-    /* Enhanced CTA and UI Elements */
-    .cta-box {
-      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 50%, #2c3e50 100%);
-      color: #fff;
-      padding: 35px 40px;
-      border-radius: 20px;
-      text-align: center;
-      margin: 40px 0;
-      box-shadow: 0 15px 40px rgba(231, 76, 60, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .cta-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 200%;
-      height: 100%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-      animation: shimmer 3s infinite;
-    }
-    
-    @keyframes shimmer {
-      0% { left: -50%; }
-      100% { left: 150%; }
-    }
-    
-    .cta-box h3 {
-      margin: 0 0 15px;
-      color: #fff;
-      font-size: 24px;
-      font-weight: 700;
-    }
-    
-    .cta-box p {
-      margin: 0 0 25px;
-      opacity: 0.9;
-      font-size: 16px;
-    }
-    
-    .cta-btn {
-      display: inline-block;
-      background: #fff;
-      color: var(--blue);
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Mobile Responsiveness */
-    @media(max-width:768px) {
-      .brand-container {
-        padding: 0 20px;
-      }
-      
-      .brand-text {
-        font-size: 22px;
-      }
-      
-      .logo-icon svg {
-        width: 35px;
-        height: 35px;
-      }
-      
-      .nav-actions {
-        gap: 10px;
-      }
-      
-      .nav-link {
-        padding: 6px 12px;
-        font-size: 14px;
-      }
-      
-      .cta-nav {
-        padding: 8px 16px;
-        font-size: 14px;
-      }
-      
-      .main-content {
-        padding-top: 100px;
-      }
-      
-      .page-header {
-        padding: 40px 0;
-      }
-      
-      .page-header h1 {
-        font-size: 24px;
-        margin-bottom: 15px;
-      }
-      
-      .subtitle {
-        font-size: 14px;
-        margin: 15px 0;
-      }
-      
-      .news-item {
-        padding: 25px 20px;
-        margin: 25px 0;
-      }
-      
-      .news-item h2 {
-        font-size: 22px;
-      }
-      
-      .loading-area {
-        padding: 40px 20px;
-        margin: 25px 0;
-      }
-      
-      .loading-text {
-        font-size: 16px;
-      }
-      
-      .container {
-        padding: 0 15px;
-      }
-    }
-    .loading-text{color:var(--muted);font-size:16px;margin-bottom:20px}
-    .last-update{color:var(--muted);font-size:12px;margin-bottom:10px}
-    .news-grid{display:grid;gap:20px;margin-top:20px}
-    .news-tags{margin-top:15px}
-    .tag{display:inline-block;background:var(--border);color:var(--muted);padding:4px 8px;border-radius:4px;font-size:12px;margin-right:8px}
-    .news-item.featured{border-left-color:gold;background:linear-gradient(135deg,#fff9e6,#ffffff)}
-    .error-state,.empty-state{text-align:center;padding:40px;color:var(--muted)}
-    .retry-btn{background:var(--blue);color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;margin-top:15px}
-    .retry-btn:hover{background:var(--accent)}
-    .loading-spinner{display:inline-block;width:20px;height:20px;border:3px solid #f3f3f3;border-top:3px solid var(--blue);border-radius:50%;animation:spin 1s linear infinite;margin-right:10px}
-    @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-    .success-message{background:#d4edda;color:#155724;padding:15px;border-radius:8px;margin:20px 0;border:1px solid #c3e6cb}
-    .external-link-btn{display:inline-block;background:var(--blue);color:white;padding:10px 20px;text-decoration:none;border-radius:6px;font-weight:600;transition:all 0.2s;margin-top:15px}
-    .external-link-btn:hover{background:var(--accent);transform:translateY(-1px)}
-    .news-meta a{color:var(--blue);text-decoration:none;font-weight:600}
-    .news-meta a:hover{text-decoration:underline}
-    
-    footer{margin-top:60px;padding:30px 0;background:var(--card);border-top:1px solid var(--border);text-align:center}
-    .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:15px}
-    .footer-links a{color:var(--muted);text-decoration:none}
-    .footer-links a:hover{color:var(--blue)}
-    .copyright{color:var(--muted);font-size:14px}
-  </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYM7YXN4S0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CYM7YXN4S0');
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Configuration and News Integration Scripts -->
-  <script src="./kaysia-config.js"></script>
-  <script src="./news-integration.js"></script>
-
-  <!-- Professional Header with Fixed Logo & Brand -->
-  <header class="brand-header">
-    <div class="brand-container">
-      <div class="logo-brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <div class="logo-icon">
-          <svg width="45" height="45" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="#e74c3c">K</text>
-            <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
-          </svg>
-        </div>
-        <div class="brand-text">Kaysia Agency</div>
-      </div>
-      
-      <nav class="nav-actions">
-        <a href="/" class="nav-link">Ana Sayfa</a>
-        <a href="/#packages" class="nav-link">Paketler</a>
-        <a href="/#form" class="nav-link">İletişim</a>
-        <a href="https://wa.me/905457705297?text=Merhaba%20Kaysia%20Agency,%20web%20tasarım%20hizmeti%20almak%20istiyorum." target="_blank" rel="noopener" class="cta-nav">
-          💬 Hızlı İletişim
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Enhanced Page Header -->
-  <div class="main-content">
-    <section class="page-header">
-      <div class="container">
-        <div class="page-header-content">
-          <h1>Teknoloji & Web Tasarım Haberleri</h1>
-          <p class="subtitle">Güncel teknoloji haberleri ve web tasarım dünyasından gelişmeler</p>
-          <p class="subtitle">🚧 <strong>Yakında...</strong> Bu sayfada Kaysia Agency'nin teknoloji haberleri ve web tasarım trendleri yer alacak.</p>
-          <a href="/" class="back-link">
-            ← Ana Sayfaya Dön
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <main class="container">
-      
-      <!-- Loading Area for Google Sheets Integration -->
-      <div class="loading-area">
-        <div class="loading-text">📁 Google Sheets'ten haberler yüklenecek...</div>
-        <div class="last-update" id="lastUpdateTime"></div>
-        <button id="refreshNewsBtn">🔄 Yenile</button>
-        <div class="news-grid" id="newsContainer">
-          <!-- Haberler Google Sheets'ten otomatik yüklenecek -->
-        </div>
-      </div>
-
-    </main>
-  </div>
-
-  <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="/">Ana Sayfa</a>
-        <a href="/kvkk.html">KVKK & Gizlilik</a>
-        <a href="https://wa.me/905457705297" target="_blank">İletişim</a>
-      </div>
-      <div class="copyright">© 2025 Kaysia.co. Tüm hakları saklıdır.</div>
-    </div>
-  </footer>
-
-  <script>
-    // Enhanced scroll header effect
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('.brand-header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-    
-    // Smooth scroll for navigation links
-    document.addEventListener('DOMContentLoaded', function() {
-      const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const href = this.getAttribute('href');
-          if (href.startsWith('/#')) {
-            // External page anchor, navigate to home page
-            window.location.href = href;
-          } else {
-            // Same page anchor
-            const target = document.querySelector(href);
-            if (target) {
-              target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
-            }
-          }
-        });
-      });
-    });
-    
-    // Initialize News Manager
-    let newsManager;
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      // Initialize with your actual Google Sheets configuration
-      newsManager = new NewsManager({
-        n8nWebhookUrl: KAYSIA_CONFIG.n8nWebhookUrl, // Try N8N first
-        refreshInterval: KAYSIA_CONFIG.refreshInterval,
-        enableAutoRefresh: true,
-        retryAttempts: KAYSIA_CONFIG.retryAttempts,
-        retryDelay: KAYSIA_CONFIG.retryDelay
-      });
-      
-      console.log('📰 News Manager initialized - Loading from Google Sheets');
-      console.log('Google Sheets ID:', KAYSIA_CONFIG.googleSheetsId);
-      
-      // Force load news immediately and add error handling
-      setTimeout(() => {
-        if (newsManager) {
-          newsManager.loadNews(true).then(() => {
-            console.log('🎉 Haberler başarıyla yüklendi!');
-          }).catch(error => {
-            console.error('❌ Haber yükleme hatası:', error);
-            const container = document.getElementById('newsContainer');
-            if (container) {
-              container.innerHTML = `
-                <div class="error-state">
-                  <h3>⚠️ Haberler Yüklenemedi</h3>
-                  <p>Google Sheets'e erişimde sorun yaşandı.</p>
-                  <p><strong>Hata:</strong> ${error.message}</p>
-                  <button onclick="location.reload()" class="retry-btn">
-                    🔄 Sayfayı Yenile
-                  </button>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <div class="logo-text">k.</div>
+                    </a>
                 </div>
-              `;
-            }
-          });
-        }
-      }, 1000);
-    });
-    
-    // Manual refresh function
-    function refreshNews() {
-      if (newsManager) {
-        newsManager.refresh();
-      }
-    }
-    
-    // Search function (can be used later)
-    function searchNews(query) {
-      if (newsManager) {
-        const results = newsManager.searchNews(query);
-        console.log('Search results:', results);
-        return results;
-      }
-    }
-    
-    // Theme switcher for favicon
-    function setFavicon(theme) {
-      const favicon = document.getElementById('favicon');
-      if (theme === 'dark') {
-        favicon.href = 'favicon-dark.svg';
-      } else {
-        favicon.href = 'favicon-light.svg';
-      }
-    }
-    
-    setFavicon('light');
-  </script>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Anasayfa</a></li>
+                        <li><a href="temalar.html" class="nav-link">Temalar</a></li>
+                        <li><a href="haberler.html" class="nav-link active">Haberler</a></li>
+                        <li><a href="index.html#satin-al" class="nav-link">Satın Al</a></li>
+                        <li><a href="index.html#iletisim" class="nav-link">İletişim</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Main Content -->
+    <main style="padding-top: 100px;">
+        <!-- Hero Section -->
+        <section class="hero news-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Dijital Dünya Haberleri</h1>
+                    <p class="hero-description">
+                        2025'te web tasarım, AI teknolojileri ve SEO alanındaki en güncel gelişmeler
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news-section">
+            <div class="container">
+                <div class="news-grid">
+                    <article class="news-article featured">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop" alt="AI Web Tasarım" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">15 Ocak 2025</span>
+                            </div>
+                            <h2 class="article-title">2025'te AI Destekli Web Tasarım: Geleceğin Trendleri</h2>
+                            <p class="article-excerpt">
+                                Yapay zeka teknolojileri web tasarım dünyasını kökten değiştiriyor. ChatGPT, Midjourney ve diğer AI araçları ile tasarımcılar artık daha hızlı, daha yaratıcı ve daha verimli çalışabiliyor. Bu yazımızda 2025'in en popüler AI web tasarım araçlarını ve nasıl kullanılacaklarını inceliyoruz.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI</span>
+                                <span class="tag">Web Tasarım</span>
+                                <span class="tag">2025 Trendleri</span>
+                                <span class="tag">ChatGPT</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop" alt="SEO 2025" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">SEO</span>
+                                <span class="article-date">12 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">Google'ın 2025 SEO Güncellemeleri: Core Web Vitals 2.0</h3>
+                            <p class="article-excerpt">
+                                Google'ın yeni Core Web Vitals güncellemesi ile web sitelerinin performans kriterleri değişiyor. Sayfa yükleme hızı, kullanıcı deneyimi ve mobil uyumluluk artık daha da önemli. Bu güncellemeleri nasıl karşılayacağınızı öğrenin.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">SEO</span>
+                                <span class="tag">Core Web Vitals</span>
+                                <span class="tag">Google</span>
+                                <span class="tag">Performans</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop" alt="E-Ticaret Trendleri" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">E-Ticaret</span>
+                                <span class="article-date">10 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">2025 E-Ticaret Web Sitesi Trendleri: Mobil İlk Yaklaşım</h3>
+                            <p class="article-excerpt">
+                                Mobil cihazlardan yapılan alışverişler artık masaüstünü geçti. 2025'te e-ticaret siteleri nasıl tasarlanmalı? Mobil-öncelikli tasarım, hızlı ödeme sistemleri ve kişiselleştirilmiş deneyimler hakkında detaylı bilgi.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">E-Ticaret</span>
+                                <span class="tag">Mobil Tasarım</span>
+                                <span class="tag">UX/UI</span>
+                                <span class="tag">Ödeme Sistemleri</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop" alt="Web Güvenliği" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Güvenlik</span>
+                                <span class="article-date">8 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">2025'te Web Güvenliği: HTTPS, SSL ve Siber Tehditler</h3>
+                            <p class="article-excerpt">
+                                Siber güvenlik tehditleri her geçen gün artıyor. Web sitelerinizi nasıl koruyacağınızı, SSL sertifikalarının önemini ve güvenli hosting seçeneklerini detaylı olarak ele alıyoruz.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">Güvenlik</span>
+                                <span class="tag">SSL</span>
+                                <span class="tag">HTTPS</span>
+                                <span class="tag">Siber Güvenlik</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=400&fit=crop" alt="Mobil Uygulama" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Mobil</span>
+                                <span class="article-date">5 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">PWA vs Native App: 2025'te Hangi Seçenek Daha İyi?</h3>
+                            <p class="article-excerpt">
+                                Progressive Web Apps (PWA) ve native mobil uygulamalar arasındaki farklar nedir? Hangi projeler için hangi seçeneği tercih etmelisiniz? Maliyet, performans ve kullanıcı deneyimi açısından karşılaştırma.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">PWA</span>
+                                <span class="tag">Mobil Uygulama</span>
+                                <span class="tag">Web Teknolojileri</span>
+                                <span class="tag">Kullanıcı Deneyimi</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="Web Performansı" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Performans</span>
+                                <span class="article-date">3 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">Web Sitesi Hızlandırma Teknikleri: 2025 Rehberi</h3>
+                            <p class="article-excerpt">
+                                Yavaş web siteleri kullanıcıları kaçırır ve SEO sıralamanızı düşürür. Bu yazımızda web sitenizi nasıl hızlandıracağınızı, CDN kullanımını, görsel optimizasyonunu ve diğer performans iyileştirme tekniklerini öğrenin.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">Performans</span>
+                                <span class="tag">Hız Optimizasyonu</span>
+                                <span class="tag">CDN</span>
+                                <span class="tag">Görsel Optimizasyonu</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop" alt="ChatGPT-5 2025" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">20 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">ChatGPT-5 Geliyor: 2025'in En Büyük AI Devrimi</h3>
+                            <p class="article-excerpt">
+                                OpenAI'nin ChatGPT-5 modeli ile yapay zeka dünyası yeni bir çağa giriyor. Gelişmiş multimodal yetenekler, daha uzun bağlam penceresi ve profesyonel iş akışları için optimize edilmiş özellikler. İşletmenizde AI'yi nasıl kullanacağınızı öğrenin.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">ChatGPT</span>
+                                <span class="tag">OpenAI</span>
+                                <span class="tag">AI İşletme</span>
+                                <span class="tag">Multimodal AI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop" alt="AI No-Code Platformları" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">18 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI No-Code Platformları: Kod Yazmadan Uygulama Geliştirme</h3>
+                            <p class="article-excerpt">
+                                Bubble, Webflow ve Zapier gibi no-code platformlar AI entegrasyonu ile güçleniyor. Teknik bilgi gerektirmeden chatbot, otomasyon ve veri analizi uygulamaları nasıl geliştirilir? 2025'in en popüler no-code AI araçları.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">No-Code</span>
+                                <span class="tag">AI Otomasyon</span>
+                                <span class="tag">Chatbot</span>
+                                <span class="tag">Webflow</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop" alt="Google Gemini" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">16 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">Google Gemini Ultra: ChatGPT'ye Güçlü Rakip</h3>
+                            <p class="article-excerpt">
+                                Google'ın Gemini Ultra modeli, kod yazma, matematik çözme ve çok dilli destek konusunda yeni standartlar belirliyor. Gmail, Google Drive ve Workspace entegrasyonu ile iş hayatını dönüştürüyor. Gemini Ultra'nın avantajları neler?
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">Google Gemini</span>
+                                <span class="tag">AI Asistan</span>
+                                <span class="tag">Workspace</span>
+                                <span class="tag">Çok Dilli AI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop" alt="AI SEO Araçları" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">SEO</span>
+                                <span class="article-date">14 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI SEO Araçları: 2025'te Arama Motoru Optimizasyonu</h3>
+                            <p class="article-excerpt">
+                                Surfer SEO, Jasper AI ve Copy.ai gibi araçlar SEO içerik üretimini devrim niteliğinde değiştiriyor. Anahtar kelime araştırması, içerik optimizasyonu ve teknik SEO analizinde AI kullanımı. Organik trafiği 10 kat artıran yöntemler.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI SEO</span>
+                                <span class="tag">İçerik Optimizasyonu</span>
+                                <span class="tag">Anahtar Kelime</span>
+                                <span class="tag">Surfer SEO</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=400&fit=crop" alt="AI Chatbot" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">12 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Chatbot'lar İşletmeleri Nasıl Dönüştürüyor?</h3>
+                            <p class="article-excerpt">
+                                Müşteri hizmetlerinde 24/7 destek, satış sürecinde otomatik danışmanlık ve lead generation'da devrim yaratan AI chatbot'lar. WhatsApp Business API entegrasyonu ile Türkiye'de AI chatbot kullanımı nasıl artırılır?
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Chatbot</span>
+                                <span class="tag">Müşteri Hizmetleri</span>
+                                <span class="tag">WhatsApp Business</span>
+                                <span class="tag">Lead Generation</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop" alt="AI Tasarım Araçları" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">10 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">Adobe Firefly vs Midjourney: En İyi AI Tasarım Aracı Hangisi?</h3>
+                            <p class="article-excerpt">
+                                AI görsel üretim araçları grafik tasarım sektörünü hızla değiştiriyor. Adobe Firefly, Midjourney, DALL-E 3 ve Stable Diffusion karşılaştırması. Hangi platform hangi işler için daha uygun? Profesyonel tasarımcılar için rehber.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">Adobe Firefly</span>
+                                <span class="tag">Midjourney</span>
+                                <span class="tag">AI Tasarım</span>
+                                <span class="tag">DALL-E 3</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2e04?w=800&h=400&fit=crop" alt="AI Veri Analizi" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">8 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI ile Veri Analizi: Büyük Veri'den İçgörü Üretme</h3>
+                            <p class="article-excerpt">
+                                Tableau, Power BI ve Google Analytics'te AI entegrasyonu ile veri analizi nasıl devrim geçiriyor. Otomatik rapor üretimi, trend tahmini ve anormallik tespit sistemi. KOBİ'ler için uygun fiyatlı AI veri analiz çözümleri.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Veri Analizi</span>
+                                <span class="tag">Büyük Veri</span>
+                                <span class="tag">Tableau AI</span>
+                                <span class="tag">Power BI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop" alt="AI E-Ticaret" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">E-Ticaret</span>
+                                <span class="article-date">6 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI E-Ticaret: Kişiselleştirilmiş Alışveriş Deneyimi</h3>
+                            <p class="article-excerpt">
+                                Ürün önerileri, dinamik fiyatlandırma, stok tahminleri ve kişiselleştirilmiş pazarlama kampanyalarında AI kullanımı. Shopify, WooCommerce ve Magento'da AI eklentileri. Conversion rate'ı %300 artıran AI stratejileri.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI E-Ticaret</span>
+                                <span class="tag">Kişiselleştirme</span>
+                                <span class="tag">Shopify AI</span>
+                                <span class="tag">Ürün Önerileri</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop" alt="Machine Learning" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">4 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">Machine Learning Başlangıç Rehberi: 2025 için Pratik Kılavuz</h3>
+                            <p class="article-excerpt">
+                                Python, TensorFlow ve scikit-learn ile machine learning'e giriş. Sınıflandırma, regresyon ve kümeleme algoritmalarının iş dünyasındaki uygulamaları. Teknik bilgi gerektirmeyen AutoML araçları ve Google Cloud AI Platform.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Python AI</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">AutoML</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop" alt="AI Muhasebe" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">2 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Muhasebe Sistemleri: Mali Müşavirlik Sektöründe Dijital Dönüşüm</h3>
+                            <p class="article-excerpt">
+                                Otomatik fatura işleme, gider kategorilendirme, vergi hesaplamarı ve finansal raporlama'da AI kullanımı. Türkiye'de BDDK onayı alan AI muhasebe çözümleri. Enpara.com, İş Bankası API entegrasyonları ile otomasyon.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Muhasebe</span>
+                                <span class="tag">Otomatik Fatura</span>
+                                <span class="tag">Mali Müşavir</span>
+                                <span class="tag">Fintech AI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop" alt="AI Robotik" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">31 Aralık 2024</span>
+                            </div>
+                            <h3 class="article-title">Humanoid Robotlar 2025: Tesla Bot ve Boston Dynamics Atlas</h3>
+                            <p class="article-excerpt">
+                                Tesla Optimus, Boston Dynamics Atlas ve Honda ASIMO gibi humanoid robotların son gelişmeleri. Fabrikalar, hastaneler ve ev ortamlarında AI robotik uygulamaları. Türkiye'de robotik sektörünün geleceği ve yatırım fırsatları.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">Humanoid Robot</span>
+                                <span class="tag">Tesla Optimus</span>
+                                <span class="tag">Boston Dynamics</span>
+                                <span class="tag">AI Robotik</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=400&fit=crop" alt="AI Sibergüvenlik" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Güvenlik</span>
+                                <span class="article-date">29 Aralık 2024</span>
+                            </div>
+                            <h3 class="article-title">AI Sibergüvenlik: Yapay Zeka ile Tehdit Tespit Sistemleri</h3>
+                            <p class="article-excerpt">
+                                Machine learning algoritmaları ile malware tespit, saldırı önleme ve ağ güvenliği. CrowdStrike, SentinelOne ve Darktrace gibi AI güvenlik çözümleri. KOBİ'ler için uygun fiyatlı AI sibergüvenlik araçları ve Türkiye pazarı.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Güvenlik</span>
+                                <span class="tag">Sibergüvenlik</span>
+                                <span class="tag">Malware Tespiti</span>
+                                <span class="tag">Darktrace</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=400&fit=crop" alt="AI Oyun Geliştirme" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">27 Aralık 2024</span>
+                            </div>
+                            <h3 class="article-title">AI Oyun Geliştirme: Procedural Generation ve NPC Davranışları</h3>
+                            <p class="article-excerpt">
+                                Unity ML-Agents, Unreal Engine AI Tools ve procedural content generation ile oyun geliştirme süreci nasıl hızlanıyor. GPT entegrasyonlu NPC'ler, dinamik hikaye anlatma ve oyuncu davranışı analizi. Indie geliştiriciler için AI araçları.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Oyun</span>
+                                <span class="tag">Unity ML-Agents</span>
+                                <span class="tag">Procedural Generation</span>
+                                <span class="tag">NPC AI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=400&fit=crop" alt="AI Eğitim" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Eğitim</span>
+                                <span class="article-date">25 Aralık 2024</span>
+                            </div>
+                            <h3 class="article-title">AI Eğitim Teknolojileri: Kişiselleştirilmiş Öğrenme Sistemleri</h3>
+                            <p class="article-excerpt">
+                                Khan Academy, Duolingo ve Coursera'da yapay zeka entegrasyonu ile kişiselleştirilmiş eğitim deneyimi. Adaptive learning, otomatik değerlendirme ve öğrenci performans analizi. Türkiye'de EdTech startup'ları ve AI eğitim çözümleri.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Eğitim</span>
+                                <span class="tag">EdTech</span>
+                                <span class="tag">Kişiselleştirilmiş Öğrenme</span>
+                                <span class="tag">Adaptive Learning</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop" alt="AI Pazarlama" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Pazarlama</span>
+                                <span class="article-date">23 Aralık 2024</span>
+                            </div>
+                            <h3 class="article-title">AI Pazarlama Otomasyonu: HubSpot ve Marketo'da Yapay Zeka</h3>
+                            <p class="article-excerpt">
+                                Lead scoring, e-posta kişiselleştirmesi, sosyal medya içerik üretimi ve müşteri segmentasyonunda AI kullanımı. Facebook Ads, Google Ads optimizasyonu ile conversion rate artırma teknikleri. Performance marketing'te AI stratejileri.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Pazarlama</span>
+                                <span class="tag">Pazarlama Otomasyonu</span>
+                                <span class="tag">HubSpot AI</span>
+                                <span class="tag">Lead Scoring</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop" alt="Quantum AI" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">21 Aralık 2024</span>
+                            </div>
+                            <h3 class="article-title">Quantum AI: Kuantum Bilgisayarlar ve Yapay Zeka Birleşiyor</h3>
+                            <p class="article-excerpt">
+                                IBM Quantum, Google Sycamore ve IonQ ile kuantum-AI hibrit sistemleri. Quantum machine learning algoritmalarının finansal modelleme, ilaç keşfi ve kriptografi alanlarındaki uygulamaları. Türkiye'nin kuantum teknoloji yol haritası.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">Quantum AI</span>
+                                <span class="tag">Kuantum Bilgisayar</span>
+                                <span class="tag">IBM Quantum</span>
+                                <span class="tag">Quantum ML</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1676299081847-824916de030a?w=800&h=400&fit=crop" alt="Machine Learning 2025" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">3 Şubat 2025</span>
+                            </div>
+                            <h3 class="article-title">Machine Learning AutoML: Herkes İçin Yapay Zeka</h3>
+                            <p class="article-excerpt">
+                                Google AutoML, Azure ML ve Amazon SageMaker ile makine öğrenmesi artık herkesin erişebileceği bir teknoloji. Kod bilmeden model eğitimi, otomatik feature engineering ve model deployment. İşletmenizde ML nasıl kullanılır?
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">AutoML</span>
+                                <span class="tag">Google ML</span>
+                                <span class="tag">Azure ML</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&h=400&fit=crop" alt="AI Muhasebe" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI İşletme</span>
+                                <span class="article-date">1 Şubat 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Muhasebe Yazılımları: Finans Departmanının Geleceği</h3>
+                            <p class="article-excerpt">
+                                QuickBooks AI, Xero Machine Learning ve Logo AI ile muhasebe süreçleri otomatikleşiyor. Fatura okuma, gider kategorilendirme ve vergi hesaplaması artık saniyeler içinde. KOBİ'ler için AI muhasebe çözümleri ve maliyetleri.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Muhasebe</span>
+                                <span class="tag">Fintech</span>
+                                <span class="tag">Otomasyon</span>
+                                <span class="tag">QuickBooks AI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop" alt="AI Video Üretimi" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">30 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Video Üretimi: Sora, RunwayML ve Pika Labs Karşılaştırması</h3>
+                            <p class="article-excerpt">
+                                OpenAI Sora, RunwayML Gen-2 ve Pika Labs ile text-to-video üretimi artık profesyonel kalitede. Sosyal medya içeriği, reklamlar ve eğitim videoları için AI araçları. Türkiye'de video prodüksiyon sektörüne etkisi.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Video</span>
+                                <span class="tag">Sora</span>
+                                <span class="tag">RunwayML</span>
+                                <span class="tag">Text-to-Video</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&fit=crop" alt="AI Kod Yazma" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Yazılım</span>
+                                <span class="article-date">28 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">GitHub Copilot vs Cursor AI: En İyi AI Kod Asistanı</h3>
+                            <p class="article-excerpt">
+                                GitHub Copilot, Cursor AI ve Amazon CodeWhisperer gibi AI kod yazma araçları yazılım geliştirmeyi hızlandırıyor. Otomatik kod tamamlama, bug tespit ve refactoring özellikleri. Junior developer'lar için AI destekli öğrenme.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Kodlama</span>
+                                <span class="tag">GitHub Copilot</span>
+                                <span class="tag">Cursor AI</span>
+                                <span class="tag">Code Assistant</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=800&h=400&fit=crop" alt="AI İnsan Kaynakları" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI İşletme</span>
+                                <span class="article-date">26 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI İnsan Kaynakları: Akıllı İşe Alım ve Performans Değerlendirme</h3>
+                            <p class="article-excerpt">
+                                LinkedIn AI, HireVue ve Workday ile işe alım süreçleri otomatikleşiyor. CV tarama, video mülakat analizi ve çalışan performans tahmini. Bias-free recruitment ve diversity & inclusion'da AI'nin rolü. HR departmanları için rehber.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI HR</span>
+                                <span class="tag">İşe Alım</span>
+                                <span class="tag">LinkedIn AI</span>
+                                <span class="tag">Performance AI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=400&fit=crop" alt="AI Müzik Üretimi" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">24 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Müzik Üretimi: AIVA, Amper Music ve Suno AI</h3>
+                            <p class="article-excerpt">
+                                AIVA, Amper Music ve Suno AI ile müzik kompozisyonu artık yapay zeka desteğinde. Podcast intro'ları, reklam müzikleri ve oyun soundtrack'leri için AI araçları. Telif hakkı sorunları ve Türkiye müzik endüstrisine etkiler.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Müzik</span>
+                                <span class="tag">AIVA</span>
+                                <span class="tag">Suno AI</span>
+                                <span class="tag">Müzik Kompozisyonu</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=400&fit=crop" alt="AI Sağlık" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Sağlık</span>
+                                <span class="article-date">22 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Sağlık Teknolojileri: Tele-tıp ve Diagnostik AI</h3>
+                            <p class="article-excerpt">
+                                IBM Watson Health, Google Health AI ve Microsoft Healthcare Bot ile sağlık sektörü dijitalleṡiyor. Raḋyoloj̇i AI, ̇laç keşḟ ve hasta takip ṡstemleri. Türkiye'de e-sağlık uygulamaları ve KVKK uyumluluğu.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Sağlık</span>
+                                <span class="tag">Tele-Tıp</span>
+                                <span class="tag">IBM Watson</span>
+                                <span class="tag">Diagnostik AI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=400&fit=crop" alt="AI Finans" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Fintech</span>
+                                <span class="article-date">20 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Finans Teknolojileri: Robo-Advisors ve Algoritmik Trading</h3>
+                            <p class="article-excerpt">
+                                Betterment, Wealthfront ve Robo-advisor'lar ile yatırım danışmanlığı demokratikleşiyor. High-frequency trading, risk yönetimi ve fraud detection'da AI kullanımı. Türkiye fintech sektöründe AI uygulamaları.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Finans</span>
+                                <span class="tag">Robo-Advisor</span>
+                                <span class="tag">Algoritmik Trading</span>
+                                <span class="tag">Fintech</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop" alt="AI Lojistik" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI İşletme</span>
+                                <span class="article-date">18 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Lojistik ve Tedarik Zinciri: Otonom Araçlar ve Depo Otomasyonu</h3>
+                            <p class="article-excerpt">
+                                Amazon Robotics, Tesla Semi ve DHL AI ile lojistik süreçleri yeniden tasarlanıyor. Route optimization, demand forecasting ve warehouse automation. Türkiye kargo sektöründe AI dönüşümü ve Yurtıçi, Aras Kargo örnekleri.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Lojistik</span>
+                                <span class="tag">Otonom Araç</span>
+                                <span class="tag">Amazon Robotics</span>
+                                <span class="tag">Tedarik Zinciri</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop" alt="AI Tarım" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">16 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">Akıllı Tarım: AI ile Precision Agriculture ve Crop Monitoring</h3>
+                            <p class="article-excerpt">
+                                John Deere AI, Blue River Technology ve Climate Corporation ile tarım sektörü dijitalleṡiyor. Drone'lar ile hasat analizi, otonom traktörler ve pestisit optimizasyonu. Türkiye tarımında AI uygulamaları ve çiftçilere faydaları.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Tarım</span>
+                                <span class="tag">Akıllı Tarım</span>
+                                <span class="tag">Precision Agriculture</span>
+                                <span class="tag">Otonom Traktör</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop" alt="AI Hukuk" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">LegalTech</span>
+                                <span class="article-date">14 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Hukuk Teknolojileri: Legal Research ve Sözleşme Analizi</h3>
+                            <p class="article-excerpt">
+                                LexisNexis AI, Westlaw Edge ve DoNotPay ile hukuk mesleği dönüşüm geçiriyor. Otomatik sözleşme incelemesi, case law arama ve legal brief hazırlama. Türkiye hukuk bürolarında AI kullanımı ve etik kurallar.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Hukuk</span>
+                                <span class="tag">LegalTech</span>
+                                <span class="tag">Legal Research</span>
+                                <span class="tag">Contract AI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=400&fit=crop" alt="AI Emlak" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">PropTech</span>
+                                <span class="article-date">12 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Emlak Teknolojileri: Otomatik Değerleme ve Virtual Tours</h3>
+                            <p class="article-excerpt">
+                                Zillow Zestimate, Redfin AI ve Compass Concierge ile emlak sektörü yeniden şekilleniyor. Automated Valuation Models (AVM), virtual staging ve predictive analytics. Türkiye emlak pazarında AI uygulamaları ve sahibinden.com örneği.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Emlak</span>
+                                <span class="tag">PropTech</span>
+                                <span class="tag">Virtual Tours</span>
+                                <span class="tag">Otomatik Değerleme</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=400&fit=crop" alt="AI Enerji" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI Teknolojileri</span>
+                                <span class="article-date">10 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Enerji Yönetimi: Smart Grid ve Yenilenebilir Enerji Optimizasyonu</h3>
+                            <p class="article-excerpt">
+                                Tesla Powerwall AI, Google DeepMind ve Siemens Digital Grid ile enerji sektörü akıllanıyor. Demand response, load balancing ve renewable energy forecasting. Türkiye'nin enerji dönüşümünde AI'nin rolü ve akllı şehir projeleri.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Enerji</span>
+                                <span class="tag">Smart Grid</span>
+                                <span class="tag">Tesla Powerwall</span>
+                                <span class="tag">Yenilenebilir Enerji</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=800&h=400&fit=crop" alt="AI Turizm" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">AI İşletme</span>
+                                <span class="article-date">8 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Turizm: Kişiselleştirilmiş Seyahat Önerileri ve Chatbot'lar</h3>
+                            <p class="article-excerpt">
+                                Booking.com AI, Expedia Group ve Airbnb Smart Pricing ile turizm sektörü kişiselleşiyor. Dynamic pricing, recommendation engines ve customer service automation. Türkiye turizm ağırlıklı tech startup'ları ve Pegasus AI örneği.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Turizm</span>
+                                <span class="tag">Seyahat AI</span>
+                                <span class="tag">Booking AI</span>
+                                <span class="tag">Dynamic Pricing</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=400&fit=crop" alt="AI Spor" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">SportsTech</span>
+                                <span class="article-date">6 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Spor Teknolojileri: Performance Analytics ve Injury Prevention</h3>
+                            <p class="article-excerpt">
+                                Catapult Sports, Zebra Technologies ve STATS Perform ile spor analitiği yeni boyutlara taşınıyor. Player tracking, biomechanical analysis ve tactical insights. Türkiye futbol liglerinde AI kullanımı, Galatasaray ve Fenerbahçe örnekleri.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Spor</span>
+                                <span class="tag">Performance Analytics</span>
+                                <span class="tag">SportsTech</span>
+                                <span class="tag">Player Tracking</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop" alt="AI Perakende" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">RetailTech</span>
+                                <span class="article-date">4 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Perakende: Cashierless Stores ve Visual Search</h3>
+                            <p class="article-excerpt">
+                                Amazon Go, Auchan Minute ve Carrefour Flash ile kasıyersiz mağazalar yayılıyor. Computer vision, inventory management ve customer behavior analysis. Türkiye perakende sektöründe AI dönüşümü, Migros ve BIM dijital stratejileri.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Perakende</span>
+                                <span class="tag">Cashierless Store</span>
+                                <span class="tag">Computer Vision</span>
+                                <span class="tag">RetailTech</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop" alt="AI Medya" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">MediaTech</span>
+                                <span class="article-date">2 Ocak 2025</span>
+                            </div>
+                            <h3 class="article-title">AI Medya Üretimi: Otomatik Haber Yazma ve Deepfake Tespiti</h3>
+                            <p class="article-excerpt">
+                                Associated Press AI, Reuters Lynx ve Bloomberg Terminal ile habercilik otomatikleşiyor. Automated journalism, fact-checking AI ve misinformation detection. Türkiye medyasında AI kullanımı, etik kurallar ve gazeteciliğin geleceği.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI Medya</span>
+                                <span class="tag">Otomatik Habercilik</span>
+                                <span class="tag">Deepfake Tespit</span>
+                                <span class="tag">Fact-Checking AI</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=400&fit=crop" alt="AI Göç ve Vatandaşlık" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">GovTech</span>
+                                <span class="article-date">31 Aralık 2024</span>
+                            </div>
+                            <h3 class="article-title">AI Kamu Hizmetleri: E-Devlet ve Akıllı Şehir Uygulamaları</h3>
+                            <p class="article-excerpt">
+                                IBM Watson Government, Microsoft Azure Government ve Palantir Foundry ile kamu sektörü dijitalleṡiyor. Citizen services automation, traffic optimization ve public safety AI. Türkiye'nin Dijital Türkiye Vizyonu ve e-Devlet AI dönüşümü.
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">AI GovTech</span>
+                                <span class="tag">E-Devlet</span>
+                                <span class="tag">Akıllı Şehir</span>
+                                <span class="tag">Kamu Hizmetleri</span>
+                            </div>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="news-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Popüler Kategoriler</h3>
+                        <ul class="category-list">
+                            <li><a href="#">AI Teknolojileri (15)</a></li>
+                            <li><a href="#">SEO (12)</a></li>
+                            <li><a href="#">E-Ticaret (8)</a></li>
+                            <li><a href="#">Güvenlik (6)</a></li>
+                            <li><a href="#">Mobil (5)</a></li>
+                            <li><a href="#">Performans (4)</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3>Son Yazılar</h3>
+                        <ul class="recent-posts">
+                            <li><a href="#">AI Destekli Web Tasarım Trendleri</a></li>
+                            <li><a href="#">Google SEO Güncellemeleri 2025</a></li>
+                            <li><a href="#">E-Ticaret Mobil Tasarım</a></li>
+                            <li><a href="#">Web Güvenliği ve SSL</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3>Newsletter</h3>
+                        <p>En güncel dijital dünya haberlerini alın!</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="E-posta adresiniz" required>
+                            <button type="submit" class="btn btn-primary">Abone Ol</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>Kaysia Agency — Web Tasarım & Otomasyon</p>
+                </div>
+                <div class="footer-center">
+                    <nav class="footer-nav">
+                        <a href="index.html">Anasayfa</a>
+                        <span>·</span>
+                        <a href="temalar.html">Temalar</a>
+                        <span>·</span>
+                        <a href="haberler.html">Haberler</a>
+                        <span>·</span>
+                        <a href="index.html#satin-al">Satın Al</a>
+                        <span>·</span>
+                        <a href="index.html#iletisim">İletişim</a>
+                    </nav>
+                </div>
+                <div class="footer-right">
+                    <p>® Kaysia — kaysia.co • Tüm hakları saklıdır.</p>
+                    <p>&copy; <span id="currentYear"></span> Kaysia Agency</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/905305616747" class="whatsapp-button" target="_blank">
+        <span class="whatsapp-icon">💬</span>
+    </a>
+
+    <script src="script.js"></script>
 </body>
 </html>

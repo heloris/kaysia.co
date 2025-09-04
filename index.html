@@ -1,1577 +1,615 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kaysia Agency – 24 Saatte Web Tasarım</title>
-      <meta name="description" content="24 saatte profesyonel web tasarım. KOBİ ve girişimler için mobil uyumlu, güvenli, SEO optimizasyonlu web siteleri. Bu haftaya özel indirimli fiyatlar!">
-  <link rel="canonical" href="https://kaysia.co/"/>
-  <!-- Open Graph -->
-  <meta property="og:title" content="Kaysia Agency – 24 Saatte Web Tasarım">
-      <meta property="og:description" content="24 saatte profesyonel web tasarım. Mobil uyumlu, güvenli, SEO optimizasyonlu web siteleri. Bu haftaya özel indirimli fiyatlar!">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kaysia.co/">
-  <meta property="og:image" content="/og.png">
-  <link rel="icon" href="favicon-light.svg" id="favicon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563eb">
+    <title>Kaysia.co — 24 Saatte Hazır Profesyonel Web Sitesi</title>
+    <meta name="description" content="Markanızı 1 iş günü içinde yayına alıyoruz: modern tasarım, SEO, güvenlik, hız ve WhatsApp/Haritalar entegrasyonu dahil.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kaysia.co/">
+    <meta property="og:title" content="Kaysia.co — 24 Saatte Hazır Profesyonel Web Sitesi">
+    <meta property="og:description" content="Markanızı 1 iş günü içinde yayına alıyoruz: modern tasarım, SEO, güvenlik, hız ve WhatsApp/Haritalar entegrasyonu dahil.">
+    <meta property="og:image" content="https://kaysia.co/logo.png">
 
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYM7YXN4S0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-CYM7YXN4S0');
-  </script>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kaysia.co/">
+    <meta property="twitter:title" content="Kaysia.co — 24 Saatte Hazır Profesyonel Web Sitesi">
+    <meta property="twitter:description" content="Markanızı 1 iş günü içinde yayına alıyoruz: modern tasarım, SEO, güvenlik, hız ve WhatsApp/Haritalar entegrasyonu dahil.">
+    <meta property="twitter:image" content="https://kaysia.co/logo.png">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-64.png">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYM7YXN4S0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CYM7YXN4S0');
+    </script>
 
-
-  <style>
-    :root{
-      --bg:#ffffff; --fg:#1a1a1a; --muted:#666666; --card:#ffffff; --border:#e5e5e5;
-      --blue:#e74c3c; --accent:#2c3e50; --red:#e74c3c;
-    }
-    
-    /* Tema 1: Kaysia (ana tema - kartvizit tarzı) */
-    :root[data-theme="kaysia"]{
-      --bg:#ffffff; --fg:#1a1a1a; --muted:#666666; --card:#ffffff; --border:#e5e5e5; --blue:#e74c3c; --accent:#2c3e50; --red:#e74c3c;
-    }
-    
-    /* Tema 2: Modern (tek sayfa layout) */
-    :root[data-theme="modern"]{
-      --bg:#f8f9fa; --fg:#2c3e50; --muted:#6c757d; --card:#ffffff; --border:#dee2e6; --blue:#3498db; --accent:#e74c3c; --red:#e74c3c;
-    }
-    
-    /* Tema 3: Dark (dikey layout) */
-    :root[data-theme="dark"]{
-      --bg:#1a1a1a; --fg:#ffffff; --muted:#b0b0b0; --card:#2d2d2d; --border:#404040; --blue:#e74c3c; --accent:#3498db; --red:#e74c3c;
-    }
-    
-    /* Tema 4: Minimal (merkezi layout) */
-    :root[data-theme="minimal"]{
-      --bg:#ffffff; --fg:#000000; --muted:#888888; --card:#ffffff; --border:#dddddd; --blue:#e74c3c; --accent:#000000; --red:#e74c3c;
-    }
-    
-    /* Tema 5: Fotoğrafçı (blogger tarzı) */
-    :root[data-theme="photographer"]{
-      --bg:#fafafa; --fg:#2c2c2c; --muted:#666666; --card:#ffffff; --border:#e0e0e0; --blue:#8e44ad; --accent:#e67e22; --red:#e74c3c;
-    }
-    
-    /* Tema 6: Dark City (koyu şehir) */
-    :root[data-theme="darkcity"]{
-      --bg:#0a0a0a; --fg:#ffffff; --muted:#cccccc; --card:#1a1a1a; --border:#333333; --blue:#00d4ff; --accent:#ff6b35; --red:#ff4757;
-    }
-
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:var(--fg);background:var(--bg)}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    
-    /* Kaysia Tema Stilleri - Kartvizit Tarzı */
-    [data-theme="kaysia"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent))}
-    [data-theme="kaysia"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f8f9fa,#e9ecef)}
-    [data-theme="kaysia"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
-    [data-theme="kaysia"] .logo:hover{transform:scale(1.05)}
-
-    [data-theme="kaysia"] .card{border-left:4px solid var(--blue);border-radius:12px;padding:20px;background:var(--card);transition:all 0.2s;margin-top:20px}
-    [data-theme="kaysia"] .card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.1);transform:translateY(-2px)}
-    [data-theme="kaysia"] .btn-primary{background:var(--blue);color:#fff;border-radius:8px;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s}
-    [data-theme="kaysia"] .btn-primary:hover{background:var(--accent);transform:translateY(-1px)}
-    [data-theme="kaysia"] .btn-ghost{border:1px solid var(--border);color:var(--fg);background:transparent;border-radius:8px;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s}
-    [data-theme="kaysia"] .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-    
-    /* Modern Tema Stilleri - Tek Sayfa Layout */
-    [data-theme="modern"] .bar{background:var(--blue);border-radius:0 0 20px 20px}
-    [data-theme="modern"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f8f9fa,#e9ecef)}
-    [data-theme="modern"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
-    [data-theme="modern"] .logo:hover{transform:scale(1.05)}
-
-    [data-theme="modern"] .theme-switch{position:fixed;top:20px;right:40px;z-index:1000}
-    [data-theme="modern"] .actions{position:relative;margin-top:30px;display:flex;gap:15px;justify-content:center}
-    [data-theme="modern"] .card{background:var(--card);border-radius:20px;padding:25px;box-shadow:0 8px 25px rgba(0,0,0,0.08);border:none;transition:all 0.3s;margin:10px 0}
-    [data-theme="modern"] .card:hover{box-shadow:0 15px 35px rgba(0,0,0,0.12);transform:translateY(-5px)}
-    [data-theme="modern"] .btn-primary{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none}
-    [data-theme="modern"] .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(52,152,219,0.3)}
-    [data-theme="modern"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s}
-    [data-theme="modern"] .btn-ghost:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
-    [data-theme="modern"] .grid-2{grid-template-columns:1fr}
-    [data-theme="modern"] .grid-3{grid-template-columns:1fr}
-    [data-theme="modern"] .grid-4{grid-template-columns:1fr}
-    [data-theme="modern"] .container{max-width:800px}
-    [data-theme="modern"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f8f9fa,#e9ecef)}
-    [data-theme="modern"] .hero-content{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 20px}
-    [data-theme="modern"] section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 0}
-    [data-theme="modern"] body{scroll-behavior:smooth}
-    
-    /* Dark Tema Stilleri - Kaysia'nın Tam Tersi */
-    [data-theme="dark"] .bar{background:var(--accent);border-bottom:3px solid var(--blue)}
-    [data-theme="dark"] .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#2d2d2d,#1a1a1a)}
-    [data-theme="dark"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
-    [data-theme="dark"] .logo:hover{transform:scale(1.05)}
-
-    [data-theme="dark"] .theme-switch{position:absolute;top:20px;left:40px}
-    [data-theme="dark"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
-    [data-theme="dark"] .card{background:var(--card);border-radius:15px;padding:20px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:all 0.3s}
-    [data-theme="dark"] .card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.5);transform:translateY(-3px);border-color:var(--accent)}
-    [data-theme="dark"] .btn-primary{background:var(--accent);color:#fff;border-radius:10px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none;box-shadow:0 4px 15px rgba(52,152,219,0.3)}
-    [data-theme="dark"] .btn-primary:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 6px 20px rgba(52,152,219,0.4)}
-    [data-theme="dark"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:10px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s}
-    [data-theme="dark"] .btn-ghost:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
-    
-    /* Minimal Tema Stilleri - Blogger Tarzı */
-    [data-theme="minimal"] .bar{background:var(--blue);border-radius:0}
-    [data-theme="minimal"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--bg)}
-    [data-theme="minimal"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
-    [data-theme="minimal"] .logo:hover{transform:scale(1.05)}
-
-    [data-theme="minimal"] .theme-switch{position:absolute;top:20px;right:40px}
-    [data-theme="minimal"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
-    [data-theme="minimal"] .card{background:var(--card);border:2px solid var(--border);border-radius:0;padding:20px;transition:all 0.2s;max-width:600px;margin:20px auto;font-family:'Georgia',serif}
-    [data-theme="minimal"] .card:hover{border-color:var(--blue);transform:none}
-    [data-theme="minimal"] .card h3{font-family:'Georgia',serif;font-style:italic;border-bottom:2px solid var(--blue);padding-bottom:10px}
-    [data-theme="minimal"] .btn-primary{background:var(--blue);color:#fff;border-radius:0;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s;border:none;font-family:'Georgia',serif}
-    [data-theme="minimal"] .btn-primary:hover{background:var(--accent)}
-    [data-theme="minimal"] .btn-ghost{border:2px solid var(--border);color:var(--fg);background:transparent;border-radius:0;padding:12px 18px;text-decoration:none;font-weight:600;transition:all 0.2s;font-family:'Georgia',serif}
-    [data-theme="minimal"] .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-    [data-theme="minimal"] .container{max-width:900px}
-    [data-theme="minimal"] .grid-2{grid-template-columns:1fr}
-    [data-theme="minimal"] .grid-3{grid-template-columns:1fr}
-    [data-theme="minimal"] .grid-4{grid-template-columns:1fr}
-    
-    /* Photographer Tema Stilleri - Masonry Grid Layout */
-    [data-theme="photographer"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent))}
-    [data-theme="photographer"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#fafafa,#f0f0f0)}
-    [data-theme="photographer"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
-    [data-theme="photographer"] .logo:hover{transform:scale(1.05)}
-    [data-theme="photographer"] .theme-switch{position:absolute;top:20px;right:40px}
-    [data-theme="photographer"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
-    [data-theme="photographer"] .card{background:var(--card);border-radius:15px;padding:25px;box-shadow:0 8px 25px rgba(142,68,173,0.1);border:1px solid var(--border);transition:all 0.3s;margin:15px 0}
-    [data-theme="photographer"] .card:hover{box-shadow:0 15px 35px rgba(142,68,173,0.2);transform:translateY(-3px)}
-    [data-theme="photographer"] .card h3{color:var(--blue);border-left:4px solid var(--accent);padding-left:15px}
-    [data-theme="photographer"] .btn-primary{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none}
-    [data-theme="photographer"] .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(142,68,173,0.3)}
-    [data-theme="photographer"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s}
-    [data-theme="photographer"] .btn-ghost:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
-    [data-theme="photographer"] .grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
-    [data-theme="photographer"] .grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-    [data-theme="photographer"] .grid-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-    [data-theme="photographer"] .container{max-width:1200px}
-    [data-theme="photographer"] .themes-grid{grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px}
-    [data-theme="photographer"] .theme-card{transform:rotate(-1deg);transition:all 0.3s}
-    [data-theme="photographer"] .theme-card:nth-child(even){transform:rotate(1deg)}
-    [data-theme="photographer"] .theme-card:hover{transform:rotate(0deg) translateY(-5px)}
-    
-    /* Dark City Tema Stilleri - Cyberpunk Layout */
-    [data-theme="darkcity"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent));border-bottom:2px solid var(--red)}
-    [data-theme="darkcity"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#0a0a0a,#1a1a1a)}
-    [data-theme="darkcity"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
-    [data-theme="darkcity"] .logo:hover{transform:scale(1.05);filter:drop-shadow(0 0 10px var(--blue))}
-    [data-theme="darkcity"] .theme-switch{position:absolute;top:20px;right:40px}
-    [data-theme="darkcity"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
-    [data-theme="darkcity"] .card{background:var(--card);border-radius:10px;padding:20px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,212,255,0.1);transition:all 0.3s}
-    [data-theme="darkcity"] .card:hover{box-shadow:0 8px 30px rgba(0,212,255,0.2);transform:translateY(-3px);border-color:var(--blue)}
-    [data-theme="darkcity"] .card h3{color:var(--blue);text-shadow:0 0 5px var(--blue)}
-    [data-theme="darkcity"] .btn-primary{background:var(--blue);color:#000;border-radius:8px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none;box-shadow:0 0 10px var(--blue)}
-    [data-theme="darkcity"] .btn-primary:hover{background:var(--accent);box-shadow:0 0 15px var(--accent);transform:translateY(-2px)}
-    [data-theme="darkcity"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:8px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s}
-    [data-theme="darkcity"] .btn-ghost:hover{background:var(--blue);color:#000;box-shadow:0 0 10px var(--blue)}
-    [data-theme="darkcity"] .grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-    [data-theme="darkcity"] .grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-    [data-theme="darkcity"] .grid-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
-    [data-theme="darkcity"] .container{max-width:1000px}
-    [data-theme="darkcity"] .themes-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
-    [data-theme="darkcity"] .theme-card{position:relative;overflow:hidden}
-    [data-theme="darkcity"] .theme-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,212,255,0.1),transparent);transition:left 0.5s}
-    [data-theme="darkcity"] .theme-card:hover::before{left:100%}
-    [data-theme="darkcity"] .theme-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,212,255,0.3)}
-    
-    /* Fotoğrafçı Tema Stilleri - Blogger Tarzı */
-    [data-theme="photographer"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent))}
-    [data-theme="photographer"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#fafafa,#f0f0f0)}
-    [data-theme="photographer"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
-    [data-theme="photographer"] .logo:hover{transform:scale(1.05)}
-    [data-theme="photographer"] .theme-switch{position:absolute;top:20px;right:40px}
-    [data-theme="photographer"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
-    [data-theme="photographer"] .card{background:var(--card);border-radius:15px;padding:25px;box-shadow:0 8px 25px rgba(142,68,173,0.1);border:1px solid var(--border);transition:all 0.3s;margin:15px 0}
-    [data-theme="photographer"] .card:hover{box-shadow:0 15px 35px rgba(142,68,173,0.2);transform:translateY(-3px)}
-    [data-theme="photographer"] .card h3{color:var(--blue);border-left:4px solid var(--accent);padding-left:15px}
-    [data-theme="photographer"] .btn-primary{background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none}
-    [data-theme="photographer"] .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(142,68,173,0.3)}
-    [data-theme="photographer"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:25px;padding:15px 25px;text-decoration:none;font-weight:600;transition:all 0.3s}
-    [data-theme="photographer"] .btn-ghost:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
-    
-    /* Dark City Tema Stilleri - Neon Tarzı */
-    [data-theme="darkcity"] .bar{background:linear-gradient(135deg,var(--blue),var(--accent));border-bottom:2px solid var(--red)}
-    [data-theme="darkcity"] .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#0a0a0a,#1a1a1a)}
-    [data-theme="darkcity"] .logo{position:fixed;top:20px;left:40px;z-index:1000;cursor:pointer;transition:all 0.3s ease}
-    [data-theme="darkcity"] .logo:hover{transform:scale(1.05);filter:drop-shadow(0 0 10px var(--blue))}
-    [data-theme="darkcity"] .theme-switch{position:absolute;top:20px;right:40px}
-    [data-theme="darkcity"] .actions{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
-    [data-theme="darkcity"] .card{background:var(--card);border-radius:10px;padding:20px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,212,255,0.1);transition:all 0.3s}
-    [data-theme="darkcity"] .card:hover{box-shadow:0 8px 30px rgba(0,212,255,0.2);transform:translateY(-3px);border-color:var(--blue)}
-    [data-theme="darkcity"] .card h3{color:var(--blue);text-shadow:0 0 5px var(--blue)}
-    [data-theme="darkcity"] .btn-primary{background:var(--blue);color:#000;border-radius:8px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s;border:none;box-shadow:0 0 10px var(--blue)}
-    [data-theme="darkcity"] .btn-primary:hover{background:var(--accent);box-shadow:0 0 15px var(--accent);transform:translateY(-2px)}
-    [data-theme="darkcity"] .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;border-radius:8px;padding:12px 20px;text-decoration:none;font-weight:600;transition:all 0.3s}
-    [data-theme="darkcity"] .btn-ghost:hover{background:var(--blue);color:#000;box-shadow:0 0 10px var(--blue)}
-
-    /* Enhanced Professional Design */
-    .brand-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(231, 76, 60, 0.1);
-      padding: 15px 0;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-    }
-    
-    .brand-header.scrolled {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      padding: 12px 0;
-    }
-    
-    .brand-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-    
-    .logo-brand {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    
-    .logo-brand:hover {
-      transform: scale(1.02);
-    }
-    
-    .logo-icon {
-      position: relative;
-    }
-    
-    .logo-icon svg {
-      width: 45px;
-      height: 45px;
-      filter: drop-shadow(0 2px 4px rgba(231, 76, 60, 0.2));
-    }
-    
-    .brand-text {
-      font-size: 28px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #e74c3c, #2c3e50);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.5px;
-    }
-    
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    
-    .nav-link {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link:hover {
-      color: var(--blue);
-      background: rgba(231, 76, 60, 0.1);
-    }
-    
-    .cta-nav {
-      background: linear-gradient(135deg, var(--blue), var(--accent));
-      color: white !important;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-    }
-    
-    .cta-nav:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-    }
-    
-
-    
-    /* Enhanced Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      position: relative;
-      padding: 120px 20px 60px;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KPGcgZmlsbD0iIzAwMCIgZmlsbC1vcGFjaXR5PSIwLjAyIj4KPGNpcmNsZSBjeD0iMyIgY3k9IjMiIHI9IjMiLz4KPC9nPgo8L2c+Cjwvc3ZnPg==');
-      opacity: 0.5;
-    }
-    
-    .hero-content {
-      max-width: 900px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 64px);
-      line-height: 1.1;
-      margin: 0 0 24px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #2c3e50, #e74c3c);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-    }
-    
-    .hero h1::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(135deg, var(--blue), var(--accent));
-      border-radius: 2px;
-    }
-    
-    .hero .lead {
-      color: var(--muted);
-      font-size: clamp(16px, 2.5vw, 22px);
-      margin: 30px 0 40px;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-    
-
-    .bar .container{display:flex;gap:12px;align-items:center;justify-content:center;padding:10px 0;text-align:center;flex-wrap:wrap}
-    .count{font-weight:700}
-    .hero{position:relative}
-    .hero-content{max-width:800px}
-    h1{font-size:48px;line-height:1.15;margin:0 0 20px}
-    p.lead{color:var(--muted);font-size:20px;margin:0 0 30px;line-height:1.6}
-    /* Enhanced Action Buttons */
-    .actions {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 40px;
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 16px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .btn-primary {
-      background: linear-gradient(135deg, #e74c3c, #c0392b);
-      color: #fff;
-      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(231, 76, 60, 0.5);
-    }
-    
-    .btn-ghost {
-      border: 2px solid var(--blue);
-      color: var(--blue);
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-    }
-    
-    .btn-ghost:hover {
-      background: var(--blue);
-      color: #fff;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
-    }
-    .theme-switch{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;justify-content:center}
-    .theme-switch button{padding:8px 10px;border:1px solid var(--border);background:var(--card);border-radius:6px;cursor:pointer;transition:all 0.2s}
-    .theme-switch button.active{border-color:var(--blue);color:var(--blue);font-weight:700}
-    .theme-switch button:hover{border-color:var(--blue)}
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}}
-    .card h3{margin:0 0 8px;color:var(--fg)}
-    .muted{color:var(--muted)}
-    ul{margin:8px 0 0 18px}
-    form{display:grid;gap:12px}
-    input,textarea,select{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--card);color:var(--fg)}
-    input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue)}
-    .hint{font-size:12px;color:var(--muted)}
-    .form-hint{font-size:14px;color:var(--muted);font-style:italic;margin-top:4px}
-    footer{margin-top:40px;padding:40px 0;background:var(--accent);color:#fff;border-top:1px solid var(--border)}
-    footer a{color:#fff;text-decoration:none;transition:color 0.2s}
-    footer a:hover{color:var(--blue)}
-    footer .muted{color:rgba(255,255,255,0.7)}
-    footer strong{font-size:20px;color:#fff}
-
-    
-    /* Testimonial styles */
-    .testimonial-card{position:relative;transition:all 0.2s}
-    .testimonial-card::before{content:'"';font-size:48px;color:var(--blue);position:absolute;top:8px;left:12px;font-family:serif;opacity:0.3}
-    .testimonial-text{margin:0 0 12px;font-style:italic;line-height:1.5;padding-left:20px;color:var(--fg)}
-    .testimonial-author{font-weight:600;color:var(--blue)}
-    .testimonial-company{font-size:14px;color:var(--muted)}
-    .stars{color:#fbbf24;font-size:16px;margin-bottom:8px}
-
-    /* Kayan yorum sistemi */
-    .testimonials-container {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      height: 200px;
-      margin: 20px 0;
-    }
-
-    .testimonials-track {
-      display: flex;
-      gap: 20px;
-      animation: scroll-testimonials 30s linear infinite;
-      width: max-content;
-    }
-
-    .testimonials-track:hover {
-      animation-play-state: paused;
-    }
-
-    .testimonials-track .testimonial-card {
-      min-width: 300px;
-      max-width: 300px;
-      flex-shrink: 0;
-    }
-
-    @keyframes scroll-testimonials {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    /* Mobil için daha yavaş animasyon */
-    @media (max-width: 768px) {
-      .testimonials-track {
-        animation-duration: 40s;
-      }
-      
-      .testimonials-track .testimonial-card {
-        min-width: 280px;
-        max-width: 280px;
-      }
-    }
-    
-    /* Logo styles */
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo-icon{position:relative}
-    .logo-icon svg{width:40px;height:40px}
-    .logo-text{font-size:24px;font-weight:700;color:var(--fg)}
-    
-
-    
-    /* Enhanced Price Banner */
-    .price-banner {
-      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 50%, #2c3e50 100%);
-      color: #fff;
-      padding: 35px 40px;
-      border-radius: 20px;
-      margin: 40px 0;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(231, 76, 60, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .price-banner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 200%;
-      height: 100%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-      animation: shimmer 3s infinite;
-    }
-    
-    @keyframes shimmer {
-      0% { left: -50%; }
-      100% { left: 150%; }
-    }
-    
-    .agency-name {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      opacity: 0.95;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    
-    .old-price {
-      text-decoration: line-through;
-      opacity: 0.8;
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-    
-    .new-price {
-      font-size: clamp(24px, 4vw, 36px);
-      font-weight: 800;
-      margin: 12px 0;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-    
-    .price-note {
-      font-size: 14px;
-      opacity: 0.9;
-      margin-top: 15px;
-      font-style: italic;
-    }
-    
-    /* Enhanced Package Cards */
-    .package-card {
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      border: 2px solid rgba(231, 76, 60, 0.1);
-      transition: all 0.4s ease;
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    }
-    
-    .package-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue), var(--accent));
-    }
-    
-    .package-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--blue);
-      box-shadow: 0 20px 50px rgba(231, 76, 60, 0.2);
-    }
-    
-    .package-price {
-      text-align: center;
-      margin: 20px 0;
-      padding: 15px;
-      background: rgba(231, 76, 60, 0.05);
-      border-radius: 15px;
-    }
-    
-    .package-price .old-price {
-      text-decoration: line-through;
-      color: var(--muted);
-      font-size: 16px;
-      display: block;
-    }
-    
-    .package-price .new-price {
-      color: var(--blue);
-      font-size: 32px;
-      font-weight: 800;
-      display: block;
-      margin: 8px 0;
-    }
-    
-    .package-price .price-note {
-      font-size: 12px;
-      color: var(--blue);
-      margin-top: 5px;
-      font-weight: 600;
-    }
-    
-    .package-cta {
-      background: linear-gradient(135deg, var(--blue), var(--accent));
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      border-radius: 15px;
-      margin-top: 20px;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .package-card:hover .package-cta {
-      background: linear-gradient(135deg, var(--accent), var(--blue));
-      transform: translateY(-2px);
-    }
-    
-    /* Form validation styles */
-    .form-field{position:relative}
-    .domain-status{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:20px}
-    .domain-available{color:#27ae60}
-    .domain-taken{color:#e74c3c}
-    .domain-checking{color:var(--muted)}
-    .domain-suffix{position:absolute;right:40px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px}
-    input:invalid,textarea:invalid,select:invalid{border-color:#e74c3c}
-    .submit-btn:disabled{opacity:0.5;cursor:not-allowed}
-    
-    /* Tema Kartları Stilleri */
-    .themes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:30px}
-    .theme-card{background:var(--card);border:2px solid var(--border);border-radius:15px;padding:25px;transition:all 0.3s;cursor:pointer}
-    .theme-card:hover{border-color:var(--blue);transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,0.1)}
-    .theme-preview{height:120px;border-radius:10px;margin-bottom:20px;position:relative;overflow:hidden}
-    
-    /* Tema Önizleme Renkleri */
-    .kaysia-preview{background:linear-gradient(135deg,#e74c3c,#2c3e50);position:relative}
-    .kaysia-preview::before{content:'🏢';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
-    
-    .modern-preview{background:linear-gradient(135deg,#3498db,#e74c3c);position:relative}
-    .modern-preview::before{content:'🚀';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
-    
-    .dark-preview{background:linear-gradient(135deg,#1a1a1a,#2d2d2d);position:relative}
-    .dark-preview::before{content:'🌙';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
-    
-    .minimal-preview{background:linear-gradient(135deg,#ffffff,#f8f9fa);border:2px solid #dddddd;position:relative}
-    .minimal-preview::before{content:'📝';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
-    
-    .photographer-preview{background:linear-gradient(135deg,#2c3e50,#34495e);position:relative}
-    .photographer-preview::before{content:'📸';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
-    
-    .darkcity-preview{background:linear-gradient(135deg,#000000,#1a1a1a);position:relative}
-    .darkcity-preview::before{content:'🏙️';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:0.8}
-    
-    .theme-card h4{margin:0 0 10px 0;color:var(--fg);font-size:18px}
-    .theme-card p{margin:0 0 15px 0;color:var(--muted);font-size:14px;line-height:1.5}
-    .theme-card ul{margin:0 0 20px 0;padding-left:20px;color:var(--muted);font-size:13px}
-    .theme-card li{margin-bottom:5px}
-    
-    .theme-btn{background:var(--blue);color:#fff;border:none;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.3s;width:100%}
-    .theme-btn:hover{background:var(--accent);transform:translateY(-2px)}
-    .theme-btn.active{background:var(--accent);cursor:default}
-    .theme-btn.active:hover{transform:none}
-    
-    /* Mobile-first responsive adjustments */
-    @media(max-width:768px){
-      .brand-container {
-        padding: 0 20px;
-      }
-      
-      .brand-text {
-        font-size: 22px;
-      }
-      
-      .logo-icon svg {
-        width: 35px;
-        height: 35px;
-      }
-      
-      .nav-actions {
-        gap: 10px;
-      }
-      
-      .nav-link {
-        padding: 6px 12px;
-        font-size: 14px;
-      }
-      
-      .cta-nav {
-        padding: 8px 16px;
-        font-size: 14px;
-      }
-      
-      .hero {
-        padding: 100px 15px 40px;
-      }
-      
-      .hero h1 {
-        font-size: 28px;
-        line-height: 1.2;
-        margin-bottom: 15px;
-      }
-      
-      .hero .lead {
-        font-size: 16px;
-        line-height: 1.4;
-        margin-bottom: 25px;
-      }
-      
-      .price-banner {
-        padding: 20px 15px;
-        margin: 25px 0;
-        border-radius: 15px;
-      }
-      
-      .agency-name {
-        font-size: 18px;
-        margin-bottom: 15px;
-      }
-      
-      .old-price {
-        font-size: 14px;
-      }
-      
-      .new-price {
-        font-size: 22px;
-      }
-      
-      .price-note {
-        font-size: 12px;
-      }
-      
-      .actions {
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 25px;
-      }
-      
-      .btn {
-        width: 100%;
-        padding: 14px 24px;
-        font-size: 16px;
-        justify-content: center;
-      }
-      
-      .container {
-        padding: 0 15px;
-      }
-      
-      .themes-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      
-      .theme-card {
-        padding: 20px;
-        margin: 10px 0;
-      }
-      
-      .theme-preview {
-        height: 100px;
-      }
-      
-      /* Ensure proper spacing for mobile */
-      section {
-        margin-top: 30px;
-      }
-      
-      /* Mobile optimization for better UX */
-      .card {
-        margin: 15px 0;
-      }
-      
-      input, textarea, select {
-        font-size: 16px; /* Prevent zoom on iOS */
-      }
-      
-      .btn {
-        min-height: 48px; /* Better touch target */
-      }
-      
-      .theme-card {
-        min-height: auto;
-        cursor: pointer;
-      }
-      
-      .theme-card:hover {
-        transform: translateY(-2px); /* Reduce movement on mobile */
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Professional Header with Fixed Logo & Brand -->
-  <header class="brand-header">
-    <div class="brand-container">
-      <div class="logo-brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <div class="logo-icon">
-          <svg width="45" height="45" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="20" y="28" text-anchor="middle" font-family="serif" font-size="32" font-weight="bold" fill="#e74c3c">K</text>
-            <circle cx="12" cy="18" r="4" fill="#e74c3c"/>
-          </svg>
-        </div>
-        <div class="brand-text">Kaysia Agency</div>
-      </div>
-      
-      <nav class="nav-actions">
-        <a href="#packages" class="nav-link">Paketler</a>
-        <a href="/haberler.html" class="nav-link">Haberler</a>
-        <a href="#form" class="nav-link">İletişim</a>
-        <a href="https://wa.me/905457705297?text=Merhaba%20Kaysia%20Agency,%20web%20tasarım%20hizmeti%20almak%20istiyorum." target="_blank" rel="noopener" class="cta-nav">
-          💬 Hızlı İletişim
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Kampanya Banner -->
-  <div id="promo" class="bar" role="status" aria-live="polite">
-    <div class="container">
-      <div class="brand-text">Kaysia Agency</div>
-      <strong>🔥 Bu Haftaya Özel İndirim!</strong>
-      <span>.COM 8.999₺'den → 2.999₺ • .COM.TR 7.999₺'den → 2.499₺ • 24 Saatte Teslim</span>
-      <span class="count" id="countdown">00g 00:00:00</span>
-    </div>
-  </div>
-
-  <!-- Hero Section - Karşılama Ekranı -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>24 Saatte Profesyonel Web Tasarımı</h1>
-      <p class="lead">Kaysia Agency ile mobil uyumlu, güvenli, SEO optimizasyonlu web siteleri. Bu haftaya özel indirimli fiyatlarla 24 saatte teslim garantisi!</p>
-      <div class="price-banner">
-        <div class="agency-name">🚀 Kaysia Agency</div>
-        <div class="old-price">Normal: .COM 8.999₺ | .COM.TR 7.999₺</div>
-        <div class="new-price">Bu Hafta: .COM 2.999₺ | .COM.TR 2.499₺</div>
-        <p class="price-note">24 saatte teslim garantisi! SSL, hosting, domain dahil.</p>
-        <p>⏰ Bu haftaya özel kampanya! Haftalık güncellenen fiyatlar 🔥</p>
-      </div>
-      <div class="actions">
-        <a class="btn btn-primary" id="cta-wa" target="_blank" rel="noopener"
-           href="https://wa.me/905457705297?text=Merhaba%20Kaysia%20Agency,%20web%20tasarım%20hizmeti%20almak%20istiyorum.">
-          📱 WhatsApp'tan Hızlı Sipariş
-        </a>
-        <a class="btn btn-ghost" href="#packages">📦 Paket Seç</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Paketler -->
-  <section id="packages" class="container grid grid-2" style="margin-top:40px">
-    <div class="card package-card" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
-      <h3>🚀 .COM Paketi</h3>
-      <div class="package-price">
-        <span class="old-price">8.999₺</span>
-        <span class="new-price">Bu hafta: 2.999₺</span>
-        <div class="price-note">24 saatte teslim!</div>
-      </div>
-      <p class="muted">Uluslararası alan adı</p>
-      <ul>
-        <li>24 saatte teslim</li><li>SSL sertifikası</li><li>Mobil uyumlu</li>
-        <li>SEO optimizasyonu</li><li>Hosting dahil</li><li>WhatsApp entegrasyonu</li>
-                    </ul>
-      <p class="hint">Kampanya bu pazar sona eriyor!</p>
-      <div class="package-cta">Hemen Sipariş Ver →</div>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-text">k.</div>
                 </div>
-    <div class="card package-card" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
-      <h3>⚡ .COM.TR Paketi</h3>
-      <div class="package-price">
-        <span class="old-price">7.999₺</span>
-        <span class="new-price">Bu hafta: 2.499₺</span>
-        <div class="price-note">24 saatte teslim!</div>
-      </div>
-      <p class="muted">Türk alan adı (belge gerekli)</p>
-      <ul>
-        <li>24 saatte teslim</li><li>SSL sertifikası</li><li>Mobil uyumlu</li>
-        <li>SEO optimizasyonu</li><li>Hosting dahil</li><li>WhatsApp entegrasyonu</li>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#anasayfa" class="nav-link">Anasayfa</a></li>
+                        <li><a href="temalar.html" class="nav-link">Temalar</a></li>
+                        <li><a href="haberler.html" class="nav-link">Haberler</a></li>
+                        <li><a href="#satin-al" class="nav-link">Satın Al</a></li>
+                        <li><a href="#iletisim" class="nav-link">İletişim</a></li>
                     </ul>
-      <p class="hint">Vergi levhası veya kimlik gereklidir</p>
-      <div class="package-cta">Hemen Sipariş Ver →</div>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
-    </section>
+    </header>
 
-  <!-- Temalar Bölümü -->
-  <section class="container" style="margin-top:40px">
-    <div class="card">
-      <h3>🎨 Canlı Tema Örnekleri</h3>
-      <p class="muted">Web tasarım hizmetimizle sunduğumuz çeşitli tema seçenekleri. Aşağıdaki temalar canlı örneklerdir ve tıklanabilir. Müşterilerimiz için benzer tasarımlar hazırlıyoruz.</p>
-      <div style="background:linear-gradient(135deg,var(--blue),var(--accent));color:#fff;padding:15px;border-radius:10px;margin:15px 0;text-align:center;font-weight:600;">
-        🎆 <strong>Dinamik Tema Galerimiz</strong> - Tıklayarak önizleme yapabilirsiniz
-      </div>
-      
-      <div class="themes-grid">
-        <div class="theme-card" data-theme="kaysia">
-          <div class="theme-preview kaysia-preview"></div>
-          <h4>🏢 Kaysia Kurumsal</h4>
-          <p>Profesyonel kartvizit tarzı tasarım. Gradient arka planlar ve modern kartlar.</p>
-          <ul>
-            <li>Gradient renk geçişleri</li>
-            <li>Kurumsal görünüm</li>
-            <li>Modern kart tasarımı</li>
-          </ul>
-          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
-          <button class="theme-btn active" onclick="requestTheme('Kaysia Kurumsal')">İşte Bu Temayı İstiyorum!</button>
-        </div>
-        
-        <div class="theme-card" data-theme="modern">
-          <div class="theme-preview modern-preview"></div>
-          <h4>🚀 Modern Tek Sayfa</h4>
-          <p>Tek sayfa deneyimi. Her bölüm tam ekran, yumuşak geçişler.</p>
-          <ul>
-            <li>Tek sayfa scroll</li>
-            <li>Tam ekran bölümler</li>
-            <li>Yumuşak animasyonlar</li>
-          </ul>
-          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - 100+ seçenek mevcut</div>
-          <button class="theme-btn" onclick="requestTheme('Modern Tek Sayfa')">Bu Temayı İstiyorum</button>
-        </div>
-        
-        <div class="theme-card" data-theme="dark">
-          <div class="theme-preview dark-preview"></div>
-          <h4>🌙 Dark Mode</h4>
-          <p>Göz yormayan koyu tema. Neon efektler ve modern görünüm.</p>
-          <ul>
-            <li>Koyu arka plan</li>
-            <li>Neon renkler</li>
-            <li>Göz dostu tasarım</li>
-          </ul>
-          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
-          <button class="theme-btn" onclick="requestTheme('Dark Mode')">Bu Temayı İstiyorum</button>
-        </div>
-        
-        <div class="theme-card" data-theme="minimal">
-          <div class="theme-preview minimal-preview"></div>
-          <h4>📝 Minimal Blog</h4>
-          <p>Blog tarzı temiz tasarım. Georgia font ve sade görünüm.</p>
-          <ul>
-            <li>Blog tarzı layout</li>
-            <li>Georgia font</li>
-            <li>Sade ve temiz</li>
-          </ul>
-          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
-          <button class="theme-btn" onclick="requestTheme('Minimal Blog')">Bu Temayı İstiyorum</button>
-        </div>
-        
-        <div class="theme-card" data-theme="photographer">
-          <div class="theme-preview photographer-preview"></div>
-          <h4>📸 Photographer Portfolio</h4>
-          <p>Fotoğrafçı portföyü tarzı. Masonry grid layout ve büyük görseller.</p>
-          <ul>
-            <li>Masonry grid layout</li>
-            <li>Büyük görsel odaklı</li>
-            <li>Portföy tarzı</li>
-          </ul>
-          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
-          <button class="theme-btn" onclick="requestTheme('Photographer Portfolio')">Bu Temayı İstiyorum</button>
-        </div>
-        
-        <div class="theme-card" data-theme="darkcity">
-          <div class="theme-preview darkcity-preview"></div>
-          <h4>🏙️ Dark City</h4>
-          <p>Cyberpunk tarzı şehir teması. Neon ışıklar ve futuristik tasarım.</p>
-          <ul>
-            <li>Cyberpunk estetiği</li>
-            <li>Neon ışık efektleri</li>
-            <li>Futuristik tasarım</li>
-          </ul>
-          <div style="font-size:12px;color:var(--muted);margin-top:10px;font-style:italic;">📋 Örnek tema - +100 seçenek mevcut</div>
-          <button class="theme-btn" onclick="requestTheme('Dark City Cyberpunk')">Bu Temayı İstiyorum</button>
-        </div>
-      </div>
-      
-      <div style="margin-top:30px;padding:20px;background:linear-gradient(135deg,var(--card),var(--border));border-radius:12px;border-left:4px solid var(--blue);">
-        <h4 style="margin:0 0 15px 0;color:var(--blue);">🎯 Tema Koleksiyonumuz Hakkında</h4>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;font-size:14px;">
-          <div>
-            <strong>🏢 Sektörel Temalar:</strong>
-            <ul style="margin:5px 0;padding-left:20px;">
-              <li>Restoran & Kafe</li>
-              <li>E-ticaret & Mağaza</li>
-              <li>Kurumsal & Şirket</li>
-              <li>Kişisel & Portföy</li>
-            </ul>
-          </div>
-          <div>
-            <strong>🎨 Tasarım Stilleri:</strong>
-            <ul style="margin:5px 0;padding-left:20px;">
-              <li>Modern & Minimal</li>
-              <li>Klasik & Şık</li>
-              <li>Renkli & Canlı</li>
-              <li>Dark & Neon</li>
-            </ul>
-          </div>
-          <div>
-            <strong>📱 Özel Özellikler:</strong>
-            <ul style="margin:5px 0;padding-left:20px;">
-              <li>Mobil Uyumlu</li>
-              <li>SEO Optimizasyonlu</li>
-              <li>Hızlı Yükleme</li>
-              <li>Özelleştirilebilir</li>
-            </ul>
-          </div>
-        </div>
-        <p style="margin:15px 0 0 0;font-size:13px;color:var(--muted);font-style:italic;">
-          💡 <strong>Not:</strong> Yukarıdaki temalar sadece örneklerdir. Gerçek projede 100'den fazla tema arasından seçim yapabilir, 
-          sektörünüze ve markanıza en uygun temayı seçebilirsiniz. Tüm temalar profesyonel tasarım standartlarında hazırlanmıştır.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Özellikler -->
-  <section class="container grid grid-3" style="margin-top:26px">
-    <div class="card"><h3>🚀 Modern Tasarım</h3><p>Günümüz trendlerine uygun, kullanıcı dostu arayüzler. Her cihazda mükemmel görünüm.</p></div>
-    <div class="card"><h3>📊 SEO Optimizasyonu</h3><p>Arama motorlarında üst sıralarda yer almak için teknik ve içerik optimizasyonu.</p></div>
-    <div class="card"><h3>🔒 Güvenlik & Hız</h3><p>SSL sertifikası, hızlı yükleme, güvenli hosting altyapısı ve düzenli yedekleme.</p></div>
-  </section>
-
-  <!-- SSS -->
-  <section class="container grid" style="margin-top:26px">
-    <div class="card">
-      <h3>❓ Sıkça Sorulan Sorular</h3>
-      <p><strong>Web tasarımı ne kadar sürer?</strong><br>
-      Proje karmaşıklığına göre 1-4 hafta arasında değişir. Basit siteler daha hızlı, e-ticaret gibi karmaşık projeler daha uzun sürer.</p>
-
-      <p><strong>Revize hakkım var mı?</strong><br>
-      Evet, proje kapsamına göre revize haklarınız bulunur. Detayları proje başlangıcında konuşuruz.</p>
-
-      <p><strong>Hosting ve domain dahil mi?</strong><br>
-      Proje ihtiyacına göre hosting ve domain çözümleri sunuyorum. İsterınize göre paket hazırlanır.</p>
-
-      <p><strong>Mobil uyumlu olacak mı?</strong><br>
-      Elbette! Tüm projeler mobil cihazlarda mükemmel çalışacak şekilde tasarlanır.</p>
-
-      <p><strong>SEO dahil mi?</strong><br>
-      Temel SEO optimizasyonu tüm projelerimde dahildir. İleri seviye SEO için ayrı hizmet verilebilir.</p>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="anasayfa" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">24 saatte hazır profesyonel web sitesi</h1>
+                    <p class="hero-description">
+                        Markanızı 1 iş günü içinde yayına alıyoruz: modern tasarım, SEO, güvenlik, hız ve WhatsApp/Haritalar entegrasyonu dahil.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#basvuru-formu" class="btn btn-primary">Hızlı Başvuru</a>
+                        <a href="https://wa.me/905305616747" class="btn btn-secondary" target="_blank">WhatsApp</a>
                     </div>
-  </section>
+                </div>
+            </div>
+        </section>
 
-    <!-- Müşteri Yorumları -->
-  <section class="container" style="margin-top:26px">
-    <div class="testimonials-container">
-      <div class="testimonials-track" id="testimonialsTrack">
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Harika bir iş çıkardılar! 24 saatte sitemiz hazırdı ve tam istediğimiz gibi oldu. WhatsApp butonu ve Google Haritalar entegrasyonu çok pratik.</p>
-          <div class="testimonial-author">Ahmet Yılmaz</div>
-          <div class="testimonial-company">Yılmaz Mobilya</div>
-        </div>
+        <!-- Weekly Countdown Section -->
+        <section class="countdown-section">
+            <div class="container">
+                <h2 class="section-title">Bu Haftaya Özel Fırsatlar</h2>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Gün</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Saat</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Dakika</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Saniye</span>
+                    </div>
+                </div>
+                <p class="countdown-message" id="countdownMessage">Pazartesi 00:00'da yeni fırsatlar başlıyor!</p>
+            </div>
+        </section>
 
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Çok profesyonel bir hizmet aldık. SEO makaleleri sayesinde Google'da üst sıralara çıktık. Kesinlikle tavsiye ederim!</p>
-          <div class="testimonial-author">Ayşe Demir</div>
-          <div class="testimonial-company">Demir Kuaför Salonu</div>
-        </div>
+        <!-- Packages Section -->
+        <section class="packages-section">
+            <div class="container">
+                <h2 class="section-title">Paketlerimiz</h2>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3 class="package-title">.com</h3>
+                            <div class="package-price">
+                                <span class="old-price">9.999 TL</span>
+                                <span class="new-price">2.999 TL</span>
+                            </div>
+                        </div>
+                        <ul class="package-features">
+                            <li>SSL sertifikası</li>
+                            <li>Mobil uyumluluk</li>
+                            <li>Hosting</li>
+                            <li>Temel SEO</li>
+                            <li>WhatsApp entegrasyonu</li>
+                            <li>Google Haritalar</li>
+                            <li>1 yıllık alan adı</li>
+                            <li>3 adet içerik sayfası</li>
+                            <li>1 iletişim formu</li>
+                        </ul>
+                        <div class="package-buttons">
+                            <a href="#satin-al" class="btn btn-outline">Satın Al</a>
+                            <a href="#basvuru-formu" class="btn btn-primary">Hızlı Başvuru</a>
+                        </div>
+                    </div>
+                    <div class="package-card featured">
+                        <div class="package-header">
+                            <h3 class="package-title">.com.tr</h3>
+                            <div class="package-price">
+                                <span class="old-price">8.999 TL</span>
+                                <span class="new-price">2.499 TL</span>
+                            </div>
+                        </div>
+                        <div class="package-warning">
+                            <p>.com.tr için vergi levhası veya kimlik doğrulaması gerekir. Onay alındıktan 24 saat sonra teslim.</p>
+                        </div>
+                        <ul class="package-features">
+                            <li>SSL sertifikası</li>
+                            <li>Mobil uyumluluk</li>
+                            <li>Hosting</li>
+                            <li>Temel SEO</li>
+                            <li>WhatsApp entegrasyonu</li>
+                            <li>Google Haritalar</li>
+                            <li>1 yıllık alan adı</li>
+                            <li>3 adet içerik sayfası</li>
+                            <li>1 iletişim formu</li>
+                        </ul>
+                        <div class="package-buttons">
+                            <a href="#satin-al" class="btn btn-outline">Satın Al</a>
+                            <a href="#basvuru-formu" class="btn btn-primary">Hızlı Başvuru</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="packages-note">Tüm fiyatlara kurulum dahildir; özel talepler ayrıca tekliflendirilir.</p>
+            </div>
+        </section>
 
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Mobil uyumlu tasarım ve hızlı teslimat. Hosting ve DNS yönetimi de dahil olduğu için hiç uğraşmadık. Teşekkürler Kaysia!</p>
-          <div class="testimonial-author">Mehmet Kaya</div>
-          <div class="testimonial-company">Kaya Elektronik</div>
-        </div>
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Öne Çıkan Özellikler</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3 class="feature-title">Modern Tasarım</h3>
+                        <p class="feature-description">Sektörünüze uygun, mobil-ilk, şık arayüzler.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3 class="feature-title">SEO Optimizasyonu</h3>
+                        <p class="feature-description">Temel teknik SEO ayarları, hızlı indeks, yapılandırılmış veri.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Güvenlik & Hız</h3>
+                        <p class="feature-description">SSL, güvenli formlar, CDN ve performans iyileştirmeleri.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Excellent service! They delivered our website in 24 hours exactly as promised. The SSL certificate and mobile optimization work perfectly. Highly recommended!</p>
-          <div class="testimonial-author">Michael Johnson</div>
-          <div class="testimonial-company">Johnson Consulting</div>
-        </div>
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Sık Sorulan Sorular</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Gerçekten 24 saatte teslim mümkün mü?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet. İçerik ve görseller hazırsa, standart paketler 24 saatte yayına alınır.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>İçeriğim yoksa siz metin/yapı önerir misiniz?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet, sektörünüze uygun şablon içerik sağlarız.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Domain ve hosting dahil mi?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet, paketlerimize dahildir.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>.com.tr için hangi belgeler gerekir?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Vergi levhası veya kimlik doğrulaması. Onay sonrası 24 saatte teslim.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>SEO ne kapsamda?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Başlık/açıklama, site haritası, robots, temel hız optimizasyonu, schema.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Sonradan içerik ekleyebilir miyim?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet. Panel veya talebinizle biz ekleriz.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Tasarımı sonradan değiştirebilir miyim?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Temalar bölümünden anında değiştirebilirsiniz.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Ödeme ve fatura süreci nasıl?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sözleşme ve ödeme onayı sonrası işe başlanır; e-fatura kesilir.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Destek sağlıyor musunuz?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet, 30 gün ücretsiz destek.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Veri güvenliği ve KVKK uyumu?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Form verileri güvenle işlenir; KVKK ve Gizlilik metinlerimiz yayınlanır.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Отличный сервис! Сайт готов за 24 часа. SSL и мобильная оптимизация работают идеально!</p>
-          <div class="testimonial-author">Алексей Петров</div>
-          <div class="testimonial-company">Петров Ресторан</div>
-        </div>
+        <!-- Reviews Section -->
+        <section class="reviews-section">
+            <div class="container">
+                <h2 class="section-title">Müşteri Yorumları</h2>
+                <div class="reviews-carousel" id="reviewsCarousel">
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Bir günde yayındaydık, Google'dan aramalar arttı."</p>
+                        <div class="review-author">Antalya Simit Evi</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Mobil görünüm harika, misafir mesajları WhatsApp'tan geliyor."</p>
+                        <div class="review-author">Mavi Pansiyon</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Destek hızlı, nerede takılsak çözdüler."</p>
+                        <div class="review-author">GreenBox Market</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"SEO ayarları sonrası teklif talepleri çoğaldı."</p>
+                        <div class="review-author">Kaya İnşaat</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Super fast delivery, clean design. Exactly what we needed."</p>
+                        <div class="review-author">Tech Solutions</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Сделали сайт за сутки. Всё чётко и понятно. Рекомендуем."</p>
+                        <div class="review-author">Russian Business</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Randevu formu sayesinde işler hızlandı."</p>
+                        <div class="review-author">Duru Güzellik</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Haritalar kaydı ve yorum yönlendirmesi şahane."</p>
+                        <div class="review-author">Cafe Limon</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"WhatsApp'tan siparişle işimiz kolaylaştı."</p>
+                        <div class="review-author">Sarı Taxi</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Esnek tema sistemiyle markamıza uydurduk."</p>
+                        <div class="review-author">TeknoFix</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Döner satışlarımız %300 arttı! Web sitesi sayesinde müşterilerimiz bizi daha kolay buluyor.</p>
-          <div class="testimonial-author">Hasan Dönerci</div>
-          <div class="testimonial-company">Hasan'ın Dönercisi</div>
-        </div>
+        <!-- Application Form Section -->
+        <section id="basvuru-formu" class="form-section">
+            <div class="container">
+                <h2 class="section-title">Hızlı Başvuru Formu</h2>
+                <form class="application-form" action="https://formspree.io/f/xdkloppk" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adSoyad">Ad Soyad *</label>
+                            <input type="text" id="adSoyad" name="adSoyad" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefon">Telefon *</label>
+                            <input type="tel" id="telefon" name="telefon" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projeTipi">Proje Tipi *</label>
+                            <select id="projeTipi" name="projeTipi" required>
+                                <option value="">Seçiniz</option>
+                                <option value="Kurumsal">Kurumsal</option>
+                                <option value="Restoran">Restoran</option>
+                                <option value="Otel/Pansiyon">Otel/Pansiyon</option>
+                                <option value="E-Ticaret">E-Ticaret</option>
+                                <option value="Portfolyo">Portfolyo</option>
+                                <option value="Diğer">Diğer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="projeDetay">Proje Detayları</label>
+                        <textarea id="projeDetay" name="projeDetay" rows="4" placeholder="Projeniz hakkında detayları yazın..."></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="kvkkOnay" name="kvkkOnay" required>
+                            <span class="checkmark"></span>
+                            KVKK şartlarını kabul ediyorum *
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Gönder</button>
+                </form>
+            </div>
+        </section>
 
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Böreklerimizi artık online sipariş edebiliyorlar! Site çok güzel oldu, müşterilerimiz çok beğendi.</p>
-          <div class="testimonial-author">Fatma Börekçi</div>
-          <div class="testimonial-company">Fatma'nın Börek Evi</div>
-        </div>
+        <!-- Contact & Location Section -->
+        <section id="iletisim" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">İletişim & Konum</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>İletişim Bilgileri</h3>
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <span>kaysia.store@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <span>+90 530 561 6747</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🕒</span>
+                            <span>Pazartesi - Cuma: 09:00 - 18:00</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>İstanbul, Türkiye</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Yol Tarifi Al</a>
+                    </div>
+                    <div class="contact-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.2755833691437!2d28.9784!3d41.0082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAwJzI5LjQiTiAyOMKwNTgnNDIuMiJF!5e0!3m2!1str!2str!4v1640995200000!5m2!1str!2str" 
+                            width="100%" 
+                            height="300" 
+                            style="border:0; border-radius: var(--radius-2xl);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div class="map-actions">
+                            <a href="https://maps.app.goo.gl/vQp9sUMTFYmXDNPU7" class="btn btn-outline" target="_blank">Haritayı Aç</a>
+                            <a href="https://wa.me/905305616747" class="btn btn-primary" target="_blank">WhatsApp'tan Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Perfect! Our bakery website looks amazing and loads super fast. Great job Kaysia team!</p>
-          <div class="testimonial-author">Sarah Baker</div>
-          <div class="testimonial-company">Sweet Dreams Bakery</div>
-        </div>
 
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Çiçek dükkanımız için harika bir site yaptılar. WhatsApp entegrasyonu çok kullanışlı!</p>
-          <div class="testimonial-author">Zeynep Çiçekçi</div>
-          <div class="testimonial-company">Zeynep Çiçek Evi</div>
-        </div>
 
-        <div class="testimonial-card card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Прекрасная работа! Сайт для кафе готов за день. Заказы приходят через WhatsApp!</p>
-          <div class="testimonial-author">Мария Иванова</div>
-          <div class="testimonial-company">Кафе "У Марии"</div>
+        <!-- Buy Section -->
+        <section id="satin-al" class="buy-section">
+            <div class="container">
+                <h2 class="section-title">Satın Al</h2>
+                <div class="buy-content">
+                    <div class="buy-intro">
+                        <h3>Ne kadar detay verirseniz o kadar iyi sonuç alıyoruz</h3>
+                        <p>Projenizi detaylandırın, size özel çözüm sunalım</p>
+                    </div>
+                    <div class="buy-form">
+                        <h3>Proje Detayları</h3>
+                        <form class="application-form" action="https://formspree.io/f/xdkloppk" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="buyAdSoyad">Ad Soyad *</label>
+                                    <input type="text" id="buyAdSoyad" name="adSoyad" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="buyEmail">E-posta *</label>
+                                    <input type="email" id="buyEmail" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="buyTelefon">Telefon *</label>
+                                    <input type="tel" id="buyTelefon" name="telefon" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="buyProjeTipi">Proje Tipi *</label>
+                                    <select id="buyProjeTipi" name="projeTipi" required>
+                                        <option value="">Seçiniz</option>
+                                        <option value="Kurumsal">Kurumsal</option>
+                                        <option value="Restoran">Restoran</option>
+                                        <option value="Otel/Pansiyon">Otel/Pansiyon</option>
+                                        <option value="E-Ticaret">E-Ticaret</option>
+                                        <option value="Portfolyo">Portfolyo</option>
+                                        <option value="Diğer">Diğer</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="buyProjeDetay">Proje Detayları</label>
+                                <textarea id="buyProjeDetay" name="projeDetay" rows="4" placeholder="Projeniz hakkında detayları yazın..."></textarea>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="buyKvkkOnay" name="kvkkOnay" required>
+                                    <span class="checkmark"></span>
+                                    KVKK şartlarını kabul ediyorum *
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Gönder</button>
+                        </form>
+                    </div>
+                    <div class="buy-reviews">
+                        <h3>Müşteri Deneyimleri</h3>
+                        <div class="buy-review-item">
+                            <p>"İhtiyacımızı net yazınca demo hızlıca çıktı."</p>
+                        </div>
+                        <div class="buy-review-item">
+                            <p>"Sektör örnekleri istedik, tam isabet oldu."</p>
+                        </div>
+                        <div class="buy-review-item">
+                            <p>"Teslim sonrası destekle blogu da açtık."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>Kaysia Agency — Web Tasarım & Otomasyon</p>
+                </div>
+                <div class="footer-center">
+                    <nav class="footer-nav">
+                        <a href="#anasayfa">Anasayfa</a>
+                        <span>·</span>
+                        <a href="temalar.html">Temalar</a>
+                        <span>·</span>
+                        <a href="haberler.html">Haberler</a>
+                        <span>·</span>
+                        <a href="#satin-al">Satın Al</a>
+                        <span>·</span>
+                        <a href="#iletisim">İletişim</a>
+                        <span>·</span>
+                        <a href="#" id="kvkkLink">KVKK</a>
+                        <span>·</span>
+                        <a href="#" id="gizlilikLink">Gizlilik</a>
+                    </nav>
+                </div>
+                <div class="footer-right">
+                    <p>® Kaysia — kaysia.co • Tüm hakları saklıdır.</p>
+                    <p>&copy; <span id="currentYear"></span> Kaysia Agency</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/905305616747" class="whatsapp-button" target="_blank">
+        <span class="whatsapp-icon">💬</span>
+    </a>
+
+    <!-- KVKK Modal -->
+    <div id="kvkkModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>KVKK Aydınlatma Metni</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Kişisel verileriniz, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında işlenmektedir. Verileriniz sadece hizmet sunumu amacıyla kullanılmakta ve üçüncü taraflarla paylaşılmamaktadır.</p>
+                <p>Detaylı bilgi için gizlilik politikamızı inceleyebilirsiniz.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal('kvkkModal')">Tamam</button>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- Form -->
-  <section id="form" class="container" style="margin:28px 0">
-    <div class="card" style="max-width:800px;margin:0 auto">
-      <h3>📝 Hızlı Başvuru Formu</h3>
-      <form action="/tesekkur.html" method="GET" id="contact-form">
-
-
-        <label>Ad Soyad<input name="ad_soyad" required placeholder="Adınız Soyadınız"></label>
-        <label>E-posta<input type="email" name="email" required placeholder="ornek@eposta.com"></label>
-        <label>Telefon<input name="telefon" placeholder="0 olmadan ekleyin (örn: 5457705297)" value="+90 "></label>
-
-        <label>Proje Tipi
-          <select name="proje_tipi">
-            <option value="">Seçiniz</option>
-            <option value="kurumsal">Kurumsal Web Sitesi</option>
-            <option value="eticaret">E-Ticaret</option>
-            <option value="kisisel">Kişisel/Blog</option>
-            <option value="portfoy">Portföy</option>
-            <option value="diger">Diğer</option>
-                        </select>
-        </label>
-
-        <label>Bütçe Aralığı
-          <select name="butce">
-            <option value="">Seçiniz</option>
-            <option value="5k-altı">5.000 TL altı</option>
-            <option value="5k-15k">5.000 - 15.000 TL</option>
-            <option value="15k-30k">15.000 - 30.000 TL</option>
-            <option value="30k-ustı">30.000 TL üstü</option>
-                        </select>
-        </label>
-
-        <label>Proje Detayları
-          <textarea name="proje_detayi" rows="12" placeholder="Projenizi detaylı olarak anlatın. İstediğiniz özellikleri, renk tercihleri, örnek siteler vb. belirtin."></textarea>
-          <div class="form-hint">💡 Ne kadar detay verirseniz proje o kadar başarılı olur!</div>
-        </label>
-
-        <button class="btn btn-primary submit-btn" type="submit" id="submit-btn" disabled
-          onclick="return validateAndSubmit(event)">
-          Projeyi Gönder
-        </button>
-        <p class="hint">Proje detaylarını WhatsApp veya e-posta ile de iletebilirsiniz.</p>
-      </form>
+    <!-- Privacy Modal -->
+    <div id="gizlilikModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Gizlilik Politikası</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Web sitemizde toplanan bilgiler, hizmet kalitesini artırmak ve kullanıcı deneyimini iyileştirmek amacıyla kullanılmaktadır. Çerezler ve analitik veriler güvenli şekilde işlenmektedir.</p>
+                <p>Veri güvenliği konusunda detaylı bilgi için bizimle iletişime geçebilirsiniz.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal('gizlilikModal')">Tamam</button>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- İletişim -->
-  <section class="container" style="margin:28px 0">
-    <div class="card" style="max-width:600px;margin:0 auto">
-      <h3>📍 İletişim & Konum</h3>
-      <p class="muted">WhatsApp üzerinden 24 saat ücretsiz ön görüşme.</p>
-      <p>
-        ✉️ <a href="mailto:kaysia.store@gmail.com">kaysia.store@gmail.com</a><br/>
-        💬 <a target="_blank" rel="noopener" href="https://wa.me/905457705297?text=Merhaba%20Kaysia%20Agency,%2024%20saatte%20site%20istiyorum.">WhatsApp'tan Yaz</a>
-      </p>
-      <div style="border-radius:12px;overflow:hidden;height:200px">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.35569737189!2d30.737776074773194!3d36.85790397223069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c39aebe0dd9037%3A0x76fa6ce12d53d135!2zxZ5pcmlueWFsxLEsIDE1MDcuIFNrLiwgMDcxNjAgTXVyYXRwYcWfYS9BbnRhbHlh!5e0!3m2!1str!2str!4v1756552841504!5m2!1str!2str"
-          width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Kaysia Agency Harita">
-        </iframe>
-      </div>
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Teşekkürler!</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Başvurunuz başarıyla alınmıştır. En kısa sürede size dönüş yapacağız.</p>
+                <p>Hızlı dönüş için WhatsApp'tan yazabilirsiniz.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://wa.me/905305616747" class="btn btn-primary" target="_blank">WhatsApp'tan Yaz</a>
+                <button class="btn btn-outline" onclick="closeModal('successModal')">Tamam</button>
+            </div>
+        </div>
     </div>
-  </section>
 
-    <footer>
-    <div class="container grid grid-3">
-      <div>
-        <strong>Kaysia.co</strong><br/>
-        Web Tasarım & Dijital Çözümler
-      </div>
-      <div>
-        <a href="#form">İletişim</a> •
-        <a href="/haberler.html">Haberler</a> •
-        <a href="/kvkk.html">KVKK & Gizlilik</a> •
-        <a target="_blank" rel="noopener" href="https://share.google/8W55dUaZqPbtvsWMh">Google İşletmem</a>
-      </div>
-      <div class="muted">© 2025 Kaysia.co. Tüm hakları saklıdır.</div>
-    </div>
-  </footer>
-
-                
-
-  <script>
-    // Enhanced scroll header effect
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('.brand-header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-    
-    // Smooth scroll for navigation links
-    document.addEventListener('DOMContentLoaded', function() {
-      const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
-    });
-    
-    // Haftalık kampanya geri sayım - Her pazartesi 03:00'da başlıyor, pazar 23:59'da bitiyor
-    (function(){
-      function getNextCampaignEnd() {
-        const now = new Date();
-        const currentDay = now.getDay(); // 0=Pazar, 1=Pazartesi, ..., 6=Cumartesi
-        const currentHour = now.getHours();
-        
-        let daysUntilSundayEnd;
-        
-        if (currentDay === 0) { // Pazar
-          if (currentHour < 23 || (currentHour === 23 && now.getMinutes() < 59)) {
-            // Bugün pazar ve henüz 23:59 olmadı
-            daysUntilSundayEnd = 0;
-          } else {
-            // Pazar 23:59 geçti, bir sonraki pazar
-            daysUntilSundayEnd = 7;
-          }
-        } else if (currentDay === 1 && currentHour < 3) {
-          // Pazartesi sabah 3'ten önce, önceki pazar akşamı
-          daysUntilSundayEnd = 6;
-        } else {
-          // Normal durum, bu haftanın pazar akşamı
-          daysUntilSundayEnd = (7 - currentDay) % 7;
-          if (daysUntilSundayEnd === 0) daysUntilSundayEnd = 7;
-        }
-        
-        const targetDate = new Date(now);
-        targetDate.setDate(now.getDate() + daysUntilSundayEnd);
-        targetDate.setHours(23, 59, 59, 999);
-        
-        return targetDate;
-      }
-      
-      let target = getNextCampaignEnd();
-      const el = document.getElementById('countdown'), bar = document.getElementById('promo');
-      function pad(n){return n.toString().padStart(2,'0')}
-      
-      const tick = () => {
-        const now = new Date();
-        const diff = target - now;
-        if (diff <= 0){ 
-          // Kampanya bitti, yeni kampanya dönemini hesapla
-          target = getNextCampaignEnd();
-          return;
-        }
-        const s = Math.floor(diff/1000);
-        const d = Math.floor(s/86400);
-        const h = Math.floor((s%86400)/3600);
-        const m = Math.floor((s%3600)/60);
-        const sec = s%60;
-        el.textContent = `${pad(d)}g ${pad(h)}:${pad(m)}:${pad(sec)}`;
-        requestAnimationFrame(()=>setTimeout(tick, 500));
-      };
-      tick();
-    })();
-
-    // Theme request function - WhatsApp integration
-    function requestTheme(themeName) {
-      const message = `Merhaba Kaysia Agency, "${themeName}" temasıyla web sitesi yapmak istiyorum. Bu haftaya özel kampanya fiyatlarınız nedir?`;
-      const whatsappUrl = `https://wa.me/905457705297?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-      
-      // GA event tracking
-      if(window.gtag){ 
-        gtag('event','theme_request',{
-          event_category:'theme',
-          event_label:themeName
-        }); 
-      }
-    }
-    
-    // Logo scroll to top function
-    function selectTheme(themeName) {
-      const root = document.documentElement;
-      const favicon = document.getElementById('favicon');
-      
-      root.setAttribute('data-theme', themeName);
-      
-      // Tema kartlarındaki butonları güncelle
-      const themeCards = document.querySelectorAll('.theme-card');
-      themeCards.forEach(card => {
-        const btn = card.querySelector('.theme-btn');
-        if (card.dataset.theme === themeName) {
-          btn.textContent = 'İşte Bu Temayı İstiyorum!';
-          btn.classList.add('active');
-        } else {
-          btn.textContent = 'Bu Temayı İstiyorum';
-          btn.classList.remove('active');
-        }
-      });
-      
-      // Favicon değiştir
-      if (themeName === 'dark' || themeName === 'darkcity') {
-        favicon.href = 'favicon-dark.svg';
-      } else {
-        favicon.href = 'favicon-light.svg';
-      }
-      
-      if(window.gtag){ gtag('event','theme_preview',{event_category:'ui',event_label:themeName}); }
-    }
-    
-    // GA: CTA tıklamalarını ölç
-    document.getElementById('cta-wa').addEventListener('click', function(){
-      if(window.gtag){ gtag('event','click',{event_category:'cta',event_label:'whatsapp_hero'}); }
-    });
-
-    // Domain kontrolü
-    async function checkDomain(domain) {
-      if (!domain || domain.length < 3) return;
-      
-      const statusEl = document.getElementById('domain-status');
-      statusEl.textContent = '🔍';
-      statusEl.className = 'domain-status domain-checking';
-      
-      try {
-        const res = await fetch(`https://rdap.org/domain/${encodeURIComponent(domain)}`);
-        if (res.status === 200) {
-          statusEl.textContent = '❌';
-          statusEl.className = 'domain-status domain-taken';
-          statusEl.title = 'Bu alan adı alınmış';
-        } else if (res.status === 404) {
-          statusEl.textContent = '✅';
-          statusEl.className = 'domain-status domain-available';
-          statusEl.title = 'Bu alan adı müsait';
-        } else {
-          statusEl.textContent = '❓';
-          statusEl.className = 'domain-status domain-checking';
-          statusEl.title = 'Kontrol edilemedi';
-        }
-      } catch (error) {
-        statusEl.textContent = '❓';
-        statusEl.className = 'domain-status domain-checking';
-        statusEl.title = 'Bağlantı hatası';
-      }
-    }
-    
-    // Form validasyonu
-    function validateForm() {
-      const requiredFields = ['ad_soyad', 'email'];
-      const submitBtn = document.getElementById('submit-btn');
-      let isValid = true;
-      
-      requiredFields.forEach(fieldName => {
-        const field = document.querySelector(`[name="${fieldName}"]`);
-        if (!field.value.trim()) {
-          isValid = false;
-          field.style.borderColor = '#e74c3c';
-        } else {
-          field.style.borderColor = '';
-        }
-      });
-      
-      // Email format kontrolü
-      const emailField = document.querySelector('[name="email"]');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (emailField.value && !emailRegex.test(emailField.value)) {
-        isValid = false;
-        emailField.style.borderColor = '#e74c3c';
-      }
-      
-      submitBtn.disabled = !isValid;
-    }
-    
-    // Alan adı tercihi değişikliği
-    function updateDomainSuffix() {
-      const domainType = document.querySelector('[name="domain_tipi"]').value;
-      const suffixEl = document.getElementById('domain-suffix');
-      
-      if (domainType === '.com.tr') {
-        suffixEl.textContent = '.com.tr';
-      } else if (domainType === '.com') {
-        suffixEl.textContent = '.com';
-      } else {
-        suffixEl.textContent = '';
-      }
-    }
-    
-    // Form gönderimi ve uyarı
-    function validateAndSubmit(event) {
-      event.preventDefault();
-      
-      const domainType = document.querySelector('[name="domain_tipi"]').value;
-      
-      if (domainType === '.com.tr') {
-        if (!confirm('Belgeler için sizinle iletişime geçilecektir. Devam etmek istiyor musunuz?')) {
-          return false;
-        }
-      }
-      
-      // Form verilerini al
-      const formData = new FormData(document.getElementById('contact-form'));
-      const formObject = {};
-      formData.forEach((value, key) => {
-        formObject[key] = value;
-      });
-      
-      // Formspree'ye gönder
-      fetch('https://formspree.io/f/xdkloppk', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formObject)
-      }).then(response => {
-        if (response.ok) {
-          // GA4 event tracking
-          if (window.gtag) {
-            gtag('event','submit',{event_category:'form',event_label:'formspree_primary'});
-          }
-          // Teşekür sayfasına yönlendir
-          window.location.href = '/tesekkur.html';
-        } else {
-          alert('Bir hata oluştu. Lütfen tekrar deneyin.');
-        }
-      }).catch(error => {
-        console.error('Error:', error);
-        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
-      });
-      
-      return false;
-    }
-    
-    // Form alanlarını dinle
-    document.addEventListener('DOMContentLoaded', function() {
-      const formFields = document.querySelectorAll('input, textarea, select');
-      formFields.forEach(field => {
-        field.addEventListener('input', validateForm);
-        field.addEventListener('blur', validateForm);
-      });
-      
-      // Alan adı tercihi değişikliğini dinle
-      const domainTypeSelect = document.querySelector('[name="domain_tipi"]');
-      domainTypeSelect.addEventListener('change', updateDomainSuffix);
-      
-      // Sayfa yüklendiğinde suffix'i ayarla
-      updateDomainSuffix();
-    });
-    
-    // Kayan yorum sistemi
-    (function() {
-      const track = document.getElementById('testimonialsTrack');
-      if (!track) return;
-
-      // Yorumları çoğalt
-      const originalCards = track.innerHTML;
-      track.innerHTML = originalCards + originalCards; // 2 kez ekle
-
-      // Animasyon süresini ayarla
-      const totalWidth = track.scrollWidth;
-      const containerWidth = track.parentElement.offsetWidth;
-      const duration = (totalWidth / 100) * 2; // 100px/s hızında (daha hızlı)
-
-      track.style.animationDuration = duration + 's';
-    })();
-
-    // Logo tıklama - sayfanın en üstüne çık (fixed behavior)
-    (function() {
-      const logo = document.querySelector('.logo');
-      if (logo) {
-        // Logo'yu fixed position yap
-        logo.style.position = 'fixed';
-        logo.style.top = '20px';
-        logo.style.left = '40px';
-        logo.style.zIndex = '1000';
-        logo.style.cursor = 'pointer';
-        logo.style.transition = 'all 0.3s ease';
-        
-        logo.addEventListener('click', function(e) {
-          e.preventDefault();
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-          
-          // GA event tracking
-          if(window.gtag){
-            gtag('event','logo_click',{
-              event_category:'navigation',
-              event_label:'scroll_to_top'
-            });
-          }
-        });
-        
-        // Hover effect
-        logo.addEventListener('mouseenter', function() {
-          this.style.transform = 'scale(1.05)';
-        });
-        
-        logo.addEventListener('mouseleave', function() {
-          this.style.transform = 'scale(1)';
-        });
-      }
-    })();
-
-    // Tema switcher - updated for new theme request system
-    (function(){
-      const root = document.documentElement;
-      const favicon = document.getElementById('favicon');
-      
-      function setTheme(name){
-        selectTheme(name); // Use the existing selectTheme function
-      }
-      
-      // Tema kartlarına tıklama - sadece önizleme için
-      document.addEventListener('click', function(e) {
-        if (e.target.closest('.theme-card') && !e.target.classList.contains('theme-btn')) {
-          const themeCard = e.target.closest('.theme-card');
-          if (themeCard) {
-            setTheme(themeCard.dataset.theme);
-          }
-        }
-      });
-      
-      setTheme('kaysia'); // varsayılan
-    })();
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>

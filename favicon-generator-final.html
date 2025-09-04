@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Kaysia Favicon Generator</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: #f8fafc;
+        }
+        canvas {
+            border: 1px solid #e2e8f0;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        .preview {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 10px;
+        }
+        button:hover {
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Kaysia Favicon Generator</h1>
+    
+    <div class="preview">
+        <div>
+            <h3>64x64 (High Quality)</h3>
+            <canvas id="favicon64" width="64" height="64"></canvas>
+            <button onclick="downloadFavicon('favicon64', 'favicon-64.png')">Download 64x64</button>
+        </div>
+        
+        <div>
+            <h3>32x32 (Standard)</h3>
+            <canvas id="favicon32" width="32" height="32"></canvas>
+            <button onclick="downloadFavicon('favicon32', 'favicon.png')">Download 32x32</button>
+        </div>
+        
+        <div>
+            <h3>16x16 (Small)</h3>
+            <canvas id="favicon16" width="16" height="16"></canvas>
+            <button onclick="downloadFavicon('favicon16', 'favicon-16.png')">Download 16x16</button>
+        </div>
+    </div>
+
+    <script>
+        function createFavicon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Set background - white with slight transparency
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, size, size);
+            
+            // Create gradient for the "k." text
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#2563eb');
+            gradient.addColorStop(1, '#1e40af');
+            
+            // Calculate font size based on canvas size
+            const fontSize = Math.floor(size * 0.45);
+            
+            // Set font and style
+            ctx.font = `bold ${fontSize}px Inter, Arial, sans-serif`;
+            ctx.fillStyle = gradient;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Add subtle shadow
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
+            ctx.shadowBlur = size * 0.05;
+            ctx.shadowOffsetX = size * 0.02;
+            ctx.shadowOffsetY = size * 0.02;
+            
+            // Draw the "k." text
+            ctx.fillText('k.', size / 2, size / 2);
+            
+            // Reset shadow for border
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            
+            // Add subtle border
+            ctx.strokeStyle = 'rgba(226, 232, 240, 0.5)';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(0.5, 0.5, size - 1, size - 1);
+        }
+        
+        function downloadFavicon(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        // Generate all favicons when page loads
+        window.onload = function() {
+            createFavicon('favicon64', 64);
+            createFavicon('favicon32', 32);
+            createFavicon('favicon16', 16);
+        };
+    </script>
+</body>
+</html>
