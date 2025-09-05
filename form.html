@@ -74,6 +74,7 @@
             font-size: 1rem;
             transition: all 0.3s ease;
             background: white;
+            color: #000000;
         }
         
         .form-group input:focus,
@@ -245,6 +246,77 @@
             margin-left: 1.5rem;
         }
         
+        .thank-you-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+        }
+        
+        .thank-you-content {
+            max-width: 600px;
+            padding: 2rem;
+        }
+        
+        .thank-you-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            animation: bounce 1s ease-in-out;
+        }
+        
+        .thank-you-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .thank-you-message {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .thank-you-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .thank-you-button:hover {
+            background: white;
+            color: #10b981;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
         .back-link {
             display: inline-block;
             color: #64748b;
@@ -314,10 +386,9 @@
                         <label for="ehliyetTipi">Ehliyet Tipi *</label>
                         <select id="ehliyetTipi" name="ehliyetTipi" required>
                             <option value="">Seçiniz</option>
-                            <option value="A1">A1 (50cc'ye kadar)</option>
-                            <option value="A2">A2 (35kW'a kadar)</option>
-                            <option value="A">A (Tüm motosikletler)</option>
-                            <option value="B">B (Otomobil)</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="A">A</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -329,7 +400,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="telefon">Telefon Numarası *</label>
-                        <input type="tel" id="telefon" name="telefon" placeholder="0XXX XXX XX XX" required>
+                        <input type="tel" id="telefon" name="telefon" placeholder="053x-xxx-xxxx" maxlength="11" pattern="[0-9]{11}" required>
                     </div>
                     <div class="form-group">
                         <label for="email">E-posta Adresi *</label>
@@ -338,8 +409,19 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="sahisSirketi">Şahıs Şirketi (Opsiyonel)</label>
-                    <input type="text" id="sahisSirketi" name="sahisSirketi" placeholder="Şahıs şirketiniz varsa yazın">
+                    <label for="sahisSirketi">Şahıs Şirketi Var mı? *</label>
+                    <select id="sahisSirketi" name="sahisSirketi" required>
+                        <option value="">Seçiniz</option>
+                        <option value="Evet">Evet</option>
+                        <option value="Hayır">Hayır</option>
+                    </select>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="p1Belge" name="p1Belge" value="Evet">
+                        P1 Belgeniz var mı? (Opsiyonel)
+                    </label>
                 </div>
                 
                 <div class="form-row">
@@ -373,6 +455,10 @@
                         <option value="">Seçiniz</option>
                         <option value="Instagram">Instagram</option>
                         <option value="Facebook">Facebook</option>
+                        <option value="Sahibinden">Sahibinden</option>
+                        <option value="Telegram">Telegram</option>
+                        <option value="İşin Olsun">İşin Olsun</option>
+                        <option value="Kuryes.com">Kuryes.com</option>
                         <option value="Arkadaş Tavsiyesi">Arkadaş Tavsiyesi</option>
                         <option value="Google">Google Arama</option>
                         <option value="Diğer">Diğer</option>
@@ -452,10 +538,25 @@
         </div>
     </div>
     
+    <!-- Thank You Overlay -->
+    <div id="thankYouOverlay" class="thank-you-overlay">
+        <div class="thank-you-content">
+            <div class="thank-you-icon">✅</div>
+            <h1 class="thank-you-title">Teşekkürler!</h1>
+            <p class="thank-you-message">
+                Ön başvurunuz başarıyla alınmıştır.<br>
+                En kısa sürede sizinle iletişime geçeceğiz.
+            </p>
+            <button onclick="closeThankYou()" class="thank-you-button">
+                Formu Tekrar Doldurmak İçin Tıklayın
+            </button>
+        </div>
+    </div>
+    
     <script>
         // Form validation
         function validateForm() {
-            const requiredFields = ['adSoyad', 'dogumTarihi', 'ehliyetTipi', 'acikAdres', 'telefon', 'email', 'motorVar'];
+            const requiredFields = ['adSoyad', 'dogumTarihi', 'ehliyetTipi', 'acikAdres', 'telefon', 'email', 'motorVar', 'sahisSirketi'];
             const kvkkCheckbox = document.getElementById('kvkkRiza');
             const submitButton = document.getElementById('submitButton');
             
@@ -482,6 +583,19 @@
             }
             
             submitButton.disabled = !allValid;
+        }
+        
+        // Thank you overlay functions
+        function showThankYou() {
+            document.getElementById('thankYouOverlay').style.display = 'flex';
+        }
+        
+        function closeThankYou() {
+            document.getElementById('thankYouOverlay').style.display = 'none';
+            // Reset form
+            document.getElementById('applicationForm').reset();
+            document.getElementById('kvkkRiza').disabled = true;
+            validateForm();
         }
         
         // KVKK Modal functionality
@@ -537,7 +651,7 @@
             const errorMessage = document.getElementById('errorMessage');
             
             // Process checkbox values
-            const checkboxFields = ['smsIzin', 'mailIzin', 'telefonIzin', 'kvkkRiza'];
+            const checkboxFields = ['smsIzin', 'mailIzin', 'telefonIzin', 'kvkkRiza', 'p1Belge'];
             checkboxFields.forEach(fieldName => {
                 const checkbox = form.querySelector(`[name="${fieldName}"]`);
                 if (checkbox && checkbox.checked) {
@@ -565,13 +679,7 @@
                 });
                 
                 if (response.ok) {
-                    successMessage.style.display = 'block';
-                    form.reset();
-                    document.getElementById('kvkkRiza').disabled = true;
-                    validateForm();
-                    
-                    // Scroll to success message
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    showThankYou();
                 } else {
                     throw new Error('Form submission failed');
                 }
@@ -584,27 +692,14 @@
             }
         });
         
-        // Phone number formatting
+        // Phone number input - only allow numbers, max 11 characters
         document.getElementById('telefon').addEventListener('input', function(e) {
+            // Remove any non-digit characters
             let value = e.target.value.replace(/\D/g, '');
             
-            if (value.startsWith('90')) {
-                value = value.substring(2);
-            }
-            if (value.startsWith('0')) {
-                value = value.substring(1);
-            }
-            
-            if (value.length > 0) {
-                if (value.length <= 3) {
-                    value = '05' + value;
-                } else if (value.length <= 6) {
-                    value = '0' + value.substring(0, 3) + ' ' + value.substring(3);
-                } else if (value.length <= 8) {
-                    value = '0' + value.substring(0, 3) + ' ' + value.substring(3, 6) + ' ' + value.substring(6);
-                } else {
-                    value = '0' + value.substring(0, 3) + ' ' + value.substring(3, 6) + ' ' + value.substring(6, 8) + ' ' + value.substring(8, 10);
-                }
+            // Limit to 11 characters
+            if (value.length > 11) {
+                value = value.substring(0, 11);
             }
             
             e.target.value = value;
