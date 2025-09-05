@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     initializePhoneFormatting();
     initializeLazyLoading();
+    initializeDomainSearch();
 });
 
 // ===== THEME SYSTEM =====
@@ -530,15 +531,39 @@ function initializePhoneFormatting() {
         input.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
             
+            // Limit to 10 digits after +90
+            if (value.length > 10) {
+                value = value.slice(0, 10);
+            }
+            
+            // Always add +90 prefix
             if (value.length > 0) {
-                value = '+90 ' + value;
+                e.target.value = '+90' + value;
+            } else {
+                e.target.value = '+90';
             }
-            
-            if (value.length > 4) {
-                value = value.substring(0, 4) + value.substring(4).replace(/(\d{3})(\d{3})(\d{2})/, '$1-$2-$3');
+        });
+        
+        // Set initial value
+        if (!input.value || input.value === '') {
+            input.value = '+90';
+        }
+        
+        // Prevent cursor from moving before +90
+        input.addEventListener('keydown', function(e) {
+            const cursorPos = e.target.selectionStart;
+            if (cursorPos < 3 && (e.key === 'Backspace' || e.key === 'Delete' || e.key === 'ArrowLeft')) {
+                e.preventDefault();
             }
-            
-            e.target.value = value;
+        });
+        
+        // Focus after +90
+        input.addEventListener('focus', function(e) {
+            if (e.target.value === '+90') {
+                setTimeout(() => {
+                    e.target.setSelectionRange(3, 3);
+                }, 0);
+            }
         });
     });
 }
@@ -740,3 +765,94 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// ===== DOMAIN SEARCH FUNCTIONALITY =====
+function initializeDomainSearch() {
+    let domainCheckTimeout;
+    let currentExtension = '.com';
+    
+    const domainInput = document.getElementById('domainSearchInput');
+    const domainStatusDisplay = document.getElementById('domainStatusDisplay');
+    const extensionOptions = document.querySelectorAll('.extension-option');
+    
+    if (!domainInput || !domainStatusDisplay || !extensionOptions.length) {
+        return; // Elements not found, skip initialization
+    }
+    
+    // Extension selection
+    extensionOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove active class from all options
+            extensionOptions.forEach(opt => opt.classList.remove('active'));
+            // Add active class to clicked option
+            this.classList.add('active');
+            // Update current extension
+            currentExtension = this.dataset.extension;
+            
+            // Re-check domain if there's a value
+            if (domainInput.value.trim()) {
+                checkDomainAvailability();
+            }
+        });
+    });
+    
+    // Domain input handler with debounce
+    domainInput.addEventListener('input', function() {
+        clearTimeout(domainCheckTimeout);
+        const domain = this.value.trim();
+        
+        if (domain.length === 0) {
+            domainStatusDisplay.style.display = 'none';
+            return;
+        }
+        
+        // Show checking status
+        showDomainStatus('checking', '⏳', `${domain}${currentExtension} kontrol ediliyor...`);
+        
+        // Debounce domain checking (2 seconds)
+        domainCheckTimeout = setTimeout(checkDomainAvailability, 2000);
+    });
+    
+    // Enter key handler
+    domainInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            clearTimeout(domainCheckTimeout);
+            if (this.value.trim()) {
+                checkDomainAvailability();
+            }
+        }
+    });
+    
+    function checkDomainAvailability() {
+        const domain = domainInput.value.trim();
+        
+        if (!domain) {
+            domainStatusDisplay.style.display = 'none';
+            return;
+        }
+        
+        const fullDomain = domain + currentExtension;
+        
+        // Simulate domain availability check
+        setTimeout(() => {
+            const isAvailable = Math.random() > 0.4; // 60% chance of being available
+            
+            if (isAvailable) {
+                showDomainStatus('available', '✅', `${fullDomain} uygun!`);
+            } else {
+                showDomainStatus('unavailable', '❌', `${fullDomain} alınmış`);
+            }
+        }, 1000);
+    }
+    
+    function showDomainStatus(type, icon, text) {
+        const statusIcon = domainStatusDisplay.querySelector('.domain-status-icon');
+        const statusText = domainStatusDisplay.querySelector('.domain-status-text');
+        
+        domainStatusDisplay.className = `domain-status ${type}`;
+        statusIcon.textContent = icon;
+        statusText.textContent = text;
+        domainStatusDisplay.style.display = 'flex';
+    }
+}

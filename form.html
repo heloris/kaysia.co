@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563eb">
+    <title>Başvuru Formu — Kaysia.co</title>
+    <meta name="description" content="Kaysia.co profesyonel web tasarım hizmetleri için başvuru formu">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.svg">
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-page {
+            min-height: 100vh;
+            background: #FFD700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 3rem 2rem;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-header h1 {
+            color: #1e293b;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-header p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .checkbox-label input[type="checkbox"] {
+            width: auto;
+            min-width: 18px;
+            height: 18px;
+            margin: 0;
+        }
+        
+        .marketing-consent {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .marketing-consent h3 {
+            color: #374151;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .marketing-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .marketing-explanation {
+            background: #64748b;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-top: 1rem;
+        }
+        
+        .experience-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .experience-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .submit-button {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+        
+        .submit-button:active {
+            transform: translateY(0);
+        }
+        
+        .submit-button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-close {
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #9ca3af;
+        }
+        
+        .modal-close:hover {
+            color: #374151;
+        }
+        
+        .modal-footer {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .modal h4 {
+            color: #374151;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .modal ul {
+            margin-left: 1.5rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #64748b;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #2563eb;
+        }
+        
+        .success-message {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .error-message {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-page">
+        <div class="form-container">
+            <a href="javascript:history.back()" class="back-link">← Geri Dön</a>
+            
+            <div class="form-header">
+                <h1>Kurye Ön Başvuru Formu</h1>
+                <p>Kurye pozisyonu için ön başvuru bilgilerinizi paylaşın</p>
+            </div>
+            
+            <div id="successMessage" class="success-message">
+                Ön başvurunuz başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.
+            </div>
+            
+            <div id="errorMessage" class="error-message">
+                Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.
+            </div>
+            
+            <form id="applicationForm" action="https://formspree.io/f/xqadlokb" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adSoyad">Ad Soyad *</label>
+                        <input type="text" id="adSoyad" name="adSoyad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dogumTarihi">Doğum Tarihi *</label>
+                        <input type="text" id="dogumTarihi" name="dogumTarihi" placeholder="GG.AA.YYYY" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ehliyetTipi">Ehliyet Tipi *</label>
+                        <select id="ehliyetTipi" name="ehliyetTipi" required>
+                            <option value="">Seçiniz</option>
+                            <option value="A1">A1 (50cc'ye kadar)</option>
+                            <option value="A2">A2 (35kW'a kadar)</option>
+                            <option value="A">A (Tüm motosikletler)</option>
+                            <option value="B">B (Otomobil)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="acikAdres">Açık Adres *</label>
+                        <input type="text" id="acikAdres" name="acikAdres" placeholder="İlçe, Şehir" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefon">Telefon Numarası *</label>
+                        <input type="tel" id="telefon" name="telefon" placeholder="0XXX XXX XX XX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta Adresi *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sahisSirketi">Şahıs Şirketi (Opsiyonel)</label>
+                    <input type="text" id="sahisSirketi" name="sahisSirketi" placeholder="Şahıs şirketiniz varsa yazın">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="motorVar">Motor Sahibi misiniz? *</label>
+                        <select id="motorVar" name="motorVar" required>
+                            <option value="">Seçiniz</option>
+                            <option value="Evet">Evet</option>
+                            <option value="Hayır">Hayır</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="motorMarka">Motor Markası ve Modeli</label>
+                        <input type="text" id="motorMarka" name="motorMarka" placeholder="Örn: Honda CBF 150">
+                    </div>
+                </div>
+                
+                <!-- Deneyim Alanları -->
+                <div class="form-group">
+                    <label>Kurye Deneyiminiz (Şirket İsimleri)</label>
+                    <div class="experience-row">
+                        <input type="text" id="deneyim1" name="deneyim1" placeholder="1. Şirket">
+                        <input type="text" id="deneyim2" name="deneyim2" placeholder="2. Şirket">
+                        <input type="text" id="deneyim3" name="deneyim3" placeholder="3. Şirket">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="neredenDuydunuz">Bizi Nereden Duydunuz?</label>
+                    <select id="neredenDuydunuz" name="neredenDuydunuz">
+                        <option value="">Seçiniz</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Arkadaş Tavsiyesi">Arkadaş Tavsiyesi</option>
+                        <option value="Google">Google Arama</option>
+                        <option value="Diğer">Diğer</option>
+                    </select>
+                </div>
+                
+                <!-- Pazarlama İzinleri Bölümü -->
+                <div class="marketing-consent">
+                    <h3>Pazarlama İzinleri</h3>
+                    <div class="marketing-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="smsIzin" name="smsIzin" value="Evet">
+                            SMS ile bilgilendirilmeyi kabul ediyorum
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="mailIzin" name="mailIzin" value="Evet">
+                            E-posta ile bilgilendirilmeyi kabul ediyorum
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="telefonIzin" name="telefonIzin" value="Evet">
+                            Telefon ile aranmayı kabul ediyorum
+                        </label>
+                    </div>
+                    <div class="marketing-explanation">
+                        Pazarlama izinleri opsiyoneldir. Bu izinleri vermezseniz sadece başvurunuzla ilgili teknik konularda iletişim kurulacaktır. Kampanyalar, yeni hizmetler ve özel teklifler hakkında bilgi almak istiyorsanız ilgili kutucukları işaretleyebilirsiniz. İstediğiniz zaman bu izinleri geri çekebilirsiniz.
+                    </div>
+                </div>
+                
+                <!-- Zorunlu Onaylar -->
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="kvkkRiza" name="kvkkRiza" value="Evet" disabled required>
+                        <span>Kişisel verilerimin işlenmesine ilişkin <strong id="kvkkLink" style="cursor: pointer; text-decoration: underline;">KVKK Aydınlatma Metni</strong>'ni okudum ve kabul ediyorum *</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-button" id="submitButton" disabled>
+                    Ön Başvuruyu Gönder
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- KVKK Modal -->
+    <div id="kvkkModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>KVKK Aydınlatma Metni</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Veri Sorumlusu:</strong> Kaysia Agency</p>
+                <p><strong>İletişim:</strong> kaysia.store@gmail.com</p>
+                
+                <h4>Kişisel Verilerinizin İşlenme Amacı</h4>
+                <p>Kişisel verileriniz, kurye başvuru sürecinin yürütülmesi, değerlendirilmesi ve size geri dönüş yapılması amacıyla işlenmektedir.</p>
+                
+                <h4>İşlenen Kişisel Veriler</h4>
+                <ul>
+                    <li>Kimlik bilgileri (ad, soyad, doğum tarihi)</li>
+                    <li>İletişim bilgileri (telefon, e-posta, adres)</li>
+                    <li>Ehliyet ve deneyim bilgileri</li>
+                    <li>Pazarlama izin tercihleri</li>
+                </ul>
+                
+                <h4>Kişisel Verilerinizin Paylaşılması</h4>
+                <p>Verileriniz, hukuki yükümlülükler dışında üçüncü taraflarla paylaşılmayacaktır.</p>
+                
+                <h4>Haklarınız</h4>
+                <p>KVKK kapsamında kişisel verilerinize erişim, düzeltme, silme ve işlemeye itiraz etme haklarınız bulunmaktadır.</p>
+                
+                <p>Detaylı bilgi için: kaysia.store@gmail.com</p>
+            </div>
+            <div class="modal-footer">
+                <button id="kvkkAcceptButton" class="submit-button">Okudum, Kabul Ediyorum</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Form validation
+        function validateForm() {
+            const requiredFields = ['adSoyad', 'dogumTarihi', 'ehliyetTipi', 'acikAdres', 'telefon', 'email', 'motorVar'];
+            const kvkkCheckbox = document.getElementById('kvkkRiza');
+            const submitButton = document.getElementById('submitButton');
+            
+            let allValid = true;
+            
+            // Check required fields
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    allValid = false;
+                }
+            });
+            
+            // Check KVKK consent
+            if (!kvkkCheckbox.checked) {
+                allValid = false;
+            }
+            
+            // Email validation
+            const email = document.getElementById('email');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value && !emailPattern.test(email.value)) {
+                allValid = false;
+            }
+            
+            submitButton.disabled = !allValid;
+        }
+        
+        // KVKK Modal functionality
+        function showKvkkModal() {
+            const modal = document.getElementById('kvkkModal');
+            modal.style.display = 'block';
+        }
+        
+        function closeKvkkModal() {
+            const modal = document.getElementById('kvkkModal');
+            const kvkkCheckbox = document.getElementById('kvkkRiza');
+            modal.style.display = 'none';
+            kvkkCheckbox.checked = true;
+            kvkkCheckbox.disabled = false;
+            validateForm();
+        }
+        
+        // Initialize form
+        document.addEventListener('DOMContentLoaded', function() {
+            // KVKK link click handler
+            document.getElementById('kvkkLink').addEventListener('click', showKvkkModal);
+            
+            // Modal close handlers
+            document.querySelector('.modal-close').addEventListener('click', closeKvkkModal);
+            document.getElementById('kvkkAcceptButton').addEventListener('click', closeKvkkModal);
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('kvkkModal');
+                if (event.target === modal) {
+                    closeKvkkModal();
+                }
+            });
+            
+            // Add event listeners to all form fields
+            const formFields = document.querySelectorAll('#applicationForm input, #applicationForm select, #applicationForm textarea');
+            formFields.forEach(field => {
+                field.addEventListener('input', validateForm);
+                field.addEventListener('change', validateForm);
+            });
+            
+            // Initial validation
+            validateForm();
+        });
+        
+        document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('.submit-button');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Process checkbox values
+            const checkboxFields = ['smsIzin', 'mailIzin', 'telefonIzin', 'kvkkRiza'];
+            checkboxFields.forEach(fieldName => {
+                const checkbox = form.querySelector(`[name="${fieldName}"]`);
+                if (checkbox && checkbox.checked) {
+                    formData.set(fieldName, 'Evet');
+                } else {
+                    formData.set(fieldName, 'Hayır');
+                }
+            });
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Show loading state
+            submitButton.textContent = 'Gönderiliyor...';
+            submitButton.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    form.reset();
+                    document.getElementById('kvkkRiza').disabled = true;
+                    validateForm();
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                submitButton.textContent = 'Ön Başvuruyu Gönder';
+                validateForm(); // Re-enable button if form is still valid
+            }
+        });
+        
+        // Phone number formatting
+        document.getElementById('telefon').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.startsWith('90')) {
+                value = value.substring(2);
+            }
+            if (value.startsWith('0')) {
+                value = value.substring(1);
+            }
+            
+            if (value.length > 0) {
+                if (value.length <= 3) {
+                    value = '05' + value;
+                } else if (value.length <= 6) {
+                    value = '0' + value.substring(0, 3) + ' ' + value.substring(3);
+                } else if (value.length <= 8) {
+                    value = '0' + value.substring(0, 3) + ' ' + value.substring(3, 6) + ' ' + value.substring(6);
+                } else {
+                    value = '0' + value.substring(0, 3) + ' ' + value.substring(3, 6) + ' ' + value.substring(6, 8) + ' ' + value.substring(8, 10);
+                }
+            }
+            
+            e.target.value = value;
+        });
+        
+        // Birth date formatting
+        document.getElementById('dogumTarihi').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '.' + value.substring(2);
+            }
+            if (value.length >= 5) {
+                value = value.substring(0, 5) + '.' + value.substring(5, 9);
+            }
+            
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
