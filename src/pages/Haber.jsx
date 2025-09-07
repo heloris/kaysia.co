@@ -1,4 +1,4 @@
-export default function Haber() {
+function Haber() {
   return (
     <div className="p-10 text-center">
       <h1 className="text-3xl font-bold">Haberler</h1>
@@ -6,3 +6,5 @@ export default function Haber() {
     </div>
   );
 }
+
+export default Haber;

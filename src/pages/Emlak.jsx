@@ -1,4 +1,4 @@
-export default function Emlak() {
+function Emlak() {
   return (
     <div className="p-10 text-center">
       <h1 className="text-3xl font-bold">Emlak Sayfası</h1>
@@ -6,3 +6,5 @@ export default function Emlak() {
     </div>
   );
 }
+
+export default Emlak;

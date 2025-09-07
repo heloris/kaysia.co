@@ -5,8 +5,10 @@ import Footer from './components/Footer';
 // pages klasöründeki dosyaları import et
 import Home from './pages/Home';
 import Emlak from './pages/Emlak';
+import Kartvizit from './pages/Kartvizit';
+import HaberIndex from './pages/HaberIndex';
+import HaberSlug from './pages/HaberSlug';
 import Satinal from './pages/Satinal';
-import Haber from './pages/Haber';
 import Form from './pages/Form';
 import NotFound from './pages/NotFound';
 
@@ -19,8 +21,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/emlak" element={<Emlak />} />
+          <Route path="/kartvizit" element={<Kartvizit />} />
+          <Route path="/haber" element={<HaberIndex />} />
+          <Route path="/haber/:slug" element={<HaberSlug />} />
           <Route path="/satinal" element={<Satinal />} />
-          <Route path="/haber" element={<Haber />} />
           <Route path="/form" element={<Form />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -44,3 +44,4 @@ function SearchBox({ onSearch, placeholder = "Ara (başlık, özet, etiketler)�
 }
 
 export default SearchBox;
+

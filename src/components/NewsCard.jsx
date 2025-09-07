@@ -89,3 +89,4 @@ function NewsCard({ post }) {
 }
 
 export default NewsCard;
+

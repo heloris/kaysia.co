@@ -75,7 +75,7 @@ function KartvizitPage() {
             </a>
             
             <a
-              href="https://wa.me/905555555555"
+              href="https://wa.me/905305616747"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-secondary hover:bg-primary text-white rounded-full flex items-center justify-center transition-colors duration-300"

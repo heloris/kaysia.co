@@ -1,4 +1,4 @@
-export default function Form() {
+function Form() {
   return (
     <div className="p-10 text-center">
       <h1 className="text-3xl font-bold">Form Sayfası</h1>
@@ -6,3 +6,5 @@ export default function Form() {
     </div>
   );
 }
+
+export default Form;

@@ -1,4 +1,4 @@
-export default function Satinal() {
+function Satinal() {
   return (
     <div className="p-10 text-center">
       <h1 className="text-3xl font-bold">Satın Al</h1>
@@ -6,3 +6,5 @@ export default function Satinal() {
     </div>
   );
 }
+
+export default Satinal;
