@@ -1,0 +1,219 @@
+[
+  {
+    "id": "hb-001",
+    "title": "Emlak piyasasında 2025'e giriş: Fırsatlar ve riskler",
+    "slug": "emlak-2025-firsatlar-riskler",
+    "category": "Emlak",
+    "tags": ["konut", "yatirim", "piyasa", "2025"],
+    "excerpt": "2025'te konut fiyatları ve yatırım trendleri üzerine kısa özet. Emlak piyasasında dikkat edilmesi gereken noktalar.",
+    "cover": "https://picsum.photos/seed/emlak1/1200/630",
+    "author": "Kaysia News",
+    "date": "2025-01-05",
+    "readingMinutes": 4,
+    "body": [
+      {"type":"h2","content":"Piyasaya genel bakış"},
+      {"type":"p","content":"2025 yılı emlak piyasası için kritik bir dönem olacak. Faiz oranlarındaki değişimler ve ekonomik belirsizlikler yatırımcıları etkilemeye devam ediyor."},
+      {"type":"img","src":"https://picsum.photos/seed/emlak1a/1200/700","alt":"Piyasa grafiği"},
+      {"type":"h2","content":"Yatırımcılar için notlar"},
+      {"type":"p","content":"Konut fiyatlarında beklenen düşüş trendi devam ederken, uzun vadeli yatırımcılar için fırsatlar ortaya çıkıyor."}
+    ]
+  },
+  {
+    "id": "hb-002",
+    "title": "Kira mı satın alma mı? 2025 rehberi",
+    "slug": "kira-mi-satin-alma-mi-2025",
+    "category": "Emlak",
+    "tags": ["kira", "satin-alma", "karar", "finans"],
+    "excerpt": "Kira ödemek mi yoksa ev satın almak mı daha mantıklı? 2025 yılı için detaylı karşılaştırma ve hesaplama yöntemleri.",
+    "cover": "https://picsum.photos/seed/emlak2/1200/630",
+    "author": "Kaysia News",
+    "date": "2025-01-04",
+    "readingMinutes": 6,
+    "body": [
+      {"type":"h2","content":"Finansal karşılaştırma"},
+      {"type":"p","content":"Kira ve satın alma arasındaki seçim, kişisel finansal durumunuza ve uzun vadeli hedeflerinize bağlıdır."},
+      {"type":"h2","content":"Hesaplama yöntemleri"},
+      {"type":"p","content":"Doğru karar verebilmek için kira-satın alma oranını ve nakit akışınızı dikkatli analiz etmelisiniz."}
+    ]
+  },
+  {
+    "id": "hb-003",
+    "title": "Emlakta lokasyon verisi nasıl okunur?",
+    "slug": "emlak-lokasyon-verisi-okuma",
+    "category": "Emlak",
+    "tags": ["lokasyon", "veri", "analiz", "emlak"],
+    "excerpt": "Emlak yatırımında lokasyon analizi nasıl yapılır? Hangi verileri takip etmeli ve nasıl değerlendirmelisiniz?",
+    "cover": "https://picsum.photos/seed/emlak3/1200/630",
+    "author": "Kaysia News",
+    "date": "2025-01-03",
+    "readingMinutes": 5,
+    "body": [
+      {"type":"h2","content":"Lokasyon analizi"},
+      {"type":"p","content":"Emlak yatırımında lokasyon, fiyat artışının en önemli belirleyicisidir. Doğru lokasyon seçimi için dikkat edilmesi gereken faktörler."},
+      {"type":"h2","content":"Veri kaynakları"},
+      {"type":"p","content":"Nüfus artışı, istihdam oranları, ulaşım projeleri ve sosyal altyapı verilerini takip ederek doğru kararlar verebilirsiniz."}
+    ]
+  },
+  {
+    "id": "hb-004",
+    "title": "KOBİ'ler için hızlı AI otomasyon ipuçları",
+    "slug": "kobi-ai-otomasyon-ipuclari",
+    "category": "AI",
+    "tags": ["kobi", "ai", "otomasyon", "verimlilik"],
+    "excerpt": "Küçük ve orta ölçekli işletmeler için AI destekli otomasyon çözümleri. Hızlı ve uygun maliyetli uygulamalar.",
+    "cover": "https://picsum.photos/seed/ai1/1200/630",
+    "author": "Kaysia News",
+    "date": "2025-01-02",
+    "readingMinutes": 7,
+    "body": [
+      {"type":"h2","content":"AI otomasyon fırsatları"},
+      {"type":"p","content":"KOBİ'ler için AI teknolojileri artık daha erişilebilir hale geldi. Müşteri hizmetlerinden stok yönetimine kadar birçok alanda otomasyon sağlayabilirsiniz."},
+      {"type":"h2","content":"Uygulama örnekleri"},
+      {"type":"p","content":"Chatbot'lar, otomatik e-posta yanıtları ve veri analizi araçları ile iş süreçlerinizi hızlandırabilirsiniz."}
+    ]
+  },
+  {
+    "id": "hb-005",
+    "title": "n8n ile no-code iş akışları",
+    "slug": "n8n-no-code-is-akislari",
+    "category": "AI",
+    "tags": ["n8n", "no-code", "otomasyon", "is-akisi"],
+    "excerpt": "n8n platformu ile kod yazmadan güçlü iş akışları oluşturun. Entegrasyonlar ve otomasyon örnekleri.",
+    "cover": "https://picsum.photos/seed/ai2/1200/630",
+    "author": "Kaysia News",
+    "date": "2025-01-01",
+    "readingMinutes": 8,
+    "body": [
+      {"type":"h2","content":"n8n nedir?"},
+      {"type":"p","content":"n8n, açık kaynaklı bir iş akışı otomasyon platformudur. Kod yazmadan karmaşık entegrasyonlar oluşturabilirsiniz."},
+      {"type":"h2","content":"Kullanım alanları"},
+      {"type":"p","content":"CRM entegrasyonları, sosyal medya otomasyonu ve veri senkronizasyonu gibi birçok alanda kullanabilirsiniz."}
+    ]
+  },
+  {
+    "id": "hb-006",
+    "title": "Web sitesi neden kritik? 2025'te dijital varlık",
+    "slug": "web-sitesi-neden-kritik-2025",
+    "category": "Web",
+    "tags": ["web-sitesi", "dijital", "online", "isletme"],
+    "excerpt": "2025'te web sitesi sahibi olmak neden kritik? Dijital dünyada varlığınızı nasıl güçlendirirsiniz?",
+    "cover": "https://picsum.photos/seed/web1/1200/630",
+    "author": "Kaysia News",
+    "date": "2024-12-31",
+    "readingMinutes": 5,
+    "body": [
+      {"type":"h2","content":"Dijital varlığın önemi"},
+      {"type":"p","content":"Web sitesi, işletmenizin dijital dünyadaki vitrinidir. Müşterilerin sizi bulması ve tanıması için kritik öneme sahiptir."},
+      {"type":"h2","content":"2025 trendleri"},
+      {"type":"p","content":"Mobil uyumluluk, hız ve SEO optimizasyonu artık zorunlu hale geldi. Bu kriterleri karşılamayan siteler geride kalıyor."}
+    ]
+  },
+  {
+    "id": "hb-007",
+    "title": "Hız ve SEO'nun satışa etkisi",
+    "slug": "hiz-ve-seo-satisa-etkisi",
+    "category": "Web",
+    "tags": ["hiz", "seo", "satis", "performans"],
+    "excerpt": "Web sitesi hızı ve SEO optimizasyonunun satış rakamlarına doğrudan etkisi. Rakamlarla kanıtlanmış gerçekler.",
+    "cover": "https://picsum.photos/seed/web2/1200/630",
+    "author": "Kaysia News",
+    "date": "2024-12-30",
+    "readingMinutes": 6,
+    "body": [
+      {"type":"h2","content":"Hız faktörü"},
+      {"type":"p","content":"Sayfa yükleme süresi 1 saniye gecikmesi bile %7 satış kaybına neden oluyor. Hız optimizasyonu kritik öneme sahip."},
+      {"type":"h2","content":"SEO etkisi"},
+      {"type":"p","content":"Arama motorlarında üst sıralarda yer alan siteler %30 daha fazla trafik alıyor ve daha yüksek dönüşüm oranlarına sahip."}
+    ]
+  },
+  {
+    "id": "hb-008",
+    "title": "AI destekli müşteri hizmetleri",
+    "slug": "ai-destekli-musteri-hizmetleri",
+    "category": "AI",
+    "tags": ["ai", "musteri-hizmetleri", "chatbot", "otomasyon"],
+    "excerpt": "Yapay zeka destekli müşteri hizmetleri nasıl kurulur? Chatbot'lar ve otomatik yanıt sistemleri hakkında rehber.",
+    "cover": "https://picsum.photos/seed/ai3/1200/630",
+    "author": "Kaysia News",
+    "date": "2024-12-29",
+    "readingMinutes": 7,
+    "body": [
+      {"type":"h2","content":"AI chatbot'lar"},
+      {"type":"p","content":"Modern AI chatbot'ları doğal dil işleme ile müşteri sorularını anlayabilir ve uygun yanıtlar verebilir."},
+      {"type":"h2","content":"Uygulama stratejileri"},
+      {"type":"p","content":"Doğru eğitim verileri ve sürekli optimizasyon ile AI destekli müşteri hizmetlerinizi etkili hale getirebilirsiniz."}
+    ]
+  },
+  {
+    "id": "hb-009",
+    "title": "Emlak sektöründe dijital dönüşüm",
+    "slug": "emlak-sektorunde-dijital-donusum",
+    "category": "Emlak",
+    "tags": ["dijital-donusum", "emlak", "teknoloji", "inovasyon"],
+    "excerpt": "Emlak sektöründe dijital dönüşüm nasıl gerçekleşiyor? VR, AR ve AI teknolojilerinin etkisi.",
+    "cover": "https://picsum.photos/seed/emlak4/1200/630",
+    "author": "Kaysia News",
+    "date": "2024-12-28",
+    "readingMinutes": 6,
+    "body": [
+      {"type":"h2","content":"Teknoloji trendleri"},
+      {"type":"p","content":"Sanal gerçeklik turları, yapay zeka destekli fiyat tahminleri ve blockchain tabanlı sözleşmeler emlak sektörünü dönüştürüyor."},
+      {"type":"h2","content":"Gelecek öngörüleri"},
+      {"type":"p","content":"2025'te emlak sektöründe daha fazla otomasyon ve kişiselleştirilmiş hizmetler bekleniyor."}
+    ]
+  },
+  {
+    "id": "hb-010",
+    "title": "Web sitesi güvenliği: Temel önlemler",
+    "slug": "web-sitesi-guvenligi-temel-onlemler",
+    "category": "Web",
+    "tags": ["guvenlik", "web-sitesi", "ssl", "koruma"],
+    "excerpt": "Web sitenizi nasıl güvende tutarsınız? SSL sertifikası, güvenlik duvarı ve diğer temel güvenlik önlemleri.",
+    "cover": "https://picsum.photos/seed/web3/1200/630",
+    "author": "Kaysia News",
+    "date": "2024-12-27",
+    "readingMinutes": 5,
+    "body": [
+      {"type":"h2","content":"SSL sertifikası"},
+      {"type":"p","content":"HTTPS protokolü artık zorunlu. SSL sertifikası hem güvenlik hem de SEO açısından kritik öneme sahip."},
+      {"type":"h2","content":"Güvenlik duvarı"},
+      {"type":"p","content":"Web Application Firewall (WAF) ile sitenizi kötü amaçlı saldırılardan koruyabilirsiniz."}
+    ]
+  },
+  {
+    "id": "hb-011",
+    "title": "Emlak yatırımında risk yönetimi",
+    "slug": "emlak-yatiriminda-risk-yonetimi",
+    "category": "Emlak",
+    "tags": ["risk-yonetimi", "emlak", "yatirim", "strateji"],
+    "excerpt": "Emlak yatırımında riskleri nasıl minimize edersiniz? Portföy çeşitlendirmesi ve risk analizi yöntemleri.",
+    "cover": "https://picsum.photos/seed/emlak5/1200/630",
+    "author": "Kaysia News",
+    "date": "2024-12-26",
+    "readingMinutes": 6,
+    "body": [
+      {"type":"h2","content":"Risk faktörleri"},
+      {"type":"p","content":"Piyasa riski, likidite riski ve operasyonel risk gibi faktörleri değerlendirerek yatırım stratejinizi oluşturun."},
+      {"type":"h2","content":"Çeşitlendirme stratejileri"},
+      {"type":"p","content":"Farklı lokasyonlar ve emlak türlerine yatırım yaparak riskinizi dağıtabilirsiniz."}
+    ]
+  },
+  {
+    "id": "hb-012",
+    "title": "AI ile içerik üretimi: Araçlar ve teknikler",
+    "slug": "ai-ile-icerik-uretimi-araclar-teknikler",
+    "category": "AI",
+    "tags": ["ai", "icerik-uretimi", "yazilim", "otomasyon"],
+    "excerpt": "Yapay zeka destekli içerik üretimi nasıl yapılır? ChatGPT, Claude ve diğer AI araçlarının etkili kullanımı.",
+    "cover": "https://picsum.photos/seed/ai4/1200/630",
+    "author": "Kaysia News",
+    "date": "2024-12-25",
+    "readingMinutes": 8,
+    "body": [
+      {"type":"h2","content":"AI yazılım araçları"},
+      {"type":"p","content":"ChatGPT, Claude, Jasper gibi AI araçları ile kaliteli içerik üretebilirsiniz. Doğru prompt teknikleri önemli."},
+      {"type":"h2","content":"İçerik optimizasyonu"},
+      {"type":"p","content":"AI üretimi içerikleri insan editörü ile harmanlayarak en iyi sonucu elde edebilirsiniz."}
+    ]
+  }
+]
