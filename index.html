@@ -17,6 +17,16 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-020B9M10TE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-020B9M10TE');
+    </script>
+    
     <style>
         /* ===== CSS RESET & BASE ===== */
         * {
@@ -1699,10 +1709,10 @@
         function logEvent(eventName, data = {}) {
             console.log(`Event: ${eventName}`, data);
             
-            // If Google Analytics is added later:
-            // if (typeof gtag !== 'undefined') {
-            //     gtag('event', eventName, data);
-            // }
+            // Send to Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, data);
+            }
         }
         
         // Log page view
