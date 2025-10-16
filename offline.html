@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çevrimdışı - Kaysia.co</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0B0F14;
+            --accent-yellow: #FFB800;
+            --text-primary: #E5E7EB;
+            --text-secondary: #9CA3AF;
+            --glass-bg: rgba(255, 184, 0, 0.1);
+            --glass-border: rgba(255, 184, 0, 0.2);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 48px 32px;
+        }
+        
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: var(--accent-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--bg-primary);
+        }
+        
+        .offline-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        
+        .offline-message {
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            color: var(--text-secondary);
+        }
+        
+        .offline-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--accent-yellow);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 184, 0, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--glass-bg);
+            transform: scale(1.02);
+        }
+        
+        .connection-status {
+            margin-top: 24px;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+        
+        .status-offline {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+        
+        .status-online {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+        
+        .retry-indicator {
+            display: none;
+            margin-top: 16px;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 32px 20px;
+            }
+            
+            .offline-title {
+                font-size: 1.5rem;
+            }
+            
+            .offline-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1 class="offline-title">Çevrimdışısınız</h1>
+        <p class="offline-message">
+            İnternet bağlantınızı kontrol edin ve tekrar deneyin. 
+            Bazı özellikler çevrimdışı olarak kullanılabilir.
+        </p>
+        
+        <div class="offline-actions">
+            <button class="btn btn-primary" onclick="retryConnection()">
+                <span class="retry-indicator">
+                    <span class="spinner"></span>
+                </span>
+                Tekrar Dene
+            </button>
+            <button class="btn btn-secondary" onclick="goHome()">
+                Ana Sayfa
+            </button>
+        </div>
+        
+        <div id="connectionStatus" class="connection-status status-offline">
+            🔴 Bağlantı yok
+        </div>
+    </div>
+
+    <script>
+        let retryCount = 0;
+        const maxRetries = 3;
+        
+        // Check connection status
+        function updateConnectionStatus() {
+            const statusEl = document.getElementById('connectionStatus');
+            const retryIndicator = document.querySelector('.retry-indicator');
+            
+            if (navigator.onLine) {
+                statusEl.className = 'connection-status status-online';
+                statusEl.innerHTML = '🟢 Bağlantı var - Yönlendiriliyor...';
+                retryIndicator.style.display = 'none';
+                
+                // Redirect to main page after a short delay
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 1500);
+            } else {
+                statusEl.className = 'connection-status status-offline';
+                statusEl.innerHTML = '🔴 Bağlantı yok';
+                retryIndicator.style.display = 'none';
+            }
+        }
+        
+        // Retry connection
+        function retryConnection() {
+            const retryIndicator = document.querySelector('.retry-indicator');
+            const retryBtn = document.querySelector('.btn-primary');
+            
+            retryCount++;
+            retryIndicator.style.display = 'inline-block';
+            retryBtn.disabled = true;
+            
+            // Simulate retry attempt
+            setTimeout(() => {
+                updateConnectionStatus();
+                retryBtn.disabled = false;
+                
+                if (!navigator.onLine && retryCount >= maxRetries) {
+                    document.getElementById('connectionStatus').innerHTML = 
+                        '⚠️ Bağlantı kurulamadı. Lütfen internet ayarlarınızı kontrol edin.';
+                }
+            }, 2000);
+        }
+        
+        // Go to home page (will work if cached)
+        function goHome() {
+            window.location.href = '/';
+        }
+        
+        // Listen for online/offline events
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+        
+        // Initial status check
+        updateConnectionStatus();
+        
+        // Periodic connection check
+        setInterval(updateConnectionStatus, 5000);
+        
+        // Service Worker message handling
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.addEventListener('message', event => {
+                if (event.data && event.data.type === 'CONNECTION_STATUS') {
+                    updateConnectionStatus();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+{
+  "name": "Kaysia.co Dijital Çözümler",
+  "short_name": "Kaysia.co",
+  "description": "1 haftada yayına hazır web sitesi + .com alan adı. .com.tr kartvizit sitesi hediye. Dijital Stüdyo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0F14",
+  "theme_color": "#FFB800",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop-screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Kaysia.co Desktop View"
+    },
+    {
+      "src": "screenshots/mobile-screenshot.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Kaysia.co Mobile View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Alan Adı Sorgula",
+      "short_name": "Domain Search",
+      "description": "Hızlı alan adı sorgulama",
+      "url": "/#domain-search",
+      "icons": [
+        {
+          "src": "icons/shortcut-domain.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Paketler",
+      "short_name": "Packages",
+      "description": "Web sitesi paketlerini görüntüle",
+      "url": "/#packages",
+      "icons": [
+        {
+          "src": "icons/shortcut-packages.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "İletişim",
+      "short_name": "Contact",
+      "description": "Bizimle iletişime geç",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "icons/shortcut-contact.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

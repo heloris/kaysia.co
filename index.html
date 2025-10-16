@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaysia.co Dijital Çözümler</title>
+    <meta name="description" content="1 haftada yayına hazır web sitesi + .com alan adı. .com.tr kartvizit sitesi hediye. Dijital Stüdyo ">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFB800">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Kaysia.co">
+    <meta name="msapplication-TileColor" content="#FFB800">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- iOS Icons -->
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon-192x192.png">
+    
+    <!-- Android Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+    <meta name="msapplication-square70x70logo" content="/icons/icon-72x72.png">
+    <meta name="msapplication-square150x150logo" content="/icons/icon-144x144.png">
+    <meta name="msapplication-wide310x150logo" content="/icons/icon-384x384.png">
+    <meta name="msapplication-square310x310logo" content="/icons/icon-512x512.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cstyle%3E@keyframes pulse{0%{opacity:1}50%{opacity:0.5}100%{opacity:1}}%3C/style%3E%3C/defs%3E%3Ctext x='50' y='70' font-family='Space Grotesk, sans-serif' font-size='60' font-weight='700' text-anchor='middle' fill='%23FFB800' style='animation:pulse 2s infinite'%3EK%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-020B9M10TE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-020B9M10TE');
+    </script>
+    
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0B0F14;
+            --accent-yellow: #FFB800;
+            --text-primary: #E5E7EB;
+            --text-secondary: #9CA3AF;
+            --glass-bg: rgba(255, 184, 0, 0.1);
+            --glass-border: rgba(255, 184, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        
+        /* ===== GLASS EFFECTS ===== */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+        
+        .glow {
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            min-height: 44px;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--accent-yellow);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 184, 0, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--glass-bg);
+            transform: scale(1.02);
+        }
+        
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(11, 15, 20, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .nav-cta {
+            margin-left: 24px;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .hero-title {
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 48px;
+            color: var(--text-secondary);
+        }
+        
+        .domain-search {
+            max-width: 600px;
+            margin: 0 auto 48px;
+            padding: 32px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+        }
+        
+        .domain-input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .domain-input {
+            flex: 1;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .domain-input:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+            box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.2);
+        }
+        
+        .domain-input::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        .domain-status {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        
+        .status-success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+        
+        .status-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+        
+        .status-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #f59e0b;
+        }
+        
+        .status-loading {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+        }
+        
+        .alternatives {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .alt-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .alt-btn:hover {
+            background: var(--accent-yellow);
+            color: var(--bg-primary);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== PACKAGES SECTION ===== */
+        .packages {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.05), rgba(255, 184, 0, 0.02));
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .package-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 184, 0, 0.2);
+        }
+        
+        .package-card.featured {
+            border-color: var(--accent-yellow);
+            box-shadow: 0 0 30px rgba(255, 184, 0, 0.3);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-yellow);
+            color: var(--bg-primary);
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .package-name {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            margin-bottom: 8px;
+        }
+        
+        .package-old-price {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            margin-bottom: 16px;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin: 24px 0;
+        }
+        
+        .package-features li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+        }
+        
+        .package-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+        
+        /* ===== SERVICES SECTION ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        
+        .service-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(255, 184, 0, 0.2);
+        }
+        
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            color: var(--accent-yellow);
+        }
+        
+        .service-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        
+        .service-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* ===== PROCESS SECTION ===== */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            position: relative;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-yellow);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+        
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        .step-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* ===== BLOG SECTION ===== */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .blog-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(255, 184, 0, 0.2);
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--bg-primary);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .blog-content {
+            padding: 24px;
+        }
+        
+        .blog-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* ===== WHY US SECTION ===== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+        
+        .why-item {
+            text-align: center;
+        }
+        
+        .why-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            color: var(--accent-yellow);
+        }
+        
+        .why-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .why-desc {
+            color: var(--text-secondary);
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.1), rgba(255, 184, 0, 0.05));
+            text-align: center;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid var(--glass-border);
+            padding: 48px 0 24px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--bg-primary);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+            box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.2);
+        }
+        
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .form-checkbox input {
+            margin-top: 4px;
+        }
+        
+        .form-checkbox label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 32px;
+        }
+        
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            color: #22c55e;
+            margin: 0 auto 16px;
+        }
+        
+        .success-title {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .success-desc {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .success-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .domain-input-group {
+                flex-direction: column;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* ===== ACCESSIBILITY ===== */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .focus-visible {
+            outline: 2px solid var(--accent-yellow);
+            outline-offset: 2px;
+        }
+        
+        /* ===== LOADING STATES ===== */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* ===== TYPING ANIMATION ===== */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: var(--accent-yellow);
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .typing-animation {
+            position: relative;
+        }
+        
+        .typing-animation::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 1.2em;
+            background: var(--accent-yellow);
+            animation: blink 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">Kaysia.co</a>
+            <ul class="nav-menu">
+                <li><a href="#services" class="nav-link">Hizmetler</a></li>
+                <li><a href="#packages" class="nav-link">Paketler</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">İletişim</a></li>
+            </ul>
+            <a href="#domain-search" class="btn btn-primary nav-cta">Alan Adı Sorgula</a>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero section">
+        <div class="container">
+            <h1 class="hero-title">1 Haftada Yayına Hazır Web Sitesi + .com Alan Adı</h1>
+            <p class="hero-subtitle">Bütün siparişlerinize adsoyad .com.tr Kartvizit site hediye. (Şahıs şirketi gereklidir)</p>
+            
+            <!-- Domain Search Module -->
+            <div id="domain-search" class="domain-search">
+                <div class="domain-input-group">
+                    <input 
+                        type="text" 
+                        id="domainInput" 
+                        class="domain-input" 
+                        placeholder="kuryes.com"
+                        aria-label="Alan adı girin"
+                    >
+                    <button id="searchBtn" class="btn btn-primary">Sorgula</button>
+                </div>
+                
+                <div id="domainStatus" class="domain-status" style="display: none;" aria-live="polite"></div>
+                <div id="alternatives" class="alternatives" style="display: none;"></div>
+            </div>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="focusDomainInput()">Alan Adı Sorgula</button>
+                <a href="#packages" class="btn btn-secondary">Paketleri Gör</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PACKAGES SECTION ===== -->
+    <section id="packages" class="packages section">
+        <div class="container">
+            <h2 class="section-title">Web Sitesi Paketleri</h2>
+            <div class="packages-grid">
+                <!-- Başlangıç Paketi -->
+                <div class="package-card">
+                    <h3 class="package-name">Başlangıç</h3>
+                    <div class="package-old-price">₺10.000</div>
+                    <div class="package-price">₺5.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>5 sayfa web sitesi</li>
+                        <li>Mobil uyumlu tasarım</li>
+                        <li>SSL sertifikası</li>
+                        <li>1 yıl hosting</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openLeadForm('Başlangıç')">Bilgi Al</button>
+                </div>
+                
+                <!-- Profesyonel Paketi (Featured) -->
+                <div class="package-card featured">
+                    <div class="package-badge">En Popüler</div>
+                    <h3 class="package-name">Profesyonel</h3>
+                    <div class="package-old-price">₺16.000</div>
+                    <div class="package-price">₺8.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>10 sayfa web sitesi</li>
+                        <li>Özel tasarım</li>
+                        <li>İletişim formları</li>
+                        <li>SEO optimizasyonu</li>
+                        <li>1 yıl hosting</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openLeadForm('Profesyonel')">Bilgi Al</button>
+                </div>
+                
+                <!-- Premium Paketi -->
+                <div class="package-card">
+                    <h3 class="package-name">Premium</h3>
+                    <div class="package-old-price">₺20.000</div>
+                    <div class="package-price">₺10.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>15 sayfa web sitesi</li>
+                        <li>E-ticaret entegrasyonu</li>
+                        <li>Özel geliştirmeler</li>
+                        <li>3 ay destek</li>
+                        <li>1 yıl hosting</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openLeadForm('Premium')">Bilgi Al</button>
+                </div>
+            </div>
+            
+            <div class="package-note">
+                <p><strong>.com alan adı + hosting + SSL dâhil • .com.tr kartvizit sitesi hediye</strong></p>
+                <p>Fiyatlar KDV hariçtir. Alan adı ve hosting 1 yıl geçerlidir.<br>
+                Yenileme ücretleri yıl sonunda döviz kuru ve servis sağlayıcı fiyatlarına göre değişebilir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Hizmetlerimiz</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i data-lucide="globe" class="service-icon"></i>
+                    <h3 class="service-title">Web Sitesi Paketleri</h3>
+                    <p class="service-desc">1 haftada yayına hazır modern web siteleri. Mobil uyumlu, hızlı ve SEO dostu tasarımlar.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i data-lucide="link" class="service-icon"></i>
+                    <h3 class="service-title">Alan Adı & Kartvizit Sitesi</h3>
+                    <p class="service-desc">.com öncelik, .com.tr hediye. Profesyonel alan adı yönetimi ve kartvizit siteleri.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i data-lucide="zap" class="service-icon"></i>
+                    <h3 class="service-title">Dijital Otomasyonlar</h3>
+                    <p class="service-desc">Sipariş, stok, fatura, chatbot, mini SaaS ve e-ticaret entegrasyonları.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i data-lucide="message-circle" class="service-icon"></i>
+                    <h3 class="service-title">Form & Geri Bildirim</h3>
+                    <p class="service-desc">WhatsApp/Telegram bağlantılı formlar ve otomatik bildirim sistemleri.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i data-lucide="headphones" class="service-icon"></i>
+                    <h3 class="service-title">Destek & Geliştirme</h3>
+                    <p class="service-desc">Sürekli bakım, SEO güncellemeleri ve performans optimizasyonu hizmetleri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS SECTION ===== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Süreç</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Keşif</h3>
+                    <p class="step-desc">İhtiyaçlarınızı analiz ediyor, hedeflerinizi belirliyoruz.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Taslak</h3>
+                    <p class="step-desc">Tasarım konseptini oluşturup onayınıza sunuyoruz.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Yayın</h3>
+                    <p class="step-desc">Web sitenizi yayına alıp tüm ayarları tamamlıyoruz.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Destek</h3>
+                    <p class="step-desc">Sürekli destek ve geliştirme hizmetleri sunuyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG SECTION ===== -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title">Blog & Haberler</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <span class="blog-category">Web Tasarım</span>
+                        <h3 class="blog-title">2024 Web Tasarım Trendleri</h3>
+                        <p class="blog-excerpt">Bu yıl web tasarımında öne çıkan trendler ve nasıl uygulanacağı hakkında detaylı rehber.</p>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <span class="blog-category">SEO</span>
+                        <h3 class="blog-title">Yerel SEO Stratejileri</h3>
+                        <p class="blog-excerpt">Küçük işletmeler için yerel SEO optimizasyonu ve Google'da üst sıralarda yer alma ipuçları.</p>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <span class="blog-category">E-ticaret</span>
+                        <h3 class="blog-title">Online Satış Artırma Yöntemleri</h3>
+                        <p class="blog-excerpt">E-ticaret sitenizin satışlarını artırmak için uygulayabileceğiniz pratik yöntemler.</p>
+                    </div>
+                </article>
+            </div>
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="#" class="btn btn-secondary">Tüm Yazılar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY US SECTION ===== -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Neden Biz?</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <i data-lucide="package" class="why-icon"></i>
+                    <h3 class="why-title">Tek Paket</h3>
+                    <p class="why-desc">Alan adı, hosting, tasarım ve kurulum — her şey tek pakette, 1 haftada yayında.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="clock" class="why-icon"></i>
+                    <h3 class="why-title">Hızlı Teslim</h3>
+                    <p class="why-desc">1 hafta içinde web siteniz yayına hazır. Hızlı ve kaliteli çözümler.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="settings" class="why-icon"></i>
+                    <h3 class="why-title">Otomasyon Tecrübesi</h3>
+                    <p class="why-desc">Dijital otomasyonlar konusunda uzman ekibimizle işinizi kolaylaştırıyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section section">
+        <div class="container">
+            <h2 class="section-title">Hemen Başlayın</h2>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="focusDomainInput()">Alan Adı Sorgula</button>
+                <a href="#packages" class="btn btn-secondary">Paketleri Gör</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <ul class="footer-links">
+                        <li>📞 +90 530 561 67 47</li>
+                        <li>✉️ kaysia.store@gmail.com</li>
+                        <li>📍 Antalya, Türkiye</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hizmetler</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Web Tasarım</a></li>
+                        <li><a href="#services">Alan Adı</a></li>
+                        <li><a href="#services">Otomasyon</a></li>
+                        <li><a href="#services">Destek</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Yasal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#kvkk">KVKK Aydınlatma</a></li>
+                        <li><a href="#cookies">Çerez Politikası</a></li>
+                        <li><a href="#privacy">Gizlilik</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kaysia.co - Tüm hakları saklıdır. | Dijital Çözümler.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== LEAD FORM MODAL ===== -->
+    <div id="leadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Bilgi Formu</h3>
+                <button class="modal-close" onclick="closeLeadForm()">&times;</button>
+            </div>
+            
+            <form id="leadForm" action="https://formspree.io/f/xdkwlejd" method="POST" onsubmit="submitLeadForm(event)">
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Ad Soyad *</label>
+                    <input type="text" id="fullName" name="fullName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company" class="form-label">Firma</label>
+                    <input type="text" id="company" name="company" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-label">Telefon *</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">E-posta *</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="selectedDomain" class="form-label">Seçili Alan Adı</label>
+                    <input type="text" id="selectedDomain" name="selectedDomain" class="form-input" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="package" class="form-label">Paket</label>
+                    <input type="text" id="package" name="package" class="form-input" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-label">Mesaj</label>
+                    <textarea id="message" name="message" class="form-input form-textarea" placeholder="Projeniz hakkında detay verebilirsiniz..."></textarea>
+                </div>
+                
+                <!-- Honeypot -->
+                <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off">
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="kvkk" name="kvkk" required>
+                    <label for="kvkk">KVKK Aydınlatma Metni'ni okudum, kişisel verilerimin teklif/iletişim amacıyla işlenmesini onaylıyorum. *</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Gönder</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== SUCCESS MODAL ===== -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="success-message">
+                <i data-lucide="check-circle" class="success-icon"></i>
+                <h3 class="success-title">Teşekkürler!</h3>
+                <p class="success-desc">Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.</p>
+                <div class="success-buttons">
+                    <button class="btn btn-primary" onclick="openWhatsApp()">WhatsApp'tan Yaz</button>
+                    <button class="btn btn-secondary" onclick="closeSuccessModal()">Ana Sayfaya Dön</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== KVKK MODAL ===== -->
+    <div id="kvkkModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">KVKK Aydınlatma Metni</h3>
+                <button class="modal-close" onclick="closeKvkkModal()">&times;</button>
+            </div>
+            <div style="color: var(--text-secondary); line-height: 1.6;">
+                <h4 style="color: var(--text-primary); margin-bottom: 16px;">Veri Sorumlusu</h4>
+                <p>Kaysia.co (Antalya merkezli web tasarım stüdyosu)</p>
+                
+                <h4 style="color: var(--text-primary); margin: 24px 0 16px;">Amaç</h4>
+                <p>Kişisel verileriniz, web tasarım hizmetleri teklifi ve iletişim amacıyla işlenmektedir.</p>
+                
+                <h4 style="color: var(--text-primary); margin: 24px 0 16px;">Hukuki Sebep</h4>
+                <p>KVKK md. 5/2-f: "Veri sorumlusunun meşru menfaatleri için veri işlemenin zorunlu olması"</p>
+                
+                <h4 style="color: var(--text-primary); margin: 24px 0 16px;">Kapsam</h4>
+                <p>Ad, soyad, telefon, e-posta ve mesaj içeriği verileriniz işlenmektedir.</p>
+                
+                <h4 style="color: var(--text-primary); margin: 24px 0 16px;">Aktarım</h4>
+                <p>Verileriniz üçüncü kişilerle paylaşılmaz, sadece hizmet sunumu için kullanılır.</p>
+                
+                <h4 style="color: var(--text-primary); margin: 24px 0 16px;">Saklama</h4>
+                <p>Verileriniz 2 yıl süreyle saklanır, sonrasında silinir.</p>
+                
+                <h4 style="color: var(--text-primary); margin: 24px 0 16px;">Haklarınız</h4>
+                <p>KVKK kapsamındaki tüm haklarınızı kullanabilirsiniz. İletişim: kaysia.store@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== COOKIE BANNER ===== -->
+    <div id="cookieBanner" style="position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-primary); border-top: 1px solid var(--glass-border); padding: 16px; z-index: 1000; display: none;">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+            <p style="color: var(--text-secondary); margin: 0;">Zorunlu ve analitik çerezler kullanıyoruz. <a href="#cookies" style="color: var(--accent-yellow);">Detaylar için Çerez Politikası</a>.</p>
+            <div style="display: flex; gap: 12px;">
+                <button class="btn btn-secondary" onclick="acceptCookies()">Kabul Et</button>
+                <button class="btn btn-secondary" onclick="showCookiePreferences()">Tercihler</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== GLOBAL VARIABLES =====
+        let selectedDomain = '';
+        let selectedPackage = '';
+        let searchTimeout = null;
+        let typingAnimation = null;
+        let isTyping = false;
+        let idleTimeout = null;
+        let lastUserActivity = Date.now();
+        
+        // PWA Variables
+        let deferredPrompt = null;
+        let isInstalled = false;
+        
+        // ===== TYPING ANIMATION =====
+        const exampleDomains = [
+            'kuryes.com',
+            'restoran.net', 
+            'butik.org',
+            'klinik.com.tr',
+            'otel.co',
+            'dijital.io',
+            'teknoloji.app',
+            'hizmet.shop'
+        ];
+        
+        function startTypingAnimation() {
+            if (isTyping) return;
+            
+            const input = document.getElementById('domainInput');
+            let currentDomainIndex = 0;
+            let currentCharIndex = 0;
+            let isDeleting = false;
+            
+            isTyping = true;
+            input.classList.add('typing-animation');
+            
+            function typeNextChar() {
+                const currentDomain = exampleDomains[currentDomainIndex];
+                
+                if (isDeleting) {
+                    // Delete characters
+                    input.value = currentDomain.substring(0, currentCharIndex - 1);
+                    currentCharIndex--;
+                    
+                    if (currentCharIndex === 0) {
+                        isDeleting = false;
+                        currentDomainIndex = (currentDomainIndex + 1) % exampleDomains.length;
+                    }
+                } else {
+                    // Type characters
+                    input.value = currentDomain.substring(0, currentCharIndex + 1);
+                    currentCharIndex++;
+                    
+                if (currentCharIndex === currentDomain.length) {
+                    isDeleting = true;
+                    // Wait a bit before deleting
+                    setTimeout(() => {
+                        if (isTyping) typeNextChar();
+                    }, 2000);
+                    return;
+                }
+                
+                if (currentCharIndex === 0 && isDeleting) {
+                    // Wait 0.2 seconds before starting to type new domain
+                    setTimeout(() => {
+                        if (isTyping) typeNextChar();
+                    }, 200);
+                    return;
+                }
+                }
+                
+                // Set typing speed
+                const speed = isDeleting ? 50 : 100;
+                typingAnimation = setTimeout(typeNextChar, speed);
+            }
+            
+            typeNextChar();
+        }
+        
+        function stopTypingAnimation() {
+            isTyping = false;
+            if (typingAnimation) {
+                clearTimeout(typingAnimation);
+                typingAnimation = null;
+            }
+            const input = document.getElementById('domainInput');
+            input.classList.remove('typing-animation');
+        }
+        
+        function resetIdleTimeout() {
+            lastUserActivity = Date.now();
+            if (idleTimeout) {
+                clearTimeout(idleTimeout);
+            }
+            
+            idleTimeout = setTimeout(() => {
+                const input = document.getElementById('domainInput');
+                if (!input.value && !isTyping) {
+                    startTypingAnimation();
+                }
+            }, 10000); // 10 seconds
+        }
+        
+        // ===== DOMAIN SEARCH FUNCTIONALITY =====
+        function validateDomain(domain) {
+            // Check if domain has extension
+            const hasExtension = domain.includes('.');
+            
+            if (!hasExtension) {
+                // If no extension, add .com by default
+                domain = domain + '.com';
+            }
+            
+            // Extract domain name and extension
+            const parts = domain.split('.');
+            const domainName = parts[0];
+            const extension = parts.slice(1).join('.');
+            
+            // Validate domain name
+            if (domainName.length < 3) return false;
+            if (domainName.startsWith('-') || domainName.endsWith('-')) return false;
+            if (domainName.includes('--')) return false;
+            if (!/^[a-z0-9-]+$/.test(domainName)) return false;
+            
+            return { domainName, extension, fullDomain: domain };
+        }
+        
+        function generateAlternatives(domainName, extension) {
+            const alternatives = [];
+            
+            // Generate alternatives with different extensions
+            const extensions = ['.com', '.net', '.org', '.co', '.io', '.app'];
+            
+            extensions.forEach(ext => {
+                if (ext !== extension) {
+                    alternatives.push(`${domainName}${ext}`);
+                }
+            });
+            
+            // Generate alternatives with domain variations
+            alternatives.push(`${domainName}-co${extension}`);
+            alternatives.push(`${domainName}-app${extension}`);
+            alternatives.push(`${domainName}-pro${extension}`);
+            alternatives.push(`${domainName}digital${extension}`);
+            
+            return alternatives.slice(0, 6); // Limit to 6 alternatives
+        }
+        
+        function showDomainStatus(message, type) {
+            const statusEl = document.getElementById('domainStatus');
+            const alternativesEl = document.getElementById('alternatives');
+            
+            statusEl.textContent = message;
+            statusEl.className = `domain-status status-${type}`;
+            statusEl.style.display = 'block';
+            
+            if (type === 'error') {
+                alternativesEl.style.display = 'flex';
+            } else {
+                alternativesEl.style.display = 'none';
+            }
+        }
+        
+        function showAlternatives(alternatives) {
+            const alternativesEl = document.getElementById('alternatives');
+            alternativesEl.innerHTML = alternatives.map(alt => 
+                `<button class="alt-btn" onclick="searchDomain('${alt}')">${alt}</button>`
+            ).join('');
+            alternativesEl.style.display = 'flex';
+        }
+        
+        function searchDomain(domain) {
+            if (!domain) {
+                domain = document.getElementById('domainInput').value.trim();
+            }
+            
+            if (!domain) {
+                showDomainStatus('Lütfen bir alan adı girin.', 'error');
+                return;
+            }
+            
+            const validation = validateDomain(domain);
+            
+            if (!validation) {
+                showDomainStatus('Geçersiz alan adı formatı. Sadece harf, rakam ve tire kullanın.', 'error');
+                return;
+            }
+            
+            const { domainName, extension, fullDomain } = validation;
+            selectedDomain = fullDomain;
+            
+            showDomainStatus('Sorgulanıyor...', 'loading');
+            
+            // Simulate API call (replace with actual RapidAPI call)
+            setTimeout(() => {
+                // Mock response - replace with actual API
+                const isAvailable = Math.random() > 0.5; // Random for demo
+                
+                if (isAvailable) {
+                    showDomainStatus(`✅ Harika! ${fullDomain} müsait. Seç ve devam et.`, 'success');
+                    selectedDomain = fullDomain;
+                } else {
+                    showDomainStatus(`❌ Üzgünüz, ${fullDomain} dolu. Alternatifleri deneyin:`, 'error');
+                    const alternatives = generateAlternatives(domainName, extension);
+                    showAlternatives(alternatives);
+                }
+            }, 1000);
+        }
+        
+        function focusDomainInput() {
+            document.getElementById('domainInput').focus();
+            document.getElementById('domainInput').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // ===== FORM FUNCTIONALITY =====
+        function openLeadForm(packageName = '') {
+            selectedPackage = packageName;
+            document.getElementById('package').value = packageName;
+            document.getElementById('selectedDomain').value = selectedDomain || '';
+            document.getElementById('leadModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Log event
+            console.log('lead_opened', { package: packageName, domain: selectedDomain });
+        }
+        
+        function closeLeadForm() {
+            document.getElementById('leadModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function submitLeadForm(event) {
+            // Let Formspree handle the submission
+            // Show our custom success message
+            event.preventDefault();
+            
+            // Submit to Formspree
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    closeLeadForm();
+                    showSuccessModal();
+                } else {
+                    alert('Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
+                }
+            }).catch(error => {
+                alert('Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
+            });
+        }
+        
+        function showSuccessModal() {
+            document.getElementById('successModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function openWhatsApp() {
+            const packageName = selectedPackage || 'Web Sitesi Paketi';
+            const domain = selectedDomain || 'alan adı';
+            const message = `Merhaba, ${packageName} için bilgi almak istiyorum.\nSeçtiğim alan adı: ${domain}\n.com.tr kartvizit hediyesiyle birlikte ilerleyebilir miyiz?`;
+            
+            const whatsappUrl = `https://wa.me/905305616747?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Log event
+            console.log('whatsapp_click', { package: packageName, domain: domain });
+        }
+        
+        // ===== MODAL FUNCTIONALITY =====
+        function closeKvkkModal() {
+            document.getElementById('kvkkModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+        
+        function showCookiePreferences() {
+            // Simple cookie preferences - can be expanded
+            alert('Çerez tercihleri: Zorunlu çerezler (gerekli), Analitik çerezler (opsiyonel). Şu anda sadece zorunlu çerezler kullanılıyor.');
+        }
+        
+        // ===== PWA FUNCTIONALITY =====
+        
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New update available
+                                    showUpdateNotification();
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+        
+        // PWA Install Prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('PWA install prompt triggered');
+            e.preventDefault();
+            deferredPrompt = e;
+            showInstallButton();
+        });
+        
+        // PWA Installed
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA installed successfully');
+            isInstalled = true;
+            hideInstallButton();
+            showInstallSuccessMessage();
+        });
+        
+        // Check if app is already installed
+        window.addEventListener('load', () => {
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                isInstalled = true;
+                console.log('PWA is running in standalone mode');
+            }
+        });
+        
+        // Install Button Functions
+        function showInstallButton() {
+            if (isInstalled) return;
+            
+            const installBtn = document.createElement('button');
+            installBtn.id = 'installBtn';
+            installBtn.className = 'btn btn-primary';
+            installBtn.innerHTML = '📱 Uygulamayı Yükle';
+            installBtn.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);
+                animation: pulse 2s infinite;
+            `;
+            
+            installBtn.addEventListener('click', installPWA);
+            document.body.appendChild(installBtn);
+            
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                if (installBtn.parentNode) {
+                    installBtn.style.opacity = '0.7';
+                }
+            }, 10000);
+        }
+        
+        function hideInstallButton() {
+            const installBtn = document.getElementById('installBtn');
+            if (installBtn) {
+                installBtn.remove();
+            }
+        }
+        
+        function installPWA() {
+            if (!deferredPrompt) return;
+            
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                deferredPrompt = null;
+                hideInstallButton();
+            });
+        }
+        
+        function showInstallSuccessMessage() {
+            const message = document.createElement('div');
+            message.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--glass-bg);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--glass-border);
+                border-radius: 12px;
+                padding: 16px 24px;
+                color: var(--text-primary);
+                z-index: 1000;
+                animation: slideDown 0.3s ease-out;
+            `;
+            message.innerHTML = '🎉 Uygulama başarıyla yüklendi!';
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.remove();
+            }, 3000);
+        }
+        
+        function showUpdateNotification() {
+            const updateBtn = document.createElement('button');
+            updateBtn.className = 'btn btn-primary';
+            updateBtn.innerHTML = '🔄 Güncelleme Mevcut - Yenile';
+            updateBtn.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1000;
+                animation: slideDown 0.3s ease-out;
+            `;
+            
+            updateBtn.addEventListener('click', () => {
+                window.location.reload();
+            });
+            
+            document.body.appendChild(updateBtn);
+            
+            // Auto-hide after 15 seconds
+            setTimeout(() => {
+                if (updateBtn.parentNode) {
+                    updateBtn.remove();
+                }
+            }, 15000);
+        }
+        
+        // Add CSS animations for PWA elements
+        const pwaStyles = document.createElement('style');
+        pwaStyles.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                }
+            }
+            
+            #installBtn:hover {
+                animation: none;
+                transform: scale(1.05);
+            }
+        `;
+        document.head.appendChild(pwaStyles);
+        
+        // ===== EVENT LISTENERS =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+            
+            // Domain input debounce
+            const domainInput = document.getElementById('domainInput');
+            domainInput.addEventListener('input', function() {
+                stopTypingAnimation();
+                resetIdleTimeout();
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    if (this.value.length > 2) {
+                        searchDomain(this.value);
+                    }
+                }, 400);
+            });
+            
+            // Start typing animation when input is focused
+            domainInput.addEventListener('focus', function() {
+                // Clear input when focused
+                this.value = '';
+                stopTypingAnimation();
+                resetIdleTimeout();
+            });
+            
+            // Stop typing animation when user starts typing
+            domainInput.addEventListener('keydown', function() {
+                stopTypingAnimation();
+                resetIdleTimeout();
+            });
+            
+            // Track mouse movement for idle detection
+            document.addEventListener('mousemove', resetIdleTimeout);
+            document.addEventListener('keydown', resetIdleTimeout);
+            
+            // Search button
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                searchDomain();
+            });
+            
+            // Enter key in domain input
+            domainInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchDomain();
+                }
+            });
+            
+            // Modal close on outside click
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal')) {
+                    closeLeadForm();
+                    closeSuccessModal();
+                    closeKvkkModal();
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Show cookie banner if not accepted
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    document.getElementById('cookieBanner').style.display = 'block';
+                }, 2000);
+            }
+            
+            // Start typing animation after page load
+            setTimeout(() => {
+                startTypingAnimation();
+            }, 1000);
+            
+            // Initialize idle timeout
+            resetIdleTimeout();
+            
+            // Add fade-in animation to sections
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+        
+        // ===== ACCESSIBILITY =====
+        document.addEventListener('keydown', function(e) {
+            // Close modals with Escape key
+            if (e.key === 'Escape') {
+                closeLeadForm();
+                closeSuccessModal();
+                closeKvkkModal();
+            }
+        });
+        
+        // Focus management for modals
+        function trapFocus(element) {
+            const focusableElements = element.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+            
+            element.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstElement) {
+                            lastElement.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === lastElement) {
+                            firstElement.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+        }
+        
+        // ===== PERFORMANCE OPTIMIZATIONS =====
+        // Lazy load images (if any are added later)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // ===== ANALYTICS & LOGGING =====
+        function logEvent(eventName, data = {}) {
+            console.log(`Event: ${eventName}`, data);
+            
+            // Send to Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, data);
+            }
+        }
+        
+        // Log page view
+        logEvent('page_view', {
+            page_title: document.title,
+            page_location: window.location.href
+        });
+    </script>
+</body>
+</html>
