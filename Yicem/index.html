@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Yi'Cem Pizza & Ayvalık Tost - Antalya Muratpaşa | Hızlı Teslimat</title>
+    <meta name="title" content="Yi'Cem Pizza & Ayvalık Tost - Antalya Muratpaşa | Hızlı Teslimat">
+    <meta name="description" content="Antalya Muratpaşa'da taze malzemelerle hazırlanan lezzetli pizzalar ve ayvalık tostları. Margherita, Pepperoni, Ayvalık Tostu ve daha fazlası. Hızlı teslimat, uygun fiyatlar. Online sipariş verin!">
+    <meta name="keywords" content="pizza antalya, ayvalık tost antalya, pizza muratpaşa, ayvalık tost muratpaşa, pizza sipariş, online pizza, hızlı teslimat, yi'cem pizza, taze pizza, lezzetli pizza">
+    <meta name="author" content="Yi'Cem Pizza & Ayvalık Tost">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Turkish">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yicem.com.tr/">
+    <meta property="og:title" content="Yi'Cem Pizza & Ayvalık Tost - Antalya Muratpaşa">
+    <meta property="og:description" content="Antalya Muratpaşa'da taze malzemelerle hazırlanan lezzetli pizzalar ve ayvalık tostları. Hızlı teslimat, uygun fiyatlar.">
+    <meta property="og:image" content="https://yicem.com.tr/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Yi'Cem Pizza & Ayvalık Tost">
+    <meta property="og:locale" content="tr_TR">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yicem.com.tr/">
+    <meta property="twitter:title" content="Yi'Cem Pizza & Ayvalık Tost - Antalya Muratpaşa">
+    <meta property="twitter:description" content="Antalya Muratpaşa'da taze malzemelerle hazırlanan lezzetli pizzalar ve ayvalık tostları. Hızlı teslimat, uygun fiyatlar.">
+    <meta property="twitter:image" content="https://yicem.com.tr/img/og-image.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="TR-07">
+    <meta name="geo.placename" content="Antalya, Muratpaşa">
+    <meta name="geo.position" content="36.8969;30.7133">
+    <meta name="ICBM" content="36.8969, 30.7133">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yicem.com.tr/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Yi'Cem Pizza & Ayvalık Tost",
+        "description": "Antalya Muratpaşa'da taze malzemelerle hazırlanan lezzetli pizzalar ve ayvalık tostları",
+        "url": "https://yicem.com.tr",
+        "telephone": "+90 242 XXX XX XX",
+        "email": "info@yicem.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Muratpaşa",
+            "addressLocality": "Antalya",
+            "addressRegion": "Antalya",
+            "postalCode": "07000",
+            "addressCountry": "TR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "36.8969",
+            "longitude": "30.7133"
+        },
+        "openingHours": "Mo-Su 10:00-23:00",
+        "priceRange": "₺₺",
+        "servesCuisine": ["Italian", "Turkish"],
+        "hasMenu": "https://yicem.com.tr/",
+        "acceptsReservations": false,
+        "deliveryAvailable": true,
+        "takeawayAvailable": true,
+        "paymentAccepted": ["Cash", "Credit Card", "Mobile Payment"],
+        "sameAs": [
+            "https://www.instagram.com/yicem_pizza",
+            "https://www.facebook.com/yicem.pizza"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <h1 class="header__title">🍕 Yi'Cem Pizza & Ayvalık Tost</h1>
+            </div>
+            
+            <div class="header__cart">
+                <div class="header__user-name" id="userNameDisplay" style="display: none;">
+                    <span class="header__user-greeting">Merhaba,</span>
+                    <span class="header__user-name-text" id="userNameText"></span>
+                </div>
+                <button class="header__cart-button" id="cartButton" aria-label="Sepeti aç">
+                    <span class="header__cart-icon">🛒</span>
+                    <span class="header__cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Section -->
+    <nav class="categories" role="navigation" aria-label="Ürün kategorileri" id="categoriesMenu">
+        <!-- Compact Categories (Mobile) -->
+        <div class="categories__compact">
+            <div class="categories__header">
+                   <span class="categories__title">Menü</span>
+                <span class="categories__toggle" id="categoriesToggle">▼</span>
+            </div>
+        </div>
+
+        <!-- Full Categories (Desktop & Mobile Expanded) -->
+        <div class="categories__expanded">
+            <div class="categories__container">
+                <button class="categories__nav-btn categories__nav-btn--prev" id="categoriesPrevBtn" aria-label="Önceki kategoriler">
+                    <span>‹</span>
+                </button>
+                
+                <div class="categories__wrapper" id="categoriesWrapper">
+                    <div class="categories__list" id="categoriesContainer">
+                        <!-- Kategoriler JavaScript ile doldurulacak -->
+                    </div>
+                </div>
+                
+                <button class="categories__nav-btn categories__nav-btn--next" id="categoriesNextBtn" aria-label="Sonraki kategoriler">
+                    <span>›</span>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation Arrows (only visible when expanded on mobile) -->
+            <div class="categories__mobile-nav">
+                <button class="categories__mobile-nav-btn categories__mobile-nav-btn--prev" id="categoriesMobilePrevBtn" aria-label="Önceki kategoriler">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="categories__mobile-nav-btn categories__mobile-nav-btn--next" id="categoriesMobileNextBtn" aria-label="Sonraki kategoriler">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="main__container">
+            <!-- Products Grid -->
+            <section class="products" id="productsSection" role="main" aria-label="Ürün listesi">
+                <!-- Ürünler JavaScript ile doldurulacak -->
+            </section>
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal" role="dialog" aria-labelledby="productModalTitle" aria-hidden="true">
+        <div class="modal__overlay" id="productModalOverlay"></div>
+        <div class="modal__content modal__content--product">
+            <div class="modal__header">
+                <h2 class="modal__title" id="productModalTitle">Ürün Detayı</h2>
+                <button class="modal__close" id="productModalClose" aria-label="Modalı kapat">×</button>
+            </div>
+            
+            <div class="modal__body">
+                <div class="product-detail">
+                    <div class="product-detail__image-container">
+                        <img class="product-detail__image" id="productDetailImage" src="" alt="" loading="lazy">
+                    </div>
+                    
+                    <div class="product-detail__info">
+                        <h3 class="product-detail__name" id="productDetailName"></h3>
+                        <p class="product-detail__price" id="productDetailPrice"></p>
+                        <p class="product-detail__description" id="productDetailDescription"></p>
+                        
+                        <!-- İçindekiler -->
+                        <div class="product-detail__section">
+                            <h4 class="product-detail__section-title">İçindekiler (Çıkarmak istediğiniz ürüne tıklayın)</h4>
+                            <ul class="product-detail__contents" id="productDetailContents">
+                                <!-- JavaScript ile doldurulacak -->
+                            </ul>
+                        </div>
+                        
+                        <!-- Seçenekler -->
+                        <div class="product-detail__section">
+                            <h4 class="product-detail__section-title">Seçenekler</h4>
+                            <div class="product-detail__options" id="productDetailOptions">
+                                <!-- JavaScript ile doldurulacak -->
+                            </div>
+                        </div>
+                        
+                        <!-- Ekstralar (Sadece Soğuk Sandviç için) -->
+                        <div class="product-detail__section" id="productDetailExtrasSection" style="display: none;">
+                            <h4 class="product-detail__section-title">Ekstralar</h4>
+                            <div class="product-detail__extras" id="productDetailExtras">
+                                <!-- JavaScript ile doldurulacak -->
+                            </div>
+                        </div>
+                        
+                        <!-- Adet Seçici -->
+                        <div class="product-detail__section">
+                            <h4 class="product-detail__section-title">Adet</h4>
+                            <div class="product-detail__quantity">
+                                <button class="product-detail__quantity-btn" id="quantityDecrease" aria-label="Adet azalt">-</button>
+                                <span class="product-detail__quantity-value" id="quantityValue">1</span>
+                                <button class="product-detail__quantity-btn" id="quantityIncrease" aria-label="Adet artır">+</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Not Alanı -->
+                        <div class="product-detail__section">
+                            <h4 class="product-detail__section-title">Özel Not</h4>
+                            <div class="product-detail__note">
+                                <textarea 
+                                    class="product-detail__note-input" 
+                                    id="productNote" 
+                                    placeholder="Özel isteklerinizi yazabilirsiniz"
+                                    maxlength="120"
+                                    rows="3"
+                                ></textarea>
+                                <div class="product-detail__note-counter">
+                                    <span id="noteCharCount">0</span>/120
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal__footer">
+                <div class="product-detail__total">
+                    <span class="product-detail__total-label">Toplam:</span>
+                    <span class="product-detail__total-price" id="productTotalPrice">₺0,00</span>
+                </div>
+                <div class="modal__actions">
+                    <button class="btn btn--secondary" id="productModalCancel">İptal</button>
+                    <button class="btn btn--primary" id="addToCartBtn">Sepete Ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal" role="dialog" aria-labelledby="cartModalTitle" aria-hidden="true">
+        <div class="modal__overlay" id="cartModalOverlay"></div>
+        <div class="modal__content modal__content--cart">
+            <div class="modal__header">
+                <h2 class="modal__title" id="cartModalTitle">Sepetim</h2>
+                <button class="modal__close" id="cartModalClose" aria-label="Modalı kapat">×</button>
+            </div>
+            
+            <div class="modal__body">
+                <div class="cart" id="cartContent">
+                    <!-- Sepet içeriği JavaScript ile doldurulacak -->
+                </div>
+            </div>
+            
+            <div class="modal__footer">
+                <div class="cart__summary">
+                    <div class="cart__summary-row cart__summary-row--total">
+                        <span class="cart__summary-label">Toplam (KDV Dahil):</span>
+                        <span class="cart__summary-value" id="cartTotal">₺0,00</span>
+                    </div>
+                </div>
+                <div class="modal__actions">
+                    <button class="btn btn--secondary" id="continueShoppingBtn">Alışverişe Devam Et</button>
+                    <button class="btn btn--primary" id="checkoutBtn">Siparişi Tamamla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty Cart State -->
+    <div class="cart__empty" id="emptyCartState" style="display: none;">
+        <div class="cart__empty-icon">🛒</div>
+        <h3 class="cart__empty-title">Sepetiniz boş</h3>
+        <p class="cart__empty-text">Lezzetli ürünlerimizi keşfetmeye başlayın!</p>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal" role="dialog" aria-labelledby="checkoutModalTitle" aria-hidden="true">
+        <div class="modal__overlay" id="checkoutModalOverlay"></div>
+        <div class="modal__content modal__content--checkout">
+            <div class="modal__header">
+                <h2 class="modal__title" id="checkoutModalTitle">Siparişinizi Tamamlayın</h2>
+                <button class="modal__close" id="checkoutModalClose" aria-label="Modalı kapat">×</button>
+            </div>
+            
+            <div class="modal__body">
+                <div class="checkout" id="checkoutContent">
+                    <!-- Müşteri Bilgileri -->
+                    <div class="checkout__section">
+                        <h3 class="checkout__section-title">Müşteri Bilgileri</h3>
+                        
+                        <form id="checkoutForm">
+                            <div class="checkout__form-group">
+                                <label class="checkout__label" for="customerName">Ad Soyad *</label>
+                                <input type="text" class="checkout__input" id="customerName" name="customerName" required>
+                                <div class="checkout__error" id="customerNameError"></div>
+                            </div>
+                            
+                            <div class="checkout__form-group">
+                                <label class="checkout__label" for="customerPhone">Telefon *</label>
+                                <div class="checkout__phone-group">
+                                    <span class="checkout__phone-prefix">+90</span>
+                                    <input type="tel" class="checkout__input checkout__input--phone" id="customerPhone" name="customerPhone" placeholder="530 561 67 47" maxlength="15" inputmode="numeric" pattern="[0-9\s]*" required>
+                                </div>
+                                <div class="checkout__error" id="customerPhoneError"></div>
+                            </div>
+                            
+                            <div class="checkout__form-group">
+                                <label class="checkout__label" for="customerLocation">Lokasyon *</label>
+                                <div class="checkout__location-group">
+                                    <input type="text" class="checkout__input checkout__input--location" id="customerLocation" name="customerLocation" placeholder="Konumunuzu seçin" readonly required>
+                                    <button type="button" class="btn btn--secondary btn--small" id="getLocationBtn">Konumu Al</button>
+                                </div>
+                                <div class="checkout__error" id="customerLocationError"></div>
+                            </div>
+                            
+                            <div class="checkout__form-group">
+                                <label class="checkout__label">Teslimat Adresi *</label>
+                                <div class="checkout__address-grid">
+                                    <div class="checkout__form-group--small">
+                                        <input type="text" class="checkout__input" id="neighborhood" name="neighborhood" placeholder="Mahalle" required>
+                                    </div>
+                                    <div class="checkout__form-group--small">
+                                        <input type="text" class="checkout__input" id="street" name="street" placeholder="Cadde" required>
+                                    </div>
+                                    <div class="checkout__form-group--small">
+                                        <input type="text" class="checkout__input" id="building" name="building" placeholder="Apartman" required>
+                                    </div>
+                                    <div class="checkout__form-group--small">
+                                        <input type="text" class="checkout__input" id="apartment" name="apartment" placeholder="Daire" required>
+                                    </div>
+                                </div>
+                                <div class="checkout__form-group">
+                                    <textarea class="checkout__input" id="addressNote" name="addressNote" rows="2" placeholder="Adres notu (opsiyonel)"></textarea>
+                                </div>
+                                <div class="checkout__error" id="deliveryAddressError"></div>
+                            </div>
+                            
+                            <div class="checkout__form-group">
+                                <label class="checkout__label" for="paymentMethod">Ödeme Yöntemi *</label>
+                                <select class="checkout__input" id="paymentMethod" name="paymentMethod" required>
+                                    <option value="">Ödeme yöntemi seçin</option>
+                                    <option value="cash">Nakit</option>
+                                    <option value="card">Kredi/Banka Kartı</option>
+                                    <option value="qr">QR Mobil</option>
+                                    <option value="iban">IBAN</option>
+                                    <option value="mealcard">Yemek Kartları</option>
+                                </select>
+                                <div class="checkout__error" id="paymentMethodError"></div>
+                            </div>
+                            
+                            <div class="checkout__form-group" id="mealCardGroup" style="display: none;">
+                                <label class="checkout__label" for="mealCardType">Yemek Kartı Türü *</label>
+                                <select class="checkout__input" id="mealCardType" name="mealCardType">
+                                    <option value="">Yemek kartı seçin</option>
+                                    <option value="sodexo">Sodexo</option>
+                                    <option value="ticket">Ticket</option>
+                                    <option value="multinet">Multinet</option>
+                                    <option value="metropol">Metropol</option>
+                                    <option value="setcard">Setcard</option>
+                                    <option value="tokenflex">TokenFlex</option>
+                                </select>
+                                <div class="checkout__error" id="mealCardTypeError"></div>
+                            </div>
+                            
+                            <div class="checkout__form-group">
+                                <label class="checkout__label" for="orderNote">Sipariş Notu</label>
+                                <textarea class="checkout__input" id="orderNote" name="orderNote" rows="2" placeholder="Özel istekleriniz varsa buraya yazabilirsiniz..."></textarea>
+                            </div>
+                            
+                            <div class="checkout__form-group">
+                                <label class="checkout__checkbox-label">
+                                    <input type="checkbox" id="saveInfo" name="saveInfo">
+                                    <span class="checkout__checkbox-text">Bir sonraki siparişim için bilgileri kaydet</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="modal__footer">
+                <div class="modal__actions">
+                    <button class="btn btn--secondary" id="checkoutCancelBtn">İptal</button>
+                    <button class="btn btn--primary" id="checkoutSubmitBtn">Siparişi Onayla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal" role="dialog" aria-labelledby="successModalTitle" aria-hidden="true">
+        <div class="modal__overlay" id="successModalOverlay"></div>
+        <div class="modal__content modal__content--success">
+            <div class="modal__body">
+                <div class="success">
+                    <div class="success__icon">🎉</div>
+                    <h3 class="success__title" id="successTitle">Teşekkürler <span id="customerNameSuccess"></span>!</h3>
+                    <p class="success__text">
+                        Siparişiniz en kısa sürede teslim edilecektir.
+                    </p>
+                    <div class="success__countdown">
+                        <span class="success__countdown-text">Bu mesaj <span id="successCountdown">5</span> saniye sonra kapanacak</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" id="restaurantFooter">
+        <!-- Compact Footer (Default) -->
+           <div class="footer__compact">
+               <div class="footer__status-compact">
+                   <span class="footer__status-indicator" id="statusIndicator"></span>
+                   <span class="footer__status-text" id="statusText">Açık</span>
+               </div>
+               <div class="footer__contact-compact">
+                   <a href="tel:02423231177" class="footer__phone">📞 0 242 323 11 77</a>
+               </div>
+           </div>
+
+        <!-- Expanded Footer (Click/Touch) -->
+        <div class="footer__expanded">
+            <div class="footer__expanded-content">
+                <div class="footer__brand-expanded">
+                    <h3 class="footer__title">🍕 Yicem Restoran</h3>
+                </div>
+                
+                <div class="footer__info-grid">
+                    <div class="footer__info-item">
+                        <span class="footer__info-icon">📍</span>
+                        <div class="footer__info-text">
+                            <strong>Adres:</strong><br>
+                            <a href="https://www.google.com/maps/search/Fener+Mahallesi+1968+Sokak+Nil+Apartmanı+21/A+Muratpaşa+ANTALYA" 
+                               target="_blank" 
+                               rel="noopener" 
+                               class="footer__address-link">
+                                Fener Mahallesi 1968 Sokak<br>
+                                Nil Apartmanı 21/A<br>
+                                Muratpaşa/ANTALYA
+                            </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="footer__info-item">
+                        <span class="footer__info-icon">📞</span>
+                        <div class="footer__info-text">
+                            <strong>Telefon:</strong><br>
+                            <a href="tel:02423231177">0 242 323 11 77</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer__info-item">
+                        <span class="footer__info-icon">📱</span>
+                        <div class="footer__info-text">
+                            <strong>WhatsApp:</strong><br>
+                            <a href="https://wa.me/905412429007?text=Merhaba, Yicem Restoran'dan sipariş vermek istiyorum." target="_blank" rel="noopener" class="whatsapp-btn">
+                                +90 541 242 9007
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer__info-item">
+                        <span class="footer__info-icon">⏰</span>
+                        <div class="footer__info-text">
+                            <strong>Çalışma Saatleri:</strong><br>
+                            09:00 - 21:00<br>
+                            <small>(Pazar Günleri Kapalı)</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer__links-expanded">
+                    <a href="https://www.instagram.com/yicem_pizza" target="_blank" rel="noopener" class="footer__link footer__link--instagram">📷 Instagram</a>
+                    <a href="#" class="footer__link" id="footerFeedbackLink">💬 İstek ve Öneri</a>
+                    <a href="#" class="footer__link" id="footerCookiesLink">🍪 Çerezler</a>
+                    <a href="#" class="footer__link" id="footerPrivacyLink">🔒 Gizlilik Politikası</a>
+                    <a href="#" class="footer__link" id="footerKVKKLink">📋 KVKK</a>
+                    <a href="https://kaysia.co" target="_blank" rel="noopener" class="footer__link footer__link--tron">Powered By <span class="footer__link--kaysia">Kaysia.co</span></a>
+                </div>
+                
+                <div class="footer__copyright-expanded">
+                    <p>&copy; 2024 Yicem Restoran. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner__content">
+            <div class="cookie-banner__text">
+                <h4>🍪 Çerezler</h4>
+                <p>Site deneyiminizi geliştirmek için çerezler kullanıyoruz. Devam ederek kabul etmiş olursunuz.</p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="btn btn--secondary btn--small" id="cookieDeclineBtn">Reddet</button>
+                <button class="btn btn--primary btn--small" id="cookieAcceptBtn">Kabul Et</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookies Info Modal -->
+    <div class="modal" id="cookiesModal" role="dialog" aria-labelledby="cookiesModalTitle" aria-hidden="true">
+        <div class="modal__overlay" id="cookiesModalOverlay"></div>
+        <div class="modal__content modal__content--cookies">
+            <div class="modal__header">
+                <h2 class="modal__title" id="cookiesModalTitle">🍪 Çerezler Hakkında</h2>
+                <button class="modal__close" id="cookiesModalClose" aria-label="Modalı kapat">×</button>
+            </div>
+            
+            <div class="modal__body">
+                <div class="cookies-content">
+                    <div class="cookies-section">
+                        <h3>Çerezler Nedir?</h3>
+                        <p>Çerezler, web sitelerinin kullanıcı deneyimini geliştirmek için kullandığı küçük metin dosyalarıdır.</p>
+                    </div>
+                    
+                    <div class="cookies-section">
+                        <h3>Hangi Çerezleri Kullanıyoruz?</h3>
+                        <ul>
+                            <li><strong>Sepet Çerezleri:</strong> Siparişlerinizi geçici olarak saklar</li>
+                            <li><strong>Tercih Çerezleri:</strong> Kullanıcı ayarlarınızı hatırlar</li>
+                            <li><strong>Performans Çerezleri:</strong> Site hızını artırır</li>
+                            <li><strong>Güvenlik Çerezleri:</strong> Güvenli alışveriş sağlar</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cookies-section">
+                        <h3>Çerez Ayarları</h3>
+                        <p>Çerez ayarlarınızı tarayıcınızın ayarlar bölümünden değiştirebilirsiniz. Ancak bazı çerezler olmadan site düzgün çalışmayabilir.</p>
+                    </div>
+                    
+                    <div class="cookies-notice">
+                        <p><strong>Önemli:</strong> Çerezleri kabul etmek zorunlu değildir, ancak site deneyiminizi geliştirir.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal__footer">
+                <div class="modal__actions">
+                    <button class="btn btn--primary" id="cookiesAcceptBtn">Anladım</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal" id="feedbackModal" role="dialog" aria-labelledby="feedbackModalTitle" aria-hidden="true">
+        <div class="modal__overlay" id="feedbackModalOverlay"></div>
+        <div class="modal__content modal__content--feedback">
+            <div class="modal__header">
+                <h2 class="modal__title" id="feedbackModalTitle">💬 İstek ve Öneri</h2>
+                <button class="modal__close" id="feedbackModalClose" aria-label="Modalı kapat">×</button>
+            </div>
+            
+            <div class="modal__body">
+                <div class="feedback-content">
+                    <div class="feedback-section">
+                        <h3>Değerlendirmeniz</h3>
+                        <p>Lütfen aşağıdaki kategorilerde deneyiminizi değerlendirin:</p>
+                        
+                        <div class="feedback-ratings">
+                            <div class="feedback-rating-item">
+                                <label class="feedback-rating-label">🍕 Lezzet</label>
+                                <div class="feedback-emoji-rating" data-category="lezzet">
+                                    <button type="button" class="emoji-btn" data-rating="1">😠</button>
+                                    <button type="button" class="emoji-btn" data-rating="2">😕</button>
+                                    <button type="button" class="emoji-btn" data-rating="3">😐</button>
+                                    <button type="button" class="emoji-btn" data-rating="4">😊</button>
+                                    <button type="button" class="emoji-btn" data-rating="5">🤩</button>
+                                </div>
+                            </div>
+                            
+                            <div class="feedback-rating-item">
+                                <label class="feedback-rating-label">⚡ Hız</label>
+                                <div class="feedback-emoji-rating" data-category="hiz">
+                                    <button type="button" class="emoji-btn" data-rating="1">😠</button>
+                                    <button type="button" class="emoji-btn" data-rating="2">😕</button>
+                                    <button type="button" class="emoji-btn" data-rating="3">😐</button>
+                                    <button type="button" class="emoji-btn" data-rating="4">😊</button>
+                                    <button type="button" class="emoji-btn" data-rating="5">🤩</button>
+                                </div>
+                            </div>
+                            
+                            <div class="feedback-rating-item">
+                                <label class="feedback-rating-label">👥 Personel</label>
+                                <div class="feedback-emoji-rating" data-category="personel">
+                                    <button type="button" class="emoji-btn" data-rating="1">😠</button>
+                                    <button type="button" class="emoji-btn" data-rating="2">😕</button>
+                                    <button type="button" class="emoji-btn" data-rating="3">😐</button>
+                                    <button type="button" class="emoji-btn" data-rating="4">😊</button>
+                                    <button type="button" class="emoji-btn" data-rating="5">🤩</button>
+                                </div>
+                            </div>
+                            
+                            <div class="feedback-rating-item">
+                                <label class="feedback-rating-label">🧹 Temizlik</label>
+                                <div class="feedback-emoji-rating" data-category="temizlik">
+                                    <button type="button" class="emoji-btn" data-rating="1">😠</button>
+                                    <button type="button" class="emoji-btn" data-rating="2">😕</button>
+                                    <button type="button" class="emoji-btn" data-rating="3">😐</button>
+                                    <button type="button" class="emoji-btn" data-rating="4">😊</button>
+                                    <button type="button" class="emoji-btn" data-rating="5">🤩</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feedback-section">
+                        <h3>Yorumunuz</h3>
+                        <div class="feedback-textarea-container">
+                            <textarea 
+                                class="feedback-textarea" 
+                                id="feedbackText" 
+                                placeholder="Deneyiminiz hakkında detaylı yorumunuzu yazabilirsiniz..."
+                                maxlength="120"
+                                rows="3"
+                            ></textarea>
+                            <div class="feedback-char-counter">
+                                <span id="feedbackCharCount">0</span>/120
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal__footer">
+                <div class="modal__actions">
+                    <button class="btn btn--secondary" id="feedbackCancelBtn">İptal</button>
+                    <button class="btn btn--primary" id="feedbackSubmitBtn">Gönder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy & KVKK Modal -->
+    <div class="modal" id="privacyModal" role="dialog" aria-labelledby="privacyModalTitle" aria-hidden="true">
+        <div class="modal__overlay" id="privacyModalOverlay"></div>
+        <div class="modal__content modal__content--privacy">
+            <div class="modal__header">
+                <h2 class="modal__title" id="privacyModalTitle">Gizlilik Politikası ve KVKK Aydınlatma Metni</h2>
+                <button class="modal__close" id="privacyModalClose" aria-label="Modalı kapat">×</button>
+            </div>
+            
+            <div class="modal__body">
+                <div class="privacy-content">
+                    <div class="privacy-section">
+                        <h3>1. Kişisel Verilerin Toplanması</h3>
+                        <p>Yi'cem olarak, sipariş verme sürecinde aşağıdaki kişisel verilerinizi topluyoruz:</p>
+                        <ul>
+                            <li>Ad ve soyad bilgisi</li>
+                            <li>Telefon numarası</li>
+                            <li>Konum bilgisi (GPS koordinatları)</li>
+                            <li>Teslimat adresi</li>
+                            <li>Ödeme yöntemi tercihi</li>
+                            <li>Sipariş notları</li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h3>2. Kişisel Verilerin İşlenme Amaçları</h3>
+                        <p>Topladığımız kişisel veriler aşağıdaki amaçlarla işlenmektedir:</p>
+                        <ul>
+                            <li>Sipariş işleme ve teslimat</li>
+                            <li>Müşteri hizmetleri sunumu</li>
+                            <li>Kalite kontrolü ve geliştirme</li>
+                            <li>Yasal yükümlülüklerin yerine getirilmesi</li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h3>3. Veri Güvenliği</h3>
+                        <p>Kişisel verilerinizin güvenliği için aşağıdaki önlemleri almaktayız:</p>
+                        <ul>
+                            <li>SSL şifreleme ile veri iletimi</li>
+                            <li>Güvenli sunucu altyapısı</li>
+                            <li>Düzenli güvenlik güncellemeleri</li>
+                            <li>Erişim kontrolü ve yetkilendirme</li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h3>4. Veri Paylaşımı</h3>
+                        <p>Kişisel verileriniz aşağıdaki durumlar dışında üçüncü kişilerle paylaşılmaz:</p>
+                        <ul>
+                            <li>Yasal zorunluluklar</li>
+                            <li>Mahkeme kararları</li>
+                            <li>Kamu güvenliği</li>
+                            <li>Açık rızanız</li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h3>5. Haklarınız</h3>
+                        <p>KVKK kapsamında aşağıdaki haklara sahipsiniz:</p>
+                        <ul>
+                            <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+                            <li>İşlenen verileriniz hakkında bilgi talep etme</li>
+                            <li>Verilerinizin düzeltilmesini isteme</li>
+                            <li>Verilerinizin silinmesini isteme</li>
+                            <li>Verilerinizin üçüncü kişilere aktarılmasına itiraz etme</li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h3>6. İletişim</h3>
+                        <p>Gizlilik politikamız hakkında sorularınız için:</p>
+                        <p><strong>E-posta:</strong> gizlilik@yicem.com</p>
+                        <p><strong>Telefon:</strong> +90 242 XXX XX XX</p>
+                        <p><strong>Adres:</strong> Antalya/Muratpaşa</p>
+                    </div>
+
+                    <div class="privacy-section">
+                        <h3>7. Çerezler</h3>
+                        <p>Web sitemizde kullanıcı deneyimini geliştirmek için çerezler kullanılmaktadır. Çerezler:</p>
+                        <ul>
+                            <li>Sepet bilgilerinizi saklar</li>
+                            <li>Tercihlerinizi hatırlar</li>
+                            <li>Site performansını artırır</li>
+                            <li>Güvenlik sağlar</li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-notice">
+                        <p><strong>Önemli:</strong> Bu gizlilik politikası 01.01.2024 tarihinden itibaren geçerlidir. Değişiklikler web sitemizde yayınlanacaktır.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal__footer">
+                <div class="modal__actions">
+                    <button class="btn btn--primary" id="privacyAcceptBtn">Okudum, Anladım</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

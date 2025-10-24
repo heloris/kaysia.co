@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yicem.com.tr/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Allow important pages
+Allow: /
+Allow: /index.html
+Allow: /styles.css
+Allow: /script.js
+Allow: /img/
+Allow: /favicon.ico
+
+# Block unnecessary files
+Disallow: *.json
+Disallow: *.txt
+Disallow: *.log
+Disallow: /vps-setup/
+Disallow: /node_modules/
+Disallow: /.git/
