@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Yi'Cem Pizza & Ayvalık Tost - Antalya Muratpaşa | Hızlı Teslimat</title>
-    <meta name="title" content="Yi'Cem Pizza & Ayvalık Tost - Antalya Muratpaşa | Hızlı Teslimat">
+    <title>🍕 Yi'Cem - Antalya Muratpaşa | Hızlı Teslimat</title>
+    <meta name="title" content="🍕 Yi'Cem - Antalya Muratpaşa | Hızlı Teslimat">
     <meta name="description" content="Antalya Muratpaşa'da taze malzemelerle hazırlanan lezzetli pizzalar ve ayvalık tostları. Margherita, Pepperoni, Ayvalık Tostu ve daha fazlası. Hızlı teslimat, uygun fiyatlar. Online sipariş verin!">
     <meta name="keywords" content="pizza antalya, ayvalık tost antalya, pizza muratpaşa, ayvalık tost muratpaşa, pizza sipariş, online pizza, hızlı teslimat, yi'cem pizza, taze pizza, lezzetli pizza">
-    <meta name="author" content="Yi'Cem Pizza & Ayvalık Tost">
+    <meta name="author" content="🍕 Yi'Cem">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Turkish">
     <meta name="revisit-after" content="7 days">
@@ -17,18 +17,18 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yicem.com.tr/">
-    <meta property="og:title" content="Yi'Cem Pizza & Ayvalık Tost - Antalya Muratpaşa">
+    <meta property="og:title" content="🍕 Yi'Cem - Antalya Muratpaşa">
     <meta property="og:description" content="Antalya Muratpaşa'da taze malzemelerle hazırlanan lezzetli pizzalar ve ayvalık tostları. Hızlı teslimat, uygun fiyatlar.">
     <meta property="og:image" content="https://yicem.com.tr/img/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Yi'Cem Pizza & Ayvalık Tost">
+    <meta property="og:site_name" content="🍕 Yi'Cem">
     <meta property="og:locale" content="tr_TR">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://yicem.com.tr/">
-    <meta property="twitter:title" content="Yi'Cem Pizza & Ayvalık Tost - Antalya Muratpaşa">
+    <meta property="twitter:title" content="🍕 Yi'Cem - Antalya Muratpaşa">
     <meta property="twitter:description" content="Antalya Muratpaşa'da taze malzemelerle hazırlanan lezzetli pizzalar ve ayvalık tostları. Hızlı teslimat, uygun fiyatlar.">
     <meta property="twitter:image" content="https://yicem.com.tr/img/og-image.jpg">
     
@@ -46,7 +46,28 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#C1121F">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="🍕 Yi'Cem">
+    <meta name="msapplication-TileColor" content="#C1121F">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/icon-57x57.png">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
@@ -59,7 +80,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Restaurant",
-        "name": "Yi'Cem Pizza & Ayvalık Tost",
+        "name": "🍕 Yi'Cem",
         "description": "Antalya Muratpaşa'da taze malzemelerle hazırlanan lezzetli pizzalar ve ayvalık tostları",
         "url": "https://yicem.com.tr",
         "telephone": "+90 242 XXX XX XX",
@@ -97,10 +118,16 @@
     <header class="header" role="banner">
         <div class="header__container">
             <div class="header__logo">
-                <h1 class="header__title">🍕 Yi'Cem Pizza & Ayvalık Tost</h1>
+                <h1 class="header__title" onclick="scrollToTop()" style="cursor: pointer;">🍕 Yi'Cem</h1>
             </div>
             
             <div class="header__cart">
+                <div class="header__status">
+                    <div class="header__status-icon" id="statusIcon">🟢</div>
+                    <span class="header__status-text">Açık</span>
+                </div>
+                
+                
                 <div class="header__user-name" id="userNameDisplay" style="display: none;">
                     <span class="header__user-greeting">Merhaba,</span>
                     <span class="header__user-name-text" id="userNameText"></span>
@@ -119,6 +146,11 @@
         <div class="categories__compact">
             <div class="categories__header">
                    <span class="categories__title">Menü</span>
+                <div class="categories__hamburger" id="categoriesHamburger">
+                    <span class="categories__hamburger-line"></span>
+                    <span class="categories__hamburger-line"></span>
+                    <span class="categories__hamburger-line"></span>
+                </div>
                 <span class="categories__toggle" id="categoriesToggle">▼</span>
             </div>
         </div>
@@ -138,16 +170,6 @@
                 
                 <button class="categories__nav-btn categories__nav-btn--next" id="categoriesNextBtn" aria-label="Sonraki kategoriler">
                     <span>›</span>
-                </button>
-            </div>
-            
-            <!-- Mobile Navigation Arrows (only visible when expanded on mobile) -->
-            <div class="categories__mobile-nav">
-                <button class="categories__mobile-nav-btn categories__mobile-nav-btn--prev" id="categoriesMobilePrevBtn" aria-label="Önceki kategoriler">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="categories__mobile-nav-btn categories__mobile-nav-btn--next" id="categoriesMobileNextBtn" aria-label="Sonraki kategoriler">
-                    <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </div>
@@ -319,9 +341,9 @@
                             </div>
                             
                             <div class="checkout__form-group">
-                                <label class="checkout__label" for="customerLocation">Lokasyon *</label>
+                                <label class="checkout__label" for="customerLocation">Lokasyon</label>
                                 <div class="checkout__location-group">
-                                    <input type="text" class="checkout__input checkout__input--location" id="customerLocation" name="customerLocation" placeholder="Konumunuzu seçin" readonly required>
+                                    <input type="text" class="checkout__input checkout__input--location" id="customerLocation" name="customerLocation" placeholder="Konumunuzu seçin" readonly>
                                     <button type="button" class="btn btn--secondary btn--small" id="getLocationBtn">Konumu Al</button>
                                 </div>
                                 <div class="checkout__error" id="customerLocationError"></div>
@@ -481,7 +503,7 @@
                         <span class="footer__info-icon">⏰</span>
                         <div class="footer__info-text">
                             <strong>Çalışma Saatleri:</strong><br>
-                            09:00 - 21:00<br>
+                            09:00 - 20:30<br>
                             <small>(Pazar Günleri Kapalı)</small>
                         </div>
                     </div>
@@ -502,6 +524,7 @@
             </div>
         </div>
     </footer>
+
 
     <!-- Cookie Banner -->
     <div class="cookie-banner" id="cookieBanner">

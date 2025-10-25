@@ -25,7 +25,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Margarita Yicem",
         price: 180,
-        image: "Pizzalar/margarita.jpg",
+        image: "pic/Pizzalar/margarita.jpg",
         desc: "Mozarella Peyniri, Pizza Sosu, Fesleğen, Cherry Domates",
         contents: ["Pizza Sosu", "Fesleğen", "Cherry Domates"],
         options: [
@@ -41,7 +41,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Mix Yicem",
         price: 240,
-        image: "Pizzalar/mix-yicem-pizza.jpg",
+        image: "pic/Pizzalar/mix-yicem-pizza.jpg",
         desc: "Mozarella Peyniri, Pizza Sosu, Sucuk, Sosis, Salam, Zeytin, Mısır, Mantar",
         contents: ["Pizza Sosu", "Sucuk", "Sosis", "Salam", "Zeytin", "Mısır", "Mantar"],
         options: [
@@ -57,7 +57,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Kavurmalı Yicem",
         price: 300,
-        image: "Pizzalar/kavurmali-yicem.jpg",
+        image: "pic/Pizzalar/kavurmali-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Dana Kavurma, Soğan, Biber, Kekik",
         contents: ["Pizza Sosu", "Dana Kavurma", "Soğan", "Biber", "Kekik"],
         options: [
@@ -73,7 +73,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Tavuklu Yicem",
         price: 240,
-        image: "Pizzalar/tavuklu-yicem.jpg",
+        image: "pic/Pizzalar/tavuklu-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Tavuk Göğsü, Mantar, Mısır, Jalapeno Biber, Kekik",
         contents: ["Pizza Sosu", "Tavuk Göğsü", "Mantar", "Mısır", "Jalapeno Biber", "Kekik"],
         options: [
@@ -89,7 +89,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Dönerli Yicem",
         price: 300,
-        image: "Pizzalar/donerli-yicem.jpg",
+        image: "pic/Pizzalar/donerli-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Et Döner, Mantar, Soğan, Biber, Kekik",
         contents: ["Pizza Sosu", "Et Döner", "Mantar", "Soğan", "Biber", "Kekik"],
         options: [
@@ -105,7 +105,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Tonno Yicem",
         price: 260,
-        image: "Pizzalar/tonno-yicem.jpg",
+        image: "pic/Pizzalar/tonno-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Ton Balığı, Domates, Soğan, Mısır",
         contents: ["Pizza Sosu", "Ton Balığı", "Domates", "Soğan", "Mısır"],
         options: [
@@ -121,7 +121,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Sosisli Yicem",
         price: 240,
-        image: "Pizzalar/sosisli-yicem.jpg",
+        image: "pic/Pizzalar/sosisli-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Sosis, Mantar, Zeytin, Biber, Mısır, Kekik",
         contents: ["Pizza Sosu", "Sosis", "Mantar", "Zeytin", "Biber", "Mısır", "Kekik"],
         options: [
@@ -137,7 +137,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Sucuklu Yicem",
         price: 240,
-        image: "Pizzalar/sucuklu-yicem.jpg",
+        image: "pic/Pizzalar/sucuklu-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Sucuk, Mantar, Zeytin, Biber, Mısır, Kekik",
         contents: ["Pizza Sosu", "Sucuk", "Mantar", "Zeytin", "Biber", "Mısır", "Kekik"],
         options: [
@@ -153,7 +153,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Diavola Yicem",
         price: 240,
-        image: "Pizzalar/diavola-yicem.jpg",
+        image: "pic/Pizzalar/diavola-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Salam, Acı Sos, Mantar, Domates, Kekik",
         contents: ["Pizza Sosu", "Salam", "Acı Sos", "Mantar", "Domates", "Kekik"],
         options: [
@@ -169,7 +169,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Klasik Vejeteryan",
         price: 240,
-        image: "Pizzalar/klasik-yicem.jpg",
+        image: "pic/Pizzalar/klasik-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Mantar, Mısır, Biber, Zeytin, Cherry Domates",
         contents: ["Pizza Sosu", "Mantar", "Mısır", "Biber", "Zeytin", "Cherry Domates"],
         options: [
@@ -185,7 +185,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "4 Peynirli Yicem",
         price: 300,
-        image: "Pizzalar/4-peynirli-yicem.jpg",
+        image: "pic/Pizzalar/4-peynirli-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Ezine, Taze Kaşar, Bergama Tulumu, Fesleğen, Cherry Domates",
         contents: ["Pizza Sosu", "Ezine", "Taze Kaşar", "Bergama Tulumu", "Fesleğen", "Cherry Domates"],
         options: [
@@ -201,7 +201,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Ispanak + Tulum Yicem",
         price: 250,
-        image: "Pizzalar/ıspanak-tulum-yicem.jpg",
+        image: "pic/Pizzalar/ıspanak-tulum-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Bergama Tulumu, Taze Ispanak, Ceviz, Zeytin, Cherry Domates",
         contents: ["Pizza Sosu", "Bergama Tulumu", "Taze Ispanak", "Ceviz", "Zeytin", "Cherry Domates"],
         options: [
@@ -217,7 +217,7 @@ const PRODUCTS = [
         categoryId: "pizza",
         name: "Brokoli Peynir Yicem",
         price: 250,
-        image: "Pizzalar/brokoli-yicem.jpg",
+        image: "pic/Pizzalar/brokoli-yicem.jpg",
         desc: "Mozarella, Pizza Sosu, Beyaz Peynir, Brokoli, Zeytin, Domates",
         contents: ["Pizza Sosu", "Beyaz Peynir", "Brokoli", "Zeytin", "Domates"],
         options: [
@@ -235,7 +235,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Yengen",
         price: 170,
-        image: "Ayvalik-Tostu/yicem-yengen.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-yengen.jpg",
         desc: "Sosis, Sucuk, Kaşar, Turşu, Ketçap, Mayonez",
         contents: ["Sosis", "Sucuk", "Kaşar", "Turşu", "Ketçap", "Mayonez"],
         options: [
@@ -249,7 +249,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Karışık",
         price: 170,
-        image: "Ayvalik-Tostu/yicem-karisik.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-karisik.jpg",
         desc: "Kaşar, Sucuk, Salam, Sosis, Turşu, Domates, Rus Salatası, Ketçap, Mayonez",
         contents: ["Kaşar", "Sucuk", "Salam", "Sosis", "Turşu", "Domates", "Rus Salatası", "Ketçap", "Mayonez"],
         options: [
@@ -263,7 +263,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Mega Karışık",
         price: 190,
-        image: "Ayvalik-Tostu/yicem-mega-karisik.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-mega-karisik.jpg",
         desc: "Kaşar, Sucuk, Salam, Sosis, Jambon, Turşu, Domates, Rus Salatası, Ketçap, Mayonez",
         contents: ["Kaşar", "Sucuk", "Salam", "Sosis", "Jambon", "Turşu", "Domates", "Rus Salatası", "Ketçap", "Mayonez"],
         options: [
@@ -277,7 +277,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Süper Karışık",
         price: 220,
-        image: "Ayvalik-Tostu/yicem-super-karisik.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-super-karisik.jpg",
         desc: "Çift Katlı Ekmek, Kaşar, Sucuk, Salam, Sosis, Turşu, Domates, Rus Salatası, Ketçap, Mayonez",
         contents: ["Çift Katlı Ekmek", "Kaşar", "Sucuk", "Salam", "Sosis", "Turşu", "Domates", "Rus Salatası", "Ketçap", "Mayonez"],
         options: [
@@ -291,7 +291,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Kavurma",
         price: 210,
-        image: "Ayvalik-Tostu/yicem-kavurma.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-kavurma.jpg",
         desc: "Kaşar, Kavurma (70gr), Turşu, Domates",
         contents: ["Kaşar", "Kavurma (70gr)", "Turşu", "Domates"],
         options: [
@@ -305,7 +305,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Dönerli",
         price: 300,
-        image: "Ayvalik-Tostu/yicem-donerli.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-donerli.jpg",
         desc: "Kaşar, Et Döner (100gr), Marul, Turşu, Domates (İsteğe Bağlı Ketçap Mayonez)",
         contents: ["Kaşar", "Et Döner (100gr)", "Marul", "Turşu", "Domates"],
         options: [
@@ -319,7 +319,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Sucuk",
         price: 130,
-        image: "Ayvalik-Tostu/yicem-sucuklu.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-sucuklu.jpg",
         desc: "Kaşar, Sucuk, Turşu, Domates (İsteğe Bağlı Ketçap Mayonez)",
         contents: ["Kaşar", "Sucuk", "Turşu", "Domates"],
         options: [
@@ -333,7 +333,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Schnitzel",
         price: 130,
-        image: "Ayvalik-Tostu/yicem-schnitzel.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-schnitzel.jpg",
         desc: "Schnitzel, Marul, Turşu, Domates (İsteğe Bağlı Ketçap Mayonez)",
         contents: ["Schnitzel", "Marul", "Turşu", "Domates"],
         options: [
@@ -347,7 +347,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Salam",
         price: 130,
-        image: "Ayvalik-Tostu/yicem-salam.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-salam.jpg",
         desc: "Salam, Kaşar, Turşu, Domates (İsteğe Bağlı Ketçap Mayonez)",
         contents: ["Salam", "Kaşar", "Turşu", "Domates"],
         options: [
@@ -361,7 +361,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Kaşarlı Jambon",
         price: 130,
-        image: "Ayvalik-Tostu/yicem-kasarli-jambon.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-kasarli-jambon.jpg",
         desc: "Kaşar, Jambon, Turşu, Domates (İsteğe Bağlı Ketçap Mayonez)",
         contents: ["Kaşar", "Jambon", "Turşu", "Domates"],
         options: [
@@ -375,7 +375,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Kaşar",
         price: 100,
-        image: "Ayvalik-Tostu/yicem-kasarli.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-kasarli.jpg",
         desc: "İsteğe Bağlı; Kaşar veya Beyaz Peynir, Siyah Zeytin, Ceviz, Domates, Yeşil Biber, Kekik",
         contents: ["Kaşar veya Beyaz Peynir", "Siyah Zeytin", "Ceviz", "Domates", "Yeşil Biber", "Kekik"],
         options: [
@@ -389,7 +389,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Ev Köfteli",
         price: 200,
-        image: "Ayvalik-Tostu/yicem-evkofteli.jpg",
+        image: "pic/Ayvalik-Tostu/yicem-evkofteli.jpg",
         desc: "Ev Köftesi (120gr), Marul, Turşu, Domates (İsteğe Bağlı Ketçap Mayonez Rus Salatası)",
         contents: ["Ev Köftesi (120gr)", "Marul", "Turşu", "Domates"],
         options: [
@@ -403,7 +403,7 @@ const PRODUCTS = [
         categoryId: "toast",
         name: "Yicem Sanayi Tostu",
         price: 130,
-        image: "Ayvalik-Tostu/sanayi-tostu.jpg",
+        image: "pic/Ayvalik-Tostu/sanayi-tostu.jpg",
         desc: "Taş Fırın Ekmeği, Sucuk, Kaşar, Salça",
         contents: ["Taş Fırın Ekmeği", "Sucuk", "Kaşar", "Salça"],
         options: [
@@ -419,7 +419,7 @@ const PRODUCTS = [
         categoryId: "sandwich",
         name: "Yicem Soğuk Sandviç",
         price: 220,
-        image: "Ayvalik-Tostu/soguk-sandvic.jpg",
+        image: "pic/Ayvalik-Tostu/soguk-sandvic.jpg",
         desc: "2 Ana Ürün + 4 Yan Ürün dahil, fazlası ekstra",
         contents: [],
         options: [
@@ -452,7 +452,7 @@ const PRODUCTS = [
         categoryId: "chicken-doner",
         name: "Tavuk Döner",
         price: 160,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Tavuk-Doner/tavuk-doner.jpg",
         desc: "Tavuk Döner (100gr) - Ekmek seçeneği ile",
         contents: ["Tavuk Döner (100gr)", "Marul", "Domates", "Turşu"],
         options: [
@@ -474,7 +474,7 @@ const PRODUCTS = [
         categoryId: "chicken-doner",
         name: "Kaşarlı Tavuk Dürüm",
         price: 180,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Tavuk-Doner/tavuk-doner.jpg",
         desc: "Kaşarlı Tavuk Dürüm (100gr)",
         contents: ["Tavuk Döner (100gr)", "Kaşar", "Marul", "Domates", "Turşu"],
         options: [
@@ -488,7 +488,7 @@ const PRODUCTS = [
         categoryId: "chicken-doner",
         name: "Tavuk İskender",
         price: 230,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Tavuk-Doner/tavuk-iskender.jpg",
         desc: "Tavuk Döner Beyti (100gr) - İskender tarzı",
         contents: ["Tavuk Döner (100gr)", "Yoğurt", "Tereyağı", "Domates Sosu", "Marul", "Domates", "Turşu"],
         options: [
@@ -502,7 +502,7 @@ const PRODUCTS = [
         categoryId: "chicken-doner",
         name: "Tavuk Döner Beyti",
         price: 250,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Tavuk-Doner/tavuk-doner-beyti.jpg",
         desc: "Tavuk Döner Beyti (100gr) - Özel sos ile",
         contents: ["Tavuk Döner (100gr)", "Özel Beyti Sosu", "Tereyağı", "Marul", "Domates", "Turşu"],
         options: [
@@ -516,7 +516,7 @@ const PRODUCTS = [
         categoryId: "chicken-doner",
         name: "Tavuk Döner Porsiyon",
         price: 180,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Tavuk-Doner/tavuk-doner-porsiyon.jpg",
         desc: "Tavuk Döner Porsiyon (100gr) - Porsiyon tabağı",
         contents: ["Tavuk Döner (100gr)", "Pilav", "Salata", "Marul", "Domates", "Turşu"],
         options: [
@@ -530,7 +530,7 @@ const PRODUCTS = [
         categoryId: "chicken-doner",
         name: "Pilavüstü Tavuk Döner",
         price: 230,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Tavuk-Doner/pilav-ustu-tavuk-doner.jpg",
         desc: "Pilavüstü Tavuk Döner (100gr) - Pilav üzerine",
         contents: ["Tavuk Döner (100gr)", "Pilav", "Salata", "Sos", "Marul", "Domates", "Turşu"],
         options: [
@@ -544,7 +544,7 @@ const PRODUCTS = [
         categoryId: "chicken-doner",
         name: "3 Adet Tavuk Döner",
         price: 630,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Tavuk-Doner/3lu-tavuk-doner.jpg",
         desc: "3 Adet Tavuk Döner (100gr) + Büyük Boy Cips + Litrelik İçecek",
         contents: ["3x Tavuk Döner (100gr)", "Büyük Boy Cips", "Litrelik İçecek"],
         options: [],
@@ -555,7 +555,7 @@ const PRODUCTS = [
         categoryId: "chicken-doner",
         name: "5 Adet Tavuk Döner",
         price: 990,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Tavuk-Doner/5lı-tavuk-doner.jpg",
         desc: "5 Adet Tavuk Döner + 2x Büyük Cips + Litrelik İçecek",
         contents: ["5x Tavuk Döner (100gr)", "2x Büyük Boy Cips", "Litrelik İçecek"],
         options: [],
@@ -568,7 +568,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Et Döner (70gr)",
         price: 210,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/et-doner.jpg",
         desc: "Et Döner (70gr) - Ekmek seçeneği ile",
         contents: ["Et Döner (70gr)", "Marul", "Domates", "Turşu"],
         options: [
@@ -592,7 +592,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Et Döner (100gr)",
         price: 290,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/et-doner.jpg",
         desc: "Et Döner (100gr) - Ekmek seçeneği ile",
         contents: ["Et Döner (100gr)", "Marul", "Domates", "Turşu"],
         options: [
@@ -616,7 +616,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Porsiyon Et Döner",
         price: 310,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/et-doner-porsiyon.jpg",
         desc: "Porsiyon Et Döner (100gr) - Porsiyon tabağı",
         contents: ["Et Döner (100gr)", "Pilav", "Salata", "Marul", "Domates", "Turşu"],
         options: [
@@ -636,7 +636,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Soslu Et Döner",
         price: 310,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/soslu-doner.jpg",
         desc: "Soslu Et Döner (100gr) - Özel sos ile",
         contents: ["Et Döner (100gr)", "Özel Sos", "Marul", "Domates", "Turşu"],
         options: [
@@ -656,7 +656,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Et İskender",
         price: 350,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/et-iskender.jpg",
         desc: "Et İskender (100gr) - İskender tarzı",
         contents: ["Et Döner (100gr)", "Yoğurt", "Tereyağı", "Domates Sosu", "Marul", "Domates", "Turşu"],
         options: [
@@ -676,7 +676,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Pilavüstü Et Döner",
         price: 350,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/pilavustu-etdoner.jpg",
         desc: "Pilavüstü Et Döner (100gr) - Pilav üzerine",
         contents: ["Et Döner (100gr)", "Pilav", "Salata", "Sos", "Marul", "Domates", "Turşu"],
         options: [
@@ -696,7 +696,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Soslu Kaşarlı Et Dürüm (70gr)",
         price: 230,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/kasarli-etdoner.jpg",
         desc: "Soslu Kaşarlı Et Dürüm (70gr)",
         contents: ["Et Döner (70gr)", "Kaşar", "Özel Sos", "Marul", "Domates", "Turşu"],
         options: [
@@ -716,7 +716,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Soslu Kaşarlı Et Dürüm (100gr)",
         price: 310,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/kasarli-etdoner.jpg",
         desc: "Soslu Kaşarlı Et Dürüm (100gr)",
         contents: ["Et Döner (100gr)", "Kaşar", "Özel Sos", "Marul", "Domates", "Turşu"],
         options: [
@@ -736,7 +736,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Ayvalık Et Dürüm (70gr)",
         price: 210,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/ayvalik-etdoner.jpg",
         desc: "Ayvalık Et Dürüm (70gr) - Ayvalık tarzı",
         contents: ["Et Döner (70gr)", "Ayvalık Sosu", "Marul", "Domates", "Turşu"],
         options: [
@@ -756,7 +756,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "Ayvalık Kaşarlı Et Döner (70gr)",
         price: 230,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/ayvalik-etdoner.jpg",
         desc: "Ayvalık Kaşarlı Et Döner (70gr) - Ayvalık tarzı",
         contents: ["Et Döner (70gr)", "Kaşar", "Ayvalık Sosu", "Marul", "Domates", "Turşu"],
         options: [
@@ -776,7 +776,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "3 Adet Et Döner (70gr)",
         price: 780,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/3lu-etdoner.jpg",
         desc: "3 Adet Et Döner (70gr) + Büyük Boy Cips + Litrelik İçecek",
         contents: ["3x Et Döner (70gr)", "Büyük Boy Cips", "Litrelik İçecek"],
         options: [],
@@ -787,7 +787,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "3 Adet Et Döner (100gr)",
         price: 1020,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/3lu-etdoner.jpg",
         desc: "3 Adet Et Döner (100gr) + Büyük Boy Cips + Litrelik İçecek",
         contents: ["3x Et Döner (100gr)", "Büyük Boy Cips", "Litrelik İçecek"],
         options: [],
@@ -798,7 +798,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "5 Adet Et Döner (70gr)",
         price: 1240,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/5li-etdoner.jpg",
         desc: "5 Adet Et Döner (70gr) + 2x Büyük Boy Cips + Litrelik İçecek",
         contents: ["5x Et Döner (70gr)", "2x Büyük Boy Cips", "Litrelik İçecek"],
         options: [],
@@ -809,7 +809,7 @@ const PRODUCTS = [
         categoryId: "beef-doner",
         name: "5 Adet Et Döner (100gr)",
         price: 1640,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Et-Doner/5li-etdoner.jpg",
         desc: "5 Adet Et Döner (100gr) + 2x Büyük Boy Cips + Litrelik İçecek",
         contents: ["5x Et Döner (100gr)", "2x Büyük Boy Cips", "Litrelik İçecek"],
         options: [],
@@ -822,7 +822,7 @@ const PRODUCTS = [
         categoryId: "pasta",
         name: "Alfredo",
         price: 200,
-        image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
+        image: "pic/Makarnalar/alfredo.jpg",
         desc: "Jülyen Tavuk Parçaları (100-120gr), Dağ Mantarı, Sarımsak, Krema, Fesleğen - Tavsiye Penne",
         contents: ["Jülyen Tavuk Parçaları (100-120gr)", "Dağ Mantarı", "Sarımsak", "Krema", "Fesleğen"],
         options: [
@@ -844,7 +844,7 @@ const PRODUCTS = [
         categoryId: "pasta",
         name: "Napoliten",
         price: 200,
-        image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
+        image: "pic/Makarnalar/Napoliten.jpg",
         desc: "Domates, Sarımsak, Taze Fesleğen, Havuç, Baharat - Tavsiye Spagetti",
         contents: ["Domates", "Sarımsak", "Taze Fesleğen", "Havuç", "Baharat"],
         options: [
@@ -866,7 +866,7 @@ const PRODUCTS = [
         categoryId: "pasta",
         name: "Bolonez",
         price: 200,
-        image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
+        image: "pic/Makarnalar/bolonez.jpg",
         desc: "Dana Kıyma (100gr), Sarımsak, Soğan, Kereviz Sapı, Havuç, Defne Yaprağı, Baharat - Tavsiye Spagetti",
         contents: ["Dana Kıyma (100gr)", "Sarımsak", "Soğan", "Kereviz Sapı", "Havuç", "Defne Yaprağı", "Baharat"],
         options: [
@@ -888,7 +888,7 @@ const PRODUCTS = [
         categoryId: "pasta",
         name: "Pesto",
         price: 200,
-        image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
+        image: "pic/Makarnalar/pesto.jpg",
         desc: "Sarımsak, Taze Fesleğen, Kekik, Krema, Baharat - Tavsiye Bütün Makarna Çeşitleri",
         contents: ["Sarımsak", "Taze Fesleğen", "Kekik", "Krema", "Baharat"],
         options: [
@@ -910,7 +910,7 @@ const PRODUCTS = [
         categoryId: "pasta",
         name: "Arabiata",
         price: 200,
-        image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
+        image: "pic/Makarnalar/arabiata.jpg",
         desc: "Domates, Sarımsak, Acı Sos, Dilim Siyah Zeytin - Tavsiye Penne, Spagetti",
         contents: ["Domates", "Sarımsak", "Acı Sos", "Dilim Siyah Zeytin"],
         options: [
@@ -932,7 +932,7 @@ const PRODUCTS = [
         categoryId: "pasta",
         name: "Ton Balıklı",
         price: 250,
-        image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
+        image: "pic/Makarnalar/ton-balikli.jpg",
         desc: "Ton Balığı (160gr), Krema, Zeytin, Mısır, Turşu - Tavsiye Penne, Spagetti",
         contents: ["Ton Balığı (160gr)", "Krema", "Zeytin", "Mısır", "Turşu"],
         options: [
@@ -954,7 +954,7 @@ const PRODUCTS = [
         categoryId: "pasta",
         name: "Türk Usulü 4 Peynirli",
         price: 270,
-        image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
+        image: "pic/Makarnalar/turkusulu.jpg",
         desc: "Bergama Tulumu, Ezine Peyniri, Kaşar, Beyaz Peynir, Krema, Fesleğen - Tavsiye Penne, Spagetti",
         contents: ["Bergama Tulumu", "Ezine Peyniri", "Kaşar", "Beyaz Peynir", "Krema", "Fesleğen"],
         options: [
@@ -978,7 +978,7 @@ const PRODUCTS = [
         categoryId: "manti",
         name: "Ev Yapımı Mantı",
         price: 200,
-        image: "https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&h=300&fit=crop",
+        image: "pic/Makarnalar/manti.jpg",
         desc: "Haşlanmış Mantı, %100 Dana Kıyma (250gr), Tereyağında Kavrulmuş Pul Biber ve Nane Sosu",
         contents: ["Haşlanmış Mantı", "%100 Dana Kıyma (250gr)", "Tereyağında Kavrulmuş Pul Biber ve Nane Sosu"],
         options: [
@@ -1001,7 +1001,7 @@ const PRODUCTS = [
         categoryId: "hamburger",
         name: "Hamburger",
         price: 250,
-        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+        image: "pic/Hamburger/hamburger.jpg",
         desc: "120gr Ev Yapımı Köfte, Marul, Turşu, Domates",
         contents: ["120gr Ev Yapımı Köfte", "Marul", "Turşu", "Domates"],
         options: [
@@ -1015,7 +1015,7 @@ const PRODUCTS = [
         categoryId: "hamburger",
         name: "Cheeseburger",
         price: 270,
-        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+        image: "pic/Hamburger/cheeseburger.jpg",
         desc: "120gr Ev Yapımı Köfte, Cheddar Peyniri, Marul, Turşu, Domates",
         contents: ["120gr Ev Yapımı Köfte", "Cheddar Peyniri", "Marul", "Turşu", "Domates"],
         options: [
@@ -1029,7 +1029,7 @@ const PRODUCTS = [
         categoryId: "hamburger",
         name: "Tavuk Burger",
         price: 170,
-        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+        image: "pic/Hamburger/tavukburger.jpg",
         desc: "Tavuk Burger, Marul, Turşu, Domates, Özel Sos",
         contents: ["Tavuk Burger", "Marul", "Turşu", "Domates", "Özel Sos"],
         options: [
@@ -1045,7 +1045,7 @@ const PRODUCTS = [
         categoryId: "kofte",
         name: "Şefin Izgara Köftesi",
         price: 300,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Kofte-Spesiyel/sefin-izgarasi.jpg",
         desc: "180gr Izgara Köfte, Pilav, Salata",
         contents: ["180gr Izgara Köfte", "Pilav", "Salata"],
         options: [
@@ -1059,7 +1059,7 @@ const PRODUCTS = [
         categoryId: "kofte",
         name: "Ekmek Arası Köfte",
         price: 200,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Kofte-Spesiyel/ekmekarasi.jpg",
         desc: "120gr Ekmek Arası Köfte",
         contents: ["120gr Ekmek Arası Köfte"],
         options: [
@@ -1073,7 +1073,7 @@ const PRODUCTS = [
         categoryId: "kofte",
         name: "Ekmek Arası Kaşarlı Köfte",
         price: 220,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Kofte-Spesiyel/kasarli-kofte.jpg",
         desc: "120gr Ekmek Arası Kaşarlı Köfte",
         contents: ["120gr Ekmek Arası Kaşarlı Köfte"],
         options: [
@@ -1089,7 +1089,7 @@ const PRODUCTS = [
         categoryId: "aperatifler",
         name: "Elma Dilim Patates",
         price: 100,
-        image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&h=300&fit=crop",
+        image: "pic/Aperatifler/elmadilim.jpg",
         desc: "Elma Dilim Patates",
         contents: ["Elma Dilim Patates"],
         options: [],
@@ -1100,7 +1100,7 @@ const PRODUCTS = [
         categoryId: "aperatifler",
         name: "Parmak Patates",
         price: 100,
-        image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&h=300&fit=crop",
+        image: "pic/Aperatifler/parmakpatates.jpg",
         desc: "Parmak Patates",
         contents: ["Parmak Patates"],
         options: [],
@@ -1111,7 +1111,7 @@ const PRODUCTS = [
         categoryId: "aperatifler",
         name: "Çıtır Tavuk Tabağı",
         price: 200,
-        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop",
+        image: "pic/Aperatifler/citir.jpg",
         desc: "Çıtır Tavuk Taneleri ve Patates",
         contents: ["Çıtır Tavuk Taneleri"],
         options: [
@@ -1127,7 +1127,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Chicken Stroganoff",
         price: 300,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/chicken-stroganoff.jpg",
         desc: "Tavuk Bonfile (200-250gr), Krema, Turşu, Mantar, Demiglass Sos, Patates Cipsi ve Akdeniz Yeşillikleri",
         contents: ["Tavuk Bonfile (200-250gr)", "Krema", "Turşu", "Mantar", "Demiglass Sos", "Patates Cipsi", "Akdeniz Yeşillikleri"],
         options: [],
@@ -1146,7 +1146,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Tavuk Quesadilla",
         price: 300,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/chicken-quesadilla.jpg",
         desc: "Tortilla Lavaş İçerisinde Baharatlarla Tatlandırılmış Tavuk Parçaları (200-250gr), Kaşar Peyniri, Biber, Mısır, Zeytin ve Barbekü Sos",
         contents: ["Tavuk Parçaları (200-250gr)", "Kaşar Peyniri", "Biber", "Mısır", "Zeytin", "Barbekü Sos"],
         options: [],
@@ -1165,7 +1165,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Kaşarlı Mantarlı Quesadilla",
         price: 230,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/kasarli-mantarli-quesadilla.jpg",
         desc: "Tortilla Lavaş İçerisinde Kaşar Peyniri, Mantar, Mısır ve Zeytin",
         contents: ["Kaşar Peyniri", "Mantar", "Mısır", "Zeytin"],
         options: [],
@@ -1184,7 +1184,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Viyana Piliç Şinitzel",
         price: 300,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/viyana.jpg",
         desc: "Panelenmiş Tavuk Göğsü (250-300gr), Akdeniz Yeşillikleri",
         contents: ["Panelenmiş Tavuk Göğsü (250-300gr)", "Akdeniz Yeşillikleri"],
         options: [
@@ -1207,7 +1207,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Tavuk Wrap",
         price: 300,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/tavuk-wrap.jpg",
         desc: "Tavuk Bonfile (200-250gr), Soğan, Sarımsak, Biber, Dağ Kekiği, Mantar, Kajun Baharatı, Patates Cipsi ve Salata",
         contents: ["Tavuk Bonfile (200-250gr)", "Soğan", "Sarımsak", "Biber", "Dağ Kekiği", "Mantar", "Kajun Baharatı", "Patates Cipsi", "Salata"],
         options: [],
@@ -1226,7 +1226,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Dağ Kekiği Kremalı Tavuk",
         price: 290,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/dagkekigi-kremali.jpg",
         desc: "Jülyen Tavuk (200-250gr), Krema, Karabiber, Kekik, Sarımsak, Biber, Mantar, Akdeniz Yeşillikleri",
         contents: ["Jülyen Tavuk (200-250gr)", "Krema", "Karabiber", "Kekik", "Sarımsak", "Biber", "Mantar", "Akdeniz Yeşillikleri"],
         options: [
@@ -1249,7 +1249,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Mantarlı Köri Soslu Tavuk",
         price: 290,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/mantarli-kori-tavuk.jpg",
         desc: "Jülyen Tavuk Parçaları (200-250gr), Krema, Mantar, Köri, Akdeniz Yeşillikleri",
         contents: ["Jülyen Tavuk Parçaları (200-250gr)", "Krema", "Mantar", "Köri", "Akdeniz Yeşillikleri"],
         options: [
@@ -1272,7 +1272,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Cafe de Paris Soslu Tavuk",
         price: 290,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/cafedeparis.jpg",
         desc: "Jülyen Tavuk (200-250gr), Krema, Cafe de Paris Sos, Karabiber, Sarımsak, Biber, Mantar, Akdeniz Yeşillikleri",
         contents: ["Jülyen Tavuk (200-250gr)", "Krema", "Cafe de Paris Sos", "Karabiber", "Sarımsak", "Biber", "Mantar", "Akdeniz Yeşillikleri"],
         options: [
@@ -1295,7 +1295,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Barbekü Soslu Tavuk",
         price: 290,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/barbekusoslutavuk.jpg",
         desc: "Jülyen Tavuk, Barbekü Sosu, Biber, Mantar, Dağ Kekiği, Akdeniz Yeşillikleri",
         contents: ["Jülyen Tavuk", "Barbekü Sosu", "Biber", "Mantar", "Dağ Kekiği", "Akdeniz Yeşillikleri"],
         options: [
@@ -1318,7 +1318,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Tatlı Acı Soslu Tavuk",
         price: 290,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/tatliacisoslutavuk.jpg",
         desc: "Jülyen Tavuk, Chilli Sos, Biber, Mantar, Akdeniz Yeşillikleri",
         contents: ["Jülyen Tavuk", "Chilli Sos", "Biber", "Mantar", "Akdeniz Yeşillikleri"],
         options: [
@@ -1341,7 +1341,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Mexicano Soslu Tavuk",
         price: 290,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/mexicanososlutavuk.jpg",
         desc: "Jülyen Tavuk, Mexicano Sos, Jalepeno, Biber, Mantar, Akdeniz Yeşillikleri",
         contents: ["Jülyen Tavuk", "Mexicano Sos", "Jalepeno", "Biber", "Mantar", "Akdeniz Yeşillikleri"],
         options: [
@@ -1364,7 +1364,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Tavuk Menü",
         price: 290,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/tavuk-wrap.jpg",
         desc: "Tavuk Izgara (250-300gr)",
         contents: ["Tavuk Izgara (250-300gr)"],
         options: [
@@ -1386,7 +1386,7 @@ const PRODUCTS = [
         categoryId: "bistro",
         name: "Tavuk Menü Diyet",
         price: 290,
-        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+        image: "pic/Bistro/dagkekigi-kremali.jpg",
         desc: "Tavuk Izgara (250-300gr), Fırında Patates, Sebze Garnitür",
         contents: ["Tavuk Izgara (250-300gr)", "Fırında Patates", "Sebze Garnitür"],
         options: [],
@@ -1407,7 +1407,7 @@ const PRODUCTS = [
         categoryId: "salad",
         name: "Diyet Tavuk Salata",
         price: 200,
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+        image: "pic/Salata/diyet-tavuk-salata.jpg",
         desc: "Akdeniz Yeşillikleri, Kızarmış Tavuk Göğsü (150gr), Elma, Keten Tohumu, Cherry Domates, Tane Mısır ve Biber",
         contents: ["Akdeniz Yeşillikleri", "Kızarmış Tavuk Göğsü (150gr)", "Elma", "Keten Tohumu", "Cherry Domates", "Tane Mısır", "Biber"],
         options: [],
@@ -1418,7 +1418,7 @@ const PRODUCTS = [
         categoryId: "salad",
         name: "Bahar Salata",
         price: 200,
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+        image: "pic/Salata/baharsalata.jpg",
         desc: "Akdeniz Yeşillikleri, Beyaz Peynir, Cherry Domates, Tane Mısır, Biber ve Özel Yicem Sosu",
         contents: ["Akdeniz Yeşillikleri", "Beyaz Peynir", "Cherry Domates", "Tane Mısır", "Biber", "Özel Yicem Sosu"],
         options: [],
@@ -1429,7 +1429,7 @@ const PRODUCTS = [
         categoryId: "salad",
         name: "Sezar Salata",
         price: 200,
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+        image: "pic/Salata/sezar.jpg",
         desc: "Kızarmış Tavuk Göğsü (150gr), Akdeniz Yeşillikleri, Cherry Domates, Mısır, Biber, Kruton Ekmek, Parmesan Peyniri ve Özel Yicem Sosu",
         contents: ["Kızarmış Tavuk Göğsü (150gr)", "Akdeniz Yeşillikleri", "Cherry Domates", "Mısır", "Biber", "Kruton Ekmek", "Parmesan Peyniri", "Özel Yicem Sosu"],
         options: [],
@@ -1440,7 +1440,7 @@ const PRODUCTS = [
         categoryId: "salad",
         name: "Çıtır Tavuk Salata",
         price: 200,
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+        image: "pic/Salata/citir-tavuk-salata.jpg",
         desc: "Çıtır Tavuk Parçaları (150gr), Akdeniz Yeşillikleri, Cherry Domates, Mısır, Biber ve Yicem Sosu",
         contents: ["Çıtır Tavuk Parçaları (150gr)", "Akdeniz Yeşillikleri", "Cherry Domates", "Mısır", "Biber", "Yicem Sosu"],
         options: [],
@@ -1451,7 +1451,7 @@ const PRODUCTS = [
         categoryId: "salad",
         name: "Hellim Salata",
         price: 230,
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+        image: "pic/Salata/hellim-salata.jpg",
         desc: "Hellim Peyniri, Akdeniz Yeşillikleri, Cherry Domates, Mısır, Biber ve Kruton Ekmek",
         contents: ["Hellim Peyniri", "Akdeniz Yeşillikleri", "Cherry Domates", "Mısır", "Biber", "Kruton Ekmek"],
         options: [],
@@ -1462,7 +1462,7 @@ const PRODUCTS = [
         categoryId: "salad",
         name: "Tonno Salata",
         price: 230,
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+        image: "pic/Salata/tonnosalata.jpg",
         desc: "Ton Balığı (160gr), Akdeniz Yeşillikleri, Cherry Domates, Mısır ve Biber",
         contents: ["Ton Balığı (160gr)", "Akdeniz Yeşillikleri", "Cherry Domates", "Mısır", "Biber"],
         options: [],
@@ -1474,8 +1474,8 @@ const PRODUCTS = [
         id: "d1",
         categoryId: "drinks",
         name: "RedBull",
-        price: 100,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        price: 80,
+        image: "pic/Icecek/redbull.jpg",
         desc: "RedBull Enerji İçeceği",
         contents: ["RedBull Enerji İçeceği"],
         options: [],
@@ -1486,7 +1486,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Coca Cola",
         price: 60,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/cocacola.jpg",
         desc: "Coca Cola",
         contents: ["Coca Cola"],
         options: [
@@ -1500,7 +1500,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Pepsi",
         price: 60,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/pepsi.jpg",
         desc: "Pepsi",
         contents: ["Pepsi"],
         options: [
@@ -1514,7 +1514,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Fanta",
         price: 60,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/fanta.jpg",
         desc: "Fanta",
         contents: ["Fanta"],
         options: [],
@@ -1525,7 +1525,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Sprite",
         price: 60,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/sprite.jpg",
         desc: "Sprite",
         contents: ["Sprite"],
         options: [
@@ -1539,7 +1539,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Ice Tea",
         price: 60,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/icetea.jpg",
         desc: "Ice Tea",
         contents: ["Ice Tea"],
         options: [
@@ -1552,8 +1552,8 @@ const PRODUCTS = [
         id: "d7",
         categoryId: "drinks",
         name: "Litrelik İçecek",
-        price: 90,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        price: 60,
+        image: "pic/Icecek/litrelik-icecek.jpg",
         desc: "Litrelik İçecek",
         contents: ["Litrelik İçecek"],
         options: [
@@ -1568,7 +1568,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Yörükoğlu Ayran",
         price: 40,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/ayran.jpg",
         desc: "Yörükoğlu Ayran",
         contents: ["Yörükoğlu Ayran"],
         options: [],
@@ -1579,7 +1579,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Su",
         price: 20,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/su.jpg",
         desc: "Su",
         contents: ["Su"],
         options: [],
@@ -1589,8 +1589,8 @@ const PRODUCTS = [
         id: "d10",
         categoryId: "drinks",
         name: "Soda",
-        price: 30,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        price: 20,
+        image: "pic/Icecek/soda.jpg",
         desc: "Soda",
         contents: ["Soda"],
         options: [],
@@ -1601,7 +1601,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Şalgam",
         price: 40,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/salgam.jpg",
         desc: "Şalgam",
         contents: ["Şalgam"],
         options: [
@@ -1615,7 +1615,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Çay",
         price: 20,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/cay.jpg",
         desc: "Çay",
         contents: ["Çay"],
         options: [],
@@ -1626,7 +1626,7 @@ const PRODUCTS = [
         categoryId: "drinks",
         name: "Türk Kahvesi",
         price: 70,
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        image: "pic/Icecek/turk-kahvesi.jpg",
         desc: "Türk Kahvesi",
         contents: ["Türk Kahvesi"],
         options: [
@@ -1788,6 +1788,27 @@ function removeFromCart(cartItemId) {
     updateCartBadge();
 }
 
+// Anında silme fonksiyonu
+function removeFromCartInstantly(cartItemId) {
+    // Animasyon ekle
+    const itemElement = document.querySelector(`[onclick="removeFromCartInstantly('${cartItemId}')"]`).closest('.cart__item');
+    if (itemElement) {
+        itemElement.style.opacity = '0.5';
+        itemElement.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+            cart = cart.filter(item => item.id !== cartItemId);
+            saveCartToStorage();
+            updateCartBadge();
+            renderCartContent(); // Sepeti yeniden render et
+            updateCartTotals();
+            
+            // Başarı mesajı
+            showNotification('Ürün sepetten kaldırıldı', 'success');
+        }, 200);
+    }
+}
+
 function updateCartItemQuantity(cartItemId, newQuantity) {
     const item = cart.find(item => item.id === cartItemId);
     if (item) {
@@ -1797,6 +1818,13 @@ function updateCartItemQuantity(cartItemId, newQuantity) {
             item.quantity = newQuantity;
             saveCartToStorage();
             updateCartBadge();
+            
+            // Sepeti yeniden render et
+            renderCartContent();
+            updateCartTotals();
+            
+            // Başarı mesajı
+            showNotification(`Miktar ${newQuantity} olarak güncellendi`, 'success');
         }
     }
 }
@@ -2216,20 +2244,24 @@ function renderCartContent() {
                 ${item.note ? `<div class="cart__item-note">Not: ${item.note}</div>` : ''}
             </div>
             <div class="cart__item-quantity">
-                <button class="cart__item-quantity-btn" onclick="updateCartItemQuantity('${item.id}', ${item.quantity - 1})">-</button>
+                <button class="cart__item-quantity-btn" onclick="updateCartItemQuantity('${item.id}', ${item.quantity - 1})" title="Azalt">-</button>
                 <span class="cart__item-quantity-value">${item.quantity}</span>
-                <button class="cart__item-quantity-btn" onclick="updateCartItemQuantity('${item.id}', ${item.quantity + 1})">+</button>
+                <button class="cart__item-quantity-btn" onclick="updateCartItemQuantity('${item.id}', ${item.quantity + 1})" title="Artır">+</button>
             </div>
             <div class="cart__item-price">${formatPrice(item.price * item.quantity)}</div>
             <div class="cart__item-actions">
                 <button class="cart__item-action cart__item-action--edit" onclick="editCartItem('${item.id}')" title="Düzenle">✏️</button>
-                <button class="cart__item-action cart__item-action--delete" onclick="removeFromCart('${item.id}')" title="Sil">🗑️</button>
+                <button class="cart__item-action cart__item-action--delete" onclick="removeFromCartInstantly('${item.id}')" title="Sil">🗑️</button>
             </div>
         `;
         
         cartContent.appendChild(itemDiv);
     });
+    
+    // İçecek önerisi kaldırıldı
 }
+
+// İçecek önerisi sistemi kaldırıldı
 
 function updateCartTotals() {
     const { total } = calculateCartTotals();
@@ -2450,13 +2482,30 @@ function renderProducts() {
 
 function scrollToCategory(categoryId) {
     console.log('Scrolling to category:', categoryId);
+    
+    // Önce kategori başlığını bul
     const categoryElement = document.getElementById(`category-${categoryId}`);
     if (categoryElement) {
-        console.log('Category element found, scrolling...');
-        categoryElement.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
+        console.log('Category element found, looking for first product...');
+        
+        // Kategori içindeki ilk ürünü bul
+        const firstProduct = categoryElement.querySelector('.product');
+        
+        if (firstProduct) {
+            console.log('First product found, scrolling to product...');
+            // İlk ürüne scroll yap
+            firstProduct.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        } else {
+            console.log('No products found in category, scrolling to category header...');
+            // Ürün bulunamazsa kategori başlığına scroll yap
+            categoryElement.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     } else {
         console.log('Category element not found:', `category-${categoryId}`);
     }
@@ -2486,37 +2535,115 @@ function initCategoryNavigation() {
     let currentScroll = 0;
     const scrollAmount = 200;
     
-    function updateNavButtons() {
-        const maxScroll = categoriesList.scrollWidth - categoriesWrapper.clientWidth;
-        
-        prevBtn.disabled = currentScroll <= 0;
-        nextBtn.disabled = currentScroll >= maxScroll;
+    // Ensure first category (Pizzalar) is at the start
+    function ensureFirstCategoryVisible() {
+        if (categoriesList && categoriesWrapper) {
+            categoriesList.scrollLeft = 0;
+            currentScroll = 0;
+        }
     }
     
-    function scrollCategories(direction) {
+    // Ensure last category (İçecekler) doesn't scroll too far left
+    function ensureLastCategoryPosition() {
+        if (categoriesList && categoriesWrapper) {
         const maxScroll = categoriesList.scrollWidth - categoriesWrapper.clientWidth;
+            const lastCategory = categoriesList.querySelector('.categories__category:last-child');
+            if (lastCategory) {
+                const lastCategoryRight = lastCategory.offsetLeft + lastCategory.offsetWidth;
+                const wrapperRight = categoriesWrapper.clientWidth;
+                if (lastCategoryRight <= wrapperRight) {
+                    categoriesList.scrollLeft = Math.max(0, lastCategoryRight - wrapperRight);
+                    currentScroll = categoriesList.scrollLeft;
+                }
+            }
+        }
+    }
+    
+    function updateNavButtons() {
+        // Butonlar her zaman aktif olacak (kategori geçişi için)
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+    }
+    
+    // Get current active category
+    function getCurrentActiveCategory() {
+        const activeCategory = document.querySelector('.categories__category--active');
+        return activeCategory ? activeCategory.dataset.categoryId : 'pizza';
+    }
+    
+    // Navigate to next/previous category
+    function navigateToCategory(direction) {
+        const currentCategory = getCurrentActiveCategory();
+        const currentIndex = CATEGORIES.findIndex(cat => cat.id === currentCategory);
         
+        let nextIndex;
         if (direction === 'prev') {
-            currentScroll = Math.max(0, currentScroll - scrollAmount);
+            nextIndex = currentIndex > 0 ? currentIndex - 1 : CATEGORIES.length - 1;
         } else {
-            currentScroll = Math.min(maxScroll, currentScroll + scrollAmount);
+            nextIndex = currentIndex < CATEGORIES.length - 1 ? currentIndex + 1 : 0;
         }
         
-        categoriesList.style.transform = `translateX(-${currentScroll}px)`;
+        const nextCategory = CATEGORIES[nextIndex];
+        
+        // Önce kategori butonunu aktif yap
+        setActiveCategory(nextCategory.id);
+        
+        // Seçili kategoriyi görünür alana getir
+        scrollToActiveCategory(nextCategory.id);
+        
+        // Sayfayı da o kategorideki ilk ürüne scroll yap
+        scrollToCategory(nextCategory.id);
+        
+        // Menu butonlarını güncelle
         updateNavButtons();
     }
     
-    prevBtn.addEventListener('click', () => scrollCategories('prev'));
-    nextBtn.addEventListener('click', () => scrollCategories('next'));
+    // Seçili kategoriyi görünür alana getir
+    function scrollToActiveCategory(categoryId) {
+        const activeCategoryElement = document.querySelector('.categories__category--active');
+        if (!activeCategoryElement) return;
+        
+        const categoriesWrapper = document.getElementById('categoriesWrapper');
+        const wrapperRect = categoriesWrapper.getBoundingClientRect();
+        const categoryRect = activeCategoryElement.getBoundingClientRect();
+        
+        // Kategori wrapper'ın sol kenarından ne kadar uzakta
+        const categoryLeft = categoryRect.left - wrapperRect.left;
+        // Kategori wrapper'ın sağ kenarından ne kadar uzakta
+        const categoryRight = categoryRect.right - wrapperRect.left;
+        
+        // Eğer kategori sağ kenarın dışındaysa, sola kaydır
+        if (categoryRight > wrapperRect.width) {
+            const scrollAmount = categoryRight - wrapperRect.width + 20; // 20px margin
+            categoriesWrapper.scrollLeft += scrollAmount;
+        }
+        // Eğer kategori sol kenarın dışındaysa, sağa kaydır
+        else if (categoryLeft < 0) {
+            const scrollAmount = Math.abs(categoryLeft) + 20; // 20px margin
+            categoriesWrapper.scrollLeft -= scrollAmount;
+        }
+    }
     
-    // Initialize button states
+    // Desktop navigation
+    if (window.innerWidth > 767) {
+        prevBtn.addEventListener('click', () => navigateToCategory('prev'));
+        nextBtn.addEventListener('click', () => navigateToCategory('next'));
+    }
+    
+    // Initialize button states - butonlar her zaman aktif
     updateNavButtons();
     
-    // Hide navigation buttons if all categories fit
+    // Butonları her zaman aktif yap
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+    
+    // Menu butonları her zaman görünür ve aktif olsun (kategori geçişi için)
     function checkIfNavigationNeeded() {
-        const needsNavigation = categoriesList.scrollWidth > categoriesWrapper.clientWidth;
-        prevBtn.style.display = needsNavigation ? 'flex' : 'none';
-        nextBtn.style.display = needsNavigation ? 'flex' : 'none';
+        // Butonlar her zaman görünür ve aktif olsun
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
     }
     
     // Check on load and resize
@@ -2779,6 +2906,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPrivacyModal();
     initCookieBanner();
     initializeFeedbackModal();
+    initPWA();
     updateUserNameDisplay();
     updateRestaurantStatus();
 });
@@ -2826,13 +2954,13 @@ function validateCheckoutForm() {
         isValid = false;
     }
     
-    // Lokasyon kontrolü
+    // Lokasyon kontrolü - ARTIK ZORUNLU DEĞİL
     const customerLocation = formData.get('customerLocation');
     console.log('Customer location:', customerLocation);
     if (!customerLocation || customerLocation.trim().length < 5) {
-        console.log('Customer location validation failed');
-        showCheckoutFieldError('customerLocation', 'Lokasyon seçmelisiniz.');
-        isValid = false;
+        // Uyarı ver ama siparişi engelleme
+        showCheckoutFieldError('customerLocation', 'Konum bilgisi girmeniz önerilir, ancak sipariş verebilirsiniz.');
+        // isValid = false; // Bu satır kaldırılacak
     }
     
     // Adres kontrolü
@@ -3129,7 +3257,8 @@ function getCurrentLocation() {
     console.log('getCurrentLocation called');
     
     if (!navigator.geolocation) {
-        alert('Tarayıcınız konum özelliğini desteklemiyor.');
+        // Konum özelliği desteklenmiyorsa
+        showLocationError('Tarayıcınız konum özelliğini desteklemiyor. Lütfen konumunuzu manuel olarak giriniz.');
         return;
     }
     
@@ -3155,42 +3284,22 @@ function getCurrentLocation() {
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
             
-            // Antalya/Muratpaşa bölge kontrolü
-            if (isInAntalyaMuratpasa(lat, lng)) {
-                // Google Maps URL oluştur
-                const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
-                locationInput.value = mapsUrl;
-                
-                // Konum başarıyla alındı, localStorage'a kaydet
-                localStorage.setItem('yicem-last-location', mapsUrl);
-                
-                // Detaylı adres bilgisi al
-                getDetailedAddress(lat, lng, locationInput, locationBtn);
-            } else {
-                // Bölge dışındaysa uyarı ver
-                locationInput.value = '';
-                alert('Konumunuz Antalya/Muratpaşa bölgesi dışında. Lütfen manuel olarak giriniz.');
-                locationBtn.disabled = false;
-                locationBtn.textContent = 'Konumu Al';
-            }
+            // Artık bölge kontrolü yok, her konum kabul edilir
+            const mapsUrl = `https://maps.google.com/?q=${lat},${lng}`;
+            locationInput.value = mapsUrl;
+            locationInput.dataset.lat = lat;
+            locationInput.dataset.lng = lng;
+            
+            // Konum başarıyla alındı
+            localStorage.setItem('yicem-last-location', mapsUrl);
+            
+            // Detaylı adres bilgisi al
+            getDetailedAddress(lat, lng, locationInput, locationBtn);
         },
         function(error) {
-            let errorMessage = 'Konum alınamadı: ';
-            switch(error.code) {
-                case error.PERMISSION_DENIED:
-                    errorMessage += 'Konum izni reddedildi. Lütfen tarayıcı ayarlarından konum iznini açın.';
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    errorMessage += 'Konum bilgisi mevcut değil.';
-                    break;
-                case error.TIMEOUT:
-                    errorMessage += 'Konum alma zaman aşımına uğradı.';
-                    break;
-                default:
-                    errorMessage += 'Bilinmeyen hata.';
-                    break;
-            }
-            alert(errorMessage);
+            // Hata durumunda kullanıcıya bilgi ver ama siparişi engelleme
+            showLocationError('Konum ile ilgili hata var. Lütfen konumunuzu manuel olarak giriniz.');
+            
             locationInput.value = '';
             locationBtn.disabled = false;
             locationBtn.textContent = 'Konumu Al';
@@ -3213,6 +3322,32 @@ function isInAntalyaMuratpasa(lat, lng) {
            lat <= antalyaBounds.north && 
            lng >= antalyaBounds.west && 
            lng <= antalyaBounds.east;
+}
+
+// Konum hatası için yeni uyarı fonksiyonu
+function showLocationError(message) {
+    const errorModal = document.createElement('div');
+    errorModal.className = 'modal';
+    errorModal.innerHTML = `
+        <div class="modal__overlay"></div>
+        <div class="modal__content modal__content--warning">
+            <div class="modal__header">
+                <h2 class="modal__title">⚠️ Konum Bilgisi</h2>
+                <button class="modal__close" onclick="this.closest('.modal').remove()">×</button>
+            </div>
+            <div class="modal__body">
+                <p>${message}</p>
+                <p><strong>Siparişinizi manuel olarak tamamlayabilirsiniz.</strong></p>
+                <p>Lütfen konum ve adres bilgilerinizi manuel olarak giriniz.</p>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--primary" onclick="this.closest('.modal').remove()">Tamam</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(errorModal);
+    errorModal.classList.add('show');
 }
 
 // Detaylı adres bilgisi alma
@@ -3255,53 +3390,170 @@ function autoFillDetailedAddress(addressData) {
         const buildingInput = document.getElementById('building');
         const apartmentInput = document.getElementById('apartment');
         
-        // Mahalle bilgisi (eğer boşsa)
-        if (neighborhoodInput && !neighborhoodInput.value) {
+        // Mahalle bilgisi - her zaman doldur (kullanıcı değiştirebilir)
+        if (neighborhoodInput) {
             const neighborhood = addressData.suburb || 
                                addressData.quarter || 
                                addressData.neighbourhood || 
                                addressData.hamlet || 
+                               addressData.city_district ||
                                'Muratpaşa';
             neighborhoodInput.value = neighborhood;
+            
+            // Kullanıcıya bilgi ver
+            neighborhoodInput.style.backgroundColor = '#f0f9ff';
+            setTimeout(() => {
+                neighborhoodInput.style.backgroundColor = '';
+            }, 2000);
         }
         
-        // Cadde bilgisi (eğer boşsa)
-        if (streetInput && !streetInput.value) {
+        // Cadde bilgisi - her zaman doldur (kullanıcı değiştirebilir)
+        if (streetInput) {
             const street = addressData.road || 
                           addressData.street || 
                           addressData.pedestrian || 
                           addressData.footway || 
+                          addressData.residential ||
                           'Antalya';
             streetInput.value = street;
+            
+            // Kullanıcıya bilgi ver
+            streetInput.style.backgroundColor = '#f0f9ff';
+            setTimeout(() => {
+                streetInput.style.backgroundColor = '';
+            }, 2000);
         }
         
-        // Apartman bilgisi (eğer varsa ve boşsa)
-        if (buildingInput && !buildingInput.value) {
+        // Apartman bilgisi - varsa doldur (kullanıcı değiştirebilir)
+        if (buildingInput) {
             const building = addressData.house_number || 
                            addressData.building || 
                            addressData.amenity || 
                            '';
             if (building) {
                 buildingInput.value = building;
+                
+                // Kullanıcıya bilgi ver
+                buildingInput.style.backgroundColor = '#f0f9ff';
+                setTimeout(() => {
+                    buildingInput.style.backgroundColor = '';
+                }, 2000);
             }
         }
         
-        // Daire bilgisi (eğer varsa ve boşsa)
-        if (apartmentInput && !apartmentInput.value) {
+        // Daire bilgisi - varsa doldur (kullanıcı değiştirebilir)
+        if (apartmentInput) {
             const apartment = addressData.unit || 
                             addressData.level || 
                             addressData.floor || 
                             '';
             if (apartment) {
                 apartmentInput.value = apartment;
+                
+                // Kullanıcıya bilgi ver
+                apartmentInput.style.backgroundColor = '#f0f9ff';
+                setTimeout(() => {
+                    apartmentInput.style.backgroundColor = '';
+                }, 2000);
             }
         }
+        
+        // Kullanıcıya bilgi ver
+        showNotification('Adres bilgileri otomatik dolduruldu. İsterseniz düzenleyebilirsiniz.', 'success');
         
         // Form validasyonunu güncelle
         validateForm();
     } catch (error) {
         console.error('Detaylı adres doldurma hatası:', error);
+        showNotification('Adres bilgileri doldurulamadı. Lütfen manuel olarak giriniz.', 'error');
     }
+}
+
+// Show notification to user
+function showNotification(message, type = 'info') {
+    // Remove existing notification if any
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification--${type}`;
+    notification.innerHTML = `
+        <div class="notification__content">
+            <span class="notification__message">${message}</span>
+            <button class="notification__close" onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+    `;
+    
+    // Add styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
+        color: white;
+        padding: 12px 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+        max-width: 300px;
+        font-size: 14px;
+        font-weight: 500;
+        animation: slideInRight 0.3s ease-out;
+    `;
+    
+    // Add animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .notification__content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .notification__close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .notification__close:hover {
+            opacity: 0.8;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Auto remove after 4 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.style.animation = 'slideInRight 0.3s ease-out reverse';
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }
+    }, 4000);
 }
 
 // Legacy function for backward compatibility
@@ -3512,6 +3764,12 @@ function initCheckoutForm() {
         cookiesAcceptBtn.addEventListener('click', hideCookiesModal);
     }
     
+    // Cookies modal overlay
+    const cookiesModalOverlay = document.getElementById('cookiesModalOverlay');
+    if (cookiesModalOverlay) {
+        cookiesModalOverlay.addEventListener('click', hideCookiesModal);
+    }
+    
     // Footer functionality
     initFooter();
     
@@ -3527,14 +3785,17 @@ function initCheckoutForm() {
     if (footerCookiesLink) {
         footerCookiesLink.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation(); // Footer toggle'ını engelle
             showCookiesInfo();
         });
     }
+    
     
     const footerPrivacyLink = document.getElementById('footerPrivacyLink');
     if (footerPrivacyLink) {
         footerPrivacyLink.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation(); // Footer toggle'ını engelle
             showPrivacyInfo();
         });
     }
@@ -3543,6 +3804,7 @@ function initCheckoutForm() {
     if (footerKVKKLink) {
         footerKVKKLink.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation(); // Footer toggle'ını engelle
             showKVKKInfo();
         });
     }
@@ -3619,11 +3881,13 @@ function hideCookieBanner() {
 
 function acceptCookies() {
     localStorage.setItem('yicem-cookie-consent', 'accepted');
+    localStorage.removeItem('yicem-footer-cookies-clicked'); // Flag'i temizle
     hideCookieBanner();
 }
 
 function declineCookies() {
     localStorage.setItem('yicem-cookie-consent', 'declined');
+    localStorage.removeItem('yicem-footer-cookies-clicked'); // Flag'i temizle
     hideCookieBanner();
 }
 
@@ -3632,14 +3896,22 @@ function checkCookieConsent() {
 }
 
 function initCookieBanner() {
+    // Mobilde çerez banner'ını gösterme
+    if (window.innerWidth <= 767) {
+        hideCookieBanner();
+        return;
+    }
+    
     const consent = checkCookieConsent();
-    if (!consent) {
-        // Çerez onayı verilmemiş, banner göster
+    const footerCookiesClicked = localStorage.getItem('yicem-footer-cookies-clicked');
+    
+    if (!consent && !footerCookiesClicked) {
+        // Çerez onayı verilmemiş ve footer'dan çerez linkine tıklanmamış, banner göster
         setTimeout(() => {
             showCookieBanner();
         }, 3000); // 3 saniye sonra göster
     } else {
-        // Çerez onayı verilmiş, banner'ı gizle
+        // Çerez onayı verilmiş veya footer'dan çerez linkine tıklanmış, banner'ı gizle
         hideCookieBanner();
     }
 }
@@ -3685,14 +3957,20 @@ function updateCategoriesPosition() {
     const categories = document.querySelector('.categories');
     
     if (header && categories) {
-        const headerHeight = header.offsetHeight;
-        categories.style.top = headerHeight + 'px';
+        if (window.innerWidth <= 767) {
+            // Mobile'da menü header'ın hemen altında, boşluk yok
+            categories.style.top = '0px';
+        } else {
+            // Desktop'ta header'ın altında, boşluk yok
+            categories.style.top = '0px';
+        }
     }
 }
 
 function initCategories() {
     const categoriesMenu = document.getElementById('categoriesMenu');
     const categoriesToggle = document.getElementById('categoriesToggle');
+    const categoriesHamburger = document.getElementById('categoriesHamburger');
     const prevBtn = document.getElementById('categoriesPrevBtn');
     const nextBtn = document.getElementById('categoriesNextBtn');
     const mobilePrevBtn = document.getElementById('categoriesMobilePrevBtn');
@@ -3700,14 +3978,28 @@ function initCategories() {
     
     if (!categoriesMenu || !categoriesToggle) return;
     
-    // Mobile toggle functionality (disabled - always visible on mobile)
+    // Hamburger menu functionality for mobile
+    if (categoriesHamburger) {
+        categoriesHamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Hamburger menu clicked, window width:', window.innerWidth);
+            
+            // Toggle categories menu
+            categoriesMenu.classList.toggle('expanded');
+            console.log('Categories menu classes:', categoriesMenu.className);
+        });
+    }
+    
+    // Desktop toggle functionality
     categoriesToggle.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
         
         console.log('Categories toggle clicked, window width:', window.innerWidth);
         
-        // Only toggle on desktop (mobile is always visible now)
+        // Only toggle on desktop (mobile uses hamburger)
         if (window.innerWidth > 767) {
             console.log('Desktop mode - toggling categories menu');
             categoriesMenu.classList.toggle('expanded');
@@ -3828,21 +4120,20 @@ function initCategories() {
             categoriesMenu.classList.remove('expanded');
         }
         
-        prevBtn.addEventListener('click', (e) => {
-            if (window.innerWidth <= 767) {
+        // Mobile navigation - only add if not already added
+        if (window.innerWidth <= 767) {
+            prevBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 scrollCategories('prev'); // Previous category
-            }
-        });
-        
-        nextBtn.addEventListener('click', (e) => {
-            if (window.innerWidth <= 767) {
+            });
+            
+            nextBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 scrollCategories('next'); // Next category
-            }
-        });
+            });
+        }
     }
     
     // Mobile navigation buttons
@@ -3888,6 +4179,25 @@ function navigateCategories(direction) {
     }
 }
 
+function scrollCategories(direction) {
+    // scrollCategories fonksiyonu navigateCategories ile aynı işlevi görür
+    // Sadece string parametre alır ('prev' veya 'next')
+    const directionNum = direction === 'next' ? 1 : -1;
+    
+    // Çift tıklama önleme
+    if (scrollCategories.isProcessing) {
+        return;
+    }
+    
+    scrollCategories.isProcessing = true;
+    navigateCategories(directionNum);
+    
+    // 300ms sonra tekrar tıklamaya izin ver
+    setTimeout(() => {
+        scrollCategories.isProcessing = false;
+    }, 300);
+}
+
 // Footer Functions
 function initFooter() {
     const footer = document.getElementById('restaurantFooter');
@@ -3895,17 +4205,38 @@ function initFooter() {
     
     let isExpanded = false;
     
-    // Click to toggle footer
+    // Click to toggle footer - sadece boş alanlara tıklandığında
     footer.addEventListener('click', (e) => {
-        // Don't toggle if clicking on links
-        if (e.target.closest('a')) {
+        // Mobilde footer tıklama olayı olmasın, klasik footer gibi sabit kalsın
+        if (window.innerWidth <= 767) {
+            e.preventDefault();
+            e.stopPropagation();
             return;
         }
         
+        // Footer'daki herhangi bir interactive element'e tıklandıysa toggle yapma
+        if (e.target.closest('a') || 
+            e.target.closest('button') || 
+            e.target.closest('.modal') ||
+            e.target.closest('.footer__link') ||
+            e.target.closest('.footer__info-item') ||
+            e.target.closest('.footer__address-link') ||
+            e.target.closest('.footer__links-expanded') ||
+            e.target.closest('.footer__info-grid') ||
+            e.target.closest('.footer__info-text') ||
+            e.target.closest('.footer__info-icon') ||
+            e.target.closest('.footer__links') ||
+            e.target.closest('.footer__info')) {
+            return;
+        }
+        
+        // Web'te sadece footer'ın boş alanlarına tıklandığında toggle yap
         e.preventDefault();
         e.stopPropagation();
         isExpanded = !isExpanded;
         footer.classList.toggle('expanded', isExpanded);
+        
+        console.log('Footer clicked, isExpanded:', isExpanded); // Debug için
         
         // Adjust body padding based on screen size
         if (isExpanded) {
@@ -3916,7 +4247,7 @@ function initFooter() {
             }
         } else {
             if (window.innerWidth <= 767) {
-                document.body.style.paddingBottom = '50px';
+                document.body.style.paddingBottom = '0'; // Mobilde footer sticky değil
             } else {
                 document.body.style.paddingBottom = '60px';
             }
@@ -3928,7 +4259,7 @@ function initFooter() {
         if (window.innerWidth <= 767 && isExpanded && !footer.contains(e.target)) {
             isExpanded = false;
             footer.classList.remove('expanded');
-            document.body.style.paddingBottom = '50px';
+            document.body.style.paddingBottom = '0'; // Mobilde footer sticky değil
         }
     });
     
@@ -3942,23 +4273,35 @@ function initFooter() {
                 document.body.style.paddingBottom = '60px';
             }
         } else {
-            // On mobile, maintain expanded state but adjust padding
-            if (isExpanded) {
-                document.body.style.paddingBottom = '320px';
-            } else {
-                document.body.style.paddingBottom = '50px';
-            }
+            // On mobile, footer sticky değil, padding gerekmez
+            document.body.style.paddingBottom = '0';
+            // Mobilde footer her zaman açık
+            footer.classList.add('expanded');
         }
+        
+        // Re-initialize cookie banner based on screen size
+        initCookieBanner();
     });
+    
+    // Initialize mobile footer state - mobilde her zaman açık
+    if (window.innerWidth <= 767) {
+        footer.classList.add('expanded');
+    }
 }
 
 function updateRestaurantStatus() {
     const now = new Date();
     const day = now.getDay(); // 0 = Pazar, 1 = Pazartesi, ..., 6 = Cumartesi
     const hour = now.getHours();
+    const minute = now.getMinutes();
     
     const isSunday = day === 0;
-    const isOpenHours = hour >= 9 && hour < 21;
+    // Restoran 09:00-20:30 arası açık (20:30'da kapanır)
+    const currentTime = hour * 60 + minute; // Dakika cinsinden mevcut zaman
+    const openTime = 9 * 60; // 09:00 = 540 dakika
+    const closeTime = 20 * 60 + 30; // 20:30 = 1230 dakika
+    
+    const isOpenHours = currentTime >= openTime && currentTime < closeTime;
     
     const isOpen = !isSunday && isOpenHours;
     
@@ -3976,7 +4319,7 @@ function updateRestaurantStatus() {
         }
     }
     
-    // Legacy restaurant status elements (if they exist)
+    // Header status elements (mobilde sepetin yanındaki durum)
     const statusElement = document.getElementById('restaurantStatus');
     const statusIcon = document.getElementById('statusIcon');
     
@@ -3991,12 +4334,61 @@ function updateRestaurantStatus() {
             statusIcon.textContent = '🔴';
         }
     }
+    
+    // Header status text element (mobilde sepetin yanındaki "Açık" yazısı)
+    const headerStatusText = document.querySelector('.header__status-text');
+    if (headerStatusText) {
+        if (isOpen) {
+            headerStatusText.textContent = 'Açık';
+        } else {
+            headerStatusText.textContent = 'Kapalı';
+        }
+    }
+    
+    // Mobilde kapalı durumda sadece kırmızı sabit emoji göster
+    const headerStatusIcon = document.getElementById('statusIcon');
+    if (headerStatusIcon) {
+        if (isOpen) {
+            headerStatusIcon.textContent = '🟢';
+            headerStatusIcon.classList.remove('closed');
+            headerStatusIcon.style.animation = 'pulse 2s infinite';
+        } else {
+            headerStatusIcon.textContent = '🔴';
+            headerStatusIcon.classList.add('closed');
+            headerStatusIcon.style.animation = 'none'; // Sabit kırmızı emoji
+        }
+    }
 }
 
 // Footer Link Functions
 function showCookiesInfo() {
-    // Footer'daki çerez linkine tıklandığında sadece modal açılsın
-    // Banner'ı tekrar gösterme
+    const consent = checkCookieConsent();
+    
+    // Çerez banner'ını gizle (eğer görünürse)
+    const cookieBanner = document.getElementById('cookieBanner');
+    if (cookieBanner) {
+        cookieBanner.classList.remove('show');
+    }
+    
+    // Footer'dan çerez linkine tıklandığını işaretle
+    localStorage.setItem('yicem-footer-cookies-clicked', 'true');
+    
+    // Modal açılmadan önce footer'ı geçici olarak devre dışı bırak
+    const footer = document.getElementById('restaurantFooter');
+    if (footer) {
+        footer.style.pointerEvents = 'none';
+    }
+    
+    // Eğer çerez onayı zaten verilmişse, sadece bilgi modalını göster
+    if (consent) {
+        const cookiesModal = document.getElementById('cookiesModal');
+        if (cookiesModal) {
+            openModal(cookiesModal);
+        }
+        return;
+    }
+    
+    // Çerez onayı verilmemişse, onay modalını göster
     const cookiesModal = document.getElementById('cookiesModal');
     if (cookiesModal) {
         openModal(cookiesModal);
@@ -4007,6 +4399,12 @@ function hideCookiesModal() {
     const cookiesModal = document.getElementById('cookiesModal');
     if (cookiesModal) {
         closeModal(cookiesModal);
+    }
+    
+    // Modal kapandıktan sonra footer'ı tekrar aktif hale getir
+    const footer = document.getElementById('restaurantFooter');
+    if (footer) {
+        footer.style.pointerEvents = 'auto';
     }
 }
 
@@ -4224,6 +4622,15 @@ function initializeFeedbackModal() {
     }
 }
 
+// Sayfanın en üstüne gitme fonksiyonu
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
 // Make functions globally available for inline event handlers
 window.openProductModal = openProductModal;
 window.removeFromCart = removeFromCart;
@@ -4238,9 +4645,83 @@ window.hidePrivacyModal = hidePrivacyModal;
 window.acceptCookies = acceptCookies;
 window.declineCookies = declineCookies;
 window.showCookiesInfo = showCookiesInfo;
+window.scrollToTop = scrollToTop;
+// İçecek önerisi fonksiyonları kaldırıldı
 window.hideCookiesModal = hideCookiesModal;
 window.showPrivacyInfo = showPrivacyInfo;
 window.showKVKKInfo = showKVKKInfo;
 window.openFeedbackModal = openFeedbackModal;
 window.closeFeedbackModal = closeFeedbackModal;
 window.closeThankYouModal = closeThankYouModal;
+
+
+// PWA Functions
+function initPWA() {
+    // Service Worker kaydı
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch((registrationError) => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
+    
+    // PWA install prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        showInstallPrompt();
+    });
+    
+    // PWA installed
+    window.addEventListener('appinstalled', () => {
+        console.log('PWA was installed');
+        hideInstallPrompt();
+    });
+}
+
+function showInstallPrompt() {
+    // Install prompt göster
+    const installBtn = document.createElement('button');
+    installBtn.textContent = 'Uygulamayı Yükle';
+    installBtn.className = 'install-btn';
+    installBtn.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    `;
+    
+    installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response to the install prompt: ${outcome}`);
+            deferredPrompt = null;
+            installBtn.remove();
+        }
+    });
+    
+    document.body.appendChild(installBtn);
+}
+
+function hideInstallPrompt() {
+    const installBtn = document.querySelector('.install-btn');
+    if (installBtn) {
+        installBtn.remove();
+    }
+}
+
