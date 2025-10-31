@@ -1,10 +1,10 @@
 {
   "name": "Kaysia.co Dijital Çözümler",
   "short_name": "Kaysia.co",
-  "description": "1 haftada yayına hazır web sitesi + .com alan adı. .com.tr kartvizit sitesi hediye. Dijital Stüdyo",
+  "description": "1 haftada yayına hazır web sitesi + .com alan adı. Restoranlar için çok dilli online menü çözümleri (QR kod & NFC). .com.tr kartvizit sitesi hediye. Dijital çözümler ve otomasyon hizmetleri.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B0F14",
+  "background_color": "#FFFFFF",
   "theme_color": "#FFB800",
   "orientation": "portrait-primary",
   "scope": "/",

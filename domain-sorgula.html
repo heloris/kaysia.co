@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Adı Sorgulama - Kaysia.co | Antalya Dijital Çözümler</title>
+    <meta name="description" content="Alan adı sorgulama ve domain seçim rehberi. Antalya Lara, Muratpaşa, Kepez, Konyaaltı bölgelerinde .com ve .com.tr alan adı kayıt hizmetleri.">
+    <meta name="keywords" content="alan adı sorgula, domain kayıt, .com domain, .com.tr alan adı, Antalya web tasarım, Lara domain">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFB800">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Space Grotesk, sans-serif' font-size='60' font-weight='700' text-anchor='middle' fill='%23FFB800'%3EK%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-020B9M10TE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-020B9M10TE');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --accent-yellow: #FFB800;
+            --accent-yellow-dark: #E6A600;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --text-light: #9CA3AF;
+            --glass-bg: rgba(255, 184, 0, 0.08);
+            --glass-border: rgba(255, 184, 0, 0.25);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            min-height: 44px;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            background: var(--accent-yellow-dark);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .section {
+            padding: 120px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        
+        .domain-search {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            padding: 40px;
+            background: var(--bg-primary);
+            border: 2px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .domain-input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .domain-input {
+            flex: 1;
+            padding: 16px 20px;
+            background: var(--bg-secondary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .domain-input:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+            box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.2);
+            background: var(--bg-primary);
+        }
+        
+        .domain-status {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .status-success {
+            background: rgba(34, 197, 94, 0.15);
+            border: 2px solid #22c55e;
+            color: #15803d;
+            font-weight: 600;
+        }
+        
+        .status-error {
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid #ef4444;
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .status-loading {
+            background: rgba(59, 130, 246, 0.15);
+            border: 2px solid #3b82f6;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        
+        .alternatives {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+        
+        .alt-btn {
+            padding: 8px 16px;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-yellow);
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .alt-btn:hover {
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+        }
+        
+        .faq-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            color: var(--accent-yellow-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .faq-answer ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+        
+        .faq-answer li {
+            margin: 8px 0;
+        }
+        
+        .footer {
+            background: var(--bg-primary);
+            border-top: 2px solid rgba(255, 184, 0, 0.3);
+            padding: 48px 0 24px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 184, 0, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .domain-input-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Kaysia.co</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" class="nav-link">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" class="nav-link">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" class="nav-link">Portfolio</a></li>
+                <li><a href="referanslar.html" class="nav-link">Referanslar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== DOMAIN SEARCH SECTION ===== -->
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Alan Adı Sorgulama</h1>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 48px; font-size: 1.1rem;">
+                İdeal alan adınızı bulun ve hemen kaydedin. .com, .com.tr ve daha fazla uzantı seçeneği.
+            </p>
+            
+            <div class="domain-search">
+                <div class="domain-input-group">
+                    <input 
+                        type="text" 
+                        id="domainInput" 
+                        class="domain-input" 
+                        placeholder="örnek: restoranadi.com"
+                        aria-label="Alan adı girin"
+                    >
+                    <button id="searchBtn" class="btn btn-primary">Sorgula</button>
+                </div>
+                
+                <div id="domainStatus" class="domain-status" aria-live="polite"></div>
+                <div id="alternatives" class="alternatives" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="section" style="background: var(--bg-primary); padding-top: 0;">
+        <div class="container">
+            <h2 class="section-title">Alan Adı Seçerken Nelere Dikkat Etmek Gerekir?</h2>
+            
+            <div class="faq-section">
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        <i data-lucide="help-circle"></i>
+                        1. Alan Adı Uzunluğu ve Kolaylığı
+                    </h3>
+                    <div class="faq-answer">
+                        <p>Kısa, hatırlanabilir ve kolay yazılabilir alan adları tercih edilmelidir:</p>
+                        <ul>
+                            <li><strong>Kısa olmalı:</strong> Mümkün olduğunca kısa alan adları seçin (ideal olarak 10-15 karakter)</li>
+                            <li><strong>Kolay telaffuz:</strong> Söylenmesi ve yazılması kolay olmalı</li>
+                            <li><strong>Harf ve rakam:</strong> Tire (-) kullanmaktan mümkün olduğunca kaçının</li>
+                            <li><strong>Örnek iyi alan adları:</strong> restoranadi.com, butikmoda.com</li>
+                            <li><strong>Örnek kötü alan adları:</strong> en-iyi-restoran-antalya-lara-2024.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        <i data-lucide="target"></i>
+                        2. Marka ve İşletme Adıyla Uyumluluk
+                    </h3>
+                    <div class="faq-answer">
+                        <p>Alan adınız marka kimliğinizi yansıtmalı:</p>
+                        <ul>
+                            <li><strong>Şirket adı:</strong> Alan adı şirket veya marka adınızla uyumlu olmalı</li>
+                            <li><strong>Tutarlılık:</strong> Sosyal medya hesaplarınızla aynı isim kullanılabilmeli</li>
+                            <li><strong>Marka değeri:</strong> Uzun vadede marka değerinizi artıracak seçimler yapın</li>
+                            <li><strong>Örnek:</strong> "Lara Restaurant" işletmeniz varsa, "lararestaurant.com" ideal olur</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        <i data-lucide="globe"></i>
+                        3. Uzantı (.com, .com.tr, .net) Seçimi
+                    </h3>
+                    <div class="faq-answer">
+                        <p>Uzantı seçimi işletmenizin konumuna ve hedef kitlesine göre değişir:</p>
+                        <ul>
+                            <li><strong>.com:</strong> En yaygın ve güvenilir uzantı, uluslararası için ideal</li>
+                            <li><strong>.com.tr:</strong> Türkiye'de faaliyet gösteren işletmeler için ideal</li>
+                            <li><strong>.net, .org:</strong> .com alternatifi olarak kullanılabilir</li>
+                            <li><strong>Yerel uzantılar:</strong> .ant, .istanbul gibi yerel uzantılar da tercih edilebilir</li>
+                            <li><strong>Öneri:</strong> Hem .com hem .com.tr alan adını almak marka koruması açısından avantajlıdır</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        <i data-lucide="search"></i>
+                        4. SEO ve Arama Motoru Optimizasyonu
+                    </h3>
+                    <div class="faq-answer">
+                        <p>Alan adınız SEO için önemlidir:</p>
+                        <ul>
+                            <li><strong>Anahtar kelime:</strong> İşletmenizin hizmet verdiği alan adında geçebilir (ör: restoran, butik)</li>
+                            <li><strong>Yerel SEO:</strong> Antalya, Lara, Muratpaşa gibi lokasyon isimleri eklenebilir</li>
+                            <li><strong>Doğal olmalı:</strong> Anahtar kelime doldurma yapmayın</li>
+                            <li><strong>Örnek:</strong> "lara-restoran.com" veya "antalya-butik.com" SEO için uygundur</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        <i data-lucide="shield-check"></i>
+                        5. Telif Hakkı ve Yasal Uyumluluk
+                    </h3>
+                    <div class="faq-answer">
+                        <p>Yasal sorunlardan kaçınmak için:</p>
+                        <ul>
+                            <li><strong>Marka araştırması:</strong> Başka bir markanın adını kullanmayın</li>
+                            <li><strong>Uyarı:</strong> Telif hakkı ihlali ciddi yasal sorunlara yol açabilir</li>
+                            <li><strong>Kontrol:</strong> TPE (Türk Patent ve Marka Kurumu) sitesinden marka sorgusu yapın</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        <i data-lucide="dollar-sign"></i>
+                        6. Maliyet ve Uzun Vadeli Düşünce
+                    </h3>
+                    <div class="faq-answer">
+                        <p>Alan adı yatırımı uzun vadeli bir karardır:</p>
+                        <ul>
+                            <li><strong>Yıllık yenileme:</strong> Alan adları yıllık olarak yenilenir</li>
+                            <li><strong>Fiyat karşılaştırması:</strong> Farklı kayıt şirketlerinden fiyat karşılaştırması yapın</li>
+                            <li><strong>Paket avantajları:</strong> Hosting ile birlikte alan adı almak daha ekonomik olabilir</li>
+                            <li><strong>Uzun süre kayıt:</strong> 2-5 yıl kayıt yaparak indirim kazanabilirsiniz</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        <i data-lucide="smartphone"></i>
+                        7. Mobil Uyumluluk ve Kullanılabilirlik
+                    </h3>
+                    <div class="faq-answer">
+                        <p>Kullanıcı deneyimi için önemli:</p>
+                        <ul>
+                            <li><strong>Klavye dostu:</strong> Mobil cihazlarda yazılması kolay olmalı</li>
+                            <li><strong>Hafıza:</strong> İnsanların hatırlayabileceği, akılda kalıcı olmalı</li>
+                            <li><strong>Sosyal medya:</strong> Instagram, Facebook gibi platformlarda paylaşılabilir uzunlukta olmalı</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">
+                        <i data-lucide="lightbulb"></i>
+                        8. Genel Öneriler
+                    </h3>
+                    <div class="faq-answer">
+                        <ul>
+                            <li><strong>Alternatifleri düşünün:</strong> İlk tercihiniz alınamazsa alternatifler hazırlayın</li>
+                            <li><strong>Hızlı karar:</strong> Beğendiğiniz alan adını hızlıca kaydedin, başkası alabilir</li>
+                            <li><strong>Güvenilir kayıt şirketi:</strong> Güvenilir bir domain kayıt şirketi seçin</li>
+                            <li><strong>WHOIS gizliliği:</strong> Kişisel bilgilerinizin korunması için gizlilik koruması alın</li>
+                            <li><strong>SSL sertifikası:</strong> Güvenlik için SSL sertifikası mutlaka eklenmeli</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <ul class="footer-links">
+                        <li>📞 +90 545 770 52 97</li>
+                        <li>✉️ kaysia.store@gmail.com</li>
+                        <li>📍 Antalya, Türkiye</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hizmetler</h4>
+                    <ul class="footer-links">
+                        <li><a href="web-design.html">Web Tasarım</a></li>
+                        <li><a href="qr-menu.html">QR Menü</a></li>
+                        <li><a href="restaurant-systems.html">Restoran Sistemleri</a></li>
+                        <li><a href="yaptiklarimiz.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sayfalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="referanslar.html">Referanslar</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="domain-sorgula.html">Alan Adı Sorgula</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kaysia.co - Tüm hakları saklıdır. | Antalya Dijital Çözümler.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedDomain = '';
+        
+        function validateDomain(domain) {
+            const hasExtension = domain.includes('.');
+            if (!hasExtension) {
+                domain = domain + '.com';
+            }
+            
+            const parts = domain.split('.');
+            const domainName = parts[0];
+            const extension = parts.slice(1).join('.');
+            
+            if (domainName.length < 3) return false;
+            if (domainName.startsWith('-') || domainName.endsWith('-')) return false;
+            if (!/^[a-z0-9-]+$/.test(domainName)) return false;
+            
+            return { domainName, extension, fullDomain: domain };
+        }
+        
+        function generateAlternatives(domainName, extension) {
+            const alternatives = [];
+            const extensions = ['.com', '.net', '.org', '.co', '.io'];
+            
+            extensions.forEach(ext => {
+                if (ext !== extension) {
+                    alternatives.push(`${domainName}${ext}`);
+                }
+            });
+            
+            return alternatives.slice(0, 5);
+        }
+        
+        function showDomainStatus(message, type) {
+            const statusEl = document.getElementById('domainStatus');
+            const alternativesEl = document.getElementById('alternatives');
+            
+            statusEl.textContent = message;
+            statusEl.className = `domain-status status-${type}`;
+            statusEl.style.display = 'flex';
+            
+            if (type === 'error') {
+                alternativesEl.style.display = 'flex';
+            } else {
+                alternativesEl.style.display = 'none';
+            }
+        }
+        
+        function showAlternatives(alternatives) {
+            const alternativesEl = document.getElementById('alternatives');
+            alternativesEl.innerHTML = alternatives.map(alt => 
+                `<button class="alt-btn" onclick="searchDomain('${alt}')">${alt}</button>`
+            ).join('');
+            alternativesEl.style.display = 'flex';
+        }
+        
+        function searchDomain(domain) {
+            if (!domain) {
+                domain = document.getElementById('domainInput').value.trim();
+            }
+            
+            if (!domain) {
+                showDomainStatus('Lütfen bir alan adı girin.', 'error');
+                return;
+            }
+            
+            const validation = validateDomain(domain);
+            
+            if (!validation) {
+                showDomainStatus('Geçersiz alan adı formatı. Sadece harf, rakam ve tire kullanın.', 'error');
+                return;
+            }
+            
+            const { domainName, extension, fullDomain } = validation;
+            selectedDomain = fullDomain;
+            
+            showDomainStatus('Sorgulanıyor...', 'loading');
+            
+            setTimeout(() => {
+                const isAvailable = Math.random() > 0.5;
+                
+                if (isAvailable) {
+                    showDomainStatus(`✅ Harika! ${fullDomain} müsait. Hemen kaydetmek için iletişime geçin!`, 'success');
+                    selectedDomain = fullDomain;
+                } else {
+                    showDomainStatus(`❌ Üzgünüz, ${fullDomain} dolu. Alternatifleri deneyin:`, 'error');
+                    const alternatives = generateAlternatives(domainName, extension);
+                    showAlternatives(alternatives);
+                }
+            }, 1000);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            
+            const domainInput = document.getElementById('domainInput');
+            domainInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchDomain();
+                }
+            });
+            
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                searchDomain();
+            });
+        });
+    </script>
+</body>
+</html>

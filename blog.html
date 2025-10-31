@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Haberler | Kaysia.co Antalya Dijital Çözümler</title>
+    <meta name="description" content="Antalya restoran, QR kod, web sitesi, yapay zeka, Atlas i3 ve dijital pazarlama hakkında güncel blog yazıları. Lara, Muratpaşa, Kepez, Konyaaltı bölgelerinde dijital çözümler ve işletme haberleri.">
+    <meta name="keywords" content="Antalya blog, restoran haberleri, QR kod blog, web sitesi blog, yapay zeka, Atlas i3, dijital pazarlama Antalya, Lara restoran, Muratpaşa web tasarım, Kepez dijital çözümler, Konyaaltı QR menü">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFB800">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Space Grotesk, sans-serif' font-size='60' font-weight='700' text-anchor='middle' fill='%23FFB800'%3EK%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-020B9M10TE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-020B9M10TE');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --accent-yellow: #FFB800;
+            --accent-yellow-dark: #E6A600;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --text-light: #9CA3AF;
+            --glass-bg: rgba(255, 184, 0, 0.08);
+            --glass-border: rgba(255, 184, 0, 0.25);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .section {
+            padding: 120px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            font-size: 1.1rem;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .blog-card {
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-yellow);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark));
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.3), rgba(255, 184, 0, 0.1));
+        }
+        
+        .blog-content {
+            padding: 24px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .blog-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-yellow-dark);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 12px;
+            transition: var(--transition);
+        }
+        
+        .blog-link {
+            cursor: pointer;
+        }
+        
+        .blog-link:hover {
+            color: var(--accent-yellow);
+            gap: 12px;
+        }
+        
+        .blog-author {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--bg-primary);
+            border: 3px solid var(--accent-yellow);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--accent-yellow-dark);
+        }
+        
+        .modal-header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(255, 184, 0, 0.3);
+        }
+        
+        .modal-category {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .modal-meta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .modal-body {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .modal-body h2, .modal-body h3 {
+            color: var(--text-primary);
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .modal-body h2 {
+            font-size: 1.8rem;
+            color: var(--accent-yellow-dark);
+        }
+        
+        .modal-body h3 {
+            font-size: 1.4rem;
+        }
+        
+        .modal-body p {
+            margin-bottom: 16px;
+        }
+        
+        .modal-body ul, .modal-body ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+        
+        .modal-body li {
+            margin: 8px 0;
+        }
+        
+        .modal-body a {
+            color: var(--accent-yellow-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-yellow);
+        }
+        
+        .modal-body a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .modal-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .modal-body blockquote {
+            border-left: 4px solid var(--accent-yellow);
+            padding-left: 20px;
+            margin: 24px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        .footer {
+            background: var(--bg-primary);
+            border-top: 2px solid rgba(255, 184, 0, 0.3);
+            padding: 48px 0 24px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 184, 0, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Kaysia.co</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" class="nav-link">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" class="nav-link">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" class="nav-link">Portfolio</a></li>
+                <li><a href="referanslar.html" class="nav-link">Referanslar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== BLOG SECTION ===== -->
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Blog & Haberler</h1>
+            <p class="section-subtitle">Web tasarım, dijital pazarlama, QR menü sistemleri ve restoran yönetim sistemleri hakkında güncel içerikler.</p>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop" alt="2024 Web Tasarım Trendleri" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Web Tasarım</span>
+                        <h3 class="blog-title">2024 Web Tasarım Trendleri</h3>
+                        <p class="blog-excerpt">Bu yıl web tasarımında öne çıkan trendler ve nasıl uygulanacağı hakkında detaylı rehber. Minimal tasarım, dark mode, mikro animasyonlar ve daha fazlası.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>15 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(10); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop" alt="Yerel SEO Stratejileri Antalya - Google Maps ve Yerel Arama" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">SEO</span>
+                        <h3 class="blog-title">Yerel SEO Stratejileri - Antalya Örneği</h3>
+                        <p class="blog-excerpt">Küçük işletmeler için yerel SEO optimizasyonu ve Google'da üst sıralarda yer alma ipuçları. Antalya Lara, Muratpaşa, Kepez bölgelerinde nasıl görünür olunur?</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>10 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(11); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop" alt="Online Satış Artırma Yöntemleri" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">E-ticaret</span>
+                        <h3 class="blog-title">Online Satış Artırma Yöntemleri</h3>
+                        <p class="blog-excerpt">E-ticaret sitenizin satışlarını artırmak için uygulayabileceğiniz pratik yöntemler. Dönüşüm optimizasyonu, müşteri deneyimi ve ödeme akışları.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>5 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(12); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=400&fit=crop" alt="QR Menü Restoran Avantajları" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">QR Menü</span>
+                        <h3 class="blog-title">Restoranlar İçin QR Menü Avantajları</h3>
+                        <p class="blog-excerpt">Antalya restoranları için QR menü sistemlerinin avantajları. Hijyen, maliyet tasarrufu, turist memnuniyeti ve kolay güncelleme özellikleri.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>1 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(13); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop" alt="POS Entegrasyonu Restoran Sistemleri" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Restoran Sistemi</span>
+                        <h3 class="blog-title">POS Entegrasyonu Nasıl Çalışır?</h3>
+                        <p class="blog-excerpt">Restoran yönetim sistemlerinde POS entegrasyonu hakkında bilmeniz gerekenler. Ödeme süreçleri, kasa yönetimi ve raporlama özellikleri.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>28 Aralık 2023</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(14); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="Antalya Dijital Pazarlama Stratejileri" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Dijital Pazarlama</span>
+                        <h3 class="blog-title">Antalya'da Dijital Pazarlama Stratejileri</h3>
+                        <p class="blog-excerpt">Antalya işletmeleri için dijital pazarlama ipuçları. Sosyal medya, Google Ads, yerel SEO ve içerik pazarlama stratejileri.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>20 Aralık 2023</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(0); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Yeni Blog Yazıları -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop" alt="Antalya Restoranları QR Kod Menü Dijitalleşme" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Antalya</span>
+                        <h3 class="blog-title">Antalya Restoranları Dijitalleşiyor: 2024'te QR Kod Menü Devrimi</h3>
+                        <p class="blog-excerpt">Antalya'nın turizm başkenti olarak öne çıkmasıyla birlikte restoranlar da dijital dönüşümde hızla ilerliyor. <a href="qr-menu.html">QR kod menü sistemleri</a> Lara, Muratpaşa ve Konyaaltı bölgelerindeki restoranlarda yaygınlaşıyor.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>28 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(1); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop" alt="Yapay Zeka Web Tasarımı İşletmeler" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Yapay Zeka</span>
+                        <h3 class="blog-title">Yapay Zeka ile Web Tasarımı: İşletmelerin Geleceği</h3>
+                        <p class="blog-excerpt">Yapay zeka teknolojileri web tasarım sektöründe devrim yaratıyor. Antalya işletmeleri için AI destekli <a href="web-design.html">web sitesi çözümleri</a> nasıl fark yaratıyor?</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>25 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(2); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=400&fit=crop" alt="QR Kod Teknolojisi Restoran İşletmecileri" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">QR Kod</span>
+                        <h3 class="blog-title">QR Kod Teknolojisi: Restoran İşletmecileri İçin Rehber</h3>
+                        <p class="blog-excerpt">QR kodlar artık sadece menü erişimi için değil, <a href="restaurant-systems.html">restoran yönetim sistemleri</a> ile entegre çalışarak operasyonel verimliliği artırıyor.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>22 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(3); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=400&fit=crop" alt="Antalya İşletmeleri Profesyonel Web Sitesi Başarı" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Web Sitesi</span>
+                        <h3 class="blog-title">Antalya İşletmeleri İçin Profesyonel Web Sitesi: Başarı Hikayeleri</h3>
+                        <p class="blog-excerpt">Antalya'daki başarılı işletmelerin <a href="web-design.html">web tasarım</a> stratejileri. Lara'dan Varsak'a kadar bölgesel başarı örnekleri ve <a href="yaptiklarimiz.html">portfolio</a> çalışmaları.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>20 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(4); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop" alt="Restoran Dijital Strateji 2024" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Restoran</span>
+                        <h3 class="blog-title">Restoran Sahipleri Dikkat: 2024'te Kazandıran 5 Dijital Strateji</h3>
+                        <p class="blog-excerpt">Antalya restoranları için karlılığı artıran dijital çözümler. <a href="qr-menu.html">QR menü sistemleri</a>, online sipariş yönetimi ve müşteri deneyimi iyileştirmeleri.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>18 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(5); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&h=400&fit=crop" alt="Atlas i3 Dijital Dönüşüm Antalya İşletmeleri" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Teknoloji</span>
+                        <h3 class="blog-title">Atlas i3 ve Dijital Dönüşüm: Antalya İşletmelerine Etkisi</h3>
+                        <p class="blog-excerpt">Yerli elektrikli araç Atlas i3'ün Antalya'daki işletmelerin dijital altyapısına etkileri. E-ticaret ve lojistik sektörlerinde yaşanan değişimler.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>15 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(6); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="QR Kod Müşteri Analitiği Restoranlar" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Dijital Pazarlama</span>
+                        <h3 class="blog-title">QR Kod ile Müşteri Analitiği: Restoranlar İçin Veri Odaklı Kararlar</h3>
+                        <p class="blog-excerpt">Modern <a href="qr-menu.html">QR kod menü sistemleri</a> sadece menü gösterimi değil, aynı zamanda müşteri davranış analizi için de kullanılıyor. Veriye dayalı karar alma rehberi.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>12 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(7); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=400&fit=crop" alt="Antalya Turizm Dijitalleşme Oteller Restoranlar" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Antalya</span>
+                        <h3 class="blog-title">Antalya Turizm Sektöründe Dijitalleşme: Oteller ve Restoranlar</h3>
+                        <p class="blog-excerpt">Lara ve Konyaaltı bölgelerindeki otel ve restoranların dijital dönüşüm hikayeleri. <a href="web-design.html">Web tasarım</a> ve <a href="restaurant-systems.html">restoran sistemleri</a> ile turizm sektöründe fark yaratmak.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>8 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(8); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop" alt="Yapay Zeka Restoran Sistemleri Gelecek" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Teknoloji</span>
+                        <h3 class="blog-title">Yapay Zeka Destekli Restoran Sistemleri: Gelecek Burada</h3>
+                        <p class="blog-excerpt">Yapay zeka teknolojileri <a href="restaurant-systems.html">restoran yönetim sistemleri</a>ne nasıl entegre ediliyor? Müşteri tercihleri tahmini, stok yönetimi ve sipariş optimizasyonu.</p>
+                        <div class="blog-date">
+                            <i data-lucide="calendar"></i>
+                            <span>5 Ocak 2024</span>
+                        </div>
+                        <div class="blog-author">
+                            <i data-lucide="user"></i>
+                            <span>Kaysia.co Ekibi</span>
+                        </div>
+                        <a href="#" class="blog-link" onclick="openBlogModal(9); return false;">Devamını Oku <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div id="blogModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeBlogModal()">&times;</button>
+            <div id="modalHeader" class="modal-header"></div>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <ul class="footer-links">
+                        <li>📞 +90 545 770 52 97</li>
+                        <li>✉️ kaysia.store@gmail.com</li>
+                        <li>📍 Antalya, Türkiye</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hizmetler</h4>
+                    <ul class="footer-links">
+                        <li><a href="web-design.html">Web Tasarım</a></li>
+                        <li><a href="qr-menu.html">QR Menü</a></li>
+                        <li><a href="restaurant-systems.html">Restoran Sistemleri</a></li>
+                        <li><a href="yaptiklarimiz.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sayfalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="referanslar.html">Referanslar</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="domain-sorgula.html">Alan Adı Sorgula</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kaysia.co - Tüm hakları saklıdır. | Antalya Dijital Çözümler.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const blogPosts = [
+            {
+                category: "Dijital Pazarlama",
+                title: "Antalya'da Dijital Pazarlama Stratejileri",
+                date: "20 Aralık 2023",
+                content: `<p>Antalya işletmeleri için dijital pazarlama ipuçları. Sosyal medya, Google Ads, yerel SEO ve içerik pazarlama stratejileri.</p>
+                <h2>Yerel SEO Stratejileri</h2>
+                <p>Antalya'nın turizm başkenti olması nedeniyle yerel SEO özellikle önemli. <a href="web-design.html">Web tasarım</a> sürecinde bölgesel anahtar kelimelerin doğru kullanımı Google'da üst sıralarda yer almanızı sağlar.</p>
+                <h2>Sosyal Medya Pazarlama</h2>
+                <p>Instagram ve Facebook gibi platformlarda Antalya'nın görsel güzelliklerini ön plana çıkararak müşterilerinize ulaşın.</p>`
+            },
+            {
+                category: "Antalya",
+                title: "Antalya Restoranları Dijitalleşiyor: 2024'te QR Kod Menü Devrimi",
+                date: "28 Ocak 2024",
+                content: `<p>Antalya'nın turizm başkenti olarak öne çıkmasıyla birlikte restoranlar da dijital dönüşümde hızla ilerliyor. <strong>QR kod menü sistemleri</strong> Lara, Muratpaşa ve Konyaaltı bölgelerindeki restoranlarda yaygınlaşıyor.</p>
+                
+                <h2>Antalya'da QR Menü Kullanımı Artıyor</h2>
+                <p>2024 yılı itibarıyla Antalya'daki restoranların %40'ından fazlası <a href="qr-menu.html">QR kod menü sistemleri</a>ne geçmiş durumda. Özellikle turizm sezonunda turistlerin çok dilli menü desteği beklentisi bu geçişi hızlandırıyor.</p>
+                
+                <h2>Lara Bölgesi Öncü Oluyor</h2>
+                <p>Lara bölgesindeki lüks oteller ve restoranlar dijital dönüşümde öncü rol oynuyor. <a href="qr-menu.html">QR menü çözümleri</a> sayesinde hem hijyen standartları yükseliyor hem de operasyonel maliyetler düşüyor.</p>
+                
+                <blockquote>Lara'daki bir restoran sahibi: "QR menü sistemi sayesinde baskı maliyetlerimiz %70 azaldı ve müşteri memnuniyeti arttı."</blockquote>
+                
+                <h2>Muratpaşa ve Kepez Bölgelerinde Büyüme</h2>
+                <p>Muratpaşa ve Kepez bölgelerindeki restoranlar da hızla dijitalleşiyor. <a href="restaurant-systems.html">Restoran yönetim sistemleri</a> ile entegre çalışan QR menü çözümleri operasyonel verimliliği artırıyor.</p>
+                
+                <h2>Turist Dostu Çözümler</h2>
+                <p>Antalya'nın yıl boyu turist alması nedeniyle çok dilli menü desteği kritik önem taşıyor. İngilizce, Almanca, Rusça menü desteği ile turistlerinize daha iyi hizmet verin.</p>
+                
+                <p>Antalya restoranları için <a href="qr-menu.html">QR menü paketleri</a> hakkında bilgi almak için bizimle iletişime geçin.</p>`
+            },
+            {
+                category: "Yapay Zeka",
+                title: "Yapay Zeka ile Web Tasarımı: İşletmelerin Geleceği",
+                date: "25 Ocak 2024",
+                content: `<p>Yapay zeka teknolojileri web tasarım sektöründe devrim yaratıyor. Antalya işletmeleri için AI destekli <strong>web sitesi çözümleri</strong> nasıl fark yaratıyor?</p>
+                
+                <h2>AI Destekli Web Tasarım Avantajları</h2>
+                <p>Yapay zeka teknolojileri <a href="web-design.html">web tasarım</a> sürecini hızlandırırken aynı zamanda kişiselleştirilmiş kullanıcı deneyimleri sunuyor. AI, müşteri davranışlarını analiz ederek dinamik içerik önerileri yapabiliyor.</p>
+                
+                <h2>Antalya İşletmeleri İçin AI Çözümleri</h2>
+                <p>Lara, Muratpaşa ve Konyaaltı bölgelerindeki işletmeler AI destekli chatbot'lar ve müşteri hizmetleri ile müşteri memnuniyetini artırıyor.</p>
+                
+                <h2>SEO ve Yapay Zeka</h2>
+                <p>Yapay zeka teknolojileri Google'ın arama algoritmalarını anlamak ve SEO stratejileri geliştirmek için kritik önem taşıyor. AI destekli içerik optimizasyonu ile organik trafik artışı sağlanabiliyor.</p>
+                
+                <h2>Gelecek Trendleri</h2>
+                <p>2024 ve sonrasında yapay zeka destekli <a href="web-design.html">web tasarım çözümleri</a> daha da yaygınlaşacak. İşletmelerin bu teknolojiye adapte olması rekabet avantajı sağlayacak.</p>
+                
+                <p>Yapay zeka destekli <a href="web-design.html">web sitesi paketleri</a> hakkında bilgi almak için <a href="index.html">bizimle iletişime geçin</a>.</p>`
+            },
+            {
+                category: "QR Kod",
+                title: "QR Kod Teknolojisi: Restoran İşletmecileri İçin Rehber",
+                date: "22 Ocak 2024",
+                content: `<p>QR kodlar artık sadece menü erişimi için değil, <strong>restoran yönetim sistemleri</strong> ile entegre çalışarak operasyonel verimliliği artırıyor.</p>
+                
+                <h2>QR Kod'un Restoran Sektöründeki Rolü</h2>
+                <p><a href="qr-menu.html">QR kod menü sistemleri</a> pandemi sonrası dönemde restoranların vazgeçilmez parçası haline geldi. Temassız hizmet sunumu ve hijyen standartları QR kodları zorunlu kılıyor.</p>
+                
+                <h2>Teknoloji Nasıl Çalışıyor?</h2>
+                <p>Müşteriler telefonlarının kamerası ile QR kodu okutarak menü sayfasına anında erişebiliyor. Modern <a href="qr-menu.html">QR menü sistemleri</a> offline çalışma özelliği de sunuyor.</p>
+                
+                <h2>Restoran Sistemleri ile Entegrasyon</h2>
+                <p><a href="restaurant-systems.html">Restoran yönetim sistemleri</a> ile entegre çalışan QR kodlar sipariş takibi, stok yönetimi ve müşteri analitiği için kullanılabiliyor. Bu entegrasyon operasyonel verimliliği önemli ölçüde artırıyor.</p>
+                
+                <h2>Antalya Örneği</h2>
+                <p>Antalya'daki restoranlar QR kod teknolojisini en iyi şekilde kullanıyor. Özellikle turist yoğunluğunun fazla olduğu Lara ve Konyaaltı bölgelerinde çok dilli QR menü desteği kritik önem taşıyor.</p>
+                
+                <h2>Gelecek Trendleri</h2>
+                <p>NFC teknolojisi ve QR kod kombinasyonu yakın gelecekte daha yaygın olacak. <a href="qr-menu.html">NFC menü sistemleri</a> özellikle premium restoranlar için ideal çözüm.</p>
+                
+                <p>QR kod menü çözümleri için <a href="qr-menu.html">paketlerimizi inceleyin</a>.</p>`
+            },
+            {
+                category: "Web Sitesi",
+                title: "Antalya İşletmeleri İçin Profesyonel Web Sitesi: Başarı Hikayeleri",
+                date: "20 Ocak 2024",
+                content: `<p>Antalya'daki başarılı işletmelerin <strong>web tasarım</strong> stratejileri. Lara'dan Varsak'a kadar bölgesel başarı örnekleri ve <a href="yaptiklarimiz.html">portfolio</a> çalışmaları.</p>
+                
+                <h2>Başarı Hikayesi 1: Lara Restoran</h2>
+                <p>Lara bölgesindeki bir restoran <a href="web-design.html">profesyonel web sitesi</a> ile online rezervasyonlarını %300 artırdı. Mobil uyumlu tasarım ve SEO optimizasyonu ile Google'da üst sıralarda yer alıyor.</p>
+                
+                <h2>Başarı Hikayesi 2: Muratpaşa İnşaat Şirketi</h2>
+                <p>Muratpaşa'daki bir inşaat şirketi <a href="web-design.html">kurumsal web sitesi</a> ile projelerini etkili bir şekilde sergileyerek müşteri portföyünü genişletti. <a href="yaptiklarimiz.html">Portfolio sayfasında</a> benzer örnekleri görebilirsiniz.</p>
+                
+                <h2>Başarı Hikayesi 3: Kepez E-ticaret Sitesi</h2>
+                <p>Kepez bölgesindeki bir işletme e-ticaret entegrasyonu ile online satışlarını artırdı. Güvenli ödeme sistemleri ve hızlı kargo entegrasyonu müşteri memnuniyetini artırdı.</p>
+                
+                <h2>SEO Stratejileri</h2>
+                <p>Antalya işletmeleri için yerel SEO özellikle önemli. <a href="web-design.html">Web tasarım paketlerimiz</a> SEO optimizasyonunu içeriyor ve Google'da görünürlüğünüzü artırıyor.</p>
+                
+                <h2>Mobil Uyumluluk</h2>
+                <p>Modern <a href="web-design.html">web sitesi çözümleri</a> mobil uyumlu olmak zorunda. Antalya'da turistler genellikle mobil cihazlardan arama yapıyor, bu nedenle responsive tasarım kritik.</p>
+                
+                <p>Kendi başarı hikayenizi yazmak için <a href="web-design.html">web tasarım paketlerimizi inceleyin</a>.</p>`
+            },
+            {
+                category: "Restoran",
+                title: "Restoran Sahipleri Dikkat: 2024'te Kazandıran 5 Dijital Strateji",
+                date: "18 Ocak 2024",
+                content: `<p>Antalya restoranları için karlılığı artıran dijital çözümler. <strong>QR menü sistemleri</strong>, online sipariş yönetimi ve müşteri deneyimi iyileştirmeleri.</p>
+                
+                <h2>1. QR Kod Menü Sistemleri</h2>
+                <p><a href="qr-menu.html">QR menü sistemleri</a> hem maliyet tasarrufu sağlıyor hem de hijyen standartlarını yükseltiyor. Baskı maliyetlerinden kurtularak %70'e varan tasarruf elde edebilirsiniz.</p>
+                
+                <h2>2. Online Sipariş Yönetimi</h2>
+                <p><a href="restaurant-systems.html">Restoran yönetim sistemleri</a> ile online sipariş alma, sipariş takibi ve mutfak entegrasyonu operasyonel verimliliği artırıyor.</p>
+                
+                <h2>3. Müşteri Sadakat Programları</h2>
+                <p>Dijital sistemler ile müşteri tercihlerini takip ederek kişiselleştirilmiş kampanyalar düzenleyebilirsiniz. Bu sayede müşteri bağlılığını artırabilirsiniz.</p>
+                
+                <h2>4. Sosyal Medya Entegrasyonu</h2>
+                <p>Web siteniz ve <a href="qr-menu.html">QR menü sisteminiz</a> sosyal medya ile entegre çalışarak viral pazarlama fırsatları yaratabilir.</p>
+                
+                <h2>5. Veri Analitiği</h2>
+                <p>Modern <a href="restaurant-systems.html">restoran sistemleri</a> detaylı analitik raporlar sunuyor. Hangi ürünlerin daha çok satıldığını, müşteri davranışlarını ve operasyonel verimliliği takip edebilirsiniz.</p>
+                
+                <blockquote>Antalya'daki bir restoran sahibi: "Dijital sistemler sayesinde işletmemizin karlılığı %40 arttı ve müşteri memnuniyeti önemli ölçüde yükseldi."</blockquote>
+                
+                <p>Dijital dönüşüm yolculuğunuza başlamak için <a href="restaurant-systems.html">restoran sistem paketlerimizi</a> inceleyin.</p>`
+            },
+            {
+                category: "Teknoloji",
+                title: "Atlas i3 ve Dijital Dönüşüm: Antalya İşletmelerine Etkisi",
+                date: "15 Ocak 2024",
+                content: `<p>Yerli elektrikli araç <strong>Atlas i3</strong>'ün Antalya'daki işletmelerin dijital altyapısına etkileri. E-ticaret ve lojistik sektörlerinde yaşanan değişimler.</p>
+                
+                <h2>Atlas i3: Türkiye'nin Elektrikli Araç Devrimi</h2>
+                <p>Yerli elektrikli araç Atlas i3, sadece otomotiv sektöründe değil, dijital iş dünyasında da önemli değişiklikler yaratıyor. Antalya'daki işletmeler bu değişime hızla adapte oluyor.</p>
+                
+                <h2>E-ticaret ve Lojistik Etkisi</h2>
+                <p>Atlas i3 ile birlikte gelişen lojistik altyapısı Antalya'daki e-ticaret işletmelerinin büyümesine katkı sağlıyor. <a href="web-design.html">Web sitesi çözümleri</a> ile entegre çalışan lojistik sistemleri müşteri memnuniyetini artırıyor.</p>
+                
+                <h2>Kurye Hizmetleri</h2>
+                <p>Restoran sektörü için kurye hizmetleri kritik önem taşıyor. <a href="restaurant-systems.html">Restoran yönetim sistemleri</a> ile entegre çalışan kurye yönlendirme özellikleri işletmelerin operasyonel verimliliğini artırıyor.</p>
+                
+                <h2>Sürdürülebilirlik ve Dijital Çözümler</h2>
+                <p>Atlas i3 gibi sürdürülebilir teknolojiler, işletmelerin dijital dönüşüm stratejilerini de etkiliyor. Çevre dostu işletmeler müşteriler tarafından daha çok tercih ediliyor.</p>
+                
+                <h2>Antalya'da Gelecek</h2>
+                <p>Antalya'daki işletmeler için Atlas i3 ve benzeri teknolojiler yeni fırsatlar yaratıyor. <a href="web-design.html">Web tasarım</a> ve dijital çözümler ile bu fırsatları değerlendirmek mümkün.</p>
+                
+                <p>Dijital dönüşüm yolculuğunuza başlamak için <a href="index.html">bizimle iletişime geçin</a>.</p>`
+            },
+            {
+                category: "Dijital Pazarlama",
+                title: "QR Kod ile Müşteri Analitiği: Restoranlar İçin Veri Odaklı Kararlar",
+                date: "12 Ocak 2024",
+                content: `<p>Modern <strong>QR kod menü sistemleri</strong> sadece menü gösterimi değil, aynı zamanda müşteri davranış analizi için de kullanılıyor. Veriye dayalı karar alma rehberi.</p>
+                
+                <h2>Müşteri Verileri Nasıl Toplanıyor?</h2>
+                <p><a href="qr-menu.html">QR kod sistemleri</a> ile müşterilerin hangi ürünlere baktığını, hangi sayfalarda ne kadar zaman geçirdiğini ve tercihlerini analiz edebilirsiniz.</p>
+                
+                <h2>Veri Analizi ile Karar Alma</h2>
+                <p>Toplanan veriler ile hangi ürünlerin daha çok ilgi gördüğünü, hangi fiyat noktalarının optimum olduğunu ve müşteri davranışlarını anlayabilirsiniz.</p>
+                
+                <h2>Stok Yönetimi</h2>
+                <p>Müşteri tercihleri analizi ile stok yönetimini optimize edebilirsiniz. <a href="restaurant-systems.html">Restoran yönetim sistemleri</a> bu verileri otomatik olarak analiz ediyor.</p>
+                
+                <h2>Pazarlama Kampanyaları</h2>
+                <p>Veri analitiği ile müşteri segmentlerini belirleyerek kişiselleştirilmiş pazarlama kampanyaları düzenleyebilirsiniz. Bu sayede kampanya başarı oranlarını artırabilirsiniz.</p>
+                
+                <h2>Antalya Örneği</h2>
+                <p>Lara bölgesindeki bir restoran QR kod analitiği ile en çok tercih edilen ürünleri belirledi ve menü optimizasyonu yaparak karlılığı %25 artırdı.</p>
+                
+                <p>Veri odaklı kararlar almak için <a href="qr-menu.html">QR menü sistemlerimizi</a> inceleyin.</p>`
+            },
+            {
+                category: "Antalya",
+                title: "Antalya Turizm Sektöründe Dijitalleşme: Oteller ve Restoranlar",
+                date: "8 Ocak 2024",
+                content: `<p>Lara ve Konyaaltı bölgelerindeki otel ve restoranların dijital dönüşüm hikayeleri. <strong>Web tasarım</strong> ve <strong>restoran sistemleri</strong> ile turizm sektöründe fark yaratmak.</p>
+                
+                <h2>Turizm Sektöründe Dijital Dönüşüm</h2>
+                <p>Antalya'nın turizm başkenti olması nedeniyle otel ve restoranların dijital varlığı kritik önem taşıyor. <a href="web-design.html">Profesyonel web siteleri</a> ile turistlere ulaşmak mümkün.</p>
+                
+                <h2>Online Rezervasyon Sistemleri</h2>
+                <p>Oteller ve restoranlar için online rezervasyon sistemleri zorunlu hale geldi. <a href="web-design.html">Web tasarım çözümlerimiz</a> ile entegre rezervasyon sistemleri müşteri deneyimini artırıyor.</p>
+                
+                <h2>Çok Dilli Destek</h2>
+                <p>Turistlere hizmet veren işletmeler için çok dilli <a href="qr-menu.html">QR menü sistemleri</a> ve web siteleri şart. İngilizce, Almanca, Rusça desteği ile global müşterilere ulaşın.</p>
+                
+                <h2>Lara Bölgesi Öncüleri</h2>
+                <p>Lara bölgesindeki lüks oteller dijital dönüşümde öncü rol oynuyor. <a href="restaurant-systems.html">Restoran yönetim sistemleri</a> ile entegre çalışan dijital çözümler operasyonel verimliliği artırıyor.</p>
+                
+                <h2>Konyaaltı Sahil Restoranları</h2>
+                <p>Konyaaltı sahil bölgesindeki restoranlar <a href="qr-menu.html">QR menü sistemleri</a> ile temassız hizmet sunuyor. Sahil kenarındaki müşteriler mobil cihazlarından kolayca menüye erişebiliyor.</p>
+                
+                <h2>Başarı Örnekleri</h2>
+                <p>Antalya'daki başarılı işletmelerin <a href="yaptiklarimiz.html">portfolio çalışmalarını</a> inceleyerek kendi dijital dönüşüm stratejinizi oluşturabilirsiniz.</p>
+                
+                <p>Turizm sektöründe dijital fark yaratmak için <a href="index.html">bizimle iletişime geçin</a>.</p>`
+            },
+            {
+                category: "Teknoloji",
+                title: "Yapay Zeka Destekli Restoran Sistemleri: Gelecek Burada",
+                date: "5 Ocak 2024",
+                content: `<p>Yapay zeka teknolojileri <strong>restoran yönetim sistemleri</strong>ne nasıl entegre ediliyor? Müşteri tercihleri tahmini, stok yönetimi ve sipariş optimizasyonu.</p>
+                
+                <h2>AI ile Müşteri Tercihleri Tahmini</h2>
+                <p>Yapay zeka algoritmaları müşteri geçmiş verilerini analiz ederek tercihlerini tahmin edebiliyor. <a href="restaurant-systems.html">Restoran yönetim sistemleri</a> bu teknoloji ile entegre çalışarak kişiselleştirilmiş öneriler sunuyor.</p>
+                
+                <h2>Akıllı Stok Yönetimi</h2>
+                <p>AI destekli stok yönetimi sistemleri talebi önceden tahmin ederek otomatik sipariş verme ve stok optimizasyonu yapabiliyor. Bu sayede atık oranları azalıyor ve karlılık artıyor.</p>
+                
+                <h2>Sipariş Optimizasyonu</h2>
+                <p>Yapay zeka mutfak ve garson operasyonlarını optimize ederek sipariş sürelerini azaltıyor. <a href="restaurant-systems.html">Mutfak ekranı sistemleri</a> AI ile entegre çalışarak en verimli sipariş sıralamasını belirliyor.</p>
+                
+                <h2>Dinamik Fiyatlandırma</h2>
+                <p>AI algoritmaları talep ve arz durumuna göre dinamik fiyatlandırma önerileri sunabiliyor. Bu sayede karlılık optimize ediliyor.</p>
+                
+                <h2>Chatbot ve Müşteri Hizmetleri</h2>
+                <p>Yapay zeka destekli chatbot'lar müşteri sorularını 7/24 cevaplayarak müşteri memnuniyetini artırıyor. <a href="web-design.html">Web siteleriniz</a> ile entegre çalışan chatbot'lar müşteri deneyimini iyileştiriyor.</p>
+                
+                <h2>Gelecek Senaryoları</h2>
+                <p>2024 ve sonrasında AI teknolojileri <a href="restaurant-systems.html">restoran sistemleri</a>nde daha da yaygınlaşacak. Erken adapte olan işletmeler rekabet avantajı elde edecek.</p>
+                
+                <blockquote>Antalya'daki bir restoran sahibi: "AI destekli sistemler sayesinde operasyonel verimliliğimiz %35 arttı ve müşteri memnuniyeti önemli ölçüde yükseldi."</blockquote>
+                
+                <p>Yapay zeka destekli <a href="restaurant-systems.html">restoran sistemleri</a> hakkında bilgi almak için bizimle iletişime geçin.</p>`
+            },
+            {
+                category: "Web Tasarım",
+                title: "2024 Web Tasarım Trendleri",
+                date: "15 Ocak 2024",
+                content: `<p>Bu yıl web tasarımında öne çıkan trendler ve nasıl uygulanacağı hakkında detaylı rehber. Minimal tasarım, dark mode, mikro animasyonlar ve daha fazlası.</p>
+                
+                <h2>Minimal Tasarım</h2>
+                <p>2024'te minimal ve temiz tasarımlar öne çıkıyor. <a href="web-design.html">Web tasarım paketlerimiz</a> modern minimal tasarım prensiplerini içeriyor.</p>
+                
+                <h2>Dark Mode</h2>
+                <p>Kullanıcılar dark mode seçeneği bekliyor. Modern <a href="web-design.html">web siteleri</a> hem açık hem koyu tema desteği sunuyor.</p>
+                
+                <h2>Mikro Animasyonlar</h2>
+                <p>Küçük animasyonlar kullanıcı deneyimini artırıyor. Hover efektleri ve geçiş animasyonları profesyonel görünüm sağlıyor.</p>
+                
+                <p>2024 trendlerine uygun <a href="web-design.html">web tasarım çözümleri</a> için bizimle iletişime geçin.</p>`
+            },
+            {
+                category: "SEO",
+                title: "Yerel SEO Stratejileri - Antalya Örneği",
+                date: "10 Ocak 2024",
+                content: `<p>Küçük işletmeler için yerel SEO optimizasyonu ve Google'da üst sıralarda yer alma ipuçları. Antalya Lara, Muratpaşa, Kepez bölgelerinde nasıl görünür olunur?</p>
+                
+                <h2>Yerel SEO Nedir?</h2>
+                <p>Yerel SEO, belirli bir coğrafi bölgede arama sonuçlarında üst sıralarda yer almak için yapılan optimizasyon çalışmalarıdır. Antalya gibi turizm şehirlerinde yerel SEO özellikle kritik.</p>
+                
+                <h2>Google My Business Optimizasyonu</h2>
+                <p>Google My Business hesabınızı tam ve doğru bilgilerle doldurun. Adres, telefon, çalışma saatleri ve fotoğraflar yerel SEO için önemli.</p>
+                
+                <h2>Bölgesel Anahtar Kelimeler</h2>
+                <p>"Antalya web tasarım", "Lara restoran", "Muratpaşa QR menü" gibi bölgesel anahtar kelimeler kullanarak <a href="web-design.html">web sitenizi</a> optimize edin.</p>
+                
+                <h2>Yerel Backlink Stratejisi</h2>
+                <p>Antalya'daki yerel işletmeler ve turizm sitelerinden backlink almak yerel SEO'yu güçlendirir.</p>
+                
+                <p>Yerel SEO optimizasyonu için <a href="web-design.html">web tasarım paketlerimizi</a> inceleyin.</p>`
+            },
+            {
+                category: "E-ticaret",
+                title: "Online Satış Artırma Yöntemleri",
+                date: "5 Ocak 2024",
+                content: `<p>E-ticaret sitenizin satışlarını artırmak için uygulayabileceğiniz pratik yöntemler. Dönüşüm optimizasyonu, müşteri deneyimi ve ödeme akışları.</p>
+                
+                <h2>Dönüşüm Optimizasyonu</h2>
+                <p>Web sitenizin dönüşüm oranını artırmak için A/B testleri yapın. Buton renkleri, yerleşim ve metinlerin satış üzerinde önemli etkisi var.</p>
+                
+                <h2>Müşteri Deneyimi</h2>
+                <p>Hızlı yükleme süreleri, kolay navigasyon ve mobil uyumlu <a href="web-design.html">web tasarım</a> müşteri memnuniyetini artırır.</p>
+                
+                <h2>Güvenlik ve Ödeme</h2>
+                <p>SSL sertifikası ve güvenli ödeme sistemleri müşterilerin güvenini kazanmanızı sağlar.</p>
+                
+                <p>E-ticaret çözümleri için <a href="web-design.html">web tasarım paketlerimizi</a> inceleyin.</p>`
+            },
+            {
+                category: "QR Menü",
+                title: "Restoranlar İçin QR Menü Avantajları",
+                date: "1 Ocak 2024",
+                content: `<p>Antalya restoranları için QR menü sistemlerinin avantajları. Hijyen, maliyet tasarrufu, turist memnuniyeti ve kolay güncelleme özellikleri.</p>
+                
+                <h2>Hijyen Standartları</h2>
+                <p>Temassız menü deneyimi ile fiziksel menü kullanımına son verin. QR kodlar hijyen standartlarını önemli ölçüde yükseltir.</p>
+                
+                <h2>Maliyet Tasarrufu</h2>
+                <p><a href="qr-menu.html">QR menü sistemleri</a> baskı maliyetlerini ortadan kaldırarak %70'e varan tasarruf sağlar.</p>
+                
+                <h2>Turist Memnuniyeti</h2>
+                <p>Çok dilli menü desteği ile turistlerinize daha iyi hizmet verin. İngilizce, Almanca, Rusça menü seçenekleri turistlerin tercih sebebi.</p>
+                
+                <h2>Kolay Güncelleme</h2>
+                <p>Fiyat ve içerik değişikliklerini anında yapabilirsiniz. Admin paneli ile menü yönetimi çok kolay.</p>
+                
+                <p><a href="qr-menu.html">QR menü paketlerimizi</a> inceleyin.</p>`
+            },
+            {
+                category: "Restoran Sistemi",
+                title: "POS Entegrasyonu Nasıl Çalışır?",
+                date: "28 Aralık 2023",
+                content: `<p>Restoran yönetim sistemlerinde POS entegrasyonu hakkında bilmeniz gerekenler. Ödeme süreçleri, kasa yönetimi ve raporlama özellikleri.</p>
+                
+                <h2>POS Entegrasyonu Nedir?</h2>
+                <p>POS (Point of Sale) entegrasyonu, <a href="restaurant-systems.html">restoran yönetim sistemleri</a> ile kasa sistemlerini birbirine bağlayan teknolojidir.</p>
+                
+                <h2>Ödeme Süreçleri</h2>
+                <p>POS entegrasyonu ile nakit, kredi kartı ve online ödemeler tek sistemden yönetilir.</p>
+                
+                <h2>Raporlama ve Analitik</h2>
+                <p>POS entegrasyonu ile günlük, haftalık ve aylık satış raporlarını otomatik olarak oluşturabilirsiniz.</p>
+                
+                <p><a href="restaurant-systems.html">Restoran sistem paketlerimizi</a> inceleyin.</p>`
+            }
+        ];
+        
+        function openBlogModal(index) {
+            const post = blogPosts[index];
+            if (!post) return;
+            
+            const modal = document.getElementById('blogModal');
+            const header = document.getElementById('modalHeader');
+            const body = document.getElementById('modalBody');
+            
+            header.innerHTML = `
+                <span class="modal-category">${post.category}</span>
+                <h1 class="modal-title">${post.title}</h1>
+                <div class="modal-meta">
+                    <span><i data-lucide="calendar"></i> ${post.date}</span>
+                    <span><i data-lucide="user"></i> Kaysia.co Ekibi</span>
+                </div>
+            `;
+            
+            body.innerHTML = post.content;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            lucide.createIcons();
+            
+            // Smooth scroll to top of modal
+            modal.scrollTop = 0;
+        }
+        
+        function closeBlogModal() {
+            const modal = document.getElementById('blogModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on outside click
+        document.getElementById('blogModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBlogModal();
+            }
+        });
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBlogModal();
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

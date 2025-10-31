@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Menü Çözümleri | Antalya Lara, Muratpaşa, Kepez, Konyaaltı Restoran Menü Sistemleri</title>
+    <meta name="description" content="Antalya bölgesinde restoranlar için QR kod ve NFC menü çözümleri. Lara, Muratpaşa, Kepez, Konyaaltı, Varsak restoranlarına çok dilli temassız menü sistemleri. .com.tr alan adı dahil.">
+    <meta name="keywords" content="QR menü, NFC menü, Antalya QR menü, Lara restoran menü, Muratpaşa dijital menü, Kepez QR kod, Konyaaltı menü sistemi, Varsak restoran menü">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFB800">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Space Grotesk, sans-serif' font-size='60' font-weight='700' text-anchor='middle' fill='%23FFB800'%3EK%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-020B9M10TE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-020B9M10TE');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --accent-yellow: #FFB800;
+            --accent-yellow-dark: #E6A600;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --text-light: #9CA3AF;
+            --glass-bg: rgba(255, 184, 0, 0.08);
+            --glass-border: rgba(255, 184, 0, 0.25);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            min-height: 44px;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            background: var(--accent-yellow-dark);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 2px solid var(--accent-yellow);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .section {
+            padding: 120px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.08), rgba(255, 184, 0, 0.03));
+        }
+        
+        .hero-title {
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-yellow-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .package-card {
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), 0 20px 40px rgba(255, 184, 0, 0.25);
+            border-color: var(--accent-yellow);
+        }
+        
+        .package-card.featured {
+            border-color: var(--accent-yellow);
+            border-width: 3px;
+            box-shadow: var(--shadow-lg), 0 0 30px rgba(255, 184, 0, 0.3);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .package-name {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow-dark);
+            margin-bottom: 8px;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin: 24px 0;
+            text-align: left;
+        }
+        
+        .package-features li {
+            padding: 8px 0;
+            color: var(--text-primary);
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .why-item {
+            text-align: center;
+            background: var(--bg-primary);
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            box-shadow: var(--shadow);
+        }
+        
+        .why-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            color: var(--accent-yellow);
+        }
+        
+        .why-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .why-desc {
+            color: var(--text-secondary);
+        }
+        
+        .service-card {
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+        }
+        
+        .seo-content {
+            background: var(--bg-primary);
+            padding: 48px;
+            border-radius: 20px;
+            margin: 48px 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .seo-content h3 {
+            color: var(--accent-yellow-dark);
+            margin-bottom: 16px;
+        }
+        
+        .seo-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        
+        .seo-content ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+        
+        .seo-content li {
+            color: var(--text-secondary);
+            margin: 8px 0;
+        }
+        
+        .footer {
+            background: var(--bg-primary);
+            border-top: 2px solid rgba(255, 184, 0, 0.3);
+            padding: 48px 0 24px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 184, 0, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--accent-yellow);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 73px;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border-bottom: 2px solid rgba(255, 184, 0, 0.3);
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            max-height: calc(100vh - 73px);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 20px;
+        }
+        
+        .mobile-menu li {
+            margin-bottom: 16px;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu a:hover {
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--accent-yellow);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            
+            .package-card {
+                padding: 24px 20px;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            
+            .package-price {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Kaysia.co</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" class="nav-link">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" class="nav-link">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" class="nav-link">Portfolio</a></li>
+                <li><a href="referanslar.html" class="nav-link">Referanslar</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menü">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html" onclick="toggleMobileMenu()">Ana Sayfa</a></li>
+                <li><a href="web-design.html" onclick="toggleMobileMenu()">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" onclick="toggleMobileMenu()">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" onclick="toggleMobileMenu()">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" onclick="toggleMobileMenu()">Portfolio</a></li>
+                <li><a href="referanslar.html" onclick="toggleMobileMenu()">Referanslar</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero section">
+        <div class="container">
+            <h1 class="hero-title">QR Menü & NFC Menü Çözümleri</h1>
+            <p class="section-subtitle">
+                Antalya Lara, Muratpaşa, Kepez, Konyaaltı ve Varsak bölgelerinde faaliyet gösteren restoranlar için temassız, hijyenik ve modern menü deneyimi. QR kod veya NFC ile anında erişim, çok dilli destek ile turistlerinize de hizmet verin.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== PACKAGES SECTION ===== -->
+    <section class="section" style="background: var(--bg-primary);">
+        <div class="container">
+            <h2 class="section-title">QR Menü Paketleri</h2>
+            <p class="section-subtitle">Tüm paketlerimiz .com.tr alan adı ile geliştirilir ve 1 yıl hosting & SSL sertifikası dahildir.</p>
+            
+            <div class="packages-grid">
+                <div class="package-card featured">
+                    <div class="package-badge">En Popüler</div>
+                    <h3 class="package-name">QR Kod Menü</h3>
+                    <div class="package-price">₺2.500 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>✅ Çok dilli menü (TR, EN, DE, RU)</li>
+                        <li>✅ QR kod tasarımı & baskı</li>
+                        <li>✅ Mobil uyumlu menü sistemi</li>
+                        <li>✅ Anlık güncelleme</li>
+                        <li>✅ Fiyat ve içerik yönetimi</li>
+                        <li>✅ Fotoğraf galerisi</li>
+                        <li>✅ WhatsApp & Arama butonları</li>
+                        <li>✅ .com.tr alan adı dahil</li>
+                        <li>✅ 1 yıl hosting & SSL</li>
+                    </ul>
+                    <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+                        <button class="btn btn-primary" onclick="openLeadForm('QR Kod Menü')">Teklif Al</button>
+                        <a href="https://wa.me/905305616747?text=QR%20Kod%20Menü%20paketi%20hakkında%20bilgi%20almak%20istiyorum" target="_blank" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="message-circle"></i> WhatsApp
+                        </a>
+                        <a href="tel:+905457705297" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="phone"></i> Ara
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="package-card">
+                    <h3 class="package-name">NFC Menü</h3>
+                    <div class="package-price">₺3.500 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>✅ NFC chip içeren tablalar</li>
+                        <li>✅ Telefona dokunarak açılır</li>
+                        <li>✅ Çok dilli menü desteği</li>
+                        <li>✅ Offline çalışma</li>
+                        <li>✅ Hızlı ve kolay erişim</li>
+                        <li>✅ Premium görünüm</li>
+                        <li>✅ WhatsApp & Arama butonları</li>
+                        <li>✅ .com.tr alan adı dahil</li>
+                        <li>✅ 1 yıl hosting & SSL</li>
+                    </ul>
+                    <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+                        <button class="btn btn-primary" onclick="openLeadForm('NFC Menü')">Teklif Al</button>
+                        <a href="https://wa.me/905305616747?text=NFC%20Menü%20paketi%20hakkında%20bilgi%20almak%20istiyorum" target="_blank" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="message-circle"></i> WhatsApp
+                        </a>
+                        <a href="tel:+905457705297" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="phone"></i> Ara
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="package-card">
+                    <h3 class="package-name">Kombinasyon Paket</h3>
+                    <div class="package-price">₺5.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>✅ QR kod + NFC birlikte</li>
+                        <li>✅ Çok dilli menü (4+ dil)</li>
+                        <li>✅ WhatsApp & Arama butonları</li>
+                        <li>✅ .com.tr alan adı dahil</li>
+                        <li>✅ Yılda 2 kez fiyat değişikliği hediyesi</li>
+                        <li>✅ 1 yıl hosting & SSL</li>
+                    </ul>
+                    <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+                        <button class="btn btn-primary" onclick="openLeadForm('Kombinasyon Paket')">Teklif Al</button>
+                        <a href="https://wa.me/905305616747?text=Kombinasyon%20Paket%20hakkında%20bilgi%20almak%20istiyorum" target="_blank" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="message-circle"></i> WhatsApp
+                        </a>
+                        <a href="tel:+905457705297" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="phone"></i> Ara
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-item">
+                    <i data-lucide="qr-code" class="why-icon"></i>
+                    <h3 class="why-title">QR Kod Erişimi</h3>
+                    <p class="why-desc">Müşteriler telefonlarıyla QR kodu okutarak menüye anında erişir. Temassız ve hijyenik çözüm.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="smartphone" class="why-icon"></i>
+                    <h3 class="why-title">NFC Teknolojisi</h3>
+                    <p class="why-desc">Telefonu masadaki NFC chip'e dokundurarak menüyü açın. Hızlı ve modern çözüm.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="languages" class="why-icon"></i>
+                    <h3 class="why-title">Çok Dilli Destek</h3>
+                    <p class="why-desc">Türkçe, İngilizce, Almanca, Rusça ve daha fazlası. Antalya turistlerine özel çözüm.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="edit" class="why-icon"></i>
+                    <h3 class="why-title">Kolay Güncelleme</h3>
+                    <p class="why-desc">Fiyat ve içerik değişikliklerini anında yapın. Masaüstü veya mobilden yönetin.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="image" class="why-icon"></i>
+                    <h3 class="why-title">Görsel Zengin</h3>
+                    <p class="why-desc">Her ürün için fotoğraf, açıklama ve fiyat bilgisi. Müşterilerin seçim yapması kolay.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="shield-check" class="why-icon"></i>
+                    <h3 class="why-title">Hijyenik & Güvenli</h3>
+                    <p class="why-desc">Temassız menü deneyimi. Fiziksel menü kullanımına son. Modern ve güvenli.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEO CONTENT SECTION ===== -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="seo-content">
+                <h2 style="margin-bottom: 24px; color: var(--accent-yellow-dark);">Antalya Restoranları İçin QR Menü Çözümleri</h2>
+                
+                <h3>Lara Bölgesi Restoranları için QR Menü</h3>
+                <p>
+                    Antalya'nın turizm merkezi <strong>Lara</strong> bölgesinde faaliyet gösteren restoranlar için özel QR menü çözümleri. Turist yoğunluğunun fazla olduğu Lara'da çok dilli menü sistemi müşteri memnuniyetini artırır. İngilizce, Almanca, Rusça menü desteği ile turistlerinize daha iyi hizmet verin.
+                </p>
+                
+                <h3>Muratpaşa Restoran Menü Sistemleri</h3>
+                <p>
+                    <strong>Muratpaşa</strong> ilçesindeki restoranlar için modern dijital menü çözümleri. QR kod veya NFC teknolojisi ile temassız menü deneyimi. Şehir merkezinde faaliyet gösteren işletmeler için hızlı ve kolay menü güncelleme özellikleri.
+                </p>
+                
+                <h3>Kepez ve Varsak Restoranları</h3>
+                <p>
+                    <strong>Kepez</strong> ve <strong>Varsak</strong> bölgelerindeki restoran sahipleri için ekonomik QR menü paketleri. Mobil uyumlu tasarım ve kolay yönetim paneli ile menü güncellemelerini anında yapabilirsiniz.
+                </p>
+                
+                <h3>Konyaaltı Sahil Restoranları</h3>
+                <p>
+                    <strong>Konyaaltı</strong> sahil bölgesindeki restoranlar için özel QR menü çözümleri. Sahil kenarındaki işletmeler için çok dilli menü desteği ve WhatsApp entegrasyonu ile müşteri iletişimini kolaylaştırın.
+                </p>
+                
+                <h3>Neden QR Menü Tercih Edilmeli?</h3>
+                <ul>
+                    <li><strong>Hijyen:</strong> Temassız menü deneyimi ile fiziksel menü kullanımına son verin</li>
+                    <li><strong>Turist Dostu:</strong> Çok dilli menü desteği ile Antalya'nın turistlerine daha iyi hizmet verin</li>
+                    <li><strong>Kolay Güncelleme:</strong> Fiyat değişikliklerini anında yapın, baskı maliyetlerinden kurtulun</li>
+                    <li><strong>Modern Görünüm:</strong> Dijital menü ile işletmenizin modern ve teknolojik olduğunu gösterin</li>
+                    <li><strong>Maliyet Tasarrufu:</strong> Baskı maliyetlerinden kurtulun, sadece içeriği güncelleyin</li>
+                    <li><strong>Analitik:</strong> Hangi ürünlerin daha çok görüntülendiğini takip edin</li>
+                </ul>
+                
+                <h3>Antalya'da QR Menü Kullanan Restoranlar</h3>
+                <p>
+                    Antalya'nın birçok restoranı artık QR menü sistemine geçiyor. Lara, Muratpaşa, Kepez, Konyaaltı ve Varsak bölgelerindeki başarılı restoranlar temassız menü çözümlerini tercih ediyor. Siz de işletmenizi dijitalleştirin ve müşterilerinize modern bir deneyim sunun.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="section" style="background: var(--bg-primary);">
+        <div class="container">
+            <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="service-card">
+                    <h4 style="color: var(--accent-yellow); margin-bottom: 8px;">QR kod nasıl çalışır?</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Müşteriler telefonlarının kamerasıyla QR kodu okutur ve menü sayfasına otomatik yönlendirilir. İnternet bağlantısı gereklidir.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h4 style="color: var(--accent-yellow); margin-bottom: 8px;">NFC hangi telefonlarda çalışır?</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Android ve iPhone (7+) cihazlarda NFC desteği bulunur. Telefonu chip'e dokundurmak yeterlidir.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h4 style="color: var(--accent-yellow); margin-bottom: 8px;">Menüyü nasıl güncellerim?</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Size özel admin panelinden fiyat, içerik ve fotoğrafları istediğiniz zaman güncelleyebilirsiniz. Admin panel özelliği <strong>Restoran Sistemleri - Profesyonel Sistem</strong> ve üzeri paketlerde mevcuttur.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h4 style="color: var(--accent-yellow); margin-bottom: 8px;">.com.tr alan adı nasıl alınır?</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">.com.tr alan adı Türkiye'de faaliyet gösteren işletmeler için idealdir. Tüm paketlerimizde .com.tr alan adı dahildir ve kayıt işlemleri bizim tarafımızdan yapılır.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h4 style="color: var(--accent-yellow); margin-bottom: 8px;">Kaç dil desteği var?</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Temel pakette Türkçe, İngilizce, Almanca ve Rusça desteği vardır. İhtiyacınıza göre ek diller eklenebilir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <ul class="footer-links">
+                        <li>📞 +90 545 770 52 97</li>
+                        <li>✉️ kaysia.store@gmail.com</li>
+                        <li>📍 Antalya, Türkiye</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hizmetler</h4>
+                    <ul class="footer-links">
+                        <li><a href="web-design.html">Web Tasarım</a></li>
+                        <li><a href="qr-menu.html">QR Menü</a></li>
+                        <li><a href="restaurant-systems.html">Restoran Sistemleri</a></li>
+                        <li><a href="yaptiklarimiz.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sayfalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="referanslar.html">Referanslar</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="domain-sorgula.html">Alan Adı Sorgula</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kaysia.co - Tüm hakları saklıdır. | Antalya Dijital Çözümler.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== MOBILE MENU FUNCTIONALITY =====
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+        
+        function openLeadForm(packageName) {
+            const message = `Merhaba, ${packageName} paketi hakkında bilgi almak istiyorum.`;
+            window.location.href = `https://wa.me/905305616747?text=${encodeURIComponent(message)}`;
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

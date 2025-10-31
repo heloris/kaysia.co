@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referanslar - Müşteri Yorumları | Kaysia.co Antalya</title>
+    <meta name="description" content="Kaysia.co müşterilerinden gerçek yorumlar ve referanslar. Antalya Lara, Muratpaşa, Kepez bölgelerinde web tasarım, QR menü ve restoran sistemi hizmetlerimizden memnun kalan müşterilerimiz.">
+    <meta name="keywords" content="müşteri yorumları, referanslar, Antalya web tasarım referansları, QR menü kullanıcı yorumları, restoran sistemi referansları">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFB800">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Space Grotesk, sans-serif' font-size='60' font-weight='700' text-anchor='middle' fill='%23FFB800'%3EK%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-020B9M10TE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-020B9M10TE');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --accent-yellow: #FFB800;
+            --accent-yellow-dark: #E6A600;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --text-light: #9CA3AF;
+            --glass-bg: rgba(255, 184, 0, 0.08);
+            --glass-border: rgba(255, 184, 0, 0.25);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .section {
+            padding: 120px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            font-size: 1.1rem;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        
+        .filter-tab {
+            padding: 12px 24px;
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+            color: var(--text-primary);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        
+        .testimonial-card {
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-yellow);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            flex-shrink: 0;
+        }
+        
+        .testimonial-info {
+            flex: 1;
+        }
+        
+        .testimonial-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .testimonial-company {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        
+        .testimonial-location {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .testimonial-category {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-rating {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+            color: var(--accent-yellow);
+        }
+        
+        .testimonial-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+        }
+        
+        .testimonial-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            color: var(--accent-yellow-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .testimonial-link:hover {
+            color: var(--accent-yellow);
+            gap: 12px;
+        }
+        
+        .footer {
+            background: var(--bg-primary);
+            border-top: 2px solid rgba(255, 184, 0, 0.3);
+            padding: 48px 0 24px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 184, 0, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Kaysia.co</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" class="nav-link">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" class="nav-link">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" class="nav-link">Portfolio</a></li>
+                <li><a href="referanslar.html" class="nav-link">Referanslar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Referanslar & Müşteri Yorumları</h1>
+            <p class="section-subtitle">Antalya ve çevresinde hizmet verdiğimiz müşterilerimizden gerçek yorumlar. Web tasarım, QR menü ve restoran yönetim sistemlerimizden memnun kalan işletme sahipleri.</p>
+            
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">Tümü</button>
+                <button class="filter-tab" data-filter="restaurant">Restoranlar</button>
+                <button class="filter-tab" data-filter="qr-menu">QR Menü</button>
+                <button class="filter-tab" data-filter="web-design">Web Sitesi</button>
+                <button class="filter-tab" data-filter="restaurant-system">Restoran Sistemi</button>
+            </div>
+            
+            <div class="testimonial-grid">
+                <!-- Testimonial 1: Levent İsmet - Online Sipariş Sistemi -->
+                <div class="testimonial-card" data-category="restaurant restaurant-system">
+                    <span class="testimonial-category">Online Sipariş Sistemi</span>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">Lİ</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Levent İsmet</div>
+                            <div class="testimonial-company">Bonvera Food</div>
+                            <div class="testimonial-location">
+                                <i data-lucide="map-pin"></i>
+                                Fransa, Strasbourg
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Fransa Strasbourg'da faaliyet gösteren restoranımız için Kaysia.co ekibi online sipariş sistemi geliştirdi. Sistem sayesinde müşterilerimiz mobil cihazlardan kolayca sipariş verebiliyor, siparişlerimiz otomatik olarak mutfağa iletilip yönetiliyor. Online sipariş yönetimi ile işletmemizin verimliliği önemli ölçüde arttı. Özellikle yoğun saatlerde sipariş akışını sorunsuz yönetebiliyoruz. Kaysia.co ekibine profesyonel çalışmaları ve hızlı destekleri için teşekkürler."
+                    </p>
+                    <a href="https://bonvera.food" target="_blank" class="testimonial-link">
+                        Projeyi İncele <i data-lucide="external-link"></i>
+                    </a>
+                </div>
+
+                <!-- Testimonial 2: Uğur Akçalı - Web Tasarım -->
+                <div class="testimonial-card" data-category="web-design">
+                    <span class="testimonial-category">Web Tasarım - Kentsel Dönüşüm</span>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">UA</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Uğur Akçalı</div>
+                            <div class="testimonial-company">AKC Mimarlık</div>
+                            <div class="testimonial-location">
+                                <i data-lucide="map-pin"></i>
+                                Antalya, Muratpaşa
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Antalya Muratpaşa'da faaliyet gösteren AKC Mimarlık olarak kentsel dönüşüm projelerimizi sergilediğimiz kurumsal web sitemiz Kaysia.co ekibi tarafından 1 hafta gibi kısa bir sürede hazırlandı. Web sitemiz kentsel dönüşüm, mimari proje, inşaat ve dönüşüm süreçlerini görsel olarak etkili bir şekilde sunuyor. Mobil uyumlu responsive tasarım sayesinde tüm cihazlardan mükemmel görünüyor. SEO optimizasyonu ile Antalya kentsel dönüşüm, Muratpaşa mimarlık, dönüşüm projeleri gibi anahtar kelimelerde Google'da üst sıralarda yer alıyoruz. Sitemiz sayesinde işletmemize daha fazla müşteri ve proje teklifi gelmeye başladı. Profesyonel çalışmaları, hızlı teslimatları ve sürekli destekleri için Kaysia.co ekibine teşekkürler."
+                    </p>
+                    <a href="https://akcmim.com" target="_blank" class="testimonial-link">
+                        Projeyi İncele <i data-lucide="external-link"></i>
+                    </a>
+                </div>
+
+                <!-- Testimonial 3: Mehmet Bey - QR Menü -->
+                <div class="testimonial-card" data-category="restaurant qr-menu">
+                    <span class="testimonial-category">QR Menü & Online Menü</span>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MB</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Mehmet Bey</div>
+                            <div class="testimonial-company">Restoran</div>
+                            <div class="testimonial-location">
+                                <i data-lucide="map-pin"></i>
+                                Antalya, Lara
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Antalya Lara bölgesinde faaliyet gösteren restoranımız için Kaysia.co ekibi QR menü ve çok dilli online menü sistemi geliştirdi. Sistem sayesinde hem hijyenik ve temassız bir hizmet sunuyoruz hem de turistlere yönelik çok dilli menü özelliği ile müşteri memnuniyetimiz arttı. QR kod ile menüye hızlı erişim, online menü ile 7/24 menü inceleme imkanı, İngilizce, Almanca, Rusça gibi dillerde menü desteği ile turistlerimize çok daha iyi hizmet verebiliyoruz. Özellikle Lara'nın turizm merkezi olması nedeniyle çok dilli menü desteği çok önemli. Mobil uyumlu tasarım sayesinde müşterilerimiz telefonlarından rahatça menüyü görüntüleyebiliyor. Kaysia.co ekibine profesyonel çalışmaları ve turizm sektörüne uygun çözümleri için teşekkürler. Müşterilerimiz çok memnun, kesinlikle tavsiye ederim."
+                    </p>
+                    <a href="#" class="testimonial-link" onclick="return false;">
+                        Projeyi İncele <i data-lucide="external-link"></i>
+                    </a>
+                </div>
+
+                <!-- Placeholder for future testimonials -->
+                <div class="testimonial-card" data-category="restaurant qr-menu" style="opacity: 0.7;">
+                    <span class="testimonial-category">QR Menü</span>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">?</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Yeni Referans</div>
+                            <div class="testimonial-company">Yakında</div>
+                            <div class="testimonial-location">
+                                <i data-lucide="map-pin"></i>
+                                Antalya
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        Daha fazla müşteri referansı yakında eklenecek.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <ul class="footer-links">
+                        <li>📞 +90 545 770 52 97</li>
+                        <li>✉️ kaysia.store@gmail.com</li>
+                        <li>📍 Antalya, Türkiye</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hizmetler</h4>
+                    <ul class="footer-links">
+                        <li><a href="web-design.html">Web Tasarım</a></li>
+                        <li><a href="qr-menu.html">QR Menü</a></li>
+                        <li><a href="restaurant-systems.html">Restoran Sistemleri</a></li>
+                        <li><a href="yaptiklarimiz.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sayfalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="referanslar.html">Referanslar</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="domain-sorgula.html">Alan Adı Sorgula</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kaysia.co - Tüm hakları saklıdır. | Antalya Dijital Çözümler.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            
+            // Filter functionality
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    testimonialCards.forEach(card => {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        
+                        if (filterValue === 'all' || categories.includes(filterValue)) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

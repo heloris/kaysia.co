@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaysia.co Dijital Çözümler</title>
-    <meta name="description" content="1 haftada yayına hazır web sitesi + .com alan adı. .com.tr kartvizit sitesi hediye. Dijital Stüdyo ">
+    <meta name="description" content="1 haftada yayına hazır web sitesi + .com alan adı. Restoranlar için çok dilli online menü çözümleri (QR kod & NFC). .com.tr kartvizit sitesi hediye. Dijital çözümler ve otomasyon hizmetleri.">
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="/manifest.json">
@@ -63,12 +63,17 @@
         }
         
         :root {
-            --bg-primary: #0B0F14;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
             --accent-yellow: #FFB800;
-            --text-primary: #E5E7EB;
-            --text-secondary: #9CA3AF;
-            --glass-bg: rgba(255, 184, 0, 0.1);
-            --glass-border: rgba(255, 184, 0, 0.2);
+            --accent-yellow-dark: #E6A600;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --text-light: #9CA3AF;
+            --glass-bg: rgba(255, 184, 0, 0.08);
+            --glass-border: rgba(255, 184, 0, 0.25);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
@@ -78,8 +83,8 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -127,23 +132,32 @@
         
         .btn-primary {
             background: var(--accent-yellow);
-            color: var(--bg-primary);
+            color: #000000;
+            font-weight: 600;
+            box-shadow: var(--shadow);
         }
         
         .btn-primary:hover {
             transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(255, 184, 0, 0.4);
+            background: var(--accent-yellow-dark);
+            color: #000000;
+            box-shadow: var(--shadow-lg);
         }
         
         .btn-secondary {
-            background: transparent;
+            background: var(--bg-primary);
             color: var(--text-primary);
-            border: 1px solid var(--glass-border);
+            border: 2px solid var(--accent-yellow);
+            font-weight: 600;
+            box-shadow: var(--shadow);
         }
         
         .btn-secondary:hover {
-            background: var(--glass-bg);
+            background: var(--accent-yellow);
+            color: #000000;
+            font-weight: 600;
             transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
         }
         
         /* ===== LAYOUT ===== */
@@ -169,9 +183,10 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(11, 15, 20, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow);
         }
         
         .nav {
@@ -196,7 +211,7 @@
         }
         
         .nav-link {
-            color: var(--text-secondary);
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
@@ -218,7 +233,7 @@
         
         .hero-title {
             margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--text-primary), var(--accent-yellow));
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-yellow-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -234,10 +249,11 @@
             max-width: 600px;
             margin: 0 auto 48px;
             padding: 32px;
-            background: var(--glass-bg);
+            background: var(--bg-primary);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
+            border: 2px solid var(--glass-border);
             border-radius: 20px;
+            box-shadow: var(--shadow-lg);
         }
         
         .domain-input-group {
@@ -249,8 +265,8 @@
         .domain-input {
             flex: 1;
             padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--glass-border);
+            background: var(--bg-secondary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
             border-radius: 12px;
             color: var(--text-primary);
             font-size: 1.1rem;
@@ -261,10 +277,11 @@
             outline: none;
             border-color: var(--accent-yellow);
             box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.2);
+            background: var(--bg-primary);
         }
         
         .domain-input::placeholder {
-            color: var(--text-secondary);
+            color: var(--text-light);
         }
         
         .domain-status {
@@ -279,27 +296,31 @@
         }
         
         .status-success {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #22c55e;
+            background: rgba(34, 197, 94, 0.15);
+            border: 2px solid #22c55e;
+            color: #15803d;
+            font-weight: 600;
         }
         
         .status-error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #ef4444;
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid #ef4444;
+            color: #dc2626;
+            font-weight: 600;
         }
         
         .status-warning {
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.15);
+            border: 2px solid #f59e0b;
+            color: #d97706;
+            font-weight: 600;
         }
         
         .status-loading {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.15);
+            border: 2px solid #3b82f6;
+            color: #2563eb;
+            font-weight: 600;
         }
         
         .alternatives {
@@ -311,18 +332,21 @@
         
         .alt-btn {
             padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--glass-border);
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-yellow);
             border-radius: 8px;
-            color: var(--text-secondary);
+            color: var(--text-primary);
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
+            box-shadow: var(--shadow);
         }
         
         .alt-btn:hover {
             background: var(--accent-yellow);
-            color: var(--bg-primary);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
         
         .hero-buttons {
@@ -334,7 +358,7 @@
         
         /* ===== PACKAGES SECTION ===== */
         .packages {
-            background: linear-gradient(135deg, rgba(255, 184, 0, 0.05), rgba(255, 184, 0, 0.02));
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.08), rgba(255, 184, 0, 0.03));
         }
         
         .packages-grid {
@@ -345,24 +369,27 @@
         }
         
         .package-card {
-            background: var(--glass-bg);
+            background: var(--bg-primary);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
+            border: 2px solid rgba(255, 184, 0, 0.3);
             border-radius: 20px;
             padding: 32px;
             text-align: center;
             transition: var(--transition);
             position: relative;
+            box-shadow: var(--shadow);
         }
         
         .package-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow-lg), 0 20px 40px rgba(255, 184, 0, 0.25);
+            border-color: var(--accent-yellow);
         }
         
         .package-card.featured {
             border-color: var(--accent-yellow);
-            box-shadow: 0 0 30px rgba(255, 184, 0, 0.3);
+            border-width: 3px;
+            box-shadow: var(--shadow-lg), 0 0 30px rgba(255, 184, 0, 0.3);
         }
         
         .package-badge {
@@ -386,13 +413,13 @@
         .package-price {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--accent-yellow);
+            color: var(--accent-yellow-dark);
             margin-bottom: 8px;
         }
         
         .package-old-price {
             font-size: 1.2rem;
-            color: var(--text-secondary);
+            color: var(--text-light);
             text-decoration: line-through;
             margin-bottom: 16px;
         }
@@ -404,16 +431,18 @@
         
         .package-features li {
             padding: 8px 0;
-            color: var(--text-secondary);
+            color: var(--text-primary);
         }
         
         .package-note {
             font-size: 0.9rem;
-            color: var(--text-secondary);
+            color: var(--text-primary);
             margin-top: 16px;
             padding: 16px;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
             border-radius: 12px;
+            box-shadow: var(--shadow);
         }
         
         /* ===== SERVICES SECTION ===== */
@@ -424,18 +453,20 @@
         }
         
         .service-card {
-            background: var(--glass-bg);
+            background: var(--bg-primary);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
+            border: 2px solid rgba(255, 184, 0, 0.3);
             border-radius: 16px;
             padding: 24px;
             text-align: center;
             transition: var(--transition);
+            box-shadow: var(--shadow);
         }
         
         .service-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-yellow);
         }
         
         .service-icon {
@@ -456,6 +487,10 @@
             line-height: 1.5;
         }
         
+        .service-icon {
+            filter: drop-shadow(0 2px 4px rgba(255, 184, 0, 0.3));
+        }
+        
         /* ===== PROCESS SECTION ===== */
         .process-steps {
             display: grid;
@@ -473,7 +508,7 @@
             width: 60px;
             height: 60px;
             background: var(--accent-yellow);
-            color: var(--bg-primary);
+            color: var(--text-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -481,6 +516,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin: 0 auto 16px;
+            box-shadow: var(--shadow);
         }
         
         .step-title {
@@ -501,17 +537,19 @@
         }
         
         .blog-card {
-            background: var(--glass-bg);
+            background: var(--bg-primary);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
+            border: 2px solid rgba(255, 184, 0, 0.3);
             border-radius: 16px;
             overflow: hidden;
             transition: var(--transition);
+            box-shadow: var(--shadow);
         }
         
         .blog-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-yellow);
         }
         
         .blog-category {
@@ -538,6 +576,10 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.5;
+        }
+        
+        .blog-category {
+            font-weight: 700;
         }
         
         /* ===== WHY US SECTION ===== */
@@ -569,7 +611,7 @@
         
         /* ===== CTA SECTION ===== */
         .cta-section {
-            background: linear-gradient(135deg, rgba(255, 184, 0, 0.1), rgba(255, 184, 0, 0.05));
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.12), rgba(255, 184, 0, 0.06));
             text-align: center;
         }
         
@@ -582,9 +624,10 @@
         
         /* ===== FOOTER ===== */
         .footer {
-            background: rgba(0, 0, 0, 0.3);
-            border-top: 1px solid var(--glass-border);
+            background: var(--bg-primary);
+            border-top: 2px solid rgba(255, 184, 0, 0.3);
             padding: 48px 0 24px;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         
         .footer-content {
@@ -608,7 +651,7 @@
         }
         
         .footer-links a {
-            color: var(--text-secondary);
+            color: var(--text-primary);
             text-decoration: none;
             transition: var(--transition);
         }
@@ -617,10 +660,14 @@
             color: var(--accent-yellow);
         }
         
+        .footer-links li {
+            color: var(--text-primary);
+        }
+        
         .footer-bottom {
             text-align: center;
             padding-top: 24px;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 184, 0, 0.2);
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
@@ -633,7 +680,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(10px);
             z-index: 2000;
             align-items: center;
@@ -646,13 +693,14 @@
         
         .modal-content {
             background: var(--bg-primary);
-            border: 1px solid var(--glass-border);
+            border: 3px solid var(--accent-yellow);
             border-radius: 20px;
             padding: 32px;
             max-width: 500px;
             width: 90%;
             max-height: 90vh;
             overflow-y: auto;
+            box-shadow: var(--shadow-lg);
         }
         
         .modal-header {
@@ -670,7 +718,7 @@
         .modal-close {
             background: none;
             border: none;
-            color: var(--text-secondary);
+            color: var(--text-primary);
             font-size: 1.5rem;
             cursor: pointer;
             padding: 8px;
@@ -679,8 +727,8 @@
         }
         
         .modal-close:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--accent-yellow-dark);
         }
         
         .form-group {
@@ -697,8 +745,8 @@
         .form-input {
             width: 100%;
             padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--glass-border);
+            background: var(--bg-secondary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
             border-radius: 8px;
             color: var(--text-primary);
             font-size: 1rem;
@@ -708,6 +756,7 @@
         .form-input:focus {
             outline: none;
             border-color: var(--accent-yellow);
+            background: var(--bg-primary);
             box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.2);
         }
         
@@ -769,15 +818,116 @@
             flex-wrap: wrap;
         }
         
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--accent-yellow);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 73px;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border-bottom: 2px solid rgba(255, 184, 0, 0.3);
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            max-height: calc(100vh - 73px);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 20px;
+        }
+        
+        .mobile-menu li {
+            margin-bottom: 16px;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu a:hover {
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--accent-yellow);
+        }
+        
+        .mobile-menu .btn {
+            width: 100%;
+            margin-top: 16px;
+        }
+        
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
             }
             
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            
             .hero-buttons {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
+                gap: 12px;
+                padding: 0 20px;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            
+            .section {
+                padding: 60px 0 40px;
+            }
+            
+            .section-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                margin-bottom: 32px;
             }
             
             .domain-input-group {
@@ -786,17 +936,94 @@
             
             .packages-grid {
                 grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .process-steps {
                 grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
             
             .cta-buttons {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
+                gap: 12px;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .package-card {
+                padding: 24px 20px;
+            }
+            
+            .package-price {
+                font-size: 2rem;
+            }
+            
+            .modal-content {
+                padding: 24px 20px;
+                max-width: 95%;
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
             }
         }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .package-price {
+                font-size: 1.75rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+            
+            /* Portfolio & Testimonials - Mobile */
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Services grid - mobile */
+            div[style*="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Hero stats - mobile */
+            .hero > .container > div > div[style*="grid-template-columns: repeat(auto-fit"] {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+        }
+        
+        /* ===== SCROLL ANIMATIONS - REMOVED ===== */
+        /* Animasyonlar kaldırıldı - sadece normal görünüm */
         
         /* ===== ANIMATIONS ===== */
         @keyframes fadeInUp {
@@ -810,9 +1037,10 @@
             }
         }
         
-        .fade-in-up {
+        /* Remove old fade-in-up animation class - using new scroll-based animations */
+        /* .fade-in-up {
             animation: fadeInUp 0.6s ease-out;
-        }
+        } */
         
         /* ===== ACCESSIBILITY ===== */
         .sr-only {
@@ -889,244 +1117,387 @@
     <!-- ===== HEADER ===== -->
     <header class="header">
         <nav class="nav container">
-            <a href="#" class="logo">Kaysia.co</a>
+            <a href="index.html" class="logo">Kaysia.co</a>
             <ul class="nav-menu">
-                <li><a href="#services" class="nav-link">Hizmetler</a></li>
-                <li><a href="#packages" class="nav-link">Paketler</a></li>
-                <li><a href="#blog" class="nav-link">Blog</a></li>
-                <li><a href="#contact" class="nav-link">İletişim</a></li>
+                <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" class="nav-link">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" class="nav-link">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" class="nav-link">Portfolio</a></li>
+                <li><a href="referanslar.html" class="nav-link">Referanslar</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
             </ul>
-            <a href="#domain-search" class="btn btn-primary nav-cta">Alan Adı Sorgula</a>
+            <a href="domain-sorgula.html" class="btn btn-primary nav-cta">Alan Adı Sorgula</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menü">
+                <i data-lucide="menu"></i>
+            </button>
         </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html" onclick="toggleMobileMenu()">Ana Sayfa</a></li>
+                <li><a href="web-design.html" onclick="toggleMobileMenu()">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" onclick="toggleMobileMenu()">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" onclick="toggleMobileMenu()">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" onclick="toggleMobileMenu()">Portfolio</a></li>
+                <li><a href="referanslar.html" onclick="toggleMobileMenu()">Referanslar</a></li>
+                <li><a href="blog.html" onclick="toggleMobileMenu()">Blog</a></li>
+                <li><a href="domain-sorgula.html" class="btn btn-primary" onclick="toggleMobileMenu()">Alan Adı Sorgula</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- ===== HERO SECTION ===== -->
-    <section class="hero section">
+    <section class="hero section" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%); padding: 140px 0 100px;">
         <div class="container">
-            <h1 class="hero-title">1 Haftada Yayına Hazır Web Sitesi + .com Alan Adı</h1>
-            <p class="hero-subtitle">Bütün siparişlerinize adsoyad .com.tr Kartvizit site hediye. (Şahıs şirketi gereklidir)</p>
-            
-            <!-- Domain Search Module -->
-            <div id="domain-search" class="domain-search">
-                <div class="domain-input-group">
-                    <input 
-                        type="text" 
-                        id="domainInput" 
-                        class="domain-input" 
-                        placeholder="kuryes.com"
-                        aria-label="Alan adı girin"
-                    >
-                    <button id="searchBtn" class="btn btn-primary">Sorgula</button>
+            <div>
+                <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                    <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 32px; line-height: 1.1;">
+                        Dijital Varlığınızı<br><span style="color: var(--accent-yellow);">Güçlendiriyoruz</span>
+                    </h1>
+                    <p class="hero-subtitle" style="font-size: 1.3rem; margin-bottom: 48px; color: var(--text-secondary); line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto;">
+                        Antalya'da modern web siteleri, QR menü sistemleri ve restoran otomasyonları ile işletmenizi dijitalleştiriyoruz. 1 haftada yayında.
+                    </p>
+                    
+                    <div class="hero-buttons" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px;">
+                        <a href="yaptiklarimiz.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 32px;">Portfolio'yu İncele</a>
+                        <a href="#services" class="btn btn-secondary" style="font-size: 1.1rem; padding: 16px 32px;">Hizmetlerimiz</a>
+                    </div>
                 </div>
                 
-                <div id="domainStatus" class="domain-status" style="display: none;" aria-live="polite"></div>
-                <div id="alternatives" class="alternatives" style="display: none;"></div>
-            </div>
-            
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="focusDomainInput()">Alan Adı Sorgula</button>
-                <a href="#packages" class="btn btn-secondary">Paketleri Gör</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== PACKAGES SECTION ===== -->
-    <section id="packages" class="packages section">
-        <div class="container">
-            <h2 class="section-title">Web Sitesi Paketleri</h2>
-            <div class="packages-grid">
-                <!-- Başlangıç Paketi -->
-                <div class="package-card">
-                    <h3 class="package-name">Başlangıç</h3>
-                    <div class="package-old-price">₺10.000</div>
-                    <div class="package-price">₺5.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
-                    <ul class="package-features">
-                        <li>5 sayfa web sitesi</li>
-                        <li>Mobil uyumlu tasarım</li>
-                        <li>SSL sertifikası</li>
-                        <li>1 yıl hosting</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="openLeadForm('Başlangıç')">Bilgi Al</button>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto;">
+                    <div style="text-align: center; padding: 24px; background: var(--bg-primary); border-radius: 16px; box-shadow: var(--shadow);">
+                        <div style="font-size: 3rem; font-weight: 700; color: var(--accent-yellow); margin-bottom: 8px; font-family: 'Space Grotesk', sans-serif;">100+</div>
+                        <div style="color: var(--text-secondary); font-weight: 500;">Tamamlanan Proje</div>
+                    </div>
+                    <div style="text-align: center; padding: 24px; background: var(--bg-primary); border-radius: 16px; box-shadow: var(--shadow);">
+                        <div style="font-size: 3rem; font-weight: 700; color: var(--accent-yellow); margin-bottom: 8px; font-family: 'Space Grotesk', sans-serif;">1</div>
+                        <div style="color: var(--text-secondary); font-weight: 500;">Haftada Teslim</div>
+                    </div>
+                    <div style="text-align: center; padding: 24px; background: var(--bg-primary); border-radius: 16px; box-shadow: var(--shadow);">
+                        <div style="font-size: 3rem; font-weight: 700; color: var(--accent-yellow); margin-bottom: 8px; font-family: 'Space Grotesk', sans-serif;">7/24</div>
+                        <div style="color: var(--text-secondary); font-weight: 500;">Teknik Destek</div>
+                    </div>
                 </div>
-                
-                <!-- Profesyonel Paketi (Featured) -->
-                <div class="package-card featured">
-                    <div class="package-badge">En Popüler</div>
-                    <h3 class="package-name">Profesyonel</h3>
-                    <div class="package-old-price">₺16.000</div>
-                    <div class="package-price">₺8.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
-                    <ul class="package-features">
-                        <li>10 sayfa web sitesi</li>
-                        <li>Özel tasarım</li>
-                        <li>İletişim formları</li>
-                        <li>SEO optimizasyonu</li>
-                        <li>1 yıl hosting</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="openLeadForm('Profesyonel')">Bilgi Al</button>
-                </div>
-                
-                <!-- Premium Paketi -->
-                <div class="package-card">
-                    <h3 class="package-name">Premium</h3>
-                    <div class="package-old-price">₺20.000</div>
-                    <div class="package-price">₺10.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
-                    <ul class="package-features">
-                        <li>15 sayfa web sitesi</li>
-                        <li>E-ticaret entegrasyonu</li>
-                        <li>Özel geliştirmeler</li>
-                        <li>3 ay destek</li>
-                        <li>1 yıl hosting</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="openLeadForm('Premium')">Bilgi Al</button>
-                </div>
-            </div>
-            
-            <div class="package-note">
-                <p><strong>.com alan adı + hosting + SSL dâhil • .com.tr kartvizit sitesi hediye</strong></p>
-                <p>Fiyatlar KDV hariçtir. Alan adı ve hosting 1 yıl geçerlidir.<br>
-                Yenileme ücretleri yıl sonunda döviz kuru ve servis sağlayıcı fiyatlarına göre değişebilir.</p>
             </div>
         </div>
     </section>
 
     <!-- ===== SERVICES SECTION ===== -->
-    <section id="services" class="section">
+    <section id="services" class="section" style="background: var(--bg-primary); padding: 100px 0;">
         <div class="container">
-            <h2 class="section-title">Hizmetlerimiz</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i data-lucide="globe" class="service-icon"></i>
-                    <h3 class="service-title">Web Sitesi Paketleri</h3>
-                    <p class="service-desc">1 haftada yayına hazır modern web siteleri. Mobil uyumlu, hızlı ve SEO dostu tasarımlar.</p>
-                </div>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 64px;">
+                <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px;">Hizmetlerimiz</h2>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); line-height: 1.7;">
+                    İşletmeniz için ihtiyacınız olan tüm dijital çözümler. Modern teknolojiler ve profesyonel yaklaşımla.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-bottom: 64px;">
+                <!-- Web Design -->
+                <a href="web-design.html" class="service-card" style="text-decoration: none; display: block; padding: 40px; background: var(--bg-primary); border: 2px solid transparent; transition: all 0.3s ease;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark)); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);">
+                        <i data-lucide="globe" style="width: 32px; height: 32px; color: var(--text-primary);"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif;">Web Tasarım</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; font-size: 1rem;">
+                        Modern, hızlı ve SEO dostu web siteleri. Mobil uyumlu tasarım ile tüm cihazlarda mükemmel görünüm. .com.tr alan adı ve SSL dahil.
+                    </p>
+                    <div style="display: flex; align-items: center; color: var(--accent-yellow); font-weight: 600;">
+                        Detayları Gör
+                        <i data-lucide="arrow-right" style="width: 20px; height: 20px; margin-left: 8px;"></i>
+                    </div>
+                </a>
                 
-                <div class="service-card">
-                    <i data-lucide="link" class="service-icon"></i>
-                    <h3 class="service-title">Alan Adı & Kartvizit Sitesi</h3>
-                    <p class="service-desc">.com öncelik, .com.tr hediye. Profesyonel alan adı yönetimi ve kartvizit siteleri.</p>
-                </div>
+                <!-- QR Menu -->
+                <a href="qr-menu.html" class="service-card" style="text-decoration: none; display: block; padding: 40px; background: var(--bg-primary); border: 2px solid transparent; transition: all 0.3s ease;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark)); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);">
+                        <i data-lucide="utensils-crossed" style="width: 32px; height: 32px; color: var(--text-primary);"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif;">QR Menü Çözümleri</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; font-size: 1rem;">
+                        Çok dilli online menü, QR kod ve NFC teknolojisi. Temassız menü deneyimi ile hijyenik ve modern çözümler. Turistlere özel dil desteği.
+                    </p>
+                    <div style="display: flex; align-items: center; color: var(--accent-yellow); font-weight: 600;">
+                        Detayları Gör
+                        <i data-lucide="arrow-right" style="width: 20px; height: 20px; margin-left: 8px;"></i>
+                    </div>
+                </a>
                 
-                <div class="service-card">
-                    <i data-lucide="zap" class="service-icon"></i>
-                    <h3 class="service-title">Dijital Otomasyonlar</h3>
-                    <p class="service-desc">Sipariş, stok, fatura, chatbot, mini SaaS ve e-ticaret entegrasyonları.</p>
-                </div>
-                
-                <div class="service-card">
-                    <i data-lucide="message-circle" class="service-icon"></i>
-                    <h3 class="service-title">Form & Geri Bildirim</h3>
-                    <p class="service-desc">WhatsApp/Telegram bağlantılı formlar ve otomatik bildirim sistemleri.</p>
-                </div>
-                
-                <div class="service-card">
-                    <i data-lucide="headphones" class="service-icon"></i>
-                    <h3 class="service-title">Destek & Geliştirme</h3>
-                    <p class="service-desc">Sürekli bakım, SEO güncellemeleri ve performans optimizasyonu hizmetleri.</p>
-                </div>
+                <!-- Restaurant Systems -->
+                <a href="restaurant-systems.html" class="service-card" style="text-decoration: none; display: block; padding: 40px; background: var(--bg-primary); border: 2px solid transparent; transition: all 0.3s ease;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark)); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);">
+                        <i data-lucide="shopping-cart" style="width: 32px; height: 32px; color: var(--text-primary);"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif;">Restoran Sistemleri</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; font-size: 1rem;">
+                        Kapsamlı restoran yönetim sistemi. Sipariş yönetimi, POS entegrasyonu, mutfak ekranı, kasa sistemi. Restoranınızı tamamen dijitalleştirin.
+                    </p>
+                    <div style="display: flex; align-items: center; color: var(--accent-yellow); font-weight: 600;">
+                        Detayları Gör
+                        <i data-lucide="arrow-right" style="width: 20px; height: 20px; margin-left: 8px;"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="domain-sorgula.html" class="btn btn-secondary">Alan Adı Sorgula →</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== PROCESS SECTION ===== -->
-    <section class="section">
+    <!-- ===== PORTFOLIO / CASE STUDIES SECTION ===== -->
+    <section class="section" style="background: var(--bg-secondary); padding: 100px 0;">
         <div class="container">
-            <h2 class="section-title">Süreç</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Keşif</h3>
-                    <p class="step-desc">İhtiyaçlarınızı analiz ediyor, hedeflerinizi belirliyoruz.</p>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 64px;">
+                <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px;">Başarı Hikayeleri</h2>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); line-height: 1.7;">
+                    Gerçekleştirdiğimiz projeler ve müşterilerimizden referanslar. Dijital dönüşümün somut örnekleri.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 64px;">
+                <!-- Featured Projects -->
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 32px; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif;">Featured Projects</h3>
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <!-- Project 1 -->
+                        <a href="yaptiklarimiz.html" style="text-decoration: none; display: block;">
+                            <div style="background: var(--bg-primary); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); transition: all 0.3s ease; border: 2px solid transparent;">
+                                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                    <div style="width: 100px; height: 80px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: var(--bg-secondary);">
+                                        <img src="screenshots/bonvera.png" alt="Bonvera Food" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <span style="display: inline-block; background: var(--accent-yellow); color: var(--text-primary); padding: 4px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; margin-bottom: 8px;">Online Sipariş</span>
+                                        <h4 style="margin-bottom: 4px; color: var(--text-primary); font-size: 1.1rem;">Bonvera Food</h4>
+                                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Fransa Strasbourg • Online sipariş sistemi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Project 2 -->
+                        <a href="yaptiklarimiz.html" style="text-decoration: none; display: block;">
+                            <div style="background: var(--bg-primary); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); transition: all 0.3s ease; border: 2px solid transparent;">
+                                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                    <div style="width: 100px; height: 80px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: var(--bg-secondary);">
+                                        <img src="screenshots/akcmim.png" alt="AKC Mimarlık" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <span style="display: inline-block; background: var(--accent-yellow); color: var(--text-primary); padding: 4px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; margin-bottom: 8px;">Web Tasarım</span>
+                                        <h4 style="margin-bottom: 4px; color: var(--text-primary); font-size: 1.1rem;">AKC Mimarlık</h4>
+                                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Antalya Muratpaşa • Kentsel dönüşüm sitesi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Project 3 -->
+                        <a href="yaptiklarimiz.html" style="text-decoration: none; display: block;">
+                            <div style="background: var(--bg-primary); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); transition: all 0.3s ease; border: 2px solid transparent;">
+                                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                                    <div style="width: 100px; height: 80px; border-radius: 12px; overflow: hidden; flex-shrink: 0; background: var(--bg-secondary);">
+                                        <img src="screenshots/yicem.png" alt="Lara Restoran" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <span style="display: inline-block; background: var(--accent-yellow); color: var(--text-primary); padding: 4px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; margin-bottom: 8px;">QR Menü</span>
+                                        <h4 style="margin-bottom: 4px; color: var(--text-primary); font-size: 1.1rem;">Lara Restoran</h4>
+                                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Antalya Lara • Çok dilli menü sistemi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Taslak</h3>
-                    <p class="step-desc">Tasarım konseptini oluşturup onayınıza sunuyoruz.</p>
+                <!-- Testimonials -->
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 32px; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif;">Müşteri Yorumları</h3>
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <!-- Testimonial 1 -->
+                        <div style="background: var(--bg-primary); border-radius: 16px; padding: 24px; box-shadow: var(--shadow);">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--accent-yellow); display: flex; align-items: center; justify-content: center; color: var(--text-primary); font-weight: 700; font-size: 1.1rem;">Lİ</div>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Levent İsmet</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Bonvera Food • Fransa</div>
+                                </div>
+                            </div>
+                            <div style="color: var(--accent-yellow); margin-bottom: 12px; font-size: 1.1rem;">★★★★★</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">"Online sipariş sistemi ile verimliliğimiz önemli ölçüde arttı. Profesyonel çalışma ve hızlı destek."</p>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div style="background: var(--bg-primary); border-radius: 16px; padding: 24px; box-shadow: var(--shadow);">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--accent-yellow); display: flex; align-items: center; justify-content: center; color: var(--text-primary); font-weight: 700; font-size: 1.1rem;">UA</div>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Uğur Akçalı</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary);">AKC Mimarlık • Antalya</div>
+                                </div>
+                            </div>
+                            <div style="color: var(--accent-yellow); margin-bottom: 12px; font-size: 1.1rem;">★★★★★</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">"Web sitemiz 1 haftada hazırdı. SEO ile Google'da üst sıralara çıktık. Müşteri sayımız arttı."</p>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div style="background: var(--bg-primary); border-radius: 16px; padding: 24px; box-shadow: var(--shadow);">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--accent-yellow); display: flex; align-items: center; justify-content: center; color: var(--text-primary); font-weight: 700; font-size: 1.1rem;">MB</div>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Mehmet Bey</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Lara Restoran • Antalya</div>
+                                </div>
+                            </div>
+                            <div style="color: var(--accent-yellow); margin-bottom: 12px; font-size: 1.1rem;">★★★★★</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">"QR menü ve çok dilli sistem ile turistlerimize çok daha iyi hizmet veriyoruz. Müşterilerimiz çok memnun."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="yaptiklarimiz.html" class="btn btn-primary" style="margin-right: 16px;">Tüm Projeleri Gör</a>
+                <a href="referanslar.html" class="btn btn-secondary">Tüm Referansları Gör</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW WE WORK SECTION ===== -->
+    <section class="section" style="background: var(--bg-primary); padding: 100px 0;">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 64px;">
+                <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px;">Nasıl Çalışıyoruz?</h2>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); line-height: 1.7;">
+                    4 basit adımda dijital varlığınızı güçlendirin. Süreç boyunca yanınızdayız.
+                </p>
+            </div>
+            
+            <div class="process-steps" style="max-width: 1100px; margin: 0 auto;">
+                <div class="process-step" style="background: var(--bg-primary); padding: 32px; border-radius: 16px; box-shadow: var(--shadow);">
+                    <div class="step-number" style="background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark));">1</div>
+                    <h3 class="step-title" style="font-size: 1.3rem; margin-bottom: 12px;">Keşif & Analiz</h3>
+                    <p class="step-desc" style="color: var(--text-secondary); line-height: 1.7;">İhtiyaçlarınızı analiz ediyor, hedeflerinizi belirliyoruz. İşletmenize en uygun çözümü birlikte tasarlıyoruz.</p>
                 </div>
                 
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Yayın</h3>
-                    <p class="step-desc">Web sitenizi yayına alıp tüm ayarları tamamlıyoruz.</p>
+                <div class="process-step" style="background: var(--bg-primary); padding: 32px; border-radius: 16px; box-shadow: var(--shadow);">
+                    <div class="step-number" style="background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark));">2</div>
+                    <h3 class="step-title" style="font-size: 1.3rem; margin-bottom: 12px;">Tasarım & Onay</h3>
+                    <p class="step-desc" style="color: var(--text-secondary); line-height: 1.7;">Modern tasarım konseptini oluşturup onayınıza sunuyoruz. Revizyonlar dahil, beğenene kadar çalışıyoruz.</p>
                 </div>
                 
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Destek</h3>
-                    <p class="step-desc">Sürekli destek ve geliştirme hizmetleri sunuyoruz.</p>
+                <div class="process-step" style="background: var(--bg-primary); padding: 32px; border-radius: 16px; box-shadow: var(--shadow);">
+                    <div class="step-number" style="background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark));">3</div>
+                    <h3 class="step-title" style="font-size: 1.3rem; margin-bottom: 12px;">Geliştirme & Yayın</h3>
+                    <p class="step-desc" style="color: var(--text-secondary); line-height: 1.7;">Web sitenizi geliştirip yayına alıyoruz. Tüm teknik ayarları ve optimizasyonları tamamlıyoruz.</p>
+                </div>
+                
+                <div class="process-step" style="background: var(--bg-primary); padding: 32px; border-radius: 16px; box-shadow: var(--shadow);">
+                    <div class="step-number" style="background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark));">4</div>
+                    <h3 class="step-title" style="font-size: 1.3rem; margin-bottom: 12px;">Destek & Bakım</h3>
+                    <p class="step-desc" style="color: var(--text-secondary); line-height: 1.7;">Proje sonrası da yanınızdayız. Teknik destek, güncellemeler ve bakım hizmetleri sunuyoruz.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== BLOG SECTION ===== -->
-    <section id="blog" class="section">
+    <section id="blog" class="section" style="background: var(--bg-primary);">
         <div class="container">
-            <h2 class="section-title">Blog & Haberler</h2>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <span class="blog-category">Web Tasarım</span>
-                        <h3 class="blog-title">2024 Web Tasarım Trendleri</h3>
-                        <p class="blog-excerpt">Bu yıl web tasarımında öne çıkan trendler ve nasıl uygulanacağı hakkında detaylı rehber.</p>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <span class="blog-category">SEO</span>
-                        <h3 class="blog-title">Yerel SEO Stratejileri</h3>
-                        <p class="blog-excerpt">Küçük işletmeler için yerel SEO optimizasyonu ve Google'da üst sıralarda yer alma ipuçları.</p>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <span class="blog-category">E-ticaret</span>
-                        <h3 class="blog-title">Online Satış Artırma Yöntemleri</h3>
-                        <p class="blog-excerpt">E-ticaret sitenizin satışlarını artırmak için uygulayabileceğiniz pratik yöntemler.</p>
-                    </div>
-                </article>
-            </div>
-            <div style="text-align: center; margin-top: 32px;">
-                <a href="#" class="btn btn-secondary">Tüm Yazılar</a>
+            <h2 class="section-title fade-in-up">Blog & Haberler</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto;" class="fade-in-up delay-1">
+                Web tasarım, dijital pazarlama, QR menü sistemleri ve restoran yönetim çözümleri hakkında güncel içerikler. Dijital dönüşüm yolculuğunuzda size rehberlik ediyoruz.
+            </p>
+            <div style="text-align: center;" class="fade-in-up delay-2">
+                <a href="blog.html" class="btn btn-primary">Tüm Blog Yazılarını Gör</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== WHY US SECTION ===== -->
-    <section class="section">
+    <!-- ===== FEATURED PACKAGES SECTION ===== -->
+    <section class="section" style="background: var(--bg-primary); padding: 80px 0;">
         <div class="container">
-            <h2 class="section-title">Neden Biz?</h2>
-            <div class="why-grid">
-                <div class="why-item">
-                    <i data-lucide="package" class="why-icon"></i>
-                    <h3 class="why-title">Tek Paket</h3>
-                    <p class="why-desc">Alan adı, hosting, tasarım ve kurulum — her şey tek pakette, 1 haftada yayında.</p>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 64px;">
+                <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px;">Popüler Paketler</h2>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); line-height: 1.7;">
+                    Her hizmet kategorisinden en popüler paketlerimiz. Detaylı bilgi için ilgili sayfayı ziyaret edin.
+                </p>
+            </div>
+            
+            <div class="packages-grid" style="max-width: 1200px; margin: 0 auto;">
+                <!-- Web Design Featured -->
+                <div class="package-card featured">
+                    <div class="package-badge">En Popüler</div>
+                    <h3 class="package-name">Web Tasarım - Profesyonel</h3>
+                    <div class="package-price">₺8.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>✅ 10 sayfa web sitesi</li>
+                        <li>✅ Özel tasarım</li>
+                        <li>✅ SEO optimizasyonu</li>
+                        <li>✅ Mobil uyumlu</li>
+                        <li>✅ .com.tr alan adı dahil</li>
+                        <li>✅ 1 yıl hosting & SSL</li>
+                    </ul>
+                    <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+                        <a href="web-design.html" class="btn btn-primary" style="text-align: center; text-decoration: none;">Detayları Gör</a>
+                        <button class="btn btn-secondary" onclick="openLeadForm('Profesyonel Web')">Teklif Al</button>
+                    </div>
                 </div>
                 
-                <div class="why-item">
-                    <i data-lucide="clock" class="why-icon"></i>
-                    <h3 class="why-title">Hızlı Teslim</h3>
-                    <p class="why-desc">1 hafta içinde web siteniz yayına hazır. Hızlı ve kaliteli çözümler.</p>
+                <!-- QR Menu Featured -->
+                <div class="package-card featured">
+                    <div class="package-badge">En Popüler</div>
+                    <h3 class="package-name">QR Kod Menü</h3>
+                    <div class="package-price">₺2.500 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>✅ Çok dilli menü (4+ dil)</li>
+                        <li>✅ QR kod tasarımı & baskı</li>
+                        <li>✅ Anlık güncelleme</li>
+                        <li>✅ Mobil uyumlu</li>
+                        <li>✅ .com.tr alan adı dahil</li>
+                        <li>✅ 1 yıl hosting & SSL</li>
+                    </ul>
+                    <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+                        <a href="qr-menu.html" class="btn btn-primary" style="text-align: center; text-decoration: none;">Detayları Gör</a>
+                        <button class="btn btn-secondary" onclick="openLeadForm('QR Kod Menü')">Teklif Al</button>
+                    </div>
                 </div>
                 
-                <div class="why-item">
-                    <i data-lucide="settings" class="why-icon"></i>
-                    <h3 class="why-title">Otomasyon Tecrübesi</h3>
-                    <p class="why-desc">Dijital otomasyonlar konusunda uzman ekibimizle işinizi kolaylaştırıyoruz.</p>
+                <!-- Restaurant Systems Featured -->
+                <div class="package-card featured">
+                    <div class="package-badge">En Popüler</div>
+                    <h3 class="package-name">Restoran - Profesyonel Sistem</h3>
+                    <div class="package-price">₺15.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>✅ Sipariş yönetimi</li>
+                        <li>✅ POS entegrasyonu</li>
+                        <li>✅ Garson uygulaması</li>
+                        <li>✅ Mutfak bildirimleri</li>
+                        <li>✅ .com.tr alan adı dahil</li>
+                        <li>✅ 1 yıl hosting & SSL</li>
+                    </ul>
+                    <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+                        <a href="restaurant-systems.html" class="btn btn-primary" style="text-align: center; text-decoration: none;">Detayları Gör</a>
+                        <button class="btn btn-secondary" onclick="openLeadForm('Profesyonel Sistem')">Teklif Al</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== CTA SECTION ===== -->
-    <section class="cta-section section">
+    <section class="cta-section section" style="background: linear-gradient(135deg, rgba(255, 184, 0, 0.1), rgba(255, 184, 0, 0.05)); padding: 100px 0;">
         <div class="container">
-            <h2 class="section-title">Hemen Başlayın</h2>
-            <div class="cta-buttons">
-                <button class="btn btn-primary" onclick="focusDomainInput()">Alan Adı Sorgula</button>
-                <a href="#packages" class="btn btn-secondary">Paketleri Gör</a>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 24px;">Projenize Başlayalım</h2>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 40px;">
+                    Dijital dönüşüm yolculuğunuzda size rehberlik etmek için hazırız. Hemen iletişime geçin.
+                </p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="web-design.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 32px;">Web Tasarım</a>
+                    <a href="qr-menu.html" class="btn btn-secondary" style="font-size: 1.1rem; padding: 16px 32px;">QR Menü</a>
+                    <a href="restaurant-systems.html" class="btn btn-secondary" style="font-size: 1.1rem; padding: 16px 32px;">Restoran Sistemleri</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1138,7 +1509,7 @@
                 <div class="footer-section">
                     <h4>İletişim</h4>
                     <ul class="footer-links">
-                        <li>📞 +90 530 561 67 47</li>
+                        <li>📞 +90 545 770 52 97</li>
                         <li>✉️ kaysia.store@gmail.com</li>
                         <li>📍 Antalya, Türkiye</li>
                     </ul>
@@ -1147,10 +1518,20 @@
                 <div class="footer-section">
                     <h4>Hizmetler</h4>
                     <ul class="footer-links">
-                        <li><a href="#services">Web Tasarım</a></li>
-                        <li><a href="#services">Alan Adı</a></li>
-                        <li><a href="#services">Otomasyon</a></li>
-                        <li><a href="#services">Destek</a></li>
+                        <li><a href="web-design.html">Web Tasarım</a></li>
+                        <li><a href="qr-menu.html">QR Menü</a></li>
+                        <li><a href="restaurant-systems.html">Restoran Sistemleri</a></li>
+                        <li><a href="yaptiklarimiz.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sayfalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="referanslar.html">Referanslar</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="domain-sorgula.html">Alan Adı Sorgula</a></li>
                     </ul>
                 </div>
                 
@@ -1275,7 +1656,7 @@
     </div>
 
     <!-- ===== COOKIE BANNER ===== -->
-    <div id="cookieBanner" style="position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-primary); border-top: 1px solid var(--glass-border); padding: 16px; z-index: 1000; display: none;">
+    <div id="cookieBanner" style="position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-primary); border-top: 2px solid rgba(255, 184, 0, 0.3); padding: 16px; z-index: 1000; display: none; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);">
         <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
             <p style="color: var(--text-secondary); margin: 0;">Zorunlu ve analitik çerezler kullanıyoruz. <a href="#cookies" style="color: var(--accent-yellow);">Detaylar için Çerez Politikası</a>.</p>
             <div style="display: flex; gap: 12px;">
@@ -1315,6 +1696,8 @@
             if (isTyping) return;
             
             const input = document.getElementById('domainInput');
+            if (!input) return; // Element yoksa çık
+            
             let currentDomainIndex = 0;
             let currentCharIndex = 0;
             let isDeleting = false;
@@ -1372,7 +1755,9 @@
                 typingAnimation = null;
             }
             const input = document.getElementById('domainInput');
-            input.classList.remove('typing-animation');
+            if (input) {
+                input.classList.remove('typing-animation');
+            }
         }
         
         function resetIdleTimeout() {
@@ -1381,12 +1766,14 @@
                 clearTimeout(idleTimeout);
             }
             
-            idleTimeout = setTimeout(() => {
-                const input = document.getElementById('domainInput');
-                if (!input.value && !isTyping) {
-                    startTypingAnimation();
-                }
-            }, 10000); // 10 seconds
+            const input = document.getElementById('domainInput');
+            if (input) {
+                idleTimeout = setTimeout(() => {
+                    if (!input.value && !isTyping) {
+                        startTypingAnimation();
+                    }
+                }, 10000); // 10 seconds
+            }
         }
         
         // ===== DOMAIN SEARCH FUNCTIONALITY =====
@@ -1438,19 +1825,25 @@
             const statusEl = document.getElementById('domainStatus');
             const alternativesEl = document.getElementById('alternatives');
             
+            if (!statusEl) return; // Element yoksa çık (domain-sorgula.html için)
+            
             statusEl.textContent = message;
             statusEl.className = `domain-status status-${type}`;
             statusEl.style.display = 'block';
             
-            if (type === 'error') {
-                alternativesEl.style.display = 'flex';
-            } else {
-                alternativesEl.style.display = 'none';
+            if (alternativesEl) {
+                if (type === 'error') {
+                    alternativesEl.style.display = 'flex';
+                } else {
+                    alternativesEl.style.display = 'none';
+                }
             }
         }
         
         function showAlternatives(alternatives) {
             const alternativesEl = document.getElementById('alternatives');
+            if (!alternativesEl) return; // Element yoksa çık
+            
             alternativesEl.innerHTML = alternatives.map(alt => 
                 `<button class="alt-btn" onclick="searchDomain('${alt}')">${alt}</button>`
             ).join('');
@@ -1459,7 +1852,9 @@
         
         function searchDomain(domain) {
             if (!domain) {
-                domain = document.getElementById('domainInput').value.trim();
+                const input = document.getElementById('domainInput');
+                if (!input) return; // Element yoksa çık
+                domain = input.value.trim();
             }
             
             if (!domain) {
@@ -1496,25 +1891,36 @@
         }
         
         function focusDomainInput() {
-            document.getElementById('domainInput').focus();
-            document.getElementById('domainInput').scrollIntoView({ behavior: 'smooth' });
+            const input = document.getElementById('domainInput');
+            if (input) {
+                input.focus();
+                input.scrollIntoView({ behavior: 'smooth' });
+            }
         }
         
         // ===== FORM FUNCTIONALITY =====
         function openLeadForm(packageName = '') {
             selectedPackage = packageName;
-            document.getElementById('package').value = packageName;
-            document.getElementById('selectedDomain').value = selectedDomain || '';
-            document.getElementById('leadModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            const packageInput = document.getElementById('package');
+            const domainInput = document.getElementById('selectedDomain');
+            const modal = document.getElementById('leadModal');
             
-            // Log event
-            console.log('lead_opened', { package: packageName, domain: selectedDomain });
+            if (packageInput) packageInput.value = packageName;
+            if (domainInput) domainInput.value = selectedDomain || '';
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Log event
+                console.log('lead_opened', { package: packageName, domain: selectedDomain });
+            }
         }
         
         function closeLeadForm() {
-            document.getElementById('leadModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            const modal = document.getElementById('leadModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         }
         
         function submitLeadForm(event) {
@@ -1545,13 +1951,19 @@
         }
         
         function showSuccessModal() {
-            document.getElementById('successModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            const modal = document.getElementById('successModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         }
         
         function closeSuccessModal() {
-            document.getElementById('successModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            const modal = document.getElementById('successModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         }
         
         function openWhatsApp() {
@@ -1566,15 +1978,43 @@
             console.log('whatsapp_click', { package: packageName, domain: domain });
         }
         
+        // ===== MOBILE MENU FUNCTIONALITY =====
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+            }
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+        
         // ===== MODAL FUNCTIONALITY =====
         function closeKvkkModal() {
-            document.getElementById('kvkkModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            const modal = document.getElementById('kvkkModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         }
         
         function acceptCookies() {
             localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookieBanner').style.display = 'none';
+            const cookieBanner = document.getElementById('cookieBanner');
+            if (cookieBanner) {
+                cookieBanner.style.display = 'none';
+            }
         }
         
         function showCookiePreferences() {
@@ -1763,57 +2203,70 @@
         // ===== EVENT LISTENERS =====
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize Lucide icons
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
             
-            // Domain input debounce
+            // Domain input debounce (only if element exists - for domain-sorgula.html)
             const domainInput = document.getElementById('domainInput');
-            domainInput.addEventListener('input', function() {
-                stopTypingAnimation();
-                resetIdleTimeout();
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(() => {
-                    if (this.value.length > 2) {
-                        searchDomain(this.value);
+            if (domainInput) {
+                domainInput.addEventListener('input', function() {
+                    if (typeof stopTypingAnimation === 'function') stopTypingAnimation();
+                    if (typeof resetIdleTimeout === 'function') resetIdleTimeout();
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        if (this.value.length > 2 && typeof searchDomain === 'function') {
+                            searchDomain(this.value);
+                        }
+                    }, 400);
+                });
+                
+                // Start typing animation when input is focused
+                domainInput.addEventListener('focus', function() {
+                    // Clear input when focused
+                    this.value = '';
+                    if (typeof stopTypingAnimation === 'function') stopTypingAnimation();
+                    if (typeof resetIdleTimeout === 'function') resetIdleTimeout();
+                });
+                
+                // Stop typing animation when user starts typing
+                domainInput.addEventListener('keydown', function() {
+                    if (typeof stopTypingAnimation === 'function') stopTypingAnimation();
+                    if (typeof resetIdleTimeout === 'function') resetIdleTimeout();
+                });
+                
+                // Enter key in domain input
+                domainInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' && typeof searchDomain === 'function') {
+                        searchDomain();
                     }
-                }, 400);
-            });
-            
-            // Start typing animation when input is focused
-            domainInput.addEventListener('focus', function() {
-                // Clear input when focused
-                this.value = '';
-                stopTypingAnimation();
-                resetIdleTimeout();
-            });
-            
-            // Stop typing animation when user starts typing
-            domainInput.addEventListener('keydown', function() {
-                stopTypingAnimation();
-                resetIdleTimeout();
-            });
+                });
+            }
             
             // Track mouse movement for idle detection
-            document.addEventListener('mousemove', resetIdleTimeout);
-            document.addEventListener('keydown', resetIdleTimeout);
-            
-            // Search button
-            document.getElementById('searchBtn').addEventListener('click', function() {
-                searchDomain();
+            document.addEventListener('mousemove', function() {
+                if (typeof resetIdleTimeout === 'function') resetIdleTimeout();
+            });
+            document.addEventListener('keydown', function() {
+                if (typeof resetIdleTimeout === 'function') resetIdleTimeout();
             });
             
-            // Enter key in domain input
-            domainInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    searchDomain();
-                }
-            });
+            // Search button (only if element exists - for domain-sorgula.html)
+            const searchBtn = document.getElementById('searchBtn');
+            if (searchBtn) {
+                searchBtn.addEventListener('click', function() {
+                    if (typeof searchDomain === 'function') {
+                        searchDomain();
+                    }
+                });
+            }
             
             // Modal close on outside click
             document.addEventListener('click', function(e) {
                 if (e.target.classList.contains('modal')) {
-                    closeLeadForm();
-                    closeSuccessModal();
-                    closeKvkkModal();
+                    if (typeof closeLeadForm === 'function') closeLeadForm();
+                    if (typeof closeSuccessModal === 'function') closeSuccessModal();
+                    if (typeof closeKvkkModal === 'function') closeKvkkModal();
                 }
             });
             
@@ -1831,22 +2284,30 @@
                 });
             });
             
-            // Show cookie banner if not accepted
-            if (!localStorage.getItem('cookiesAccepted')) {
+            // Show cookie banner if not accepted (only if element exists)
+            const cookieBanner = document.getElementById('cookieBanner');
+            if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
                 setTimeout(() => {
-                    document.getElementById('cookieBanner').style.display = 'block';
+                    cookieBanner.style.display = 'block';
                 }, 2000);
             }
             
-            // Start typing animation after page load
-            setTimeout(() => {
-                startTypingAnimation();
-            }, 1000);
+            // Start typing animation after page load (only if function exists)
+            if (typeof startTypingAnimation === 'function') {
+                setTimeout(() => {
+                    startTypingAnimation();
+                }, 1000);
+            }
             
-            // Initialize idle timeout
-            resetIdleTimeout();
+            // Initialize idle timeout (only if function exists)
+            if (typeof resetIdleTimeout === 'function') {
+                resetIdleTimeout();
+            }
             
-            // Add fade-in animation to sections
+            // ===== SCROLL ANIMATIONS - REMOVED =====
+            // Animasyonlar kaldırıldı - yazılar normal görünüyor
+            
+            // Add fade-in animation to sections (old code - keeping for compatibility)
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {

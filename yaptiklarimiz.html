@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Yaptıklarımız | Kaysia.co Antalya Dijital Çözümler</title>
+    <meta name="description" content="Kaysia.co'nun gerçekleştirdiği web tasarım, QR menü ve restoran yönetim sistemi projeleri. Antalya Lara, Muratpaşa, Kepez bölgelerinde başarılı çalışmalarımız.">
+    <meta name="keywords" content="portfolio, web tasarım örnekleri, QR menü örnekleri, Antalya web sitesi, Lara restoran menü, Kaysia.co projeleri">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFB800">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Space Grotesk, sans-serif' font-size='60' font-weight='700' text-anchor='middle' fill='%23FFB800'%3EK%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-020B9M10TE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-020B9M10TE');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --accent-yellow: #FFB800;
+            --accent-yellow-dark: #E6A600;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --text-light: #9CA3AF;
+            --glass-bg: rgba(255, 184, 0, 0.08);
+            --glass-border: rgba(255, 184, 0, 0.25);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .section {
+            padding: 120px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            font-size: 1.1rem;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        
+        .filter-btn {
+            padding: 10px 24px;
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+            color: var(--text-primary);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .portfolio-card {
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-yellow);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-size: 3rem;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .portfolio-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.15), rgba(255, 184, 0, 0.05));
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .portfolio-image img {
+            position: relative;
+            z-index: 0;
+        }
+        
+        .portfolio-image > div {
+            position: absolute;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        .portfolio-content {
+            padding: 24px;
+        }
+        
+        .portfolio-category {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .portfolio-title {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        
+        .portfolio-description {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        
+        .portfolio-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .tech-tag {
+            padding: 4px 12px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-yellow-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .portfolio-link:hover {
+            color: var(--accent-yellow);
+            gap: 12px;
+        }
+        
+        .footer {
+            background: var(--bg-primary);
+            border-top: 2px solid rgba(255, 184, 0, 0.3);
+            padding: 48px 0 24px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 184, 0, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Kaysia.co</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" class="nav-link">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" class="nav-link">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" class="nav-link">Portfolio</a></li>
+                <li><a href="referanslar.html" class="nav-link">Referanslar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== PORTFOLIO SECTION ===== -->
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Yaptıklarımız</h1>
+            <p class="section-subtitle">Gerçekleştirdiğimiz web tasarım, QR menü ve restoran yönetim sistemi projelerimiz. Antalya ve çevresinde başarılı çalışmalarımız.</p>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Tümü</button>
+                <button class="filter-btn" data-filter="qr-menu">QR Menü</button>
+                <button class="filter-btn" data-filter="web-design">Web Tasarım</button>
+                <button class="filter-btn" data-filter="restaurant-system">Restoran Sistemi</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Portfolio Item 1: bonvera.food -->
+                <div class="portfolio-card" data-category="restaurant-system">
+                    <div class="portfolio-image">
+                        <img src="screenshots/bonvera.png" alt="Bonvera Food Online Sipariş Sistemi - Fransa Strasbourg" loading="lazy">
+                        <div style="text-align: center; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 8px; font-size: 1rem; font-weight: 700; color: var(--text-primary); z-index: 3;">
+                            bonvera.food
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Online Sipariş Sistemi</span>
+                        <h3 class="portfolio-title">Bonvera Food - Online Sipariş Sistemi</h3>
+                        <p class="portfolio-description">
+                            Fransa Strasbourg'da faaliyet gösteren Bonvera Food için geliştirilen kapsamlı online sipariş sistemi. Mobil cihazlardan kolay sipariş verme, siparişlerin otomatik mutfağa iletilmesi, sipariş yönetimi ve takip sistemi ile işletme verimliliğini artıran çözüm. Özellikle yoğun saatlerde sipariş akışını sorunsuz yönetmeyi sağlayan sistem, Fransa'daki Türk restoranları için örnek bir dijital dönüşüm projesi.
+                        </p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Online Sipariş</span>
+                            <span class="tech-tag">Sipariş Yönetimi</span>
+                            <span class="tech-tag">Mobil Uyumlu</span>
+                            <span class="tech-tag">Admin Panel</span>
+                        </div>
+                        <a href="https://bonvera.food" target="_blank" class="portfolio-link">
+                            Siteyi Görüntüle <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2: akcmim.com -->
+                <div class="portfolio-card" data-category="web-design">
+                    <div class="portfolio-image">
+                        <img src="screenshots/akcmim.png" alt="AKCM İnşaat Kurumsal Web Sitesi - Mimari Proje ve Kentsel Dönüşüm" loading="lazy">
+                        <div style="text-align: center; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 8px; font-size: 1rem; font-weight: 700; color: var(--text-primary); z-index: 3;">
+                            akcmim.com
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Web Tasarım</span>
+                        <h3 class="portfolio-title">AKC Mimarlık - Kentsel Dönüşüm Web Sitesi</h3>
+                        <p class="portfolio-description">
+                            Antalya Muratpaşa'da faaliyet gösteren AKC Mimarlık için kentsel dönüşüm projelerini sergileyen modern ve profesyonel kurumsal web sitesi. Kentsel dönüşüm, mimari proje, inşaat ve dönüşüm süreçlerini görsel olarak etkili bir şekilde sunan site, SEO optimizasyonu ile Antalya kentsel dönüşüm, Muratpaşa mimarlık, dönüşüm projeleri gibi anahtar kelimelerde Google'da üst sıralarda yer alıyor. Mobil uyumlu responsive tasarım ile tüm cihazlardan mükemmel görüntülenen site, kentsel dönüşüm sektöründe dijital varlığını güçlendiren örnek bir proje.
+                        </p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Kurumsal</span>
+                            <span class="tech-tag">SEO</span>
+                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">Hızlı Yükleme</span>
+                        </div>
+                        <a href="https://akcmim.com" target="_blank" class="portfolio-link">
+                            Siteyi Görüntüle <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3: Lara Restoran -->
+                <div class="portfolio-card" data-category="qr-menu">
+                    <div class="portfolio-image">
+                        <img src="screenshots/yicem.png" alt="Lara Restoran QR Menü ve Çok Dilli Online Menü" loading="lazy">
+                        <div style="text-align: center; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 8px; font-size: 1rem; font-weight: 700; color: var(--text-primary); z-index: 3;">
+                            Lara Restoran
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">QR Menü & Online Menü</span>
+                        <h3 class="portfolio-title">Lara Restoran - QR Menü & Çok Dilli Online Menü</h3>
+                        <p class="portfolio-description">
+                            Antalya Lara bölgesinde faaliyet gösteren restoran için geliştirilen QR menü ve çok dilli online menü sistemi. QR kod ile hızlı menü erişimi, online menü ile 7/24 menü inceleme imkanı, İngilizce, Almanca, Rusça gibi dillerde menü desteği ile turistlere yönelik çözümler sunuyor. Lara'nın turizm merkezi olması nedeniyle çok dilli menü desteği kritik öneme sahip. Mobil uyumlu tasarım ile müşteriler telefonlarından rahatça menüyü görüntüleyebiliyor. Hijyenik ve temassız menü deneyimi sunan sistem, Antalya turizm sektöründe dijital dönüşümün önemli bir örneği.
+                        </p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">QR Kod</span>
+                            <span class="tech-tag">Çok Dilli</span>
+                            <span class="tech-tag">Online Menü</span>
+                            <span class="tech-tag">Mobil Uyumlu</span>
+                        </div>
+                        <a href="#" class="portfolio-link" onclick="return false;">
+                            Siteyi Görüntüle <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Placeholder for future projects -->
+                <div class="portfolio-card" data-category="web-design" style="opacity: 0.6;">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=400&fit=crop" alt="Yeni Projeler Geliyor" loading="lazy">
+                        <div style="text-align: center; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 8px; font-size: 1rem; font-weight: 700; color: var(--text-primary); z-index: 3;">
+                            Yeni Proje
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Yakında</span>
+                        <h3 class="portfolio-title">Yeni Projeler Geliyor</h3>
+                        <p class="portfolio-description">
+                            Daha fazla proje örneği yakında eklenecek. Çalışmalarımızı takip etmeye devam edin.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <ul class="footer-links">
+                        <li>📞 +90 545 770 52 97</li>
+                        <li>✉️ kaysia.store@gmail.com</li>
+                        <li>📍 Antalya, Türkiye</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hizmetler</h4>
+                    <ul class="footer-links">
+                        <li><a href="web-design.html">Web Tasarım</a></li>
+                        <li><a href="qr-menu.html">QR Menü</a></li>
+                        <li><a href="restaurant-systems.html">Restoran Sistemleri</a></li>
+                        <li><a href="yaptiklarimiz.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sayfalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="referanslar.html">Referanslar</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="domain-sorgula.html">Alan Adı Sorgula</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kaysia.co - Tüm hakları saklıdır. | Antalya Dijital Çözümler.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioCards = document.querySelectorAll('.portfolio-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

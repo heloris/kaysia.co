@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Yönetim Sistemleri | Antalya Lara, Muratpaşa, Kepez, Konyaaltı</title>
+    <meta name="description" content="Antalya restoranları için kapsamlı yönetim sistemleri. Sipariş yönetimi, POS entegrasyonu, garson uygulaması, mutfak ekranı, kasa sistemi. Lara, Muratpaşa, Kepez, Konyaaltı bölgelerinde hizmet.">
+    <meta name="keywords" content="restoran yönetim sistemi, POS entegrasyonu, garson uygulaması, mutfak ekranı, Antalya restoran sistemi, Lara POS, Muratpaşa sipariş yönetimi, Kepez restoran otomasyonu">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFB800">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Space Grotesk, sans-serif' font-size='60' font-weight='700' text-anchor='middle' fill='%23FFB800'%3EK%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-020B9M10TE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-020B9M10TE');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --accent-yellow: #FFB800;
+            --accent-yellow-dark: #E6A600;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --text-light: #9CA3AF;
+            --glass-bg: rgba(255, 184, 0, 0.08);
+            --glass-border: rgba(255, 184, 0, 0.25);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.2);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            min-height: 44px;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.02);
+            background: var(--accent-yellow-dark);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 2px solid var(--accent-yellow);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .section {
+            padding: 120px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.08), rgba(255, 184, 0, 0.03));
+        }
+        
+        .hero-title {
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-yellow-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .package-card {
+            background: var(--bg-primary);
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), 0 20px 40px rgba(255, 184, 0, 0.25);
+            border-color: var(--accent-yellow);
+        }
+        
+        .package-card.featured {
+            border-color: var(--accent-yellow);
+            border-width: 3px;
+            box-shadow: var(--shadow-lg), 0 0 30px rgba(255, 184, 0, 0.3);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-yellow);
+            color: var(--text-primary);
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .package-name {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow-dark);
+            margin-bottom: 8px;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin: 24px 0;
+            text-align: left;
+        }
+        
+        .package-features li {
+            padding: 8px 0;
+            color: var(--text-primary);
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .why-item {
+            text-align: center;
+            background: var(--bg-primary);
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 184, 0, 0.3);
+            box-shadow: var(--shadow);
+        }
+        
+        .why-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            color: var(--accent-yellow);
+        }
+        
+        .why-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .why-desc {
+            color: var(--text-secondary);
+        }
+        
+        .seo-content {
+            background: var(--bg-primary);
+            padding: 48px;
+            border-radius: 20px;
+            margin: 48px 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .seo-content h3 {
+            color: var(--accent-yellow-dark);
+            margin-bottom: 16px;
+        }
+        
+        .seo-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        
+        .footer {
+            background: var(--bg-primary);
+            border-top: 2px solid rgba(255, 184, 0, 0.3);
+            padding: 48px 0 24px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 184, 0, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--accent-yellow);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 73px;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border-bottom: 2px solid rgba(255, 184, 0, 0.3);
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            max-height: calc(100vh - 73px);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 20px;
+        }
+        
+        .mobile-menu li {
+            margin-bottom: 16px;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu a:hover {
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--accent-yellow);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            
+            .package-card {
+                padding: 24px 20px;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            
+            .package-price {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Kaysia.co</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="web-design.html" class="nav-link">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" class="nav-link">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" class="nav-link">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" class="nav-link">Portfolio</a></li>
+                <li><a href="referanslar.html" class="nav-link">Referanslar</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menü">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html" onclick="toggleMobileMenu()">Ana Sayfa</a></li>
+                <li><a href="web-design.html" onclick="toggleMobileMenu()">Web Tasarım</a></li>
+                <li><a href="qr-menu.html" onclick="toggleMobileMenu()">QR Menü</a></li>
+                <li><a href="restaurant-systems.html" onclick="toggleMobileMenu()">Restoran Sistemleri</a></li>
+                <li><a href="yaptiklarimiz.html" onclick="toggleMobileMenu()">Portfolio</a></li>
+                <li><a href="referanslar.html" onclick="toggleMobileMenu()">Referanslar</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero section">
+        <div class="container">
+            <h1 class="hero-title">Restoran Yönetim Sistemleri</h1>
+            <p class="section-subtitle">
+                Antalya Lara, Muratpaşa, Kepez, Konyaaltı ve Varsak bölgelerindeki restoranlar için kapsamlı yönetim çözümleri. Sipariş yönetimi, POS entegrasyonu, garson uygulaması, mutfak ekranı ve kasa sistemi ile işletmenizi dijitalleştirin.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== PACKAGES SECTION ===== -->
+    <section class="section" style="background: var(--bg-primary);">
+        <div class="container">
+            <h2 class="section-title">Restoran Sistem Paketleri</h2>
+            <p class="section-subtitle">Tüm paketlerimiz .com.tr alan adı ile geliştirilir ve 1 yıl hosting & SSL sertifikası dahildir.</p>
+            
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3 class="package-name">Temel Sistem</h3>
+                    <div class="package-price">₺8.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>✅ Sipariş yönetimi & sepet</li>
+                        <li>✅ Müşteri lokasyon alma</li>
+                        <li>✅ Ödeme yöntemi seçimi</li>
+                        <li>✅ Kurye adres yönlendirme</li>
+                        <li>✅ Temel sipariş takibi</li>
+                        <li>✅ WhatsApp & Arama butonları</li>
+                        <li>✅ .com.tr alan adı dahil</li>
+                        <li>✅ 1 yıl hosting & SSL</li>
+                    </ul>
+                    <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+                        <button class="btn btn-primary" onclick="openLeadForm('Temel Sistem')">Teklif Al</button>
+                        <a href="https://wa.me/905305616747?text=Temel%20Sistem%20paketi%20hakkında%20bilgi%20almak%20istiyorum" target="_blank" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="message-circle"></i> WhatsApp
+                        </a>
+                        <a href="tel:+905457705297" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="phone"></i> Ara
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="package-card featured">
+                    <div class="package-badge">En Popüler</div>
+                    <h3 class="package-name">Profesyonel Sistem</h3>
+                    <div class="package-price">₺15.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>✅ Tüm Temel Sistem özellikleri</li>
+                        <li>✅ POS yönetimi entegrasyonu</li>
+                        <li>✅ Garson sipariş alma uygulaması</li>
+                        <li>✅ Siparişi mutfak için bildirme</li>
+                        <li>✅ Siparişi kasa için yönlendirme</li>
+                        <li>✅ Gelişmiş sipariş takibi</li>
+                        <li>✅ .com.tr alan adı dahil</li>
+                        <li>✅ 1 yıl hosting & SSL</li>
+                    </ul>
+                    <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+                        <button class="btn btn-primary" onclick="openLeadForm('Profesyonel Sistem')">Teklif Al</button>
+                        <a href="https://wa.me/905305616747?text=Profesyonel%20Sistem%20paketi%20hakkında%20bilgi%20almak%20istiyorum" target="_blank" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="message-circle"></i> WhatsApp
+                        </a>
+                        <a href="tel:+905457705297" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="phone"></i> Ara
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="package-card">
+                    <h3 class="package-name">Premium Sistem</h3>
+                    <div class="package-price">₺25.000 <span style="font-size: 0.7em; color: var(--text-secondary);">+ KDV</span></div>
+                    <ul class="package-features">
+                        <li>✅ Tüm Profesyonel Sistem özellikleri</li>
+                        <li>✅ Mutfak ekranı & bildirimleri</li>
+                        <li>✅ Kasa entegrasyonu & raporlama</li>
+                        <li>✅ Stok yönetimi</li>
+                        <li>✅ Gelişmiş analitik dashboard</li>
+                        <li>✅ Müşteri yönetim sistemi</li>
+                        <li>✅ .com.tr alan adı dahil</li>
+                        <li>✅ 1 yıl hosting & SSL</li>
+                    </ul>
+                    <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+                        <button class="btn btn-primary" onclick="openLeadForm('Premium Sistem')">Teklif Al</button>
+                        <a href="https://wa.me/905305616747?text=Premium%20Sistem%20paketi%20hakkında%20bilgi%20almak%20istiyorum" target="_blank" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="message-circle"></i> WhatsApp
+                        </a>
+                        <a href="tel:+905457705297" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i data-lucide="phone"></i> Ara
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-item">
+                    <i data-lucide="shopping-cart" class="why-icon"></i>
+                    <h3 class="why-title">Sipariş Yönetimi</h3>
+                    <p class="why-desc">Sepet sistemi, sipariş takibi ve müşteri lokasyonu alma özellikleriyle kapsamlı sipariş yönetimi.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="credit-card" class="why-icon"></i>
+                    <h3 class="why-title">Ödeme Entegrasyonu</h3>
+                    <p class="why-desc">Online ödeme yöntemleri, POS entegrasyonu ve kasa yönetimi ile tam entegrasyon.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="navigation" class="why-icon"></i>
+                    <h3 class="why-title">Kurye Yönlendirme</h3>
+                    <p class="why-desc">Müşteri adres ve bilgilerini kurye sistemine otomatik yönlendirme.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="smartphone" class="why-icon"></i>
+                    <h3 class="why-title">Garson Uygulaması</h3>
+                    <p class="why-desc">Garsonlar için özel sipariş alma uygulaması ve sipariş yönetimi.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="chef-hat" class="why-icon"></i>
+                    <h3 class="why-title">Mutfak Entegrasyonu</h3>
+                    <p class="why-desc">Siparişleri mutfak için bildirme, mutfak ekranı ve hazırlık takibi.</p>
+                </div>
+                
+                <div class="why-item">
+                    <i data-lucide="receipt" class="why-icon"></i>
+                    <h3 class="why-title">Kasa Yönetimi</h3>
+                    <p class="why-desc">Siparişleri kasa için yönlendirme, ödeme işlemleri ve raporlama.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEO CONTENT SECTION ===== -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="seo-content">
+                <h2 style="margin-bottom: 24px; color: var(--accent-yellow-dark);">Antalya Restoranları İçin Yönetim Sistemleri</h2>
+                
+                <h3>Lara Bölgesi Restoran Sistemleri</h3>
+                <p>
+                    <strong>Lara</strong> bölgesindeki restoranlar için özel yönetim çözümleri. Turist yoğunluğunun fazla olduğu Lara'da sipariş yönetimi, POS entegrasyonu ve mutfak sistemi ile işletmenizi optimize edin. Garson uygulaması sayesinde siparişlerinizi hızlıca alın ve mutfağa yönlendirin.
+                </p>
+                
+                <h3>Muratpaşa Restoran Otomasyonu</h3>
+                <p>
+                    <strong>Muratpaşa</strong> ilçesindeki restoranlar için kapsamlı otomasyon sistemleri. Sipariş yönetimi, ödeme entegrasyonu ve kasa sistemi ile işletmenizin operasyonlarını dijitalleştirin. Kurye yönlendirme özelliği ile teslimat süreçlerinizi kolaylaştırın.
+                </p>
+                
+                <h3>Kepez ve Varsak Restoran Çözümleri</h3>
+                <p>
+                    <strong>Kepez</strong> ve <strong>Varsak</strong> bölgelerindeki restoran sahipleri için ekonomik yönetim sistemi paketleri. Temel sistem paketi ile sipariş yönetimi, sepet sistemi ve kurye yönlendirme özelliklerine sahip olun. Profesyonel sistem ile POS entegrasyonu ve mutfak bildirimleri ekleyin.
+                </p>
+                
+                <h3>Konyaaltı Sahil Restoranları</h3>
+                <p>
+                    <strong>Konyaaltı</strong> sahil bölgesindeki restoranlar için özel yönetim çözümleri. Premium sistem paketi ile mutfak ekranı, kasa entegrasyonu, stok yönetimi ve analitik dashboard özelliklerine sahip olun. Sahil kenarındaki yoğun işletmeler için ideal çözüm.
+                </p>
+                
+                <h3>Sistem Özellikleri ve Avantajları</h3>
+                <ul>
+                    <li><strong>Sipariş Yönetimi:</strong> Online sipariş alma, sepet sistemi ve sipariş takibi</li>
+                    <li><strong>POS Entegrasyonu:</strong> Mevcut POS cihazlarınızla entegrasyon</li>
+                    <li><strong>Garson Uygulaması:</strong> Garsonlar için özel mobil uygulama</li>
+                    <li><strong>Mutfak Ekranı:</strong> Siparişleri mutfak ekranında görüntüleme ve hazırlık takibi</li>
+                    <li><strong>Kasa Yönetimi:</strong> Otomatik kasa yönlendirme ve raporlama</li>
+                    <li><strong>Stok Yönetimi:</strong> Ürün stoklarını takip edin ve uyarı alın</li>
+                    <li><strong>Analitik Dashboard:</strong> Satış raporları, en çok satan ürünler, günlük/haftalık/aylık raporlar</li>
+                    <li><strong>Müşteri Yönetimi:</strong> Müşteri bilgileri, sipariş geçmişi ve sadakat programları</li>
+                </ul>
+                
+                <h3>Antalya'da Restoran Sistemleri</h3>
+                <p>
+                    Antalya'nın birçok restoranı artık dijital yönetim sistemlerine geçiyor. Lara, Muratpaşa, Kepez, Konyaaltı ve Varsak bölgelerindeki başarılı restoranlar sipariş yönetimi, POS entegrasyonu ve mutfak sistemleri ile işletmelerini optimize ediyor. Siz de restoranınızı dijitalleştirin ve operasyonel verimliliğinizi artırın.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <ul class="footer-links">
+                        <li>📞 +90 545 770 52 97</li>
+                        <li>✉️ kaysia.store@gmail.com</li>
+                        <li>📍 Antalya, Türkiye</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hizmetler</h4>
+                    <ul class="footer-links">
+                        <li><a href="web-design.html">Web Tasarım</a></li>
+                        <li><a href="qr-menu.html">QR Menü</a></li>
+                        <li><a href="restaurant-systems.html">Restoran Sistemleri</a></li>
+                        <li><a href="yaptiklarimiz.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sayfalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="referanslar.html">Referanslar</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="domain-sorgula.html">Alan Adı Sorgula</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kaysia.co - Tüm hakları saklıdır. | Antalya Dijital Çözümler.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openLeadForm(packageName) {
+            const message = `Merhaba, ${packageName} paketi hakkında bilgi almak istiyorum.`;
+            window.location.href = `https://wa.me/905305616747?text=${encodeURIComponent(message)}`;
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
