@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetlaApp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .mobile-container {
+            max-width: 430px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .profile-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 90px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Paketler Sekmesi */
+        .switch-container {
+            display: flex;
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 20px;
+        }
+
+        .switch-btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: #777;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .switch-btn.active {
+            background: white;
+            color: #1a1a1a;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .package-card.active {
+            border-color: #ff3b30;
+            background: #fff5f5;
+        }
+
+        .restaurant-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .route {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .delivery-time {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .earnings {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff3b30;
+            margin-bottom: 12px;
+        }
+
+        .earnings-breakdown {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .btn-map {
+            background: #ff3b30;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .package-date {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .package-km {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .package-total {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .btn-detail {
+            background: #f5f5f5;
+            color: #1a1a1a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Kazanç Sekmesi */
+        .filter-chips {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .chip {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #e5e5e5;
+            background: white;
+            color: #666;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .chip.active {
+            background: #ff3b30;
+            color: white;
+            border-color: #ff3b30;
+        }
+
+        .earnings-card {
+            background: linear-gradient(135deg, #ff3b30 0%, #ff6b5a 100%);
+            border-radius: 20px;
+            padding: 24px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .earnings-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .earnings-amount {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .info-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .info-card-title {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .info-card-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .info-card-subtitle {
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .chart-container {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            height: 120px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: #ff3b30;
+            border-radius: 4px 4px 0 0;
+            min-height: 20px;
+            position: relative;
+        }
+
+        .chart-bar:nth-child(1) { height: 60%; }
+        .chart-bar:nth-child(2) { height: 80%; }
+        .chart-bar:nth-child(3) { height: 45%; }
+        .chart-bar:nth-child(4) { height: 90%; }
+        .chart-bar:nth-child(5) { height: 70%; }
+        .chart-bar:nth-child(6) { height: 85%; }
+        .chart-bar:nth-child(7) { height: 100%; }
+
+        .chart-label {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: #999;
+        }
+
+        /* QR Sekmesi */
+        .qr-placeholder {
+            background: #f5f5f5;
+            border: 2px dashed #ddd;
+            border-radius: 16px;
+            padding: 60px 20px;
+            text-align: center;
+            color: #999;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            font-size: 16px;
+            background: white;
+        }
+
+        .btn-primary {
+            background: #ff3b30;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #ff3b30;
+            border: 1px solid #ff3b30;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .payments-list {
+            margin-top: 24px;
+        }
+
+        .payments-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .payment-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .payment-item:last-child {
+            border-bottom: none;
+        }
+
+        .payment-info {
+            flex: 1;
+        }
+
+        .payment-amount {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .payment-merchant {
+            font-size: 14px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .payment-time {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Bottom Tab Bar */
+        .bottom-tab-bar {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 8px 0 12px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .tab-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 14px;
+            margin: 0 4px;
+        }
+
+        .tab-btn.active {
+            background: #ff3b30;
+        }
+
+        .tab-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .tab-label {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .tab-btn.active .tab-icon,
+        .tab-btn.active .tab-label {
+            color: white;
+        }
+
+        .tab-btn:not(.active) .tab-icon,
+        .tab-btn:not(.active) .tab-label {
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+            }
+
+            .mobile-container {
+                border-radius: 0;
+                max-width: 100%;
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-title">JetlaApp</div>
+            <div class="profile-icon">J</div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Paketler Sekmesi -->
+            <div class="tab-content active" id="paketler">
+                <div class="switch-container">
+                    <button class="switch-btn active">Aktif Paketler</button>
+                    <button class="switch-btn">Geçmiş Paketler</button>
+                </div>
+
+                <div class="package-card active">
+                    <div class="restaurant-name">McDonald's</div>
+                    <div class="route">Lara ➜ Konyaaltı</div>
+                    <div class="delivery-time">Tahmini teslim saati: 19:45</div>
+                    <div class="earnings">82₺</div>
+                    <div class="earnings-breakdown">68₺ paket + 14₺ km</div>
+                    <button class="btn-map">Haritayı Aç</button>
+                </div>
+
+                <div class="package-card active">
+                    <div class="restaurant-name">Burger King</div>
+                    <div class="route">Muratpaşa ➜ Kepez</div>
+                    <div class="delivery-time">Tahmini teslim saati: 20:15</div>
+                    <div class="earnings">95₺</div>
+                    <div class="earnings-breakdown">80₺ paket + 15₺ km</div>
+                    <button class="btn-map">Haritayı Aç</button>
+                </div>
+            </div>
+
+            <!-- Kazanç Sekmesi -->
+            <div class="tab-content" id="kazanc">
+                <div class="filter-chips">
+                    <div class="chip active">Gün</div>
+                    <div class="chip">Hafta</div>
+                    <div class="chip">Ay</div>
+                </div>
+
+                <div class="earnings-card">
+                    <div class="earnings-label">Bugünkü Kazancın</div>
+                    <div class="earnings-amount">416₺</div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-title">Paket Kazancı</div>
+                    <div class="info-card-value">320₺</div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-title">KM Bonusu</div>
+                    <div class="info-card-value">96₺</div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-title">Avans</div>
+                    <div class="info-card-value">1,200₺ / 2,000₺</div>
+                    <div class="info-card-subtitle">Kalan: 800₺</div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Son 7 Gün Kazanç</div>
+                    <div class="chart-bars">
+                        <div class="chart-bar">
+                            <span class="chart-label">Pzt</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span class="chart-label">Sal</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span class="chart-label">Çar</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span class="chart-label">Per</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span class="chart-label">Cum</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span class="chart-label">Cmt</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span class="chart-label">Paz</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QR Sekmesi -->
+            <div class="tab-content" id="qr">
+                <div class="qr-placeholder">
+                    QR Kodu Placeholder
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Tutar</label>
+                    <input type="number" class="input-field" placeholder="0₺">
+                </div>
+
+                <button class="btn-primary">QR Oluştur</button>
+                <button class="btn-secondary">Link Kopyala</button>
+
+                <div class="payments-list">
+                    <div class="payments-title">Son Ödemeler</div>
+                    <div class="payment-item">
+                        <div class="payment-info">
+                            <div class="payment-amount">120₺</div>
+                            <div class="payment-merchant">Korkutelı Pide</div>
+                        </div>
+                        <div class="payment-time">18:32</div>
+                    </div>
+                    <div class="payment-item">
+                        <div class="payment-info">
+                            <div class="payment-amount">245₺</div>
+                            <div class="payment-merchant">Endless Uçkapılar</div>
+                        </div>
+                        <div class="payment-time">17:10</div>
+                    </div>
+                    <div class="payment-item">
+                        <div class="payment-info">
+                            <div class="payment-amount">89₺</div>
+                            <div class="payment-merchant">Pizza Hut</div>
+                        </div>
+                        <div class="payment-time">16:45</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Tab Bar -->
+        <div class="bottom-tab-bar">
+            <button class="tab-btn active" data-tab="paketler">
+                <div class="tab-icon">📦</div>
+                <div class="tab-label">Paketler</div>
+            </button>
+            <button class="tab-btn" data-tab="kazanc">
+                <div class="tab-icon">💰</div>
+                <div class="tab-label">Kazanç</div>
+            </button>
+            <button class="tab-btn" data-tab="qr">
+                <div class="tab-icon">📱</div>
+                <div class="tab-label">QR</div>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        // Switch button functionality for Paketler tab
+        const switchButtons = document.querySelectorAll('.switch-btn');
+        switchButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                switchButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
