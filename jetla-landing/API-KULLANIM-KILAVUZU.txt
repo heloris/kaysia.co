@@ -1,0 +1,229 @@
+================================================================================
+GOOGLE MAPS API KULLANIM KILAVUZU - JETLA EXPRESS
+================================================================================
+
+Bu dosya, Jetla Express sayfasında kullanılan Google Maps API'lerinin nasıl
+kurulacağını ve kullanılacağını açıklar.
+
+================================================================================
+1. GOOGLE CLOUD CONSOLE'DA PROJE OLUŞTURMA
+================================================================================
+
+1.1. Google Cloud Console'a gidin:
+    https://console.cloud.google.com/
+
+1.2. Yeni bir proje oluşturun:
+    - Üst kısımdaki proje seçiciye tıklayın
+    - "New Project" (Yeni Proje) butonuna tıklayın
+    - Proje adını girin (örn: "Jetla Kurye Maps")
+    - "Create" (Oluştur) butonuna tıklayın
+
+================================================================================
+2. GEREKLİ API'LERİ ETKİNLEŞTİRME
+================================================================================
+
+Aşağıdaki API'lerin etkinleştirilmesi gerekmektedir:
+
+2.1. Maps JavaScript API
+    - Sol menüden "APIs & Services" > "Library" seçin
+    - "Maps JavaScript API" arayın
+    - "Enable" (Etkinleştir) butonuna tıklayın
+
+2.2. Directions API
+    - "Directions API" arayın
+    - "Enable" (Etkinleştir) butonuna tıklayın
+
+2.3. Geocoding API
+    - "Geocoding API" arayın
+    - "Enable" (Etkinleştir) butonuna tıklayın
+
+NOT: Tüm API'ler ücretsiz kullanım limiti içinde kullanılabilir.
+
+================================================================================
+3. API KEY OLUŞTURMA
+================================================================================
+
+3.1. API Key oluşturma:
+    - Sol menüden "APIs & Services" > "Credentials" seçin
+    - Üst kısımdaki "+ CREATE CREDENTIALS" butonuna tıklayın
+    - "API key" seçeneğini seçin
+    - Oluşturulan API key'i kopyalayın
+
+3.2. API Key kısıtlamaları (Önerilen):
+    - API key'e tıklayarak düzenleme sayfasına gidin
+    - "Application restrictions" bölümünde:
+      * "HTTP referrers (web sitesi)" seçin
+      * Web sitenizin domain'ini ekleyin:
+        - jetla.com.tr/*
+        - *.jetla.com.tr/*
+        - jetlakurye.com/* (eğer bu domain de kullanılıyorsa)
+        - *.jetlakurye.com/* (eğer bu domain de kullanılıyorsa)
+        - localhost:* (geliştirme için)
+        - 127.0.0.1:* (geliştirme için)
+        - file://* (NOT: Bu güvenlik riski oluşturabilir, sadece test için)
+    - "API restrictions" bölümünde:
+      * "Restrict key" seçin
+      * Sadece şu API'leri seçin:
+        - Maps JavaScript API
+        - Directions API
+        - Geocoding API
+    - "Save" (Kaydet) butonuna tıklayın
+
+ÖNEMLİ NOT: 
+- Eğer "RefererNotAllowedMapError" hatası alıyorsanız, API key kısıtlamalarında
+  kullandığınız URL'yi eklemeniz gerekmektedir.
+- Local dosya testleri için "file://*" ekleyebilirsiniz ancak production'da
+  kaldırmanız önerilir.
+
+================================================================================
+4. API KEY'İ EXPRESS.HTML DOSYASINA EKLEME
+================================================================================
+
+4.1. express.html dosyasını açın
+
+4.2. Satır 33'teki şu satırı bulun:
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places,directions&callback=initMap" async defer></script>
+
+4.3. YOUR_API_KEY yerine kendi API key'inizi yapıştırın:
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&libraries=places&loading=async&callback=initMap" async defer></script>
+
+NOT: 
+- "directions" kütüphanesi artık otomatik yükleniyor, ayrıca belirtmeye gerek yok
+- "loading=async" parametresi performans için eklenmiştir
+
+4.4. Dosyayı kaydedin
+
+================================================================================
+5. API KULLANIM LİMİTLERİ VE ÜCRETLENDİRME
+================================================================================
+
+5.1. Ücretsiz Kullanım Limiti (Aylık $200 kredi):
+    - Maps JavaScript API: 
+      * Harita yükleme: $0.007 per load
+      * Aylık ~28,000 ücretsiz harita yüklemesi
+    - Directions API:
+      * Rota hesaplama: $0.005 per request
+      * Aylık ~40,000 ücretsiz rota hesaplaması
+    - Geocoding API:
+      * Adres dönüşümü: $0.005 per request
+      * Aylık ~40,000 ücretsiz adres dönüşümü
+
+5.2. Limit Aşımı:
+    - Ücretsiz limit aşıldığında Google hesabınızdan ücret kesilir
+    - Billing (Faturalandırma) ayarlarından limitler belirlenebilir
+
+5.3. Fiyatlandırma:
+    - Detaylı fiyatlandırma: https://cloud.google.com/maps-platform/pricing
+
+================================================================================
+6. TEST ETME
+================================================================================
+
+6.1. express.html dosyasını bir web sunucusunda açın
+    (localhost veya gerçek domain)
+
+6.2. Tarayıcı konsolunu açın (F12)
+
+6.3. Sayfayı test edin:
+    - Başlangıç noktası için bir adres girin
+    - "Konum Seç" butonuna tıklayın
+    - Haritada yeşil marker görünmeli
+    - Bitiş noktası için bir adres girin
+    - "Konum Seç" butonuna tıklayın
+    - Haritada kırmızı marker ve rota çizgisi görünmeli
+    - Mesafe ve süre bilgisi görünmeli
+
+6.4. Hata kontrolü:
+    - Konsolda hata mesajları varsa kontrol edin
+    - API key'in doğru olduğundan emin olun
+    - API'lerin etkinleştirildiğinden emin olun
+
+================================================================================
+7. SORUN GİDERME
+================================================================================
+
+7.1. "Google Maps JavaScript API error" hatası:
+    - API key'in doğru olduğundan emin olun
+    - Maps JavaScript API'nin etkinleştirildiğinden emin olun
+    - API key kısıtlamalarını kontrol edin (domain doğru mu?)
+
+7.1.1. "RefererNotAllowedMapError" hatası:
+    - Bu hata, API key'inizin kullandığınız URL'ye izin vermediğini gösterir
+    - Google Cloud Console > APIs & Services > Credentials
+    - API key'inizi açın
+    - "Application restrictions" > "HTTP referrers" bölümüne:
+      * Kullandığınız domain'i ekleyin (örn: jetla.com.tr/*, jetlakurye.com/*)
+      * Local test için: localhost:* veya 127.0.0.1:*
+      * Dosya testi için: file://* (sadece test için, production'da kaldırın)
+      * ÖNEMLİ: file://* eklerken tam olarak şu şekilde yazın: file://*
+    - "Save" butonuna tıklayın
+    - Birkaç dakika bekleyin (değişikliklerin yayılması için)
+    
+    ALTERNATİF ÇÖZÜM (Test için):
+    - Geçici olarak "Application restrictions" > "None" seçeneğini seçin
+    - Test edin
+    - Test bitince tekrar kısıtlamaları ekleyin
+    - NOT: Bu güvenlik riski oluşturur, sadece test için kullanın!
+    
+    EN İYİ ÇÖZÜM:
+    - Local bir web sunucusu kullanın (örn: VS Code Live Server, Python http.server)
+    - localhost:3000 gibi bir port üzerinden test edin
+    - API key kısıtlamalarına localhost:* ekleyin
+
+7.2. "Geocoding failed" hatası:
+    - Geocoding API'nin etkinleştirildiğinden emin olun
+    - API key'in Geocoding API'ye erişim izni olduğundan emin olun
+
+7.3. "Directions request failed" hatası:
+    - Directions API'nin etkinleştirildiğinden emin olun
+    - API key'in Directions API'ye erişim izni olduğundan emin olun
+
+7.4. Harita yüklenmiyor:
+    - İnternet bağlantısını kontrol edin
+    - Tarayıcı konsolundaki hataları kontrol edin
+    - API key'in doğru olduğundan emin olun
+
+================================================================================
+8. GÜVENLİK ÖNERİLERİ
+================================================================================
+
+8.1. API Key'i asla public repository'lere yüklemeyin
+8.2. API Key kısıtlamalarını mutlaka ayarlayın
+8.3. Sadece gerekli API'lere erişim izni verin
+8.4. Kullanım limitlerini düzenli olarak kontrol edin
+8.5. Billing alerts (Faturalandırma uyarıları) ayarlayın
+
+================================================================================
+9. DESTEK VE KAYNAKLAR
+================================================================================
+
+9.1. Google Maps Platform Dokümantasyonu:
+    https://developers.google.com/maps/documentation
+
+9.2. Google Maps JavaScript API Dokümantasyonu:
+    https://developers.google.com/maps/documentation/javascript
+
+9.3. Directions API Dokümantasyonu:
+    https://developers.google.com/maps/documentation/directions
+
+9.4. Geocoding API Dokümantasyonu:
+    https://developers.google.com/maps/documentation/geocoding
+
+9.5. Google Cloud Support:
+    https://cloud.google.com/support
+
+================================================================================
+SON NOTLAR
+================================================================================
+
+- API key'inizi güvende tutun AIzaSyD_winsbiDTCWxRVw34LBno1Y0HYn0EPhQ
+- Kullanım limitlerini düzenli kontrol edin
+- Gerekirse billing limitleri ayarlayın
+- API'lerin güncel versiyonlarını kullanın
+
+Bu kılavuz, Jetla Express sayfasının Google Maps API entegrasyonu için
+hazırlanmıştır. Sorularınız için Google Cloud Console dokümantasyonunu
+kontrol edebilirsiniz.
+
+================================================================================
+

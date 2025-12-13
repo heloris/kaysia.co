@@ -1,0 +1,135 @@
+================================================================================
+REFERERNOTALLOWEDMAPERROR HATASI ÇÖZÜMÜ - ADIM ADIM
+================================================================================
+
+Bu hata, dosyayı doğrudan tarayıcıda açtığınızda (file:// protokolü) oluşur.
+
+================================================================================
+ÇÖZÜM 1: API KEY KISITLAMALARINA FILE://* EKLEME (ÖNERİLEN)
+================================================================================
+
+1. Google Cloud Console'a gidin:
+   https://console.cloud.google.com/
+
+2. Sol menüden "APIs & Services" > "Credentials" seçin
+
+3. API key'inize tıklayın (AIzaSyD_winsbiDTCWxRVw34LBno1Y0HYn0EPhQ)
+
+4. "Application restrictions" bölümünde:
+   - "HTTP referrers (web sitesi)" seçili olmalı
+   - "Website restrictions" altında şu domain'ler olmalı:
+     * jetla.com.tr/*
+     * *.jetla.com.tr/*
+     * jetlakurye.com/*
+     * *.jetlakurye.com/*
+     * localhost:*
+     * 127.0.0.1:*
+     * file://*  <-- BUNU EKLEYİN!
+
+5. "file://*" eklemek için:
+   - "+ Add an item" butonuna tıklayın
+   - Tam olarak şunu yazın: file://*
+   - Enter'a basın
+
+6. "Save" butonuna tıklayın
+
+7. 2-5 dakika bekleyin (değişikliklerin yayılması için)
+
+8. Tarayıcıyı tamamen kapatıp yeniden açın
+
+9. express.html dosyasını tekrar açın
+
+================================================================================
+ÇÖZÜM 2: GEÇİCİ OLARAK KISITLAMALARI KALDIRMA (HIZLI TEST)
+================================================================================
+
+SADECE TEST İÇİN - PRODUCTION'DA KULLANMAYIN!
+
+1. Google Cloud Console > APIs & Services > Credentials
+
+2. API key'inize tıklayın
+
+3. "Application restrictions" bölümünde:
+   - "None" seçeneğini seçin
+
+4. "Save" butonuna tıklayın
+
+5. 1-2 dakika bekleyin
+
+6. express.html dosyasını açın ve test edin
+
+7. TEST BİTİNCE TEKRAR KISITLAMALARI EKLEYİN!
+
+================================================================================
+ÇÖZÜM 3: LOCALHOST KULLANMA (EN GÜVENLİ)
+================================================================================
+
+file:// protokolü yerine bir web sunucusu kullanın:
+
+YÖNTEM A - VS Code Live Server:
+1. VS Code'da projeyi açın
+2. "Live Server" extension'ını yükleyin (yoksa)
+3. express.html dosyasına sağ tıklayın
+4. "Open with Live Server" seçin
+5. Otomatik olarak http://localhost:5500/express.html açılacak
+6. API key kısıtlamalarına localhost:* ekleyin
+
+YÖNTEM B - Python HTTP Server:
+1. Terminal/Command Prompt'u açın
+2. Proje klasörüne gidin:
+   cd C:\Users\User\Downloads\jetla-landing\jetla-landing
+3. Şu komutu çalıştırın:
+   python -m http.server 8000
+4. Tarayıcıda şu adresi açın:
+   http://localhost:8000/express.html
+
+YÖNTEM C - Node.js HTTP Server:
+1. Terminal açın
+2. Proje klasörüne gidin
+3. Şu komutu çalıştırın:
+   npx http-server -p 8000
+4. Tarayıcıda şu adresi açın:
+   http://localhost:8000/express.html
+
+================================================================================
+KONTROL LİSTESİ
+================================================================================
+
+✓ API key kısıtlamalarında "file://*" var mı?
+✓ "Save" butonuna tıkladınız mı?
+✓ 2-5 dakika beklediniz mi?
+✓ Tarayıcıyı tamamen kapatıp açtınız mı?
+✓ API'ler etkinleştirildi mi? (Maps JavaScript API, Directions API, Geocoding API)
+
+================================================================================
+HALA ÇALIŞMIYORSA
+================================================================================
+
+1. API key'in doğru olduğundan emin olun:
+   express.html dosyasında satır 31'deki API key'i kontrol edin
+
+2. Tarayıcı konsolunu açın (F12) ve hataları kontrol edin
+
+3. Google Cloud Console'da API kullanımını kontrol edin:
+   - APIs & Services > Dashboard
+   - Hangi API'lerin etkinleştirildiğini görün
+
+4. API key'in API'lere erişim izni olduğundan emin:
+   - API key düzenleme sayfasında
+   - "API restrictions" bölümünde
+   - "Restrict key" seçiliyse, şu API'ler seçili olmalı:
+     * Maps JavaScript API
+     * Directions API
+     * Geocoding API
+
+================================================================================
+ÖNEMLİ NOTLAR
+================================================================================
+
+- file://* eklemek güvenlik riski oluşturabilir
+- Production'da file://* kaldırılmalı
+- En güvenli yöntem localhost kullanmaktır
+- API key değişiklikleri 2-5 dakika içinde aktif olur
+
+================================================================================
+
