@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5A Sağlık</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #f5f5f5;
+        position: relative;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('./pic/5A LOGO1 1.svg');
+        background-size: 800px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        filter: blur(12px);
+        opacity: 0.15;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .App {
+        width: 100%;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        width: 100%;
+        height: 38px;
+        background: #B7A9A9;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .top-bar-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .phone-number {
+        color: #1F1F1F;
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .phone-emoji {
+        font-size: 16px;
+        filter: grayscale(100%) brightness(0);
+      }
+
+      .whatsapp-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.2s;
+      }
+
+      .whatsapp-icon:hover {
+        transform: scale(1.1);
+      }
+
+      /* Navigation Bar */
+      .navbar {
+        display: flex;
+        width: 100%;
+        margin: 0;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 0;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-left: none;
+        border-right: none;
+        opacity: 0.9;
+        background: rgba(255, 255, 255, 0.60);
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(10px);
+        padding: 12px 24px;
+        margin-top: 0;
+        position: sticky;
+        top: 38px;
+        z-index: 999;
+      }
+
+      .navbar-logo-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: flex-start;
+      }
+
+      .navbar-logo {
+        height: auto;
+        max-height: 70px;
+        width: auto;
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1F1F1F;
+        line-height: 1.2;
+      }
+
+      .logo-subtitle {
+        font-size: 12px;
+        font-weight: 400;
+        color: #666;
+        line-height: 1.2;
+      }
+
+      .navbar-menu {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .menu-item {
+        color: #1F1F1F;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: color 0.3s;
+      }
+
+      .menu-item:hover {
+        color: #7A040B;
+      }
+
+      .dropdown-icon {
+        font-size: 12px;
+        color: #1F1F1F;
+        margin-left: 2px;
+        transition: transform 0.3s;
+      }
+
+      .dropdown-wrapper {
+        position: relative;
+      }
+
+      .dropdown-trigger {
+        cursor: pointer;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 8px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        min-width: 250px;
+        z-index: 1000;
+        overflow: hidden;
+        display: none;
+        animation: fadeIn 0.2s ease;
+      }
+
+      .dropdown-menu.show {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .dropdown-item {
+        display: block;
+        padding: 12px 20px;
+        color: #1F1F1F;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        transition: background-color 0.2s, color 0.2s;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .dropdown-item:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown-item:hover {
+        background-color: #f5f5f5;
+        color: #7A040B;
+      }
+
+      .dropdown-wrapper:hover .dropdown-icon {
+        transform: rotate(180deg);
+      }
+
+      /* Slider */
+      .slider-container {
+        width: 100%;
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slider-wrapper {
+        position: relative;
+        width: 100%;
+        height: 617px;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .slide.active {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .slide-content {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: white;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+      }
+
+      .main-image {
+        width: 641px;
+        height: 617px;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        object-fit: cover;
+      }
+
+      .side-image {
+        position: absolute;
+        top: 0px;
+        height: 617px;
+        object-fit: cover;
+      }
+
+      .side-image-0 {
+        width: 213.67px;
+        left: 641px;
+      }
+
+      .side-image-1 {
+        width: 213.67px;
+        left: 855px;
+      }
+
+      .side-image-2 {
+        width: 213.67px;
+        left: 1069px;
+      }
+
+      .side-image-3 {
+        width: 157px;
+        left: 1283px;
+      }
+
+      .info-box {
+        width: 191px;
+        height: 135px;
+        left: 58px;
+        top: 431px;
+        position: absolute;
+        opacity: 0.80;
+        background: #D9D9D9;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .info-content {
+        width: 125px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .info-header {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .info-title-wrapper {
+        width: 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      .info-title {
+        align-self: stretch;
+        color: black;
+        font-size: 14px;
+        font-family: Inter, sans-serif;
+        font-weight: 600;
+        word-wrap: break-word;
+      }
+
+      .info-divider {
+        align-self: stretch;
+        height: 0px;
+        outline: 1px #FBFBFB solid;
+        outline-offset: -0.50px;
+      }
+
+      .info-description {
+        align-self: stretch;
+        color: black;
+        font-size: 10px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        word-wrap: break-word;
+      }
+
+      .details-button {
+        width: 96px;
+        height: 21px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background: linear-gradient(180deg, #AC0A0D 0%, #747474 100%);
+        border-radius: 12px;
+        border: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        transition: transform 0.2s;
+        color: white;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 400;
+        word-wrap: break-word;
+      }
+
+      .details-button:hover {
+        transform: scale(1.05);
+      }
+
+      /* Slider Controls */
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s;
+        color: #1F1F1F;
+      }
+
+      .slider-btn:hover {
+        background: rgba(255, 255, 255, 1);
+      }
+
+      .prev-btn {
+        left: 20px;
+      }
+
+      .next-btn {
+        right: 20px;
+      }
+
+      /* Slider Dots */
+      .slider-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .dot.active {
+        background: white;
+      }
+
+      /* Divider Section */
+      .divider-section {
+        width: 100%;
+        margin: 60px auto;
+        padding: 0;
+      }
+
+      .content-section {
+        width: 100%;
+        min-height: 800px;
+        background-color: transparent;
+      }
+
+      .ekg-section {
+        opacity: 1;
+      }
+
+      /* Quote Section */
+      .quote-section {
+        width: 100%;
+        margin: 60px auto;
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      .quote-text {
+        font-size: 24px;
+        font-family: Poppins, sans-serif;
+        font-weight: 500;
+        color: #64748B;
+        font-style: italic;
+        margin: 0;
+      }
+
+      /* Slogan Section */
+      .slogan-section {
+        width: 100%;
+        margin: 80px auto;
+        padding: 0 20px;
+      }
+
+      .slogan-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .slogan-title {
+        color: #0F172A;
+        font-size: 60px;
+        font-family: Poppins, sans-serif;
+        font-weight: 700;
+        word-wrap: break-word;
+        margin-bottom: 24px;
+        line-height: 1.2;
+      }
+
+      .slogan-subtitle {
+        color: #94A3B8;
+        font-size: 50px;
+        font-family: Poppins, sans-serif;
+        font-weight: 500;
+        word-wrap: break-word;
+        margin-bottom: 32px;
+        line-height: 1.2;
+      }
+
+      .slogan-description {
+        color: #64748B;
+        font-size: 20px;
+        font-family: Poppins, sans-serif;
+        font-weight: 400;
+        word-wrap: break-word;
+        line-height: 1.6;
+        max-width: 1000px;
+      }
+
+      /* About Section */
+      .about-section {
+        width: 100%;
+        margin: 80px auto;
+        padding: 0 20px;
+      }
+
+      .about-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .about-title {
+        color: #0F172A;
+        font-size: 35px;
+        font-family: Poppins, sans-serif;
+        font-weight: 700;
+        word-wrap: break-word;
+        margin-bottom: 16px;
+        line-height: 1.3;
+      }
+
+      .about-text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .about-text p {
+        color: #475569;
+        font-size: 18px;
+        font-family: Poppins, sans-serif;
+        font-weight: 600;
+        word-wrap: break-word;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .about-image {
+        width: 100%;
+        height: auto;
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      /* Categories Section */
+      .categories-section {
+        width: 100%;
+        margin: 80px auto 0;
+        padding: 0 20px;
+      }
+
+      /* Category Navigation */
+      .category-nav {
+        position: sticky;
+        top: 120px;
+        z-index: 998;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+        padding: 16px 0;
+      }
+
+      .category-nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        padding: 0 20px;
+      }
+
+      .category-nav-container::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      .category-nav-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      .category-nav-container::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 2px;
+      }
+
+      .category-nav-item {
+        padding: 10px 20px;
+        background: transparent;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        font-family: Poppins, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        color: #64748B;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+      }
+
+      .category-nav-item:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: #0F172A;
+      }
+
+      .category-nav-item.active {
+        background: #0F172A;
+        color: #ffffff;
+        border-color: #0F172A;
+      }
+
+      /* Categories Content */
+      .categories-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .category-block {
+        margin-bottom: 80px;
+        scroll-margin-top: 150px;
+      }
+
+      .category-block:last-child {
+        margin-bottom: 40px;
+      }
+
+      .category-title {
+        font-family: Poppins, sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        color: #0F172A;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 24px;
+      }
+
+      .product-card {
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-image {
+        width: 100%;
+        height: 250px;
+        background: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .product-info {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        flex: 1;
+      }
+
+      .product-name {
+        font-family: Poppins, sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #0F172A;
+        margin: 0;
+        line-height: 1.4;
+      }
+
+      .product-button {
+        padding: 10px 20px;
+        background: linear-gradient(180deg, #AC0A0D 0%, #747474 100%);
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-family: Poppins, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: auto;
+      }
+
+      .product-button:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      /* Upper Footer */
+      .upper-footer {
+        width: 100%;
+        background: #0F71D2;
+        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+        padding: 60px 20px;
+      }
+
+      .upper-footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        text-align: center;
+        flex: 1;
+        min-width: 150px;
+      }
+
+      .stat-number {
+        color: white;
+        font-size: 48px;
+        font-family: Inter, sans-serif;
+        font-weight: 900;
+        word-wrap: break-word;
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        color: #E3F2FD;
+        font-size: 20px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        word-wrap: break-word;
+        padding: 10px;
+      }
+
+      /* Footer */
+      .footer {
+        width: 100%;
+        background: white;
+        padding: 60px 20px 20px;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 60px;
+        margin-bottom: 40px;
+      }
+
+      .footer-logo-section {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        max-width: 485px;
+      }
+
+      .logo-wrapper {
+        display: flex;
+        align-items: flex-end;
+        gap: 7px;
+      }
+
+      .footer-logo {
+        width: 75px;
+        height: 91px;
+        object-fit: contain;
+      }
+
+      .logo-text-section {
+        display: flex;
+        flex-direction: column;
+        padding-top: 18px;
+        padding-bottom: 18px;
+      }
+
+      .logo-title {
+        color: #1F1F1F;
+        font-size: 28px;
+        font-family: Inter, sans-serif;
+        font-weight: 800;
+        word-wrap: break-word;
+        margin-bottom: 4px;
+      }
+
+      .logo-subtitle {
+        opacity: 0.40;
+        color: black;
+        font-size: 18px;
+        font-family: Inter, sans-serif;
+        font-weight: 800;
+        word-wrap: break-word;
+      }
+
+      .footer-description {
+        color: #5B6B82;
+        font-size: 15px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        line-height: 24px;
+        word-wrap: break-word;
+        margin: 0;
+      }
+
+      .footer-links-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        min-width: 130px;
+      }
+
+      .footer-section-title {
+        padding: 10px;
+        color: #0B1320;
+        font-size: 16px;
+        font-family: Inter, sans-serif;
+        font-weight: 600;
+        word-wrap: break-word;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .footer-link {
+        padding: 10px;
+        color: black;
+        font-size: 14px;
+        font-family: Inter, sans-serif;
+        font-weight: 300;
+        word-wrap: break-word;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link:hover {
+        color: #0F71D2;
+      }
+
+      .footer-contact-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        max-width: 411px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        width: 100%;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-end;
+        gap: 3px;
+      }
+
+      .contact-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      .location-icon {
+        background: #0663EF;
+        width: 9.33px;
+        height: 13.33px;
+        margin: 1.33px 3.33px;
+      }
+
+      .phone-icon {
+        background: #2F88FF;
+        width: 14.31px;
+        height: 14.31px;
+        margin: 3.36px 3.54px;
+        border-radius: 50%;
+      }
+
+      .email-icon {
+        background: #2F88FF;
+        width: 15px;
+        height: 11.25px;
+        margin: 3.38px 1.50px;
+        clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+      }
+
+      .contact-text {
+        padding: 10px;
+        color: black;
+        font-size: 14px;
+        font-family: Inter, sans-serif;
+        font-weight: 300;
+        word-wrap: break-word;
+      }
+
+      .footer-divider {
+        width: 100%;
+        height: 1px;
+        background: #AAA6A6;
+        opacity: 0.39;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+        margin: 20px 0;
+      }
+
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-copyright {
+        padding: 10px;
+        color: black;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 400;
+        word-wrap: break-word;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 53px;
+        flex-wrap: wrap;
+      }
+
+      .footer-bottom-link {
+        padding: 10px;
+        color: black;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 400;
+        word-wrap: break-word;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-bottom-link:hover {
+        color: #0F71D2;
+      }
+
+      .ecg-wrap {
+        width: 100%;
+      }
+
+      /* Arka gri düz çizgi */
+      .baseline {
+        stroke: #9aa3ad;
+        stroke-width: 4;
+        stroke-linecap: round;
+        opacity: 0.65;
+      }
+
+      /* Kırmızı EKG çizgisi */
+      .ecg {
+        fill: none;
+        stroke: #7A040B;
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: var(--len);
+        stroke-dashoffset: var(--len);
+        animation: draw 2.5s linear 2 forwards;
+      }
+
+      /* 2 kere oynatıp duran animasyon - daha hızlı */
+      @keyframes draw {
+        0%   { stroke-dashoffset: var(--len); }
+        100% { stroke-dashoffset: 0; }
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .divider-section {
+          margin: 40px auto;
+        }
+
+        #ecgSvg {
+          height: 150px;
+        }
+        .navbar-menu {
+          gap: 20px;
+        }
+        
+        .menu-item {
+          font-size: 14px;
+        }
+
+        .slider-wrapper {
+          height: 500px;
+        }
+        
+        .main-image,
+        .side-image {
+          height: 500px;
+        }
+        
+        .info-box {
+          top: 350px;
+        }
+
+        .slogan-title {
+          font-size: 48px;
+        }
+        
+        .slogan-subtitle {
+          font-size: 40px;
+        }
+        
+        .slogan-description {
+          font-size: 18px;
+        }
+
+        .about-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        
+        .about-title {
+          font-size: 32px;
+        }
+        
+        .about-text p {
+          font-size: 16px;
+        }
+
+        .category-title {
+          font-size: 36px;
+        }
+
+        .products-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 20px;
+        }
+
+        .upper-footer-container {
+          gap: 40px;
+        }
+
+        .stat-number {
+          font-size: 40px;
+        }
+
+        .stat-label {
+          font-size: 18px;
+        }
+
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .footer-logo-section {
+          max-width: 100%;
+        }
+
+        .footer-links-section {
+          align-items: flex-start;
+        }
+
+        .footer-links {
+          align-items: flex-start;
+        }
+
+        .footer-contact-section {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 8px 16px;
+          flex-direction: row;
+          gap: 16px;
+        }
+        
+        .navbar-logo-section {
+          flex: 1;
+          justify-content: flex-start;
+        }
+        
+        .navbar-logo {
+          max-height: 50px;
+        }
+        
+        .logo-title {
+          font-size: 14px;
+        }
+        
+        .logo-subtitle {
+          font-size: 10px;
+        }
+        
+        .navbar-menu {
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          gap: 16px;
+        }
+        
+        .menu-item {
+          font-size: 12px;
+        }
+
+        .slider-wrapper {
+          height: 400px;
+        }
+        
+        .main-image {
+          width: 100%;
+          height: 400px;
+        }
+        
+        .side-image {
+          display: none;
+        }
+        
+        .info-box {
+          width: 90%;
+          left: 5%;
+          top: auto;
+          bottom: 20px;
+          height: auto;
+          padding: 16px;
+        }
+        
+        .info-content {
+          width: 100%;
+        }
+        
+        .slider-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 24px;
+        }
+        
+        .prev-btn {
+          left: 10px;
+        }
+        
+        .next-btn {
+          right: 10px;
+        }
+
+        .divider-section {
+          margin: 30px auto;
+          padding: 0 10px;
+        }
+
+        #ecgSvg {
+          height: 100px;
+        }
+
+        .quote-section {
+          margin: 40px auto;
+          padding: 0 16px;
+        }
+        
+        .quote-text {
+          font-size: 18px;
+        }
+
+        .slogan-section {
+          margin: 60px auto;
+          padding: 0 16px;
+        }
+        
+        .slogan-title {
+          font-size: 32px;
+        }
+        
+        .slogan-subtitle {
+          font-size: 28px;
+        }
+        
+        .slogan-description {
+          font-size: 16px;
+        }
+
+        .about-section {
+          margin: 60px auto;
+          padding: 0 16px;
+        }
+        
+        .about-container {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        
+        .about-title {
+          font-size: 28px;
+        }
+        
+        .about-text p {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="App">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="top-bar-content">
+          <span class="phone-number">
+            <span class="phone-emoji">📞</span>
+            (0543) 237 62 40
+          </span>
+          <a href="https://wa.me/905432376240" class="whatsapp-icon" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="#25D366"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation Bar -->
+      <nav class="navbar">
+        <div class="navbar-logo-section">
+          <img src="./pic/5A LOGO1 1.svg" alt="5A Logo" class="navbar-logo" />
+          <div class="logo-text">
+            <div class="logo-title">5A Sağlık Ürünleri</div>
+            <div class="logo-subtitle">San ve tic. ltd. şti</div>
+          </div>
+        </div>
+        <div class="navbar-menu">
+          <a href="#anasayfa" class="menu-item" onclick="handleNavClick(event, 'anasayfa')">Anasayfa</a>
+          <a href="#hakkimizda" class="menu-item" onclick="handleNavClick(event, 'hakkimizda')">Hakkımızda</a>
+          <div class="dropdown-wrapper">
+            <a href="#kategoriler" class="menu-item dropdown-trigger" onclick="toggleDropdown(event)">
+              Kategoriler
+              <span class="dropdown-icon">▼</span>
+            </a>
+            <div class="dropdown-menu" id="categoriesDropdown">
+              <a href="#category-ortopedi" class="dropdown-item" onclick="handleCategoryClick(event, 'ortopedi')">Ortopedi</a>
+              <a href="#category-antiseptik" class="dropdown-item" onclick="handleCategoryClick(event, 'antiseptik')">Antiseptik ve Dezenfektanlar</a>
+              <a href="#category-cerrahi" class="dropdown-item" onclick="handleCategoryClick(event, 'cerrahi')">Cerrahi Ekipman ve Aletler</a>
+              <a href="#category-hasta-yatagi" class="dropdown-item" onclick="handleCategoryClick(event, 'hasta-yatagi')">Hasta Yatağı Grubu</a>
+              <a href="#category-kadin-dogum" class="dropdown-item" onclick="handleCategoryClick(event, 'kadin-dogum')">Kadın Doğum Sarf</a>
+              <a href="#category-tibbi-sarf" class="dropdown-item" onclick="handleCategoryClick(event, 'tibbi-sarf')">Tıbbi Sarf</a>
+              <a href="#category-medikal" class="dropdown-item" onclick="handleCategoryClick(event, 'medikal')">Medikal Ürünler</a>
+            </div>
+          </div>
+          <a href="#katalog" class="menu-item" onclick="event.preventDefault()">Katalog</a>
+          <a href="#iletisim" class="menu-item" onclick="handleNavClick(event, 'iletisim')">İletişim</a>
+        </div>
+      </nav>
+
+      <!-- Slider -->
+      <div class="slider-container">
+        <div class="slider-wrapper">
+          <!-- Slide 1 -->
+          <div class="slide active">
+            <div class="slide-content">
+              <img src="https://placehold.co/641x617" alt="Ortopedi" class="main-image" />
+              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
+              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
+              <div class="info-box">
+                <div class="info-content">
+                  <div class="info-header">
+                    <div class="info-title-wrapper">
+                      <div class="info-title">ORTOPEDİ</div>
+                      <div class="info-divider"></div>
+                    </div>
+                    <div class="info-description">"Ortopedik tedavi ve bakım süreçlerinde kullanılan güvenilir, dayanıklı ve yüksek kalite ekipmanlar."</div>
+                  </div>
+                  <button class="details-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide">
+            <div class="slide-content">
+              <img src="https://placehold.co/641x617" alt="Slide 2" class="main-image" />
+              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
+              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
+              <div class="info-box">
+                <div class="info-content">
+                  <div class="info-header">
+                    <div class="info-title-wrapper">
+                      <div class="info-title">SLIDE 2</div>
+                      <div class="info-divider"></div>
+                    </div>
+                    <div class="info-description">İkinci slide açıklaması</div>
+                  </div>
+                  <button class="details-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide">
+            <div class="slide-content">
+              <img src="https://placehold.co/641x617" alt="Slide 3" class="main-image" />
+              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
+              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
+              <div class="info-box">
+                <div class="info-content">
+                  <div class="info-header">
+                    <div class="info-title-wrapper">
+                      <div class="info-title">SLIDE 3</div>
+                      <div class="info-divider"></div>
+                    </div>
+                    <div class="info-description">Üçüncü slide açıklaması</div>
+                  </div>
+                  <button class="details-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="slide">
+            <div class="slide-content">
+              <img src="https://placehold.co/641x617" alt="Slide 4" class="main-image" />
+              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
+              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
+              <div class="info-box">
+                <div class="info-content">
+                  <div class="info-header">
+                    <div class="info-title-wrapper">
+                      <div class="info-title">SLIDE 4</div>
+                      <div class="info-divider"></div>
+                    </div>
+                    <div class="info-description">Dördüncü slide açıklaması</div>
+                  </div>
+                  <button class="details-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="slide">
+            <div class="slide-content">
+              <img src="https://placehold.co/641x617" alt="Slide 5" class="main-image" />
+              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
+              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
+              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
+              <div class="info-box">
+                <div class="info-content">
+                  <div class="info-header">
+                    <div class="info-title-wrapper">
+                      <div class="info-title">SLIDE 5</div>
+                      <div class="info-divider"></div>
+                    </div>
+                    <div class="info-description">Beşinci slide açıklaması</div>
+                  </div>
+                  <button class="details-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <button class="slider-btn prev-btn" onclick="changeSlide(-1)">‹</button>
+        <button class="slider-btn next-btn" onclick="changeSlide(1)">›</button>
+
+        <!-- Slider Dots -->
+        <div class="slider-dots">
+          <button class="dot active" onclick="goToSlide(0)"></button>
+          <button class="dot" onclick="goToSlide(1)"></button>
+          <button class="dot" onclick="goToSlide(2)"></button>
+          <button class="dot" onclick="goToSlide(3)"></button>
+          <button class="dot" onclick="goToSlide(4)"></button>
+        </div>
+      </div>
+
+      <!-- EKG Line Section - Sadece slider'dan sonra -->
+      <div class="divider-section ekg-section">
+        <div class="ekg-wrap">
+          <svg class="ekg-svg" viewBox="0 0 1200 200" width="100%" height="200" aria-label="ECG">
+            <line x1="20" y1="100" x2="1180" y2="100" class="baseline" />
+            <path class="ecg" id="ekgPath"
+              d="M20 100 L520 100 
+                 L525 100 
+                 L527 102 
+                 L530 25 
+                 L533 175 
+                 L536 100 
+                 L545 108 
+                 L555 100 
+                 L560 100 
+                 L562 95 
+                 L564 105 
+                 L566 100 
+                 L570 100 
+                 L572 98 
+                 L574 102 
+                 L576 100 
+                 L580 100 
+                 L585 100 
+                 L587 102 
+                 L590 25 
+                 L593 175 
+                 L596 100 
+                 L605 108 
+                 L615 100 
+                 L620 100 
+                 L622 96 
+                 L624 104 
+                 L626 100 
+                 L630 100 
+                 L632 97 
+                 L634 103 
+                 L636 100 
+                 L640 100 
+                 L645 100 
+                 L647 102 
+                 L650 25 
+                 L653 175 
+                 L656 100 
+                 L665 108 
+                 L675 100 
+                 L1180 100" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Quote Section -->
+      <div class="quote-section">
+        <p class="quote-text">"Modern sağlık hizmetlerini yeniden tanımlıyoruz."</p>
+      </div>
+
+      <!-- Slogan Section -->
+      <div class="slogan-section">
+        <div class="slogan-container">
+          <h1 class="slogan-title">Bizce sağlık, güven üzerine kurulmalıdır.</h1>
+          <h2 class="slogan-subtitle">İnsana değer veren çözümler üretiyoruz.</h2>
+          <p class="slogan-description">
+            5A Sağlık Ürünleri, 2008 yılından bu yana modern tıbbi teknolojiyi güvenilir ve yüksek kaliteli ekipmanlarla bir araya getiriyor. Amacımız; hastanelere, kliniklere ve sağlık profesyonellerine insan odaklı, dayanıklı ve yenilikçi çözümler sunmak. Geleceğin sağlık deneyimini bugünden inşa ediyoruz.
+          </p>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div class="about-section" id="hakkimizda">
+        <div class="about-container">
+          <div class="about-content">
+            <h2 class="about-title">Sağlık profesyonelleri için kaliteli ve sürdürülebilir çözümler.</h2>
+            <div class="about-text">
+              <p>5A Sağlık Ürünleri, 2008 yılında sağlık sektöründe güvenilir medikal ürün tedariki sağlamak amacıyla kurulmuş profesyonel bir sağlık çözümleri firmasıdır. Kuruluşumuzdan bu yana; özel hastaneler, kamu hastaneleri, estetik ve güzellik merkezleri, klinikler ve sağlık kuruluşlarıyla aktif iş birlikleri yürütmekteyiz.</p>
+              <p>Sunduğumuz tüm sağlık ve medikal ürünleri, kalite standartlarına uygun şekilde seçiyor, müşterilerimize hızlı, güvenilir ve sürdürülebilir tedarik hizmeti sunuyoruz. Sağlık profesyonellerinin ihtiyaç duyduğu ekipmanlara en doğru şekilde ulaşabilmesi için ürün yelpazemizi sürekli güncelliyor, sektördeki yenilikleri yakından takip ediyoruz.</p>
+              <p>5A Sağlık Ürünleri olarak hedefimiz; yalnızca ürün satışı yapmak değil, kurumların ihtiyaçlarını analiz eden, süreç boyunca destek sunan ve çözüm odaklı yaklaşımıyla güven veren bir iş ortağı olmaktır. Sağlık sektörüne değer katmayı, kaliteli ve uzun ömürlü ürünlerle kurumların operasyonel verimliliğini artırmayı amaçlıyoruz.</p>
+              <p>2008'den günümüze kadar edindiğimiz deneyim, güçlü tedarik ağı ve profesyonel hizmet anlayışımızla sağlık sektöründe güvenilir bir marka olmaya devam ediyoruz.</p>
+            </div>
+          </div>
+          <div class="about-image">
+            <img src="./pic/about.jpg" alt="Hakkımızda" />
+          </div>
+        </div>
+      </div>
+
+      <!-- EKG Line Section - İkinci -->
+      <div class="divider-section ekg-section">
+        <div class="ekg-wrap">
+          <svg class="ekg-svg" viewBox="0 0 1200 200" width="100%" height="200" aria-label="ECG">
+            <line x1="20" y1="100" x2="1180" y2="100" class="baseline" />
+            <path class="ecg" id="ekgPath2"
+              d="M20 100 L520 100 
+                 L525 100 
+                 L527 102 
+                 L530 25 
+                 L533 175 
+                 L536 100 
+                 L545 108 
+                 L555 100 
+                 L560 100 
+                 L562 95 
+                 L564 105 
+                 L566 100 
+                 L570 100 
+                 L572 98 
+                 L574 102 
+                 L576 100 
+                 L580 100 
+                 L585 100 
+                 L587 102 
+                 L590 25 
+                 L593 175 
+                 L596 100 
+                 L605 108 
+                 L615 100 
+                 L620 100 
+                 L622 96 
+                 L624 104 
+                 L626 100 
+                 L630 100 
+                 L632 97 
+                 L634 103 
+                 L636 100 
+                 L640 100 
+                 L645 100 
+                 L647 102 
+                 L650 25 
+                 L653 175 
+                 L656 100 
+                 L665 108 
+                 L675 100 
+                 L1180 100" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Categories Section -->
+      <div class="categories-section" id="kategoriler">
+        <!-- Category Navigation -->
+        <div class="category-nav">
+          <div class="category-nav-container">
+            <button class="category-nav-item active" data-category="ortopedi">Ortopedi</button>
+            <button class="category-nav-item" data-category="antiseptik">Antiseptik ve Dezenfektanlar</button>
+            <button class="category-nav-item" data-category="cerrahi">Cerrahi Ekipman ve Aletler</button>
+            <button class="category-nav-item" data-category="hasta-yatagi">Hasta Yatağı Grubu</button>
+            <button class="category-nav-item" data-category="kadin-dogum">Kadın Doğum Sarf</button>
+            <button class="category-nav-item" data-category="tibbi-sarf">Tıbbi Sarf</button>
+            <button class="category-nav-item" data-category="medikal">Medikal Ürünler</button>
+          </div>
+        </div>
+
+        <!-- Categories Content -->
+        <div class="categories-content">
+          <!-- Ortopedi -->
+          <div class="category-block" id="category-ortopedi">
+            <h2 class="category-title">Ortopedi</h2>
+            <div class="products-grid">
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Ortopedik Yatak" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Ortopedik Yatak</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Ortopedik Yastık" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Ortopedik Yastık</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Ortopedik Ayakkabı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Ortopedik Ayakkabı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Ortopedik Destek" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Ortopedik Destek</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Ortopedik Korse" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Ortopedik Korse</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Ortopedik Bandaj" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Ortopedik Bandaj</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Ortopedik Atel" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Ortopedik Atel</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Ortopedik Protez" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Ortopedik Protez</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Antiseptik ve Dezenfektanlar -->
+          <div class="category-block" id="category-antiseptik">
+            <h2 class="category-title">Antiseptik ve Dezenfektanlar</h2>
+            <div class="products-grid">
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="El Dezenfektanı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">El Dezenfektanı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Yüzey Dezenfektanı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Yüzey Dezenfektanı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Antiseptik Solüsyon" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Antiseptik Solüsyon</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Dezenfektan Sprey" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Dezenfektan Sprey</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Antiseptik Krem" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Antiseptik Krem</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Sterilizasyon Ürünü" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Sterilizasyon Ürünü</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cerrahi Ekipman ve Aletler -->
+          <div class="category-block" id="category-cerrahi">
+            <h2 class="category-title">Cerrahi Ekipman ve Aletler</h2>
+            <div class="products-grid">
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Cerrahi Makas" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Cerrahi Makas</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Cerrahi Pens" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Cerrahi Pens</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Cerrahi Bıçak" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Cerrahi Bıçak</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Cerrahi Set" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Cerrahi Set</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Cerrahi İğne" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Cerrahi İğne</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Cerrahi Dikiş Malzemesi" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Cerrahi Dikiş Malzemesi</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Cerrahi Eldiven" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Cerrahi Eldiven</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Cerrahi Örtü" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Cerrahi Örtü</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hasta Yatağı Grubu -->
+          <div class="category-block" id="category-hasta-yatagi">
+            <h2 class="category-title">Hasta Yatağı Grubu</h2>
+            <div class="products-grid">
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Elektrikli Hasta Yatağı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Elektrikli Hasta Yatağı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Manuel Hasta Yatağı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Manuel Hasta Yatağı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Yatak Başlığı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Yatak Başlığı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Yatak Yatağı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Yatak Yatağı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Hasta Yatağı Aksesuarı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Hasta Yatağı Aksesuarı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Yatak Çarşafı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Yatak Çarşafı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kadın Doğum Sarf -->
+          <div class="category-block" id="category-kadin-dogum">
+            <h2 class="category-title">Kadın Doğum Sarf</h2>
+            <div class="products-grid">
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Doğum Seti" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Doğum Seti</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Doğum Örtüsü" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Doğum Örtüsü</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Doğum Aleti" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Doğum Aleti</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Doğum Yatağı Aksesuarı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Doğum Yatağı Aksesuarı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Doğum Sonrası Bakım Ürünü" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Doğum Sonrası Bakım Ürünü</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tıbbi Sarf -->
+          <div class="category-block" id="category-tibbi-sarf">
+            <h2 class="category-title">Tıbbi Sarf</h2>
+            <div class="products-grid">
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Enjektör" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Enjektör</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="İğne" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">İğne</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Gazlı Bez" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Gazlı Bez</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Pamuk" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Pamuk</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Bandaj" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Bandaj</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Plaster" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Plaster</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Eldiven" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Eldiven</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Maske" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Maske</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medikal Ürünler -->
+          <div class="category-block" id="category-medikal">
+            <h2 class="category-title">Medikal Ürünler</h2>
+            <div class="products-grid">
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Tansiyon Aleti" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Tansiyon Aleti</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Stetoskop" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Stetoskop</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Termometre" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Termometre</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Oksijen Konsantratörü" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Oksijen Konsantratörü</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Nebulizatör" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Nebulizatör</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Otomatik Defibrilatör" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Otomatik Defibrilatör</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="ECG Cihazı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">ECG Cihazı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-image"><img src="https://placehold.co/300x300" alt="Ultrason Cihazı" /></div>
+                <div class="product-info">
+                  <h3 class="product-name">Ultrason Cihazı</h3>
+                  <button class="product-button">Detaylar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upper Footer -->
+      <div class="upper-footer">
+        <div class="upper-footer-container">
+          <div class="stat-item">
+            <div class="stat-number">26+</div>
+            <div class="stat-label">Yıllık Sektörel Tecrübe</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">1500+</div>
+            <div class="stat-label">Medikal Ürün</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Mutlu Kurum</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">81 il</div>
+            <div class="stat-label">Hızlı Tedarik</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-container">
+          <!-- Logo and Description Section -->
+          <div class="footer-logo-section">
+            <div class="logo-wrapper">
+              <img src="./pic/5A LOGO1 1.svg" alt="5A Logo" class="footer-logo" />
+              <div class="logo-text-section">
+                <div class="logo-title">5A Sağlık Ürünleri</div>
+                <div class="logo-subtitle">San ve tic.ltd.şti</div>
+              </div>
+            </div>
+            <p class="footer-description">
+              "5A Sağlık Merkezi; etik değerlere bağlı, güvenilir ve kaliteli sağlık hizmeti sunmayı amaçlayan öncü bir sağlık kuruluşudur."
+            </p>
+          </div>
+
+          <!-- Corporate Links Section -->
+          <div class="footer-links-section">
+            <div class="footer-section-title">KURUMSAL</div>
+            <div class="footer-links">
+              <a href="#hakkimizda" class="footer-link">Hakkımızda</a>
+              <a href="#yonetim" class="footer-link">Yönetim Kurulu</a>
+              <a href="#kalite" class="footer-link">Kalite Politikamız</a>
+            </div>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="footer-contact-section">
+            <div class="footer-section-title">İLETİŞİM</div>
+            <div class="contact-info">
+              <div class="contact-item">
+                <div class="contact-icon location-icon"></div>
+                <div class="contact-text">Varlık Mh. K.Karabekir Cd. 202 Sk. Yazır Apt. No:4/A, 07050</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon phone-icon"></div>
+                <div class="contact-text">0(543) 237 62 40</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon email-icon"></div>
+                <div class="contact-text">5asaglik@hotmail.com.tr</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            © 2025 5A Sağlık Merkezi. Tüm hakları saklıdır.
+          </div>
+          <div class="footer-bottom-links">
+            <a href="#gizlilik" class="footer-bottom-link">Gizlilik Politikası</a>
+            <a href="#kvkk" class="footer-bottom-link">KVKK</a>
+            <a href="#kullanim" class="footer-bottom-link">Kullanım Şartları</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+      }
+
+      function changeSlide(direction) {
+        currentSlide += direction;
+        if (currentSlide < 0) currentSlide = slides.length - 1;
+        if (currentSlide >= slides.length) currentSlide = 0;
+        showSlide(currentSlide);
+      }
+
+      function goToSlide(index) {
+        showSlide(index);
+      }
+
+      // Auto-play slider
+      setInterval(() => {
+        changeSlide(1);
+      }, 5000);
+
+      // Category Navigation
+      const categoryNavItems = document.querySelectorAll('.category-nav-item');
+      const categoryBlocks = document.querySelectorAll('.category-block');
+      
+      function handleCategoryClick(e) {
+        const categoryId = e.target.getAttribute('data-category');
+        const element = document.getElementById(`category-${categoryId}`);
+        
+        if (element) {
+          const offset = 120;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+      
+      function updateActiveCategory() {
+        const scrollPosition = window.scrollY + 150;
+        
+        for (let i = categoryBlocks.length - 1; i >= 0; i--) {
+          const block = categoryBlocks[i];
+          if (block) {
+            const blockTop = block.offsetTop;
+            if (scrollPosition >= blockTop) {
+              const categoryId = block.id.replace('category-', '');
+              categoryNavItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-category') === categoryId) {
+                  item.classList.add('active');
+                }
+              });
+              break;
+            }
+          }
+        }
+      }
+      
+      categoryNavItems.forEach(item => {
+        item.addEventListener('click', handleCategoryClick);
+      });
+      
+      window.addEventListener('scroll', updateActiveCategory);
+
+      // EKG Path'lerini başlat
+      function initEKGPaths() {
+        const ecgPaths = document.querySelectorAll('.ecg');
+        ecgPaths.forEach((path) => {
+          const len = path.getTotalLength();
+          path.style.setProperty('--len', len);
+          path.style.strokeDasharray = len;
+          path.style.strokeDashoffset = len;
+        });
+      }
+
+      // EKG animasyonunu başlat
+      function startEKGAnimation() {
+        const ecgPath = document.getElementById('ekgPath');
+        if (ecgPath) {
+          const len = ecgPath.getTotalLength();
+          ecgPath.style.setProperty('--len', len);
+          ecgPath.style.strokeDasharray = len;
+          ecgPath.style.strokeDashoffset = len;
+          // Animasyonu başlat
+          setTimeout(() => {
+            ecgPath.style.animation = 'draw 2.5s linear 2 forwards';
+          }, 100);
+        }
+      }
+
+      // İkinci EKG Path'i başlat
+      function startEKGAnimation2() {
+        const ecgPath2 = document.getElementById('ekgPath2');
+        if (ecgPath2) {
+          const len = ecgPath2.getTotalLength();
+          ecgPath2.style.setProperty('--len', len);
+          ecgPath2.style.strokeDasharray = len;
+          ecgPath2.style.strokeDashoffset = len;
+          setTimeout(() => {
+            ecgPath2.style.animation = 'draw 2.5s linear 2 forwards';
+          }, 100);
+        }
+      }
+
+      // Navigation Functions
+      function handleNavClick(e, targetId) {
+        e.preventDefault();
+        if (targetId === 'anasayfa') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (targetId === 'hakkimizda') {
+          const element = document.getElementById('hakkimizda') || document.querySelector('.about-section');
+          if (element) {
+            const offset = 120;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        } else if (targetId === 'kategoriler') {
+          const element = document.getElementById('kategoriler');
+          if (element) {
+            const offset = 120;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        } else if (targetId === 'iletisim') {
+          const element = document.querySelector('.footer-contact-section') || document.querySelector('.footer');
+          if (element) {
+            const offset = 120;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      }
+
+      function toggleDropdown(e) {
+        e.preventDefault();
+        const dropdown = document.getElementById('categoriesDropdown');
+        if (dropdown) {
+          dropdown.classList.toggle('show');
+          handleNavClick(e, 'kategoriler');
+        }
+      }
+
+      function handleCategoryClick(e, categoryId) {
+        e.preventDefault();
+        const dropdown = document.getElementById('categoriesDropdown');
+        if (dropdown) {
+          dropdown.classList.remove('show');
+        }
+        const element = document.getElementById(`category-${categoryId}`);
+        if (element) {
+          const offset = 120;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+
+      // Click outside to close dropdown
+      document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('categoriesDropdown');
+        const trigger = document.querySelector('.dropdown-trigger');
+        if (dropdown && trigger && !dropdown.contains(event.target) && !trigger.contains(event.target)) {
+          dropdown.classList.remove('show');
+        }
+      });
+
+      // Sayfa yüklendiğinde başlat
+      window.addEventListener('DOMContentLoaded', () => {
+        initEKGPaths();
+        startEKGAnimation();
+        startEKGAnimation2();
+      });
+    </script>
+  </body>
+</html>

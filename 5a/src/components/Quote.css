@@ -1,0 +1,26 @@
+.quote-section {
+  width: 100%;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.quote-text {
+  font-size: 24px;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  color: #64748B;
+  font-style: italic;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .quote-section {
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+  
+  .quote-text {
+    font-size: 18px;
+  }
+}

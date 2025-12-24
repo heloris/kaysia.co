@@ -1,0 +1,58 @@
+.ekg-line-container {
+  width: 100%;
+  margin: 60px auto;
+  padding: 0;
+}
+
+.ekg-wrap {
+  width: 100%;
+}
+
+/* Arka gri düz çizgi */
+.baseline {
+  stroke: #9aa3ad;
+  stroke-width: 4;
+  stroke-linecap: round;
+  opacity: 0.65;
+}
+
+/* Kırmızı EKG çizgisi */
+.ecg {
+  fill: none;
+  stroke: #7A040B;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: var(--len);
+  stroke-dashoffset: var(--len);
+  animation: draw 2.5s linear 2 forwards;
+}
+
+/* 2 kere oynatıp duran animasyon - daha hızlı */
+@keyframes draw {
+  0%   { stroke-dashoffset: var(--len); }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ekg-line-container {
+    margin: 40px auto;
+  }
+
+  .ekg-svg {
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ekg-line-container {
+    margin: 30px auto;
+    padding: 0 10px;
+  }
+
+  .ekg-svg {
+    height: 100px;
+  }
+}
+
