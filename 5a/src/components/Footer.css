@@ -70,7 +70,7 @@
 .footer-links-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   min-width: 130px;
 }
@@ -87,7 +87,7 @@
 .footer-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   width: 100%;
 }
@@ -124,37 +124,14 @@
 
 .contact-item {
   display: flex;
-  align-items: flex-end;
-  gap: 3px;
+  align-items: flex-start;
+  gap: 8px;
 }
 
-.contact-icon {
-  width: 16px;
-  height: 16px;
+.contact-emoji {
+  font-size: 18px;
   flex-shrink: 0;
-}
-
-.location-icon {
-  background: #0663EF;
-  width: 9.33px;
-  height: 13.33px;
-  margin: 1.33px 3.33px;
-}
-
-.phone-icon {
-  background: #2F88FF;
-  width: 14.31px;
-  height: 14.31px;
-  margin: 3.36px 3.54px;
-  border-radius: 50%;
-}
-
-.email-icon {
-  background: #2F88FF;
-  width: 15px;
-  height: 11.25px;
-  margin: 3.38px 1.50px;
-  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+  line-height: 1.4;
 }
 
 .contact-text {
@@ -211,10 +188,135 @@
   word-wrap: break-word;
   text-decoration: none;
   transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .footer-bottom-link:hover {
   color: #0F71D2;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-container {
+  background: white;
+  border-radius: 12px;
+  max-width: 800px;
+  max-height: 90vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  overflow: hidden;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #666;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10001;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.modal-content {
+  padding: 40px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-title {
+  color: #0F172A;
+  font-size: 28px;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  padding-right: 40px;
+}
+
+.modal-body {
+  color: #333;
+  font-size: 15px;
+  font-family: Inter, sans-serif;
+  line-height: 1.8;
+}
+
+.modal-body h3 {
+  color: #0F172A;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 25px 0 12px 0;
+}
+
+.modal-body p {
+  margin: 12px 0;
+}
+
+.modal-body ul {
+  margin: 12px 0;
+  padding-left: 25px;
+}
+
+.modal-body li {
+  margin: 8px 0;
+}
+
+.modal-body strong {
+  color: #0F172A;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -242,32 +344,150 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 40px 16px 16px;
+    padding: 40px 16px 20px;
   }
 
   .footer-container {
-    gap: 30px;
+    gap: 32px;
+  }
+
+  .footer-logo-section {
+    max-width: 100%;
+  }
+
+  .logo-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-logo {
+    width: 60px;
+    height: 73px;
+  }
+
+  .logo-text-section {
+    padding: 0;
   }
 
   .logo-title {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .logo-subtitle {
-    font-size: 16px;
-  }
-
-  .footer-description {
     font-size: 14px;
   }
 
-  .footer-bottom {
-    flex-direction: column;
+  .footer-description {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .footer-links-section {
     align-items: flex-start;
+    width: 100%;
+  }
+
+  .footer-section-title {
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+
+  .footer-links {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .footer-link {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .footer-contact-section {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .contact-info {
+    gap: 20px;
+  }
+
+  .contact-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .contact-emoji {
+    font-size: 16px;
+  }
+
+  .contact-text {
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    width: 100%;
+  }
+
+  .footer-divider {
+    margin: 24px 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-copyright {
+    padding: 0;
+    font-size: 11px;
+    text-align: left;
+    order: 2;
   }
 
   .footer-bottom-links {
-    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    order: 1;
+  }
+
+  .footer-bottom-link {
+    padding: 0;
+    font-size: 11px;
+  }
+
+  .modal-container {
+    max-width: 100%;
+    max-height: 95vh;
+    border-radius: 8px;
+  }
+
+  .modal-content {
+    padding: 30px 20px;
+  }
+
+  .modal-title {
+    font-size: 22px;
+    padding-right: 30px;
+  }
+
+  .modal-body {
+    font-size: 14px;
+  }
+
+  .modal-body h3 {
+    font-size: 18px;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    width: 35px;
+    height: 35px;
   }
 }
 

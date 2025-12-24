@@ -5,6 +5,29 @@
   text-align: center;
 }
 
+.quote-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.green-dot {
+  width: 16px;
+  height: 16px;
+  animation: blink 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
 .quote-text {
   font-size: 24px;
   font-family: Poppins, sans-serif;

@@ -25,10 +25,10 @@
   stroke-linejoin: round;
   stroke-dasharray: var(--len);
   stroke-dashoffset: var(--len);
-  animation: draw 2.5s linear 2 forwards;
+  animation: draw 2.5s linear infinite;
 }
 
-/* 2 kere oynatıp duran animasyon - daha hızlı */
+/* Sürekli döngü animasyon */
 @keyframes draw {
   0%   { stroke-dashoffset: var(--len); }
   100% { stroke-dashoffset: 0; }

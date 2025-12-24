@@ -4,6 +4,7 @@ import logo from '../../pic/5A LOGO1 1.svg'
 
 function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const dropdownRef = useRef(null)
 
   const categories = [
@@ -18,6 +19,7 @@ function Navbar() {
 
   const handleCategoryClick = (categoryId) => {
     setIsDropdownOpen(false)
+    setIsMobileMenuOpen(false)
     const element = document.getElementById(`category-${categoryId}`)
     if (element) {
       const offset = 120
@@ -28,6 +30,11 @@ function Navbar() {
         behavior: 'smooth'
       })
     }
+  }
+
+  const handleNavClickMobile = (e, targetId) => {
+    setIsMobileMenuOpen(false)
+    handleNavClick(e, targetId)
   }
 
   const handleNavClick = (e, targetId) => {
@@ -112,6 +119,19 @@ function Navbar() {
             <div className="logo-subtitle">San ve tic. ltd. şti</div>
           </div>
         </div>
+        
+        {/* Hamburger Button */}
+        <button 
+          className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Desktop Menu */}
         <div className="navbar-menu">
           <a href="#anasayfa" className="menu-item" onClick={(e) => handleNavClick(e, 'anasayfa')}>Anasayfa</a>
           <a href="#hakkimizda" className="menu-item" onClick={(e) => handleNavClick(e, 'hakkimizda')}>Hakkımızda</a>
@@ -148,6 +168,40 @@ function Navbar() {
           </div>
           <a href="#katalog" className="menu-item" onClick={(e) => e.preventDefault()}>Katalog</a>
           <a href="#iletisim" className="menu-item" onClick={(e) => handleNavClick(e, 'iletisim')}>İletişim</a>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+          <a href="#anasayfa" className="mobile-menu-item" onClick={(e) => handleNavClickMobile(e, 'anasayfa')}>Anasayfa</a>
+          <a href="#hakkimizda" className="mobile-menu-item" onClick={(e) => handleNavClickMobile(e, 'hakkimizda')}>Hakkımızda</a>
+          <div className="mobile-dropdown">
+            <button 
+              className="mobile-menu-item mobile-dropdown-trigger"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              Kategoriler
+              <span className={`dropdown-icon ${isDropdownOpen ? 'open' : ''}`}>▼</span>
+            </button>
+            {isDropdownOpen && (
+              <div className="mobile-dropdown-menu">
+                {categories.map((category) => (
+                  <a
+                    key={category.id}
+                    href={`#category-${category.id}`}
+                    className="mobile-dropdown-item"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleCategoryClick(category.id)
+                    }}
+                  >
+                    {category.name}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+          <a href="#katalog" className="mobile-menu-item" onClick={(e) => e.preventDefault()}>Katalog</a>
+          <a href="#iletisim" className="mobile-menu-item" onClick={(e) => handleNavClickMobile(e, 'iletisim')}>İletişim</a>
         </div>
       </nav>
     </>

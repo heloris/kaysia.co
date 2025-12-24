@@ -26,8 +26,8 @@ body::before {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  filter: blur(12px);
-  opacity: 0.15;
+  filter: blur(8px);
+  opacity: 0.25;
   z-index: -1;
   pointer-events: none;
 }

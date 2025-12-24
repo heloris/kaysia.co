@@ -36,8 +36,8 @@
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
-        filter: blur(12px);
-        opacity: 0.15;
+        filter: blur(8px);
+        opacity: 0.25;
         z-index: -1;
         pointer-events: none;
       }
@@ -241,7 +241,123 @@
         transform: rotate(180deg);
       }
 
-      /* Slider */
+      /* Hamburger Button */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+      }
+
+      .hamburger span {
+        width: 100%;
+        height: 3px;
+        background: #1F1F1F;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 120px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        flex-direction: column;
+        padding: 20px 0;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 998;
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      .mobile-menu-item {
+        display: block;
+        padding: 16px 24px;
+        color: #1F1F1F;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: background-color 0.2s, color 0.2s;
+        background: none;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        width: 100%;
+        text-align: left;
+      }
+
+      .mobile-menu-item:hover {
+        background-color: #f5f5f5;
+        color: #7A040B;
+      }
+
+      .mobile-dropdown {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .mobile-dropdown-trigger {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .mobile-dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.02);
+        padding-left: 24px;
+      }
+
+      .mobile-dropdown-item {
+        padding: 12px 24px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #1F1F1F;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      .mobile-dropdown-item:hover {
+        background-color: #f5f5f5;
+        color: #7A040B;
+      }
+
+      .dropdown-icon.open {
+        transform: rotate(180deg);
+      }
+
+      /* Slider - Accordion Style */
       .slider-container {
         width: 100%;
         margin: 0;
@@ -249,88 +365,66 @@
         overflow: hidden;
       }
 
-      .slider-wrapper {
-        position: relative;
+      .accordion-slider {
+        padding: 0;
+      }
+
+      .accordion-wrapper {
+        display: flex;
         width: 100%;
         height: 617px;
-      }
-
-      .slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-      }
-
-      .slide.active {
-        opacity: 1;
-        z-index: 1;
-      }
-
-      .slide-content {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        background: white;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        gap: 4px;
         overflow: hidden;
       }
 
-      .main-image {
-        width: 641px;
-        height: 617px;
-        left: 0px;
-        top: 0px;
-        position: absolute;
+      .accordion-item {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        transition: flex 0.5s ease-in-out;
+        cursor: pointer;
+        flex: 1;
+      }
+
+      .accordion-item.active {
+        flex: 3;
+      }
+
+      .accordion-image {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
+        transition: transform 0.5s ease-in-out;
       }
 
-      .side-image {
+      .accordion-item:hover .accordion-image {
+        transform: scale(1.05);
+      }
+
+      .accordion-info {
         position: absolute;
-        top: 0px;
-        height: 617px;
-        object-fit: cover;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        padding: 40px 20px 20px;
+        animation: fadeInUp 0.5s ease-in-out;
       }
 
-      .side-image-0 {
-        width: 213.67px;
-        left: 641px;
-      }
-
-      .side-image-1 {
-        width: 213.67px;
-        left: 855px;
-      }
-
-      .side-image-2 {
-        width: 213.67px;
-        left: 1069px;
-      }
-
-      .side-image-3 {
-        width: 157px;
-        left: 1283px;
-      }
-
-      .info-box {
-        width: 191px;
-        height: 135px;
-        left: 58px;
-        top: 431px;
-        position: absolute;
-        opacity: 0.80;
-        background: #D9D9D9;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .info-content {
-        width: 125px;
+        width: 100%;
+        max-width: 400px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -347,18 +441,10 @@
         gap: 6px;
       }
 
-      .info-title-wrapper {
-        width: 72px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-      }
-
       .info-title {
         align-self: stretch;
-        color: black;
-        font-size: 14px;
+        color: white;
+        font-size: 24px;
         font-family: Inter, sans-serif;
         font-weight: 600;
         word-wrap: break-word;
@@ -366,27 +452,26 @@
 
       .info-divider {
         align-self: stretch;
-        height: 0px;
-        outline: 1px #FBFBFB solid;
-        outline-offset: -0.50px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.3);
+        margin: 4px 0;
       }
 
       .info-description {
         align-self: stretch;
-        color: black;
-        font-size: 10px;
+        color: white;
+        font-size: 14px;
         font-family: Inter, sans-serif;
-        font-weight: 500;
+        font-weight: 400;
         word-wrap: break-word;
+        line-height: 1.5;
       }
 
       .details-button {
-        width: 96px;
-        height: 21px;
-        padding-left: 16px;
-        padding-right: 16px;
-        padding-top: 12px;
-        padding-bottom: 12px;
+        width: auto;
+        min-width: 120px;
+        height: auto;
+        padding: 12px 24px;
         background: linear-gradient(180deg, #AC0A0D 0%, #747474 100%);
         border-radius: 12px;
         border: none;
@@ -395,9 +480,9 @@
         align-items: center;
         gap: 10px;
         cursor: pointer;
-        transition: transform 0.2s;
+        transition: transform 0.2s, opacity 0.2s;
         color: white;
-        font-size: 12px;
+        font-size: 14px;
         font-family: Inter, sans-serif;
         font-weight: 400;
         word-wrap: break-word;
@@ -405,63 +490,7 @@
 
       .details-button:hover {
         transform: scale(1.05);
-      }
-
-      /* Slider Controls */
-      .slider-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.8);
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        font-size: 30px;
-        cursor: pointer;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s;
-        color: #1F1F1F;
-      }
-
-      .slider-btn:hover {
-        background: rgba(255, 255, 255, 1);
-      }
-
-      .prev-btn {
-        left: 20px;
-      }
-
-      .next-btn {
-        right: 20px;
-      }
-
-      /* Slider Dots */
-      .slider-dots {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 10px;
-        z-index: 10;
-      }
-
-      .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        border: none;
-        background: rgba(255, 255, 255, 0.5);
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-
-      .dot.active {
-        background: white;
+        opacity: 0.9;
       }
 
       /* Divider Section */
@@ -487,6 +516,29 @@
         margin: 60px auto;
         padding: 0 20px;
         text-align: center;
+      }
+
+      .quote-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .green-dot {
+        width: 16px;
+        height: 16px;
+        animation: blink 1.5s ease-in-out infinite;
+        flex-shrink: 0;
+      }
+
+      @keyframes blink {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
       }
 
       .quote-text {
@@ -885,7 +937,7 @@
       .footer-links-section {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: 10px;
         min-width: 130px;
       }
@@ -902,7 +954,7 @@
       .footer-links {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: 8px;
         width: 100%;
       }
@@ -939,37 +991,14 @@
 
       .contact-item {
         display: flex;
-        align-items: flex-end;
-        gap: 3px;
+        align-items: flex-start;
+        gap: 8px;
       }
 
-      .contact-icon {
-        width: 16px;
-        height: 16px;
+      .contact-emoji {
+        font-size: 18px;
         flex-shrink: 0;
-      }
-
-      .location-icon {
-        background: #0663EF;
-        width: 9.33px;
-        height: 13.33px;
-        margin: 1.33px 3.33px;
-      }
-
-      .phone-icon {
-        background: #2F88FF;
-        width: 14.31px;
-        height: 14.31px;
-        margin: 3.36px 3.54px;
-        border-radius: 50%;
-      }
-
-      .email-icon {
-        background: #2F88FF;
-        width: 15px;
-        height: 11.25px;
-        margin: 3.38px 1.50px;
-        clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+        line-height: 1.4;
       }
 
       .contact-text {
@@ -1026,10 +1055,168 @@
         word-wrap: break-word;
         text-decoration: none;
         transition: color 0.3s ease;
+        background: none;
+        border: none;
+        cursor: pointer;
       }
 
       .footer-bottom-link:hover {
         color: #0F71D2;
+      }
+
+      /* Modal Styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        padding: 20px;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal-container {
+        background: white;
+        border-radius: 12px;
+        max-width: 800px;
+        max-height: 90vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        animation: slideUp 0.3s ease;
+        overflow: hidden;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: #666;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        z-index: 10001;
+        line-height: 1;
+      }
+
+      .modal-close:hover {
+        background: #f0f0f0;
+        color: #000;
+      }
+
+      .modal-content {
+        padding: 40px;
+        overflow-y: auto;
+        flex: 1;
+      }
+
+      .modal-title {
+        color: #0F172A;
+        font-size: 28px;
+        font-family: Inter, sans-serif;
+        font-weight: 700;
+        margin: 0 0 20px 0;
+        padding-right: 40px;
+      }
+
+      .modal-body {
+        color: #333;
+        font-size: 15px;
+        font-family: Inter, sans-serif;
+        line-height: 1.8;
+      }
+
+      .modal-body h3 {
+        color: #0F172A;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 25px 0 12px 0;
+      }
+
+      .modal-body p {
+        margin: 12px 0;
+      }
+
+      .modal-body ul {
+        margin: 12px 0;
+        padding-left: 25px;
+      }
+
+      .modal-body li {
+        margin: 8px 0;
+      }
+
+      .modal-body strong {
+        color: #0F172A;
+        font-weight: 600;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .modal-container {
+          max-width: 100%;
+          max-height: 95vh;
+          border-radius: 8px;
+        }
+
+        .modal-content {
+          padding: 30px 20px;
+        }
+
+        .modal-title {
+          font-size: 22px;
+          padding-right: 30px;
+        }
+
+        .modal-body {
+          font-size: 14px;
+        }
+
+        .modal-body h3 {
+          font-size: 18px;
+        }
+
+        .modal-close {
+          top: 10px;
+          right: 10px;
+          font-size: 28px;
+          width: 35px;
+          height: 35px;
+        }
       }
 
       .ecg-wrap {
@@ -1053,10 +1240,10 @@
         stroke-linejoin: round;
         stroke-dasharray: var(--len);
         stroke-dashoffset: var(--len);
-        animation: draw 2.5s linear 2 forwards;
+        animation: draw 2.5s linear infinite;
       }
 
-      /* 2 kere oynatıp duran animasyon - daha hızlı */
+      /* Sürekli döngü animasyon */
       @keyframes draw {
         0%   { stroke-dashoffset: var(--len); }
         100% { stroke-dashoffset: 0; }
@@ -1079,17 +1266,16 @@
           font-size: 14px;
         }
 
-        .slider-wrapper {
+        .accordion-wrapper {
           height: 500px;
         }
-        
-        .main-image,
-        .side-image {
-          height: 500px;
+
+        .info-title {
+          font-size: 20px;
         }
-        
-        .info-box {
-          top: 350px;
+
+        .info-description {
+          font-size: 12px;
         }
 
         .slogan-title {
@@ -1184,54 +1370,52 @@
           font-size: 10px;
         }
         
+        .hamburger {
+          display: flex;
+        }
+        
         .navbar-menu {
-          flex-wrap: wrap;
-          justify-content: flex-end;
-          gap: 16px;
-        }
-        
-        .menu-item {
-          font-size: 12px;
-        }
-
-        .slider-wrapper {
-          height: 400px;
-        }
-        
-        .main-image {
-          width: 100%;
-          height: 400px;
-        }
-        
-        .side-image {
           display: none;
         }
         
-        .info-box {
-          width: 90%;
-          left: 5%;
-          top: auto;
-          bottom: 20px;
+        .mobile-menu {
+          display: flex;
+        }
+        
+        .dropdown-wrapper {
+          display: none;
+        }
+
+        .accordion-wrapper {
+          height: 750px;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .accordion-item {
+          flex: 1;
           height: auto;
-          padding: 16px;
         }
-        
-        .info-content {
-          width: 100%;
+
+        .accordion-item.active {
+          flex: 5;
         }
-        
-        .slider-btn {
-          width: 40px;
-          height: 40px;
+
+        .accordion-info {
+          padding: 35px 20px 20px;
+        }
+
+        .info-title {
           font-size: 24px;
         }
-        
-        .prev-btn {
-          left: 10px;
+
+        .info-description {
+          font-size: 15px;
         }
-        
-        .next-btn {
-          right: 10px;
+
+        .details-button {
+          padding: 16px 32px;
+          font-size: 15px;
         }
 
         .divider-section {
@@ -1286,6 +1470,122 @@
         .about-text p {
           font-size: 16px;
         }
+
+        .footer {
+          padding: 40px 16px 20px;
+        }
+
+        .footer-container {
+          gap: 32px;
+        }
+
+        .footer-logo-section {
+          max-width: 100%;
+        }
+
+        .logo-wrapper {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .footer-logo {
+          width: 60px;
+          height: 73px;
+        }
+
+        .logo-text-section {
+          padding: 0;
+        }
+
+        .logo-title {
+          font-size: 20px;
+        }
+
+        .logo-subtitle {
+          font-size: 14px;
+        }
+
+        .footer-description {
+          font-size: 13px;
+          line-height: 1.6;
+        }
+
+        .footer-links-section {
+          align-items: flex-start;
+          width: 100%;
+        }
+
+        .footer-section-title {
+          padding: 8px 10px;
+          font-size: 15px;
+        }
+
+        .footer-links {
+          align-items: flex-start;
+          width: 100%;
+        }
+
+        .footer-link {
+          padding: 8px 10px;
+          font-size: 13px;
+        }
+
+        .footer-contact-section {
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .contact-info {
+          gap: 20px;
+        }
+
+        .contact-item {
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .contact-emoji {
+          font-size: 16px;
+        }
+
+        .contact-text {
+          padding: 0;
+          font-size: 13px;
+          line-height: 1.5;
+          width: 100%;
+        }
+
+        .footer-divider {
+          margin: 24px 0;
+        }
+
+        .footer-bottom {
+          flex-direction: column-reverse;
+          align-items: flex-start;
+          gap: 16px;
+        }
+
+        .footer-copyright {
+          padding: 0;
+          font-size: 11px;
+          text-align: left;
+          order: 2;
+        }
+
+        .footer-bottom-links {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+          width: 100%;
+          order: 1;
+        }
+
+        .footer-bottom-link {
+          padding: 0;
+          font-size: 11px;
+        }
       }
     </style>
   </head>
@@ -1315,6 +1615,15 @@
             <div class="logo-subtitle">San ve tic. ltd. şti</div>
           </div>
         </div>
+        
+        <!-- Hamburger Button -->
+        <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Desktop Menu -->
         <div class="navbar-menu">
           <a href="#anasayfa" class="menu-item" onclick="handleNavClick(event, 'anasayfa')">Anasayfa</a>
           <a href="#hakkimizda" class="menu-item" onclick="handleNavClick(event, 'hakkimizda')">Hakkımızda</a>
@@ -1336,138 +1645,108 @@
           <a href="#katalog" class="menu-item" onclick="event.preventDefault()">Katalog</a>
           <a href="#iletisim" class="menu-item" onclick="handleNavClick(event, 'iletisim')">İletişim</a>
         </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#anasayfa" class="mobile-menu-item" onclick="handleNavClickMobile(event, 'anasayfa')">Anasayfa</a>
+          <a href="#hakkimizda" class="mobile-menu-item" onclick="handleNavClickMobile(event, 'hakkimizda')">Hakkımızda</a>
+          <div class="mobile-dropdown">
+            <button class="mobile-menu-item mobile-dropdown-trigger" onclick="toggleMobileDropdown(event)">
+              Kategoriler
+              <span class="dropdown-icon" id="mobileDropdownIcon">▼</span>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobileCategoriesDropdown" style="display: none;">
+              <a href="#category-ortopedi" class="mobile-dropdown-item" onclick="handleCategoryClickMobile(event, 'ortopedi')">Ortopedi</a>
+              <a href="#category-antiseptik" class="mobile-dropdown-item" onclick="handleCategoryClickMobile(event, 'antiseptik')">Antiseptik ve Dezenfektanlar</a>
+              <a href="#category-cerrahi" class="mobile-dropdown-item" onclick="handleCategoryClickMobile(event, 'cerrahi')">Cerrahi Ekipman ve Aletler</a>
+              <a href="#category-hasta-yatagi" class="mobile-dropdown-item" onclick="handleCategoryClickMobile(event, 'hasta-yatagi')">Hasta Yatağı Grubu</a>
+              <a href="#category-kadin-dogum" class="mobile-dropdown-item" onclick="handleCategoryClickMobile(event, 'kadin-dogum')">Kadın Doğum Sarf</a>
+              <a href="#category-tibbi-sarf" class="mobile-dropdown-item" onclick="handleCategoryClickMobile(event, 'tibbi-sarf')">Tıbbi Sarf</a>
+              <a href="#category-medikal" class="mobile-dropdown-item" onclick="handleCategoryClickMobile(event, 'medikal')">Medikal Ürünler</a>
+            </div>
+          </div>
+          <a href="#katalog" class="mobile-menu-item" onclick="event.preventDefault()">Katalog</a>
+          <a href="#iletisim" class="mobile-menu-item" onclick="handleNavClickMobile(event, 'iletisim')">İletişim</a>
+        </div>
       </nav>
 
-      <!-- Slider -->
-      <div class="slider-container">
-        <div class="slider-wrapper">
+      <!-- Slider - Accordion Style -->
+      <div class="slider-container accordion-slider">
+        <div class="accordion-wrapper">
           <!-- Slide 1 -->
-          <div class="slide active">
-            <div class="slide-content">
-              <img src="https://placehold.co/641x617" alt="Ortopedi" class="main-image" />
-              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
-              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
-              <div class="info-box">
-                <div class="info-content">
-                  <div class="info-header">
-                    <div class="info-title-wrapper">
-                      <div class="info-title">ORTOPEDİ</div>
-                      <div class="info-divider"></div>
-                    </div>
-                    <div class="info-description">"Ortopedik tedavi ve bakım süreçlerinde kullanılan güvenilir, dayanıklı ve yüksek kalite ekipmanlar."</div>
-                  </div>
-                  <button class="details-button">Detaylar</button>
+          <div class="accordion-item active" onclick="goToAccordionSlide(0)">
+            <img src="./pic/slide1.png" alt="Ortopedi" class="accordion-image" />
+            <div class="accordion-info">
+              <div class="info-content">
+                <div class="info-header">
+                  <div class="info-title">ORTOPEDİ</div>
+                  <div class="info-divider"></div>
                 </div>
+                <div class="info-description">"Ortopedik tedavi ve bakım süreçlerinde kullanılan güvenilir, dayanıklı ve yüksek kalite ekipmanlar."</div>
+                <button class="details-button" onclick="event.stopPropagation()">Detaylar</button>
               </div>
             </div>
           </div>
 
           <!-- Slide 2 -->
-          <div class="slide">
-            <div class="slide-content">
-              <img src="https://placehold.co/641x617" alt="Slide 2" class="main-image" />
-              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
-              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
-              <div class="info-box">
-                <div class="info-content">
-                  <div class="info-header">
-                    <div class="info-title-wrapper">
-                      <div class="info-title">SLIDE 2</div>
-                      <div class="info-divider"></div>
-                    </div>
-                    <div class="info-description">İkinci slide açıklaması</div>
-                  </div>
-                  <button class="details-button">Detaylar</button>
+          <div class="accordion-item" onclick="goToAccordionSlide(1)">
+            <img src="./pic/slide2.jpg" alt="Slide 2" class="accordion-image" />
+            <div class="accordion-info" style="display: none;">
+              <div class="info-content">
+                <div class="info-header">
+                  <div class="info-title">CERRAHİ EKİPMAN VE ALETLER</div>
+                  <div class="info-divider"></div>
                 </div>
+                <div class="info-description">"Ameliyathane ve klinik süreçlerinde kullanılan profesyonel, dayanıklı ve sterilizasyon uyumlu cerrahi aletler."</div>
+                <button class="details-button" onclick="event.stopPropagation()">Detaylar</button>
               </div>
             </div>
           </div>
 
           <!-- Slide 3 -->
-          <div class="slide">
-            <div class="slide-content">
-              <img src="https://placehold.co/641x617" alt="Slide 3" class="main-image" />
-              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
-              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
-              <div class="info-box">
-                <div class="info-content">
-                  <div class="info-header">
-                    <div class="info-title-wrapper">
-                      <div class="info-title">SLIDE 3</div>
-                      <div class="info-divider"></div>
-                    </div>
-                    <div class="info-description">Üçüncü slide açıklaması</div>
-                  </div>
-                  <button class="details-button">Detaylar</button>
+          <div class="accordion-item" onclick="goToAccordionSlide(2)">
+            <img src="./pic/slide3.jpg" alt="Slide 3" class="accordion-image" />
+            <div class="accordion-info" style="display: none;">
+              <div class="info-content">
+                <div class="info-header">
+                  <div class="info-title">ANTİSEPTİK VE DEZENFEKTAN GRUBU</div>
+                  <div class="info-divider"></div>
                 </div>
+                <div class="info-description">"Enfeksiyon kontrolünde kullanılan güçlü, hızlı etkili antiseptik ve dezenfektan ürünleri."</div>
+                <button class="details-button" onclick="event.stopPropagation()">Detaylar</button>
               </div>
             </div>
           </div>
 
           <!-- Slide 4 -->
-          <div class="slide">
-            <div class="slide-content">
-              <img src="https://placehold.co/641x617" alt="Slide 4" class="main-image" />
-              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
-              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
-              <div class="info-box">
-                <div class="info-content">
-                  <div class="info-header">
-                    <div class="info-title-wrapper">
-                      <div class="info-title">SLIDE 4</div>
-                      <div class="info-divider"></div>
-                    </div>
-                    <div class="info-description">Dördüncü slide açıklaması</div>
-                  </div>
-                  <button class="details-button">Detaylar</button>
+          <div class="accordion-item" onclick="goToAccordionSlide(3)">
+            <img src="./pic/slide4.jpg" alt="Slide 4" class="accordion-image" />
+            <div class="accordion-info" style="display: none;">
+              <div class="info-content">
+                <div class="info-header">
+                  <div class="info-title">MEDİKAL ÜRÜNLER</div>
+                  <div class="info-divider"></div>
                 </div>
+                <div class="info-description">"Hastane, klinik ve ev tipi sağlık ihtiyaçları için tasarlanmış kapsamlı medikal ürün çözümleri."</div>
+                <button class="details-button" onclick="event.stopPropagation()">Detaylar</button>
               </div>
             </div>
           </div>
 
           <!-- Slide 5 -->
-          <div class="slide">
-            <div class="slide-content">
-              <img src="https://placehold.co/641x617" alt="Slide 5" class="main-image" />
-              <img src="https://placehold.co/214x617" alt="Side 1" class="side-image side-image-0" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 2" class="side-image side-image-1" style="opacity: 0.80" />
-              <img src="https://placehold.co/214x617" alt="Side 3" class="side-image side-image-2" style="opacity: 0.80" />
-              <img src="https://placehold.co/157x617" alt="Side 4" class="side-image side-image-3" style="opacity: 0.80" />
-              <div class="info-box">
-                <div class="info-content">
-                  <div class="info-header">
-                    <div class="info-title-wrapper">
-                      <div class="info-title">SLIDE 5</div>
-                      <div class="info-divider"></div>
-                    </div>
-                    <div class="info-description">Beşinci slide açıklaması</div>
-                  </div>
-                  <button class="details-button">Detaylar</button>
+          <div class="accordion-item" onclick="goToAccordionSlide(4)">
+            <img src="./pic/slide5.jpg" alt="Slide 5" class="accordion-image" />
+            <div class="accordion-info" style="display: none;">
+              <div class="info-content">
+                <div class="info-header">
+                  <div class="info-title">KLİNİK ÜRÜNLERİ</div>
+                  <div class="info-divider"></div>
                 </div>
+                <div class="info-description">"Muayene, tedavi ve bakım süreçlerinde gerekli olan tüm temel klinik ürün çözümleri."</div>
+                <button class="details-button" onclick="event.stopPropagation()">Detaylar</button>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Slider Controls -->
-        <button class="slider-btn prev-btn" onclick="changeSlide(-1)">‹</button>
-        <button class="slider-btn next-btn" onclick="changeSlide(1)">›</button>
-
-        <!-- Slider Dots -->
-        <div class="slider-dots">
-          <button class="dot active" onclick="goToSlide(0)"></button>
-          <button class="dot" onclick="goToSlide(1)"></button>
-          <button class="dot" onclick="goToSlide(2)"></button>
-          <button class="dot" onclick="goToSlide(3)"></button>
-          <button class="dot" onclick="goToSlide(4)"></button>
         </div>
       </div>
 
@@ -1524,7 +1803,10 @@
 
       <!-- Quote Section -->
       <div class="quote-section">
-        <p class="quote-text">"Modern sağlık hizmetlerini yeniden tanımlıyoruz."</p>
+        <div class="quote-content">
+          <img src="./pic/yesilnokta.svg" alt="" class="green-dot" />
+          <p class="quote-text">"Modern sağlık hizmetlerini yeniden tanımlıyoruz."</p>
+        </div>
       </div>
 
       <!-- Slogan Section -->
@@ -2022,19 +2304,19 @@
       <div class="upper-footer">
         <div class="upper-footer-container">
           <div class="stat-item">
-            <div class="stat-number">26+</div>
+            <div class="stat-number" data-target="26" data-suffix="+">0+</div>
             <div class="stat-label">Yıllık Sektörel Tecrübe</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">1500+</div>
+            <div class="stat-number" data-target="1500" data-suffix="+">0+</div>
             <div class="stat-label">Medikal Ürün</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">100+</div>
+            <div class="stat-number" data-target="100" data-suffix="+">0+</div>
             <div class="stat-label">Mutlu Kurum</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">81 il</div>
+            <div class="stat-number" data-target="81" data-suffix=" il">0 il</div>
             <div class="stat-label">Hızlı Tedarik</div>
           </div>
         </div>
@@ -2072,23 +2354,32 @@
             <div class="footer-section-title">İLETİŞİM</div>
             <div class="contact-info">
               <div class="contact-item">
-                <div class="contact-icon location-icon"></div>
+                <span class="contact-emoji">📍</span>
                 <div class="contact-text">Varlık Mh. K.Karabekir Cd. 202 Sk. Yazır Apt. No:4/A, 07050</div>
               </div>
               <div class="contact-item">
-                <div class="contact-icon phone-icon"></div>
+                <span class="contact-emoji">📞</span>
                 <div class="contact-text">0(543) 237 62 40</div>
               </div>
               <div class="contact-item">
-                <div class="contact-icon email-icon"></div>
+                <span class="contact-emoji">✉️</span>
                 <div class="contact-text">5asaglik@hotmail.com.tr</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Divider -->
-        <div class="footer-divider"></div>
+        <!-- EKG Line -->
+        <div class="ekg-line-container">
+          <div class="ekg-wrap">
+            <svg class="ekg-svg" viewBox="0 0 1200 200" width="100%" height="200" aria-label="EKG">
+              <!-- gri düz çizgi -->
+              <line x1="20" y1="100" x2="1180" y2="100" class="baseline" />
+              <!-- Kırmızı EKG çizgisi -->
+              <path id="ekgPathFooter" class="ecg" d="M20 100 L520 100 L525 100 L527 102 L530 25 L533 175 L536 100 L545 108 L555 100 L560 100 L562 95 L564 105 L566 100 L570 100 L572 98 L574 102 L576 100 L580 100 L585 100 L587 102 L590 25 L593 175 L596 100 L605 108 L615 100 L620 100 L622 96 L624 104 L626 100 L630 100 L632 97 L634 103 L636 100 L640 100 L645 100 L647 102 L650 25 L653 175 L656 100 L665 108 L675 100 L1180 100" />
+            </svg>
+          </div>
+        </div>
 
         <!-- Bottom Footer -->
         <div class="footer-bottom">
@@ -2096,11 +2387,19 @@
             © 2025 5A Sağlık Merkezi. Tüm hakları saklıdır.
           </div>
           <div class="footer-bottom-links">
-            <a href="#gizlilik" class="footer-bottom-link">Gizlilik Politikası</a>
-            <a href="#kvkk" class="footer-bottom-link">KVKK</a>
-            <a href="#kullanim" class="footer-bottom-link">Kullanım Şartları</a>
+            <button class="footer-bottom-link" onclick="openModal('gizlilik')">Gizlilik Politikası</button>
+            <button class="footer-bottom-link" onclick="openModal('kvkk')">KVKK</button>
+            <button class="footer-bottom-link" onclick="openModal('kullanim')">Kullanım Şartları</button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal-overlay" style="display: none;" onclick="closeModal()">
+      <div class="modal-container" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div id="modal-content" class="modal-content"></div>
       </div>
     </div>
 
@@ -2133,10 +2432,21 @@
         showSlide(index);
       }
 
-      // Auto-play slider
-      setInterval(() => {
-        changeSlide(1);
-      }, 5000);
+      // Accordion Slider Function
+      function goToAccordionSlide(index) {
+        const items = document.querySelectorAll('.accordion-item');
+        const infos = document.querySelectorAll('.accordion-info');
+        
+        items.forEach((item, i) => {
+          if (i === index) {
+            item.classList.add('active');
+            infos[i].style.display = 'block';
+          } else {
+            item.classList.remove('active');
+            infos[i].style.display = 'none';
+          }
+        });
+      }
 
       // Category Navigation
       const categoryNavItems = document.querySelectorAll('.category-nav-item');
@@ -2206,7 +2516,7 @@
           ecgPath.style.strokeDashoffset = len;
           // Animasyonu başlat
           setTimeout(() => {
-            ecgPath.style.animation = 'draw 2.5s linear 2 forwards';
+            ecgPath.style.animation = 'draw 2.5s linear infinite';
           }, 100);
         }
       }
@@ -2220,7 +2530,21 @@
           ecgPath2.style.strokeDasharray = len;
           ecgPath2.style.strokeDashoffset = len;
           setTimeout(() => {
-            ecgPath2.style.animation = 'draw 2.5s linear 2 forwards';
+            ecgPath2.style.animation = 'draw 2.5s linear infinite';
+          }, 100);
+        }
+      }
+
+      // Footer EKG Path'i başlat
+      function startEKGAnimationFooter() {
+        const ecgPathFooter = document.getElementById('ekgPathFooter');
+        if (ecgPathFooter) {
+          const len = ecgPathFooter.getTotalLength();
+          ecgPathFooter.style.setProperty('--len', len);
+          ecgPathFooter.style.strokeDasharray = len;
+          ecgPathFooter.style.strokeDashoffset = len;
+          setTimeout(() => {
+            ecgPathFooter.style.animation = 'draw 2.5s linear infinite';
           }, 100);
         }
       }
@@ -2302,11 +2626,297 @@
         }
       });
 
+      // Mobile Menu Functions
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const hamburger = document.getElementById('hamburgerBtn');
+        if (mobileMenu && hamburger) {
+          mobileMenu.classList.toggle('active');
+          hamburger.classList.toggle('active');
+        }
+      }
+
+      function handleNavClickMobile(e, targetId) {
+        toggleMobileMenu();
+        handleNavClick(e, targetId);
+      }
+
+      function toggleMobileDropdown(e) {
+        e.stopPropagation();
+        const dropdown = document.getElementById('mobileCategoriesDropdown');
+        const icon = document.getElementById('mobileDropdownIcon');
+        if (dropdown && icon) {
+          if (dropdown.style.display === 'none') {
+            dropdown.style.display = 'flex';
+            icon.classList.add('open');
+          } else {
+            dropdown.style.display = 'none';
+            icon.classList.remove('open');
+          }
+        }
+      }
+
+      function handleCategoryClickMobile(e, categoryId) {
+        toggleMobileMenu();
+        handleCategoryClick(e, categoryId);
+      }
+
+      // Counter Animation for Upper Footer
+      function animateCounter(element, target, suffix, duration = 2000) {
+        const start = 0;
+        const increment = target / (duration / 16); // 60 FPS
+        let current = start;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          element.textContent = Math.floor(current) + suffix;
+        }, 16);
+      }
+
+      function initCounterAnimation() {
+        const upperFooter = document.querySelector('.upper-footer');
+        if (!upperFooter) return;
+
+        const statNumbers = upperFooter.querySelectorAll('.stat-number[data-target]');
+        let hasAnimated = false;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                statNumbers.forEach((statNumber) => {
+                  const target = parseInt(statNumber.getAttribute('data-target'));
+                  const suffix = statNumber.getAttribute('data-suffix') || '';
+                  animateCounter(statNumber, target, suffix);
+                });
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+
+        observer.observe(upperFooter);
+      }
+
+      // Modal Functions
+      let currentModal = null;
+
+      function openModal(type) {
+        currentModal = type;
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+        
+        if (modal && modalContent) {
+          modalContent.innerHTML = getModalContent(type);
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('modal');
+        if (modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+          currentModal = null;
+        }
+      }
+
+      function getModalContent(type) {
+        if (type === 'gizlilik') {
+          return `
+            <h2 class="modal-title">Gizlilik Politikası</h2>
+            <div class="modal-body">
+              <p><strong>Son Güncelleme:</strong> 2025</p>
+              
+              <h3>1. Genel Bilgiler</h3>
+              <p>5A Sağlık Ürünleri San. ve Tic. Ltd. Şti. ("Şirket", "biz", "bizim") olarak, web sitemizi ziyaret eden kullanıcıların kişisel bilgilerinin korunmasına büyük önem vermekteyiz. Bu Gizlilik Politikası, web sitemiz aracılığıyla toplanan bilgilerin nasıl kullanıldığını ve korunduğunu açıklamaktadır.</p>
+              
+              <h3>2. Toplanan Bilgiler</h3>
+              <p>Web sitemizde çerez (cookie) kullanılmamaktadır. Sadece iletişim formu veya e-posta yoluyla gönderdiğiniz bilgiler toplanmaktadır:</p>
+              <ul>
+                <li>Ad ve soyad</li>
+                <li>E-posta adresi</li>
+                <li>Telefon numarası</li>
+                <li>Mesaj içeriği</li>
+              </ul>
+              
+              <h3>3. Bilgilerin Kullanımı</h3>
+              <p>Toplanan bilgiler aşağıdaki amaçlarla kullanılmaktadır:</p>
+              <ul>
+                <li>İletişim taleplerinize yanıt vermek</li>
+                <li>Ürün ve hizmetlerimiz hakkında bilgi sağlamak</li>
+                <li>Yasal yükümlülüklerimizi yerine getirmek</li>
+              </ul>
+              
+              <h3>4. Bilgilerin Paylaşımı</h3>
+              <p>Kişisel bilgileriniz, yasal zorunluluklar dışında üçüncü taraflarla paylaşılmamaktadır.</p>
+              
+              <h3>5. Güvenlik</h3>
+              <p>Kişisel bilgilerinizin güvenliğini sağlamak için uygun teknik ve idari önlemler alınmaktadır.</p>
+              
+              <h3>6. Haklarınız</h3>
+              <p>KVKK kapsamında, kişisel verilerinizle ilgili aşağıdaki haklara sahipsiniz:</p>
+              <ul>
+                <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+                <li>İşlenmişse buna ilişkin bilgi talep etme</li>
+                <li>İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+                <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
+                <li>Eksik veya yanlış işlenmiş olması halinde bunların düzeltilmesini isteme</li>
+                <li>İşlenmesini gerektiren sebeplerin ortadan kalkması halinde silinmesini veya yok edilmesini isteme</li>
+              </ul>
+              
+              <h3>7. İletişim</h3>
+              <p>Gizlilik politikamız hakkında sorularınız için bizimle iletişime geçebilirsiniz:</p>
+              <p>
+                <strong>5A Sağlık Ürünleri San. ve Tic. Ltd. Şti.</strong><br />
+                📍 Varlık Mh. K.Karabekir Cd. 202 Sk. Yazır Apt. No:4/A, 07050<br />
+                📞 0(543) 237 62 40<br />
+                ✉️ 5asaglik@hotmail.com.tr
+              </p>
+            </div>
+          `;
+        }
+        
+        if (type === 'kvkk') {
+          return `
+            <h2 class="modal-title">Kişisel Verilerin Korunması Kanunu (KVKK) Aydınlatma Metni</h2>
+            <div class="modal-body">
+              <p><strong>Son Güncelleme:</strong> 2025</p>
+              
+              <h3>1. Veri Sorumlusu</h3>
+              <p><strong>5A Sağlık Ürünleri San. ve Tic. Ltd. Şti.</strong><br />
+              📍 Varlık Mh. K.Karabekir Cd. 202 Sk. Yazır Apt. No:4/A, 07050<br />
+              📞 0(543) 237 62 40<br />
+              ✉️ 5asaglik@hotmail.com.tr</p>
+              
+              <h3>2. Kişisel Verilerin İşlenme Amaçları</h3>
+              <p>6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:</p>
+              <ul>
+                <li>İletişim taleplerinize yanıt vermek</li>
+                <li>Ürün ve hizmetlerimiz hakkında bilgi sağlamak</li>
+                <li>Teklif ve fiyatlandırma taleplerinizi değerlendirmek</li>
+                <li>Yasal yükümlülüklerimizi yerine getirmek</li>
+                <li>Müşteri ilişkilerini yönetmek</li>
+              </ul>
+              
+              <h3>3. İşlenen Kişisel Veriler</h3>
+              <p>İşlenen kişisel verileriniz şunlardır:</p>
+              <ul>
+                <li><strong>Kimlik Verileri:</strong> Ad, soyad</li>
+                <li><strong>İletişim Verileri:</strong> E-posta adresi, telefon numarası, adres bilgisi</li>
+                <li><strong>İşlem Güvenliği Verileri:</strong> IP adresi, web sitesi giriş kayıtları</li>
+              </ul>
+              
+              <h3>4. Kişisel Verilerin İşlenme Hukuki Sebepleri</h3>
+              <p>Kişisel verileriniz, KVKK'nın 5. ve 6. maddelerinde belirtilen aşağıdaki hukuki sebeplere dayanarak işlenmektedir:</p>
+              <ul>
+                <li>Açık rızanız</li>
+                <li>Sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması</li>
+                <li>Yasal yükümlülüğümüzün yerine getirilmesi</li>
+                <li>Meşru menfaatlerimiz için veri işlemenin zorunlu olması</li>
+              </ul>
+              
+              <h3>5. Kişisel Verilerin Aktarımı</h3>
+              <p>Kişisel verileriniz, yukarıda belirtilen amaçların gerçekleştirilmesi için gerekli olan hallerde, yasal yükümlülüklerimiz çerçevesinde ve KVKK'nın 8. ve 9. maddelerinde öngörülen şartlara uygun olarak, sınırlı sayıda ve gerekli ölçüde iş ortaklarımız, hizmet sağlayıcılarımız ve yasal mercilerle paylaşılabilir.</p>
+              
+              <h3>6. Kişisel Verilerin Saklanma Süresi</h3>
+              <p>Kişisel verileriniz, işleme amacının gerektirdiği süre boyunca ve ilgili mevzuatta öngörülen saklama sürelerine uygun olarak saklanmaktadır.</p>
+              
+              <h3>7. KVKK Kapsamındaki Haklarınız</h3>
+              <p>KVKK'nın 11. maddesi uyarınca, aşağıdaki haklara sahipsiniz:</p>
+              <ul>
+                <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+                <li>İşlenmişse buna ilişkin bilgi talep etme</li>
+                <li>İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+                <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
+                <li>Eksik veya yanlış işlenmiş olması halinde bunların düzeltilmesini isteme</li>
+                <li>İşlenmesini gerektiren sebeplerin ortadan kalkması halinde silinmesini veya yok edilmesini isteme</li>
+                <li>Düzeltme, silme, yok etme işlemlerinin, kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme</li>
+                <li>İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme</li>
+                <li>Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması halinde zararın giderilmesini talep etme</li>
+              </ul>
+              
+              <h3>8. Başvuru Hakkı</h3>
+              <p>KVKK kapsamındaki haklarınızı kullanmak için yazılı olarak başvuruda bulunabilirsiniz. Başvurularınız, kimlik tespiti yapıldıktan sonra en geç otuz gün içinde sonuçlandırılacaktır.</p>
+              
+              <h3>9. İletişim</h3>
+              <p>KVKK kapsamındaki haklarınızı kullanmak ve sorularınız için:</p>
+              <p>
+                <strong>5A Sağlık Ürünleri San. ve Tic. Ltd. Şti.</strong><br />
+                📍 Varlık Mh. K.Karabekir Cd. 202 Sk. Yazır Apt. No:4/A, 07050<br />
+                📞 0(543) 237 62 40<br />
+                ✉️ 5asaglik@hotmail.com.tr
+              </p>
+            </div>
+          `;
+        }
+        
+        if (type === 'kullanim') {
+          return `
+            <h2 class="modal-title">Kullanım Şartları</h2>
+            <div class="modal-body">
+              <p><strong>Son Güncelleme:</strong> 2025</p>
+              
+              <h3>1. Genel Hükümler</h3>
+              <p>Bu web sitesi, 5A Sağlık Ürünleri San. ve Tic. Ltd. Şti. ("Şirket") tarafından işletilmektedir. Web sitemizi kullanarak, aşağıdaki kullanım şartlarını kabul etmiş sayılırsınız.</p>
+              
+              <h3>2. Web Sitesi Kullanımı</h3>
+              <p>Web sitemizi yalnızca yasal amaçlar için kullanabilirsiniz. Web sitesini aşağıdaki durumlarda kullanamazsınız:</p>
+              <ul>
+                <li>Yasalara, düzenlemelere veya uluslararası hukuka aykırı amaçlarla</li>
+                <li>Başkalarının haklarını ihlal etmek için</li>
+                <li>Zararlı yazılım, virüs veya kötü amaçlı kod yaymak için</li>
+                <li>Web sitesinin güvenliğini veya işleyişini bozmak için</li>
+              </ul>
+              
+              <h3>3. Fikri Mülkiyet Hakları</h3>
+              <p>Web sitesindeki tüm içerikler (metinler, görseller, logolar, tasarımlar vb.) Şirket'e aittir ve telif hakkı, marka hakkı ve diğer fikri mülkiyet yasalarıyla korunmaktadır. İçerikleri izinsiz kopyalayamaz, dağıtamaz veya kullanamazsınız.</p>
+              
+              <h3>4. Ürün ve Hizmet Bilgileri</h3>
+              <p>Web sitemizde yer alan ürün ve hizmet bilgileri bilgilendirme amaçlıdır. Fiyatlar ve özellikler önceden haber verilmeksizin değiştirilebilir. Kesin bilgi ve fiyatlandırma için lütfen bizimle iletişime geçiniz.</p>
+              
+              <h3>5. İletişim ve Bilgi Paylaşımı</h3>
+              <p>Web sitemiz üzerinden gönderdiğiniz bilgiler ve mesajlar, gizlilik politikamız kapsamında işlenmektedir. Gönderdiğiniz bilgilerin doğru ve güncel olduğundan sorumlusunuz.</p>
+              
+              <h3>6. Sorumluluk Reddi</h3>
+              <p>Web sitemiz "olduğu gibi" sunulmaktadır. Web sitesinin kesintisiz, hatasız veya güvenli çalışacağına dair garanti vermemekteyiz. Web sitesinin kullanımından doğabilecek zararlardan sorumlu değiliz.</p>
+              
+              <h3>7. Üçüncü Taraf Bağlantıları</h3>
+              <p>Web sitemizde üçüncü taraf web sitelerine bağlantılar bulunabilir. Bu bağlantılar bilgilendirme amaçlıdır ve içeriklerinden sorumlu değiliz.</p>
+              
+              <h3>8. Değişiklikler</h3>
+              <p>Bu kullanım şartlarını herhangi bir zamanda değiştirme hakkını saklı tutarız. Değişiklikler web sitesinde yayınlandığı tarihten itibaren geçerlidir.</p>
+              
+              <h3>9. Uygulanacak Hukuk</h3>
+              <p>Bu kullanım şartları Türkiye Cumhuriyeti yasalarına tabidir. Herhangi bir uyuşmazlık durumunda Antalya Mahkemeleri yetkilidir.</p>
+              
+              <h3>10. İletişim</h3>
+              <p>Kullanım şartları hakkında sorularınız için:</p>
+              <p>
+                <strong>5A Sağlık Ürünleri San. ve Tic. Ltd. Şti.</strong><br />
+                📍 Varlık Mh. K.Karabekir Cd. 202 Sk. Yazır Apt. No:4/A, 07050<br />
+                📞 0(543) 237 62 40<br />
+                ✉️ 5asaglik@hotmail.com.tr
+              </p>
+            </div>
+          `;
+        }
+        
+        return '';
+      }
+
       // Sayfa yüklendiğinde başlat
       window.addEventListener('DOMContentLoaded', () => {
         initEKGPaths();
         startEKGAnimation();
         startEKGAnimation2();
+        startEKGAnimationFooter();
+        initCounterAnimation();
       });
     </script>
   </body>

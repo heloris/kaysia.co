@@ -32,7 +32,7 @@ function EKGLine({ className = '' }) {
               // Animasyonu sıfırla ve başlat
               path.style.animation = 'none'
               setTimeout(() => {
-                path.style.animation = 'draw 2.5s linear 2 forwards'
+                path.style.animation = 'draw 2.5s linear infinite'
               }, 50)
             }
           } else {
@@ -70,7 +70,7 @@ function EKGLine({ className = '' }) {
           <path 
             ref={pathRef}
             className="ecg"
-            style={{ animation: isVisible ? 'draw 4.5s linear 2 forwards' : 'none' }}
+            style={{ animation: isVisible ? 'draw 2.5s linear infinite' : 'none' }}
             d="M20 100 L520 100 
                L525 100 
                L527 102 

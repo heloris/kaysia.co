@@ -203,11 +203,113 @@
   }
 }
 
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: #1F1F1F;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
+  padding: 20px 0;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 998;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-menu-item {
+  display: block;
+  padding: 16px 24px;
+  color: #1F1F1F;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.mobile-menu-item:hover {
+  background-color: #f5f5f5;
+  color: #7A040B;
+}
+
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-dropdown-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.02);
+  padding-left: 24px;
+}
+
+.mobile-dropdown-item {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dropdown-icon.open {
+  transform: rotate(180deg);
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 8px 16px;
     flex-direction: row;
     gap: 16px;
+    position: relative;
   }
   
   .navbar-logo-section {
@@ -227,13 +329,19 @@
     font-size: 10px;
   }
   
-  .navbar-menu {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 16px;
+  .hamburger {
+    display: flex;
   }
   
-  .menu-item {
-    font-size: 12px;
+  .navbar-menu {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .dropdown-wrapper {
+    display: none;
   }
 }
